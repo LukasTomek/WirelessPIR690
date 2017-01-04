@@ -1,0 +1,140 @@
+if(blink_led){
+           blink_led=0;
+           wait++;
+        }
+        if(wait==30)
+        {
+           z=ADC_read(2);
+            z=z*50;
+            z=z/10;
+           SP_send(str1);
+            dec_to_ascii(z);
+            SP_send(str3);
+            z=ADC_read(3);
+            z=z*50;
+            z=z/10;
+            SP_send(str2);
+            dec_to_ascii(z);
+            SP_send(str3);
+            wait=0;
+           if(led){
+            LEDG_PIN = 0;
+           led=0;}
+           else{
+            LEDG_PIN = 1;
+            led=1;}
+           // dec_to_ascii(20);
+        }
+
+
+       //SP_send(str);
+        if(set_rdy==1){
+            set_rdy=0;
+            SP_send(recive);
+            dec=ascii_to_dec(recive);
+           // dec_to_ascii(dec);
+         // TXREG='\n';	// Add a character to the output buffer
+	//while(!TXIF);
+            dec_to_bin(dec);
+            bin_num[6]='\n';
+            bin_num[7]='\0';
+        //   dec_to_bin(dec);
+            SP_send(bin_num);
+            if(bin_num[0]=='1')
+            DAC0_PIN=1;
+            else
+            DAC0_PIN=0;
+            if(bin_num[1]=='1')
+            DAC1_PIN=1;
+            else
+            DAC1_PIN=0;
+            if(bin_num[2]=='1')
+            DAC2_PIN=1;
+            else
+            DAC2_PIN=0;
+            if(bin_num[3]=='1')
+            DAC3_PIN=1;
+            else
+            DAC3_PIN=0;
+            if(bin_num[4]=='1')
+            DAC4_PIN=1;
+            else
+            DAC4_PIN=0;
+            if(bin_num[5]=='1')
+            DAC5_PIN=1;
+            else
+            DAC5_PIN=0;
+        //SP_send(com);
+        }
+
+unsigned char ascii_to_dec(char ascii[])
+{
+	unsigned short dec;
+        unsigned char mul;
+	unsigned char i;
+        unsigned char j;
+        dec=0;
+        mul=1;
+        for (j=0 ; ascii[j] != ' '; j++);
+        for (i=j ; i != 0; i--)
+	{
+                dec=dec+((ascii[i-1] - 48)*mul);
+                mul=mul * 10;
+	}
+
+        
+        return dec;
+}
+
+void dec_to_ascii(unsigned short dec)
+{
+	static unsigned char number[4];
+	static unsigned char i;
+
+    for (i=0 ; dec!=0; i++)
+    {
+        number[i]=(dec % 10);
+        dec /=10;
+        number[i] +=48;
+	}
+	while (i--)
+	{
+		TXREG=number[i];	// Add a character to the output buffer
+		while(!TXIF);       // Wait while the output buffer is full*/
+	}
+}
+
+void dec_to_bin(unsigned char dec){
+    unsigned char i;
+
+  for (i=6 ; i!=0; i--){
+
+    if((dec & 1)==1)
+      bin_num[i-1]='1';
+    else
+      bin_num[i-1]='0';
+    dec = dec>>1;
+    }
+    
+}
+
+int ADC_read(int pin) // select chanel AN0 = 0
+{
+static unsigned char x,y;
+static unsigned short z;
+		x=0x81;
+		y=pin<<2;
+		x=x|y;
+		ADCON0=x;
+		delay_ms(1);
+		GO=1;
+		while(GO==1)
+		{
+			delay_ms(1);
+		}
+		x=ADRESH;     //ADC result higher 2 bits
+ 		y=ADRESL;     //ADC result lower 8 bits
+		z=x<<8;
+		z=z|y;       //combined 10 bit number formation
+	return z;
+}
