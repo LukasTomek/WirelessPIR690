@@ -103,7 +103,7 @@ void receive_intr() __interrupt 0 {
         //return 0;
     }
     if(CCP1IF){
-        //CCP1IE = FALSE;
+        CCP1IE = FALSE;
         
         if(CCP1M0){                     // if ECCP mode is Rising edge CCP1M0
             CCP1M0 = FALING;                 // set falling edge
@@ -121,7 +121,7 @@ void receive_intr() __interrupt 0 {
             w = w | CCPR1L;             //ECCP combined 16 bit number formation
             //bitfield.Capture = TRUE;
         }
-        //CP1IE = 1;
+        CCP1IE = 1;
         CCP1IF = 0;                     //Clear interrupt flag
     }
     int_error_cnt++;
@@ -136,7 +136,11 @@ int main(void) {
     while(1)
     {
 
-        if (bitfield.Capture){            
+        if (bitfield.Capture){
+                dec_to_ascii(w);
+                SP_send(tab);
+                dec_to_ascii(t);
+                SP_send(enter);
             /*if (t > MIN_TS && t < MAX_TS && w > MIN_W0 && w < MAX_W0){
                SP_send(sync);
             }*/
@@ -175,7 +179,7 @@ int circBufPush(uint8_t data){
     TXIE = 1;       //Enables the EUSART transmit interrupt
     return 0;
 }
-
+/*
 void dec_to_ascii(unsigned short dec){
 	uint8_t number = 0;
 	uint8_t i = 0;
@@ -186,6 +190,23 @@ void dec_to_ascii(unsigned short dec){
         dec /= 10;
         number += 48;
         circBufPush(number);
+	}
+}*/
+void dec_to_ascii(unsigned short dec)
+{
+	static unsigned char number[4];
+	static unsigned char i;
+
+    for (i=0 ; dec!=0; i++)
+    {
+        number[i]=(dec % 10);
+        dec /=10;
+        number[i] +=48;
+	}
+	while (i--)
+	{
+		circBufPush(number[i]);	// Add a character to the output buffer
+		//while(!TXIF);       // Wait while the output buffer is full*/
 	}
 }
 

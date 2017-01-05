@@ -231,7 +231,7 @@ _init:
 ;	.line	46; "init.c"	CCP1CON = 5; // Setup ENHANCED CAPTURE MODULE
 	MOVLW	0x05
 	MOVWF	_CCP1CON
-;	.line	47; "init.c"	CCP1IE = 0;     // ENHANCED CAPTURE MODULE Disabled
+;	.line	47; "init.c"	CCP1IE = 0;     // ENHANCED CAPTURE MODULE Interrupt Disabled
 	BANKSEL	_PIE1bits
 	BCF	_PIE1bits,2
 ;	.line	53; "init.c"	T1CON = 0;  // TIMER1 presccaler 1

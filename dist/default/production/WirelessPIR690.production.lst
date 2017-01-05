@@ -1,6 +1,6 @@
 gplink-1.4.0 #1107 (May  9 2015)
 Copyright (c) 1998-2014 gputils project
-Listing File Generated: 1-5-2017  21:15:58
+Listing File Generated: 1-5-2017  21:37:40
  
  
 Address  Value    Disassembly              Source
@@ -241,38 +241,42 @@ Address  Value    Disassembly              Source
                                            ; compiler-defined variables
                                            ;--------------------------------------------------------
                                            UDL_main_0	udata
+                                           r0x1042	res	1
+                                           r0x1043	res	1
+                                           r0x1044	res	1
+                                           r0x103E	res	1
+                                           r0x1040	res	1
+                                           r0x103F	res	1
+                                           r0x1041	res	1
+                                           r0x102A	res	1
+                                           r0x102B	res	1
+                                           r0x102D	res	1
+                                           r0x102C	res	1
+                                           r0x102E	res	1
+                                           r0x1038	res	1
+                                           r0x1037	res	1
+                                           r0x1039	res	1
+                                           r0x103A	res	1
                                            r0x103C	res	1
                                            r0x103D	res	1
-                                           r0x103E	res	1
-                                           r0x1038	res	1
-                                           r0x103A	res	1
-                                           r0x1039	res	1
-                                           r0x103B	res	1
+                                           r0x1031	res	1
+                                           r0x1030	res	1
+                                           r0x102F	res	1
+                                           r0x1032	res	1
+                                           r0x1033	res	1
+                                           r0x1034	res	1
+                                           r0x1035	res	1
+                                           r0x1036	res	1
+                                           r0x1024	res	1
+                                           r0x1023	res	1
+                                           r0x1022	res	1
                                            r0x1025	res	1
                                            r0x1026	res	1
-                                           r0x1028	res	1
                                            r0x1027	res	1
+                                           r0x1028	res	1
                                            r0x1029	res	1
-                                           r0x1033	res	1
-                                           r0x1032	res	1
-                                           r0x1034	res	1
-                                           r0x1037	res	1
-                                           r0x102C	res	1
-                                           r0x102B	res	1
-                                           r0x102A	res	1
-                                           r0x102D	res	1
-                                           r0x102E	res	1
-                                           r0x102F	res	1
-                                           r0x1030	res	1
-                                           r0x1031	res	1
-                                           r0x101F	res	1
-                                           r0x101E	res	1
-                                           r0x101D	res	1
-                                           r0x1020	res	1
-                                           r0x1021	res	1
-                                           r0x1022	res	1
-                                           r0x1023	res	1
-                                           r0x1024	res	1
+                                           _dec_to_ascii_i_1_22	res	1
+                                           _dec_to_ascii_number_1_22	res	4
                                            ;--------------------------------------------------------
                                            ; initialized data
                                            ;--------------------------------------------------------
@@ -314,116 +318,116 @@ Address  Value    Disassembly              Source
                                            
                                            ID_main_7	code
                                            _strV0
-000432   3430     retlw   0x30             	retlw 0x30
-000433   3420     retlw   0x20             	retlw 0x20
-000434   340a     retlw   0x0a             	retlw 0x0a
-000435   3400     retlw   0x00             	retlw 0x00
+0004d1   3430     retlw   0x30             	retlw 0x30
+0004d2   3420     retlw   0x20             	retlw 0x20
+0004d3   340a     retlw   0x0a             	retlw 0x0a
+0004d4   3400     retlw   0x00             	retlw 0x00
                                            
                                            
                                            ID_main_8	code
                                            _strV1
-000436   3431     retlw   0x31             	retlw 0x31
-000437   3420     retlw   0x20             	retlw 0x20
-000438   340a     retlw   0x0a             	retlw 0x0a
-000439   3400     retlw   0x00             	retlw 0x00
+0004d5   3431     retlw   0x31             	retlw 0x31
+0004d6   3420     retlw   0x20             	retlw 0x20
+0004d7   340a     retlw   0x0a             	retlw 0x0a
+0004d8   3400     retlw   0x00             	retlw 0x00
                                            
                                            
                                            ID_main_9	code
                                            _strVF
-00043a   3446     retlw   0x46             	retlw 0x46
-00043b   3420     retlw   0x20             	retlw 0x20
-00043c   340a     retlw   0x0a             	retlw 0x0a
-00043d   3400     retlw   0x00             	retlw 0x00
+0004d9   3446     retlw   0x46             	retlw 0x46
+0004da   3420     retlw   0x20             	retlw 0x20
+0004db   340a     retlw   0x0a             	retlw 0x0a
+0004dc   3400     retlw   0x00             	retlw 0x00
                                            
                                            
                                            ID_main_10	code
                                            _strw
-00043e   3477     retlw   0x77             	retlw 0x77
-00043f   343a     retlw   0x3a             	retlw 0x3a
-000440   3420     retlw   0x20             	retlw 0x20
-000441   3400     retlw   0x00             	retlw 0x00
+0004dd   3477     retlw   0x77             	retlw 0x77
+0004de   343a     retlw   0x3a             	retlw 0x3a
+0004df   3420     retlw   0x20             	retlw 0x20
+0004e0   3400     retlw   0x00             	retlw 0x00
                                            
                                            
                                            ID_main_11	code
                                            _strt
-000442   3474     retlw   0x74             	retlw 0x74
-000443   343a     retlw   0x3a             	retlw 0x3a
-000444   3420     retlw   0x20             	retlw 0x20
-000445   3400     retlw   0x00             	retlw 0x00
+0004e1   3474     retlw   0x74             	retlw 0x74
+0004e2   343a     retlw   0x3a             	retlw 0x3a
+0004e3   3420     retlw   0x20             	retlw 0x20
+0004e4   3400     retlw   0x00             	retlw 0x00
                                            
                                            
                                            ID_main_12	code
                                            _strw1
-000428   3477     retlw   0x77             	retlw 0x77
-000429   3431     retlw   0x31             	retlw 0x31
-00042a   343a     retlw   0x3a             	retlw 0x3a
-00042b   3420     retlw   0x20             	retlw 0x20
-00042c   3400     retlw   0x00             	retlw 0x00
+0004c7   3477     retlw   0x77             	retlw 0x77
+0004c8   3431     retlw   0x31             	retlw 0x31
+0004c9   343a     retlw   0x3a             	retlw 0x3a
+0004ca   3420     retlw   0x20             	retlw 0x20
+0004cb   3400     retlw   0x00             	retlw 0x00
                                            
                                            
                                            ID_main_13	code
                                            _strt1
-00042d   3474     retlw   0x74             	retlw 0x74
-00042e   3431     retlw   0x31             	retlw 0x31
-00042f   343a     retlw   0x3a             	retlw 0x3a
-000430   3420     retlw   0x20             	retlw 0x20
-000431   3400     retlw   0x00             	retlw 0x00
+0004cc   3474     retlw   0x74             	retlw 0x74
+0004cd   3431     retlw   0x31             	retlw 0x31
+0004ce   343a     retlw   0x3a             	retlw 0x3a
+0004cf   3420     retlw   0x20             	retlw 0x20
+0004d0   3400     retlw   0x00             	retlw 0x00
                                            
                                            
                                            ID_main_14	code
                                            _tab
-00044e   3409     retlw   0x09             	retlw 0x09
-00044f   3400     retlw   0x00             	retlw 0x00
+0004ed   3409     retlw   0x09             	retlw 0x09
+0004ee   3400     retlw   0x00             	retlw 0x00
                                            
                                            
                                            ID_main_15	code
                                            _enter
-000450   340a     retlw   0x0a             	retlw 0x0a
-000451   3400     retlw   0x00             	retlw 0x00
+0004ef   340a     retlw   0x0a             	retlw 0x0a
+0004f0   3400     retlw   0x00             	retlw 0x00
                                            
                                            
                                            ID_main_16	code
                                            _sync
-000422   3453     retlw   0x53             	retlw 0x53
-000423   3459     retlw   0x59             	retlw 0x59
-000424   344e     retlw   0x4e             	retlw 0x4e
-000425   3443     retlw   0x43             	retlw 0x43
-000426   340a     retlw   0x0a             	retlw 0x0a
-000427   3400     retlw   0x00             	retlw 0x00
+0004c1   3453     retlw   0x53             	retlw 0x53
+0004c2   3459     retlw   0x59             	retlw 0x59
+0004c3   344e     retlw   0x4e             	retlw 0x4e
+0004c4   3443     retlw   0x43             	retlw 0x43
+0004c5   340a     retlw   0x0a             	retlw 0x0a
+0004c6   3400     retlw   0x00             	retlw 0x00
                                            
                                            
                                            ID_main_17	code
                                            _int_err
-000419   3449     retlw   0x49             	retlw 0x49
-00041a   344e     retlw   0x4e             	retlw 0x4e
-00041b   3454     retlw   0x54             	retlw 0x54
-00041c   3420     retlw   0x20             	retlw 0x20
-00041d   3445     retlw   0x45             	retlw 0x45
-00041e   3452     retlw   0x52             	retlw 0x52
-00041f   3452     retlw   0x52             	retlw 0x52
-000420   340a     retlw   0x0a             	retlw 0x0a
-000421   3400     retlw   0x00             	retlw 0x00
+0004b8   3449     retlw   0x49             	retlw 0x49
+0004b9   344e     retlw   0x4e             	retlw 0x4e
+0004ba   3454     retlw   0x54             	retlw 0x54
+0004bb   3420     retlw   0x20             	retlw 0x20
+0004bc   3445     retlw   0x45             	retlw 0x45
+0004bd   3452     retlw   0x52             	retlw 0x52
+0004be   3452     retlw   0x52             	retlw 0x52
+0004bf   340a     retlw   0x0a             	retlw 0x0a
+0004c0   3400     retlw   0x00             	retlw 0x00
                                            
                                            
                                            ID_main_18	code
                                            _buf_err
-000408   3442     retlw   0x42             	retlw 0x42
-000409   3455     retlw   0x55             	retlw 0x55
-00040a   3446     retlw   0x46             	retlw 0x46
-00040b   3446     retlw   0x46             	retlw 0x46
-00040c   3445     retlw   0x45             	retlw 0x45
-00040d   3452     retlw   0x52             	retlw 0x52
-00040e   3420     retlw   0x20             	retlw 0x20
-00040f   344f     retlw   0x4f             	retlw 0x4f
-000410   3457     retlw   0x57             	retlw 0x57
-000411   3445     retlw   0x45             	retlw 0x45
-000412   3452     retlw   0x52             	retlw 0x52
-000413   3446     retlw   0x46             	retlw 0x46
-000414   344c     retlw   0x4c             	retlw 0x4c
-000415   344f     retlw   0x4f             	retlw 0x4f
-000416   3457     retlw   0x57             	retlw 0x57
-000417   340a     retlw   0x0a             	retlw 0x0a
-000418   3400     retlw   0x00             	retlw 0x00
+0004a7   3442     retlw   0x42             	retlw 0x42
+0004a8   3455     retlw   0x55             	retlw 0x55
+0004a9   3446     retlw   0x46             	retlw 0x46
+0004aa   3446     retlw   0x46             	retlw 0x46
+0004ab   3445     retlw   0x45             	retlw 0x45
+0004ac   3452     retlw   0x52             	retlw 0x52
+0004ad   3420     retlw   0x20             	retlw 0x20
+0004ae   344f     retlw   0x4f             	retlw 0x4f
+0004af   3457     retlw   0x57             	retlw 0x57
+0004b0   3445     retlw   0x45             	retlw 0x45
+0004b1   3452     retlw   0x52             	retlw 0x52
+0004b2   3446     retlw   0x46             	retlw 0x46
+0004b3   344c     retlw   0x4c             	retlw 0x4c
+0004b4   344f     retlw   0x4f             	retlw 0x4f
+0004b5   3457     retlw   0x57             	retlw 0x57
+0004b6   340a     retlw   0x0a             	retlw 0x0a
+0004b7   3400     retlw   0x00             	retlw 0x00
                                            
                                            ;--------------------------------------------------------
                                            ; overlayable items in internal ram 
@@ -435,7 +439,7 @@ Address  Value    Disassembly              Source
                                            STARTUP	code 0x0000
 000000   0000     nop                      	nop
 000001   118a     bcf     0x0a, 0x3        	pagesel __sdcc_gsinit_startup
-000002   28cb     goto    0x00cb           	goto	__sdcc_gsinit_startup
+000002   2a35     goto    0x0235           	goto	__sdcc_gsinit_startup
                                            ;--------------------------------------------------------
                                            ; interrupt and initialization code
                                            ;--------------------------------------------------------
@@ -448,9 +452,9 @@ Address  Value    Disassembly              Source
                                            ;   _SP_send_error
                                            ;   _SP_send_error
                                            ;5 compiler assigned registers:
-                                           ;   r0x103C
-                                           ;   r0x103D
-                                           ;   r0x103E
+                                           ;   r0x1042
+                                           ;   r0x1043
+                                           ;   r0x1044
                                            ;   STK01
                                            ;   STK00
                                            ;; Starting pCode block
@@ -467,7 +471,7 @@ Address  Value    Disassembly              Source
 00000b   0804     movf    0x04, 0x0        	MOVF	FSR,W
 00000c   1683     bsf     0x03, 0x5        	BANKSEL	___sdcc_saved_fsr
 00000d   1303     bcf     0x03, 0x6        
-00000e   00a8     movwf   0x28             	MOVWF	___sdcc_saved_fsr
+00000e   00ae     movwf   0x2e             	MOVWF	___sdcc_saved_fsr
                                            ;	.line	86; "main.c"	if(TXIF){
 00000f   1283     bcf     0x03, 0x5        	BANKSEL	_PIR1bits
 000010   1303     bcf     0x03, 0x6        
@@ -476,10 +480,10 @@ Address  Value    Disassembly              Source
                                            ;	.line	88; "main.c"	if (buf_head == buf_tail){
 000013   1683     bsf     0x03, 0x5        	BANKSEL	_buf_tail
 000014   1303     bcf     0x03, 0x6        
-000015   0826     movf    0x26, 0x0        	MOVF	_buf_tail,W
+000015   082c     movf    0x2c, 0x0        	MOVF	_buf_tail,W
 000016   1683     bsf     0x03, 0x5        	BANKSEL	_buf_head
 000017   1303     bcf     0x03, 0x6        
-000018   0625     xorwf   0x25, 0x0        	XORWF	_buf_head,W
+000018   062b     xorwf   0x2b, 0x0        	XORWF	_buf_head,W
 000019   1d03     btfss   0x03, 0x2        	BTFSS	STATUS,2
 00001a   281f     goto    0x001f           	GOTO	_00108_DS_
                                            ;	.line	89; "main.c"	TXIE = 0;
@@ -491,39 +495,39 @@ Address  Value    Disassembly              Source
                                            ;	.line	94; "main.c"	TXREG = buf[buf_tail];
 00001f   1683     bsf     0x03, 0x5        	BANKSEL	_buf_tail
 000020   1303     bcf     0x03, 0x6        
-000021   0826     movf    0x26, 0x0        	MOVF	_buf_tail,W
-000022   3e40     addlw   0x40             	ADDLW	(_buf + 0)
-000023   1283     bcf     0x03, 0x5        	BANKSEL	r0x103C
+000021   082c     movf    0x2c, 0x0        	MOVF	_buf_tail,W
+000022   3e47     addlw   0x47             	ADDLW	(_buf + 0)
+000023   1283     bcf     0x03, 0x5        	BANKSEL	r0x1042
 000024   1303     bcf     0x03, 0x6        
-000025   00a0     movwf   0x20             	MOVWF	r0x103C
+000025   00a0     movwf   0x20             	MOVWF	r0x1042
 000026   3000     movlw   0x00             	MOVLW	high (_buf + 0)
 000027   1803     btfsc   0x03, 0x0        	BTFSC	STATUS,0
 000028   3e01     addlw   0x01             	ADDLW	0x01
-000029   00a1     movwf   0x21             	MOVWF	r0x103D
-00002a   0820     movf    0x20, 0x0        	MOVF	r0x103C,W
+000029   00a1     movwf   0x21             	MOVWF	r0x1043
+00002a   0820     movf    0x20, 0x0        	MOVF	r0x1042,W
 00002b   1283     bcf     0x03, 0x5        	BANKSEL	FSR
 00002c   1303     bcf     0x03, 0x6        
 00002d   0084     movwf   0x04             	MOVWF	FSR
 00002e   1383     bcf     0x03, 0x7        	BCF	STATUS,7
-00002f   1283     bcf     0x03, 0x5        	BANKSEL	r0x103D
+00002f   1283     bcf     0x03, 0x5        	BANKSEL	r0x1043
 000030   1303     bcf     0x03, 0x6        
-000031   1821     btfsc   0x21, 0x0        	BTFSC	r0x103D,0
+000031   1821     btfsc   0x21, 0x0        	BTFSC	r0x1043,0
 000032   1783     bsf     0x03, 0x7        	BSF	STATUS,7
 000033   1283     bcf     0x03, 0x5        	BANKSEL	INDF
 000034   1303     bcf     0x03, 0x6        
 000035   0800     movf    0x00, 0x0        	MOVF	INDF,W
 000036   0099     movwf   0x19             	MOVWF	_TXREG
                                            ;	.line	95; "main.c"	buf[buf_tail] = 0;  // clear the data (optional)
-000037   1283     bcf     0x03, 0x5        	BANKSEL	r0x103C
+000037   1283     bcf     0x03, 0x5        	BANKSEL	r0x1042
 000038   1303     bcf     0x03, 0x6        
-000039   0820     movf    0x20, 0x0        	MOVF	r0x103C,W
+000039   0820     movf    0x20, 0x0        	MOVF	r0x1042,W
 00003a   1283     bcf     0x03, 0x5        	BANKSEL	FSR
 00003b   1303     bcf     0x03, 0x6        
 00003c   0084     movwf   0x04             	MOVWF	FSR
 00003d   1383     bcf     0x03, 0x7        	BCF	STATUS,7
-00003e   1283     bcf     0x03, 0x5        	BANKSEL	r0x103D
+00003e   1283     bcf     0x03, 0x5        	BANKSEL	r0x1043
 00003f   1303     bcf     0x03, 0x6        
-000040   1821     btfsc   0x21, 0x0        	BTFSC	r0x103D,0
+000040   1821     btfsc   0x21, 0x0        	BTFSC	r0x1043,0
 000041   1783     bsf     0x03, 0x7        	BSF	STATUS,7
 000042   3000     movlw   0x00             	MOVLW	0x00
 000043   1283     bcf     0x03, 0x5        	BANKSEL	INDF
@@ -532,170 +536,180 @@ Address  Value    Disassembly              Source
                                            ;	.line	97; "main.c"	next = buf_tail + 1;
 000046   1683     bsf     0x03, 0x5        	BANKSEL	_buf_tail
 000047   1303     bcf     0x03, 0x6        
-000048   0826     movf    0x26, 0x0        	MOVF	_buf_tail,W
-000049   1283     bcf     0x03, 0x5        	BANKSEL	r0x103C
+000048   082c     movf    0x2c, 0x0        	MOVF	_buf_tail,W
+000049   1283     bcf     0x03, 0x5        	BANKSEL	r0x1042
 00004a   1303     bcf     0x03, 0x6        
-00004b   00a0     movwf   0x20             	MOVWF	r0x103C
-00004c   01a1     clrf    0x21             	CLRF	r0x103D
-00004d   0aa0     incf    0x20, 0x1        	INCF	r0x103C,F
+00004b   00a0     movwf   0x20             	MOVWF	r0x1042
+00004c   01a1     clrf    0x21             	CLRF	r0x1043
+00004d   0aa0     incf    0x20, 0x1        	INCF	r0x1042,F
 00004e   1903     btfsc   0x03, 0x2        	BTFSC	STATUS,2
-00004f   0aa1     incf    0x21, 0x1        	INCF	r0x103D,F
+00004f   0aa1     incf    0x21, 0x1        	INCF	r0x1043,F
                                            ;;signed compare: left < lit(0x10=16), size=2, mask=ffff
                                            ;	.line	98; "main.c"	if(next >= BUF_SIZE)
-000050   0821     movf    0x21, 0x0        	MOVF	r0x103D,W
+000050   0821     movf    0x21, 0x0        	MOVF	r0x1043,W
 000051   3e80     addlw   0x80             	ADDLW	0x80
 000052   3e80     addlw   0x80             	ADDLW	0x80
 000053   1d03     btfss   0x03, 0x2        	BTFSS	STATUS,2
 000054   2857     goto    0x0057           	GOTO	_00139_DS_
 000055   3010     movlw   0x10             	MOVLW	0x10
-000056   0220     subwf   0x20, 0x0        	SUBWF	r0x103C,W
+000056   0220     subwf   0x20, 0x0        	SUBWF	r0x1042,W
                                            _00139_DS_:
 000057   1c03     btfss   0x03, 0x0        	BTFSS	STATUS,0
 000058   285d     goto    0x005d           	GOTO	_00106_DS_
-                                           ;;genSkipc:3257: created from rifx:0x7fff201a0090
+                                           ;;genSkipc:3257: created from rifx:0x7ffc8cbcdf40
                                            ;	.line	99; "main.c"	next = 0;
-000059   1283     bcf     0x03, 0x5        	BANKSEL	r0x103C
+000059   1283     bcf     0x03, 0x5        	BANKSEL	r0x1042
 00005a   1303     bcf     0x03, 0x6        
-00005b   01a0     clrf    0x20             	CLRF	r0x103C
-00005c   01a1     clrf    0x21             	CLRF	r0x103D
+00005b   01a0     clrf    0x20             	CLRF	r0x1042
+00005c   01a1     clrf    0x21             	CLRF	r0x1043
                                            _00106_DS_:
                                            ;	.line	101; "main.c"	buf_tail = next;
-00005d   1283     bcf     0x03, 0x5        	BANKSEL	r0x103C
+00005d   1283     bcf     0x03, 0x5        	BANKSEL	r0x1042
 00005e   1303     bcf     0x03, 0x6        
-00005f   0820     movf    0x20, 0x0        	MOVF	r0x103C,W
+00005f   0820     movf    0x20, 0x0        	MOVF	r0x1042,W
 000060   1683     bsf     0x03, 0x5        	BANKSEL	_buf_tail
 000061   1303     bcf     0x03, 0x6        
-000062   00a6     movwf   0x26             	MOVWF	_buf_tail
+000062   00ac     movwf   0x2c             	MOVWF	_buf_tail
                                            _00111_DS_:
                                            ;	.line	105; "main.c"	if(CCP1IF){
 000063   1283     bcf     0x03, 0x5        	BANKSEL	_PIR1bits
 000064   1303     bcf     0x03, 0x6        
 000065   1d0c     btfss   0x0c, 0x2        	BTFSS	_PIR1bits,2
-000066   28a6     goto    0x00a6           	GOTO	_00116_DS_
+000066   28ae     goto    0x00ae           	GOTO	_00116_DS_
+                                           ;	.line	106; "main.c"	CCP1IE = FALSE;
+000067   1683     bsf     0x03, 0x5        	BANKSEL	_PIE1bits
+000068   1303     bcf     0x03, 0x6        
+000069   110c     bcf     0x0c, 0x2        	BCF	_PIE1bits,2
                                            ;	.line	108; "main.c"	if(CCP1M0){                     // if ECCP mode is Rising edge CCP1M0
-000067   1c17     btfss   0x17, 0x0        	BTFSS	_CCP1CONbits,0
-000068   2888     goto    0x0088           	GOTO	_00113_DS_
+00006a   1283     bcf     0x03, 0x5        	BANKSEL	_CCP1CONbits
+00006b   1303     bcf     0x03, 0x6        
+00006c   1c17     btfss   0x17, 0x0        	BTFSS	_CCP1CONbits,0
+00006d   288d     goto    0x008d           	GOTO	_00113_DS_
                                            ;	.line	109; "main.c"	CCP1M0 = FALING;                 // set falling edge
-000069   1017     bcf     0x17, 0x0        	BCF	_CCP1CONbits,0
+00006e   1017     bcf     0x17, 0x0        	BCF	_CCP1CONbits,0
                                            ;	.line	110; "main.c"	TMR1H = 0;
-00006a   018f     clrf    0x0f             	CLRF	_TMR1H
+00006f   018f     clrf    0x0f             	CLRF	_TMR1H
                                            ;	.line	111; "main.c"	TMR1L = 0;
-00006b   018e     clrf    0x0e             	CLRF	_TMR1L
+000070   018e     clrf    0x0e             	CLRF	_TMR1L
                                            ;	.line	112; "main.c"	t = 0x0000 | CCPR1H;        //ECCP result higher 8 bits
-00006c   0816     movf    0x16, 0x0        	MOVF	_CCPR1H,W
-00006d   1283     bcf     0x03, 0x5        	BANKSEL	r0x103C
-00006e   1303     bcf     0x03, 0x6        
-00006f   00a0     movwf   0x20             	MOVWF	r0x103C
-000070   1283     bcf     0x03, 0x5        	BANKSEL	_t
-000071   1303     bcf     0x03, 0x6        
-000072   00ed     movwf   0x6d             	MOVWF	_t
-000073   01ee     clrf    0x6e             	CLRF	(_t + 1)
+000071   0816     movf    0x16, 0x0        	MOVF	_CCPR1H,W
+000072   1283     bcf     0x03, 0x5        	BANKSEL	r0x1042
+000073   1303     bcf     0x03, 0x6        
+000074   00a0     movwf   0x20             	MOVWF	r0x1042
+000075   1283     bcf     0x03, 0x5        	BANKSEL	_t
+000076   1303     bcf     0x03, 0x6        
+000077   00ee     movwf   0x6e             	MOVWF	_t
+000078   01ef     clrf    0x6f             	CLRF	(_t + 1)
                                            ;	.line	113; "main.c"	t = t << 8;
-000074   086d     movf    0x6d, 0x0        	MOVF	_t,W
-000075   00ee     movwf   0x6e             	MOVWF	(_t + 1)
-000076   01ed     clrf    0x6d             	CLRF	_t
+000079   086e     movf    0x6e, 0x0        	MOVF	_t,W
+00007a   00ef     movwf   0x6f             	MOVWF	(_t + 1)
+00007b   01ee     clrf    0x6e             	CLRF	_t
                                            ;	.line	114; "main.c"	t = t | CCPR1L;             //ECCP combined 16 bit number formation
-000077   1283     bcf     0x03, 0x5        	BANKSEL	_CCPR1L
-000078   1303     bcf     0x03, 0x6        
-000079   0815     movf    0x15, 0x0        	MOVF	_CCPR1L,W
-00007a   1283     bcf     0x03, 0x5        	BANKSEL	r0x103C
-00007b   1303     bcf     0x03, 0x6        
-00007c   00a0     movwf   0x20             	MOVWF	r0x103C
-00007d   01a1     clrf    0x21             	CLRF	r0x103D
-00007e   0820     movf    0x20, 0x0        	MOVF	r0x103C,W
-00007f   1283     bcf     0x03, 0x5        	BANKSEL	_t
+00007c   1283     bcf     0x03, 0x5        	BANKSEL	_CCPR1L
+00007d   1303     bcf     0x03, 0x6        
+00007e   0815     movf    0x15, 0x0        	MOVF	_CCPR1L,W
+00007f   1283     bcf     0x03, 0x5        	BANKSEL	r0x1042
 000080   1303     bcf     0x03, 0x6        
-000081   04ed     iorwf   0x6d, 0x1        	IORWF	_t,F
-000082   3000     movlw   0x00             	MOVLW	0x00
-000083   04ee     iorwf   0x6e, 0x1        	IORWF	(_t + 1),F
-                                           ;	.line	115; "main.c"	bitfield.Capture = TRUE;
-000084   1683     bsf     0x03, 0x5        	BANKSEL	_bitfield
+000081   00a0     movwf   0x20             	MOVWF	r0x1042
+000082   01a1     clrf    0x21             	CLRF	r0x1043
+000083   0820     movf    0x20, 0x0        	MOVF	r0x1042,W
+000084   1283     bcf     0x03, 0x5        	BANKSEL	_t
 000085   1303     bcf     0x03, 0x6        
-000086   1424     bsf     0x24, 0x0        	BSF	_bitfield,0
-000087   28a3     goto    0x00a3           	GOTO	_00114_DS_
+000086   04ee     iorwf   0x6e, 0x1        	IORWF	_t,F
+000087   3000     movlw   0x00             	MOVLW	0x00
+000088   04ef     iorwf   0x6f, 0x1        	IORWF	(_t + 1),F
+                                           ;	.line	115; "main.c"	bitfield.Capture = TRUE;
+000089   1683     bsf     0x03, 0x5        	BANKSEL	_bitfield
+00008a   1303     bcf     0x03, 0x6        
+00008b   142a     bsf     0x2a, 0x0        	BSF	_bitfield,0
+00008c   28a8     goto    0x00a8           	GOTO	_00114_DS_
                                            _00113_DS_:
                                            ;	.line	118; "main.c"	CCP1M0 = RISING;
-000088   1283     bcf     0x03, 0x5        	BANKSEL	_CCP1CONbits
-000089   1303     bcf     0x03, 0x6        
-00008a   1417     bsf     0x17, 0x0        	BSF	_CCP1CONbits,0
+00008d   1283     bcf     0x03, 0x5        	BANKSEL	_CCP1CONbits
+00008e   1303     bcf     0x03, 0x6        
+00008f   1417     bsf     0x17, 0x0        	BSF	_CCP1CONbits,0
                                            ;	.line	119; "main.c"	w = 0x0000 | CCPR1H;        //ECCP result higher 8 bits
-00008b   0816     movf    0x16, 0x0        	MOVF	_CCPR1H,W
-00008c   1283     bcf     0x03, 0x5        	BANKSEL	r0x103C
-00008d   1303     bcf     0x03, 0x6        
-00008e   00a0     movwf   0x20             	MOVWF	r0x103C
-00008f   1283     bcf     0x03, 0x5        	BANKSEL	_w
-000090   1303     bcf     0x03, 0x6        
-000091   00eb     movwf   0x6b             	MOVWF	_w
-000092   01ec     clrf    0x6c             	CLRF	(_w + 1)
+000090   0816     movf    0x16, 0x0        	MOVF	_CCPR1H,W
+000091   1283     bcf     0x03, 0x5        	BANKSEL	r0x1042
+000092   1303     bcf     0x03, 0x6        
+000093   00a0     movwf   0x20             	MOVWF	r0x1042
+000094   1283     bcf     0x03, 0x5        	BANKSEL	_w
+000095   1303     bcf     0x03, 0x6        
+000096   00ec     movwf   0x6c             	MOVWF	_w
+000097   01ed     clrf    0x6d             	CLRF	(_w + 1)
                                            ;	.line	120; "main.c"	w = w << 8;
-000093   086b     movf    0x6b, 0x0        	MOVF	_w,W
-000094   00ec     movwf   0x6c             	MOVWF	(_w + 1)
-000095   01eb     clrf    0x6b             	CLRF	_w
+000098   086c     movf    0x6c, 0x0        	MOVF	_w,W
+000099   00ed     movwf   0x6d             	MOVWF	(_w + 1)
+00009a   01ec     clrf    0x6c             	CLRF	_w
                                            ;	.line	121; "main.c"	w = w | CCPR1L;             //ECCP combined 16 bit number formation
-000096   1283     bcf     0x03, 0x5        	BANKSEL	_CCPR1L
-000097   1303     bcf     0x03, 0x6        
-000098   0815     movf    0x15, 0x0        	MOVF	_CCPR1L,W
-000099   1283     bcf     0x03, 0x5        	BANKSEL	r0x103C
-00009a   1303     bcf     0x03, 0x6        
-00009b   00a0     movwf   0x20             	MOVWF	r0x103C
-00009c   01a1     clrf    0x21             	CLRF	r0x103D
-00009d   0820     movf    0x20, 0x0        	MOVF	r0x103C,W
-00009e   1283     bcf     0x03, 0x5        	BANKSEL	_w
+00009b   1283     bcf     0x03, 0x5        	BANKSEL	_CCPR1L
+00009c   1303     bcf     0x03, 0x6        
+00009d   0815     movf    0x15, 0x0        	MOVF	_CCPR1L,W
+00009e   1283     bcf     0x03, 0x5        	BANKSEL	r0x1042
 00009f   1303     bcf     0x03, 0x6        
-0000a0   04eb     iorwf   0x6b, 0x1        	IORWF	_w,F
-0000a1   3000     movlw   0x00             	MOVLW	0x00
-0000a2   04ec     iorwf   0x6c, 0x1        	IORWF	(_w + 1),F
-                                           _00114_DS_:
-                                           ;	.line	125; "main.c"	CCP1IF = 0;                     //Clear interrupt flag
-0000a3   1283     bcf     0x03, 0x5        	BANKSEL	_PIR1bits
+0000a0   00a0     movwf   0x20             	MOVWF	r0x1042
+0000a1   01a1     clrf    0x21             	CLRF	r0x1043
+0000a2   0820     movf    0x20, 0x0        	MOVF	r0x1042,W
+0000a3   1283     bcf     0x03, 0x5        	BANKSEL	_w
 0000a4   1303     bcf     0x03, 0x6        
-0000a5   110c     bcf     0x0c, 0x2        	BCF	_PIR1bits,2
+0000a5   04ec     iorwf   0x6c, 0x1        	IORWF	_w,F
+0000a6   3000     movlw   0x00             	MOVLW	0x00
+0000a7   04ed     iorwf   0x6d, 0x1        	IORWF	(_w + 1),F
+                                           _00114_DS_:
+                                           ;	.line	124; "main.c"	CCP1IE = 1;
+0000a8   1683     bsf     0x03, 0x5        	BANKSEL	_PIE1bits
+0000a9   1303     bcf     0x03, 0x6        
+0000aa   150c     bsf     0x0c, 0x2        	BSF	_PIE1bits,2
+                                           ;	.line	125; "main.c"	CCP1IF = 0;                     //Clear interrupt flag
+0000ab   1283     bcf     0x03, 0x5        	BANKSEL	_PIR1bits
+0000ac   1303     bcf     0x03, 0x6        
+0000ad   110c     bcf     0x0c, 0x2        	BCF	_PIR1bits,2
                                            _00116_DS_:
                                            ;	.line	127; "main.c"	int_error_cnt++;
-0000a6   1683     bsf     0x03, 0x5        	BANKSEL	_int_error_cnt
-0000a7   1303     bcf     0x03, 0x6        
-0000a8   0aa7     incf    0x27, 0x1        	INCF	_int_error_cnt,F
+0000ae   1683     bsf     0x03, 0x5        	BANKSEL	_int_error_cnt
+0000af   1303     bcf     0x03, 0x6        
+0000b0   0aad     incf    0x2d, 0x1        	INCF	_int_error_cnt,F
                                            ;;swapping arguments (AOP_TYPEs 1/3)
                                            ;;unsigned compare: left >= lit(0x65=101), size=1
                                            ;	.line	128; "main.c"	if (int_error_cnt > 100)
-0000a9   3065     movlw   0x65             	MOVLW	0x65
-0000aa   0227     subwf   0x27, 0x0        	SUBWF	_int_error_cnt,W
-0000ab   1c03     btfss   0x03, 0x0        	BTFSS	STATUS,0
-0000ac   28bd     goto    0x00bd           	GOTO	_00119_DS_
-                                           ;;genSkipc:3257: created from rifx:0x7fff201a0090
+0000b1   3065     movlw   0x65             	MOVLW	0x65
+0000b2   022d     subwf   0x2d, 0x0        	SUBWF	_int_error_cnt,W
+0000b3   1c03     btfss   0x03, 0x0        	BTFSS	STATUS,0
+0000b4   28c5     goto    0x00c5           	GOTO	_00119_DS_
+                                           ;;genSkipc:3257: created from rifx:0x7ffc8cbcdf40
                                            ;	.line	129; "main.c"	SP_send_error(int_err);
-0000ad   3004     movlw   0x04             	MOVLW	high (_int_err + 0)
-0000ae   1283     bcf     0x03, 0x5        	BANKSEL	r0x103D
-0000af   1303     bcf     0x03, 0x6        
-0000b0   00a1     movwf   0x21             	MOVWF	r0x103D
-0000b1   3019     movlw   0x19             	MOVLW	(_int_err + 0)
-0000b2   00a0     movwf   0x20             	MOVWF	r0x103C
-0000b3   3080     movlw   0x80             	MOVLW	0x80
-0000b4   00a2     movwf   0x22             	MOVWF	r0x103E
-0000b5   0820     movf    0x20, 0x0        	MOVF	r0x103C,W
-0000b6   00fe     movwf   0x7e             	MOVWF	STK01
-0000b7   0821     movf    0x21, 0x0        	MOVF	r0x103D,W
-0000b8   00ff     movwf   0x7f             	MOVWF	STK00
-0000b9   0822     movf    0x22, 0x0        	MOVF	r0x103E,W
-0000ba   118a     bcf     0x0a, 0x3        	PAGESEL	_SP_send_error
-0000bb   2310     call    0x0310           	CALL	_SP_send_error
-0000bc   118a     bcf     0x0a, 0x3        	PAGESEL	$
+0000b5   3004     movlw   0x04             	MOVLW	high (_int_err + 0)
+0000b6   1283     bcf     0x03, 0x5        	BANKSEL	r0x1043
+0000b7   1303     bcf     0x03, 0x6        
+0000b8   00a1     movwf   0x21             	MOVWF	r0x1043
+0000b9   30b8     movlw   0xb8             	MOVLW	(_int_err + 0)
+0000ba   00a0     movwf   0x20             	MOVWF	r0x1042
+0000bb   3080     movlw   0x80             	MOVLW	0x80
+0000bc   00a2     movwf   0x22             	MOVWF	r0x1044
+0000bd   0820     movf    0x20, 0x0        	MOVF	r0x1042,W
+0000be   00fe     movwf   0x7e             	MOVWF	STK01
+0000bf   0821     movf    0x21, 0x0        	MOVF	r0x1043,W
+0000c0   00ff     movwf   0x7f             	MOVWF	STK00
+0000c1   0822     movf    0x22, 0x0        	MOVF	r0x1044,W
+0000c2   118a     bcf     0x0a, 0x3        	PAGESEL	_SP_send_error
+0000c3   23af     call    0x03af           	CALL	_SP_send_error
+0000c4   118a     bcf     0x0a, 0x3        	PAGESEL	$
                                            _00119_DS_:
-0000bd   1683     bsf     0x03, 0x5        	BANKSEL	___sdcc_saved_fsr
-0000be   1303     bcf     0x03, 0x6        
-0000bf   0828     movf    0x28, 0x0        	MOVF	___sdcc_saved_fsr,W
-0000c0   1283     bcf     0x03, 0x5        	BANKSEL	FSR
-0000c1   1303     bcf     0x03, 0x6        
-0000c2   0084     movwf   0x04             	MOVWF	FSR
-0000c3   0870     movf    0x70, 0x0        	MOVF	PSAVE,W
-0000c4   008a     movwf   0x0a             	MOVWF	PCLATH
-0000c5   0183     clrf    0x03             	CLRF	STATUS
-0000c6   0e71     swapf   0x71, 0x0        	SWAPF	SSAVE,W
-0000c7   0083     movwf   0x03             	MOVWF	STATUS
-0000c8   0ef2     swapf   0x72, 0x1        	SWAPF	WSAVE,F
-0000c9   0e72     swapf   0x72, 0x0        	SWAPF	WSAVE,W
+0000c5   1683     bsf     0x03, 0x5        	BANKSEL	___sdcc_saved_fsr
+0000c6   1303     bcf     0x03, 0x6        
+0000c7   082e     movf    0x2e, 0x0        	MOVF	___sdcc_saved_fsr,W
+0000c8   1283     bcf     0x03, 0x5        	BANKSEL	FSR
+0000c9   1303     bcf     0x03, 0x6        
+0000ca   0084     movwf   0x04             	MOVWF	FSR
+0000cb   0870     movf    0x70, 0x0        	MOVF	PSAVE,W
+0000cc   008a     movwf   0x0a             	MOVWF	PCLATH
+0000cd   0183     clrf    0x03             	CLRF	STATUS
+0000ce   0e71     swapf   0x71, 0x0        	SWAPF	SSAVE,W
+0000cf   0083     movwf   0x03             	MOVWF	STATUS
+0000d0   0ef2     swapf   0x72, 0x1        	SWAPF	WSAVE,F
+0000d1   0e72     swapf   0x72, 0x0        	SWAPF	WSAVE,W
                                            END_OF_INTERRUPT:
-0000ca   0009     retfie                   	RETFIE	
+0000d2   0009     retfie                   	RETFIE	
                                            
                                            ;--------------------------------------------------------
                                            ; code
@@ -711,203 +725,263 @@ Address  Value    Disassembly              Source
                                            ;   _SP_send
                                            ;   _dec_to_ascii
                                            ;   _SP_send
+                                           ;   _dec_to_ascii
+                                           ;   _SP_send
+                                           ;   _dec_to_ascii
+                                           ;   _SP_send
                                            ;   _init
                                            ;   _dec_to_ascii
                                            ;   _SP_send
                                            ;   _dec_to_ascii
                                            ;   _SP_send
+                                           ;   _dec_to_ascii
+                                           ;   _SP_send
+                                           ;   _dec_to_ascii
+                                           ;   _SP_send
                                            ;6 compiler assigned registers:
-                                           ;   r0x1038
+                                           ;   r0x103E
                                            ;   STK00
-                                           ;   r0x1039
-                                           ;   r0x103A
-                                           ;   r0x103B
+                                           ;   r0x103F
+                                           ;   r0x1040
+                                           ;   r0x1041
                                            ;   STK01
                                            ;; Starting pCode block
                                            S_main__main	code
                                            _main:
                                            ; 2 exit points
                                            ;	.line	135; "main.c"	init();
-000167   118a     bcf     0x0a, 0x3        	PAGESEL	_init
-000168   23ab     call    0x03ab           	CALL	_init
-000169   118a     bcf     0x0a, 0x3        	PAGESEL	$
+0000d3   118a     bcf     0x0a, 0x3        	PAGESEL	_init
+0000d4   244a     call    0x044a           	CALL	_init
+0000d5   118a     bcf     0x0a, 0x3        	PAGESEL	$
                                            ;	.line	136; "main.c"	while(1)
-00016a   1283     bcf     0x03, 0x5        	BANKSEL	r0x1038
-00016b   1303     bcf     0x03, 0x6        
-00016c   01a3     clrf    0x23             	CLRF	r0x1038
+0000d6   1283     bcf     0x03, 0x5        	BANKSEL	r0x103E
+0000d7   1303     bcf     0x03, 0x6        
+0000d8   01a3     clrf    0x23             	CLRF	r0x103E
                                            _00155_DS_:
-                                           ;	.line	139; "main.c"	if (bitfield.Capture){            
-00016d   1683     bsf     0x03, 0x5        	BANKSEL	_bitfield
-00016e   1303     bcf     0x03, 0x6        
-00016f   1c24     btfss   0x24, 0x0        	BTFSS	_bitfield,0
-000170   29f4     goto    0x01f4           	GOTO	_00153_DS_
+                                           ;	.line	139; "main.c"	if (bitfield.Capture){
+0000d9   1683     bsf     0x03, 0x5        	BANKSEL	_bitfield
+0000da   1303     bcf     0x03, 0x6        
+0000db   1c2a     btfss   0x2a, 0x0        	BTFSS	_bitfield,0
+0000dc   2990     goto    0x0190           	GOTO	_00153_DS_
+                                           ;	.line	140; "main.c"	dec_to_ascii(w);
+0000dd   1283     bcf     0x03, 0x5        	BANKSEL	_w
+0000de   1303     bcf     0x03, 0x6        
+0000df   086c     movf    0x6c, 0x0        	MOVF	_w,W
+0000e0   00ff     movwf   0x7f             	MOVWF	STK00
+0000e1   086d     movf    0x6d, 0x0        	MOVF	(_w + 1),W
+0000e2   118a     bcf     0x0a, 0x3        	PAGESEL	_dec_to_ascii
+0000e3   2195     call    0x0195           	CALL	_dec_to_ascii
+0000e4   118a     bcf     0x0a, 0x3        	PAGESEL	$
+                                           ;	.line	141; "main.c"	SP_send(tab);
+0000e5   3004     movlw   0x04             	MOVLW	high (_tab + 0)
+0000e6   1283     bcf     0x03, 0x5        	BANKSEL	r0x103F
+0000e7   1303     bcf     0x03, 0x6        
+0000e8   00a5     movwf   0x25             	MOVWF	r0x103F
+0000e9   30ed     movlw   0xed             	MOVLW	(_tab + 0)
+0000ea   00a4     movwf   0x24             	MOVWF	r0x1040
+0000eb   3080     movlw   0x80             	MOVLW	0x80
+0000ec   00a6     movwf   0x26             	MOVWF	r0x1041
+0000ed   0824     movf    0x24, 0x0        	MOVF	r0x1040,W
+0000ee   00fe     movwf   0x7e             	MOVWF	STK01
+0000ef   0825     movf    0x25, 0x0        	MOVF	r0x103F,W
+0000f0   00ff     movwf   0x7f             	MOVWF	STK00
+0000f1   0826     movf    0x26, 0x0        	MOVF	r0x1041,W
+0000f2   118a     bcf     0x0a, 0x3        	PAGESEL	_SP_send
+0000f3   247b     call    0x047b           	CALL	_SP_send
+0000f4   118a     bcf     0x0a, 0x3        	PAGESEL	$
+                                           ;	.line	142; "main.c"	dec_to_ascii(t);
+0000f5   1283     bcf     0x03, 0x5        	BANKSEL	_t
+0000f6   1303     bcf     0x03, 0x6        
+0000f7   086e     movf    0x6e, 0x0        	MOVF	_t,W
+0000f8   00ff     movwf   0x7f             	MOVWF	STK00
+0000f9   086f     movf    0x6f, 0x0        	MOVF	(_t + 1),W
+0000fa   118a     bcf     0x0a, 0x3        	PAGESEL	_dec_to_ascii
+0000fb   2195     call    0x0195           	CALL	_dec_to_ascii
+0000fc   118a     bcf     0x0a, 0x3        	PAGESEL	$
+                                           ;	.line	143; "main.c"	SP_send(enter);
+0000fd   3004     movlw   0x04             	MOVLW	high (_enter + 0)
+0000fe   1283     bcf     0x03, 0x5        	BANKSEL	r0x103F
+0000ff   1303     bcf     0x03, 0x6        
+000100   00a5     movwf   0x25             	MOVWF	r0x103F
+000101   30ef     movlw   0xef             	MOVLW	(_enter + 0)
+000102   00a4     movwf   0x24             	MOVWF	r0x1040
+000103   3080     movlw   0x80             	MOVLW	0x80
+000104   00a6     movwf   0x26             	MOVWF	r0x1041
+000105   0824     movf    0x24, 0x0        	MOVF	r0x1040,W
+000106   00fe     movwf   0x7e             	MOVWF	STK01
+000107   0825     movf    0x25, 0x0        	MOVF	r0x103F,W
+000108   00ff     movwf   0x7f             	MOVWF	STK00
+000109   0826     movf    0x26, 0x0        	MOVF	r0x1041,W
+00010a   118a     bcf     0x0a, 0x3        	PAGESEL	_SP_send
+00010b   247b     call    0x047b           	CALL	_SP_send
+00010c   118a     bcf     0x0a, 0x3        	PAGESEL	$
                                            ;;swapping arguments (AOP_TYPEs 1/3)
                                            ;;unsigned compare: left >= lit(0x759=1881), size=2
-                                           ;	.line	143; "main.c"	if (t > MIN_T && t < MAX_T && t1 > MIN_T && t1 < MAX_T){
-000171   3007     movlw   0x07             	MOVLW	0x07
-000172   1283     bcf     0x03, 0x5        	BANKSEL	_t
-000173   1303     bcf     0x03, 0x6        
-000174   026e     subwf   0x6e, 0x0        	SUBWF	(_t + 1),W
-000175   1d03     btfss   0x03, 0x2        	BTFSS	STATUS,2
-000176   2979     goto    0x0179           	GOTO	_00183_DS_
-000177   3059     movlw   0x59             	MOVLW	0x59
-000178   026d     subwf   0x6d, 0x0        	SUBWF	_t,W
+                                           ;	.line	147; "main.c"	if (t > MIN_T && t < MAX_T && t1 > MIN_T && t1 < MAX_T){
+00010d   3007     movlw   0x07             	MOVLW	0x07
+00010e   1283     bcf     0x03, 0x5        	BANKSEL	_t
+00010f   1303     bcf     0x03, 0x6        
+000110   026f     subwf   0x6f, 0x0        	SUBWF	(_t + 1),W
+000111   1d03     btfss   0x03, 0x2        	BTFSS	STATUS,2
+000112   2915     goto    0x0115           	GOTO	_00183_DS_
+000113   3059     movlw   0x59             	MOVLW	0x59
+000114   026e     subwf   0x6e, 0x0        	SUBWF	_t,W
                                            _00183_DS_:
-000179   1c03     btfss   0x03, 0x0        	BTFSS	STATUS,0
-00017a   299c     goto    0x019c           	GOTO	_00145_DS_
-                                           ;;genSkipc:3257: created from rifx:0x7fff201a0090
+000115   1c03     btfss   0x03, 0x0        	BTFSS	STATUS,0
+000116   2938     goto    0x0138           	GOTO	_00145_DS_
+                                           ;;genSkipc:3257: created from rifx:0x7ffc8cbcdf40
                                            ;;unsigned compare: left < lit(0x79E=1950), size=2
-00017b   3007     movlw   0x07             	MOVLW	0x07
-00017c   1283     bcf     0x03, 0x5        	BANKSEL	_t
-00017d   1303     bcf     0x03, 0x6        
-00017e   026e     subwf   0x6e, 0x0        	SUBWF	(_t + 1),W
-00017f   1d03     btfss   0x03, 0x2        	BTFSS	STATUS,2
-000180   2983     goto    0x0183           	GOTO	_00184_DS_
-000181   309e     movlw   0x9e             	MOVLW	0x9e
-000182   026d     subwf   0x6d, 0x0        	SUBWF	_t,W
+000117   3007     movlw   0x07             	MOVLW	0x07
+000118   1283     bcf     0x03, 0x5        	BANKSEL	_t
+000119   1303     bcf     0x03, 0x6        
+00011a   026f     subwf   0x6f, 0x0        	SUBWF	(_t + 1),W
+00011b   1d03     btfss   0x03, 0x2        	BTFSS	STATUS,2
+00011c   291f     goto    0x011f           	GOTO	_00184_DS_
+00011d   309e     movlw   0x9e             	MOVLW	0x9e
+00011e   026e     subwf   0x6e, 0x0        	SUBWF	_t,W
                                            _00184_DS_:
-000183   1803     btfsc   0x03, 0x0        	BTFSC	STATUS,0
-000184   299c     goto    0x019c           	GOTO	_00145_DS_
-                                           ;;genSkipc:3257: created from rifx:0x7fff201a0090
+00011f   1803     btfsc   0x03, 0x0        	BTFSC	STATUS,0
+000120   2938     goto    0x0138           	GOTO	_00145_DS_
+                                           ;;genSkipc:3257: created from rifx:0x7ffc8cbcdf40
                                            ;;swapping arguments (AOP_TYPEs 1/3)
                                            ;;unsigned compare: left >= lit(0x759=1881), size=2
-000185   3007     movlw   0x07             	MOVLW	0x07
-000186   1683     bsf     0x03, 0x5        	BANKSEL	_t1
-000187   1303     bcf     0x03, 0x6        
-000188   0223     subwf   0x23, 0x0        	SUBWF	(_t1 + 1),W
-000189   1d03     btfss   0x03, 0x2        	BTFSS	STATUS,2
-00018a   298d     goto    0x018d           	GOTO	_00185_DS_
-00018b   3059     movlw   0x59             	MOVLW	0x59
-00018c   0222     subwf   0x22, 0x0        	SUBWF	_t1,W
+000121   3007     movlw   0x07             	MOVLW	0x07
+000122   1683     bsf     0x03, 0x5        	BANKSEL	_t1
+000123   1303     bcf     0x03, 0x6        
+000124   0229     subwf   0x29, 0x0        	SUBWF	(_t1 + 1),W
+000125   1d03     btfss   0x03, 0x2        	BTFSS	STATUS,2
+000126   2929     goto    0x0129           	GOTO	_00185_DS_
+000127   3059     movlw   0x59             	MOVLW	0x59
+000128   0228     subwf   0x28, 0x0        	SUBWF	_t1,W
                                            _00185_DS_:
-00018d   1c03     btfss   0x03, 0x0        	BTFSS	STATUS,0
-00018e   299c     goto    0x019c           	GOTO	_00145_DS_
-                                           ;;genSkipc:3257: created from rifx:0x7fff201a0090
+000129   1c03     btfss   0x03, 0x0        	BTFSS	STATUS,0
+00012a   2938     goto    0x0138           	GOTO	_00145_DS_
+                                           ;;genSkipc:3257: created from rifx:0x7ffc8cbcdf40
                                            ;;unsigned compare: left < lit(0x79E=1950), size=2
-00018f   3007     movlw   0x07             	MOVLW	0x07
-000190   1683     bsf     0x03, 0x5        	BANKSEL	_t1
-000191   1303     bcf     0x03, 0x6        
-000192   0223     subwf   0x23, 0x0        	SUBWF	(_t1 + 1),W
-000193   1d03     btfss   0x03, 0x2        	BTFSS	STATUS,2
-000194   2997     goto    0x0197           	GOTO	_00186_DS_
-000195   309e     movlw   0x9e             	MOVLW	0x9e
-000196   0222     subwf   0x22, 0x0        	SUBWF	_t1,W
+00012b   3007     movlw   0x07             	MOVLW	0x07
+00012c   1683     bsf     0x03, 0x5        	BANKSEL	_t1
+00012d   1303     bcf     0x03, 0x6        
+00012e   0229     subwf   0x29, 0x0        	SUBWF	(_t1 + 1),W
+00012f   1d03     btfss   0x03, 0x2        	BTFSS	STATUS,2
+000130   2933     goto    0x0133           	GOTO	_00186_DS_
+000131   309e     movlw   0x9e             	MOVLW	0x9e
+000132   0228     subwf   0x28, 0x0        	SUBWF	_t1,W
                                            _00186_DS_:
-000197   1803     btfsc   0x03, 0x0        	BTFSC	STATUS,0
-000198   299c     goto    0x019c           	GOTO	_00145_DS_
-                                           ;;genSkipc:3257: created from rifx:0x7fff201a0090
-                                           ;	.line	144; "main.c"	bitfield.Hint = TRUE;
-000199   1683     bsf     0x03, 0x5        	BANKSEL	_bitfield
-00019a   1303     bcf     0x03, 0x6        
-00019b   1524     bsf     0x24, 0x2        	BSF	_bitfield,2
+000133   1803     btfsc   0x03, 0x0        	BTFSC	STATUS,0
+000134   2938     goto    0x0138           	GOTO	_00145_DS_
+                                           ;;genSkipc:3257: created from rifx:0x7ffc8cbcdf40
+                                           ;	.line	148; "main.c"	bitfield.Hint = TRUE;
+000135   1683     bsf     0x03, 0x5        	BANKSEL	_bitfield
+000136   1303     bcf     0x03, 0x6        
+000137   152a     bsf     0x2a, 0x2        	BSF	_bitfield,2
                                            ;;unsigned compare: left < lit(0x64=100), size=1
                                            _00145_DS_:
-                                           ;	.line	146; "main.c"	if (i < 100 && bitfield.Hint){
-00019c   3064     movlw   0x64             	MOVLW	0x64
-00019d   1283     bcf     0x03, 0x5        	BANKSEL	r0x1038
-00019e   1303     bcf     0x03, 0x6        
-00019f   0223     subwf   0x23, 0x0        	SUBWF	r0x1038,W
-0001a0   1803     btfsc   0x03, 0x0        	BTFSC	STATUS,0
-0001a1   29d9     goto    0x01d9           	GOTO	_00150_DS_
-                                           ;;genSkipc:3257: created from rifx:0x7fff201a0090
-0001a2   1683     bsf     0x03, 0x5        	BANKSEL	_bitfield
-0001a3   1303     bcf     0x03, 0x6        
-0001a4   1d24     btfss   0x24, 0x2        	BTFSS	_bitfield,2
-0001a5   29d9     goto    0x01d9           	GOTO	_00150_DS_
-                                           ;	.line	147; "main.c"	dec_to_ascii(w);
-0001a6   1283     bcf     0x03, 0x5        	BANKSEL	_w
-0001a7   1303     bcf     0x03, 0x6        
-0001a8   086b     movf    0x6b, 0x0        	MOVF	_w,W
-0001a9   00ff     movwf   0x7f             	MOVWF	STK00
-0001aa   086c     movf    0x6c, 0x0        	MOVF	(_w + 1),W
-0001ab   118a     bcf     0x0a, 0x3        	PAGESEL	_dec_to_ascii
-0001ac   22d7     call    0x02d7           	CALL	_dec_to_ascii
-0001ad   118a     bcf     0x0a, 0x3        	PAGESEL	$
-                                           ;	.line	148; "main.c"	SP_send(tab);
-0001ae   3004     movlw   0x04             	MOVLW	high (_tab + 0)
-0001af   1283     bcf     0x03, 0x5        	BANKSEL	r0x1039
-0001b0   1303     bcf     0x03, 0x6        
-0001b1   00a5     movwf   0x25             	MOVWF	r0x1039
-0001b2   304e     movlw   0x4e             	MOVLW	(_tab + 0)
-0001b3   00a4     movwf   0x24             	MOVWF	r0x103A
-0001b4   3080     movlw   0x80             	MOVLW	0x80
-0001b5   00a6     movwf   0x26             	MOVWF	r0x103B
-0001b6   0824     movf    0x24, 0x0        	MOVF	r0x103A,W
-0001b7   00fe     movwf   0x7e             	MOVWF	STK01
-0001b8   0825     movf    0x25, 0x0        	MOVF	r0x1039,W
-0001b9   00ff     movwf   0x7f             	MOVWF	STK00
-0001ba   0826     movf    0x26, 0x0        	MOVF	r0x103B,W
-0001bb   118a     bcf     0x0a, 0x3        	PAGESEL	_SP_send
-0001bc   23dc     call    0x03dc           	CALL	_SP_send
-0001bd   118a     bcf     0x0a, 0x3        	PAGESEL	$
-                                           ;	.line	149; "main.c"	dec_to_ascii(t);
-0001be   1283     bcf     0x03, 0x5        	BANKSEL	_t
-0001bf   1303     bcf     0x03, 0x6        
-0001c0   086d     movf    0x6d, 0x0        	MOVF	_t,W
-0001c1   00ff     movwf   0x7f             	MOVWF	STK00
-0001c2   086e     movf    0x6e, 0x0        	MOVF	(_t + 1),W
-0001c3   118a     bcf     0x0a, 0x3        	PAGESEL	_dec_to_ascii
-0001c4   22d7     call    0x02d7           	CALL	_dec_to_ascii
-0001c5   118a     bcf     0x0a, 0x3        	PAGESEL	$
-                                           ;	.line	150; "main.c"	SP_send(enter);
-0001c6   3004     movlw   0x04             	MOVLW	high (_enter + 0)
-0001c7   1283     bcf     0x03, 0x5        	BANKSEL	r0x1039
-0001c8   1303     bcf     0x03, 0x6        
-0001c9   00a5     movwf   0x25             	MOVWF	r0x1039
-0001ca   3050     movlw   0x50             	MOVLW	(_enter + 0)
-0001cb   00a4     movwf   0x24             	MOVWF	r0x103A
-0001cc   3080     movlw   0x80             	MOVLW	0x80
-0001cd   00a6     movwf   0x26             	MOVWF	r0x103B
-0001ce   0824     movf    0x24, 0x0        	MOVF	r0x103A,W
-0001cf   00fe     movwf   0x7e             	MOVWF	STK01
-0001d0   0825     movf    0x25, 0x0        	MOVF	r0x1039,W
-0001d1   00ff     movwf   0x7f             	MOVWF	STK00
-0001d2   0826     movf    0x26, 0x0        	MOVF	r0x103B,W
-0001d3   118a     bcf     0x0a, 0x3        	PAGESEL	_SP_send
-0001d4   23dc     call    0x03dc           	CALL	_SP_send
-0001d5   118a     bcf     0x0a, 0x3        	PAGESEL	$
-                                           ;	.line	151; "main.c"	i++;
-0001d6   1283     bcf     0x03, 0x5        	BANKSEL	r0x1038
-0001d7   1303     bcf     0x03, 0x6        
-0001d8   0aa3     incf    0x23, 0x1        	INCF	r0x1038,F
+                                           ;	.line	150; "main.c"	if (i < 100 && bitfield.Hint){
+000138   3064     movlw   0x64             	MOVLW	0x64
+000139   1283     bcf     0x03, 0x5        	BANKSEL	r0x103E
+00013a   1303     bcf     0x03, 0x6        
+00013b   0223     subwf   0x23, 0x0        	SUBWF	r0x103E,W
+00013c   1803     btfsc   0x03, 0x0        	BTFSC	STATUS,0
+00013d   2975     goto    0x0175           	GOTO	_00150_DS_
+                                           ;;genSkipc:3257: created from rifx:0x7ffc8cbcdf40
+00013e   1683     bsf     0x03, 0x5        	BANKSEL	_bitfield
+00013f   1303     bcf     0x03, 0x6        
+000140   1d2a     btfss   0x2a, 0x2        	BTFSS	_bitfield,2
+000141   2975     goto    0x0175           	GOTO	_00150_DS_
+                                           ;	.line	151; "main.c"	dec_to_ascii(w);
+000142   1283     bcf     0x03, 0x5        	BANKSEL	_w
+000143   1303     bcf     0x03, 0x6        
+000144   086c     movf    0x6c, 0x0        	MOVF	_w,W
+000145   00ff     movwf   0x7f             	MOVWF	STK00
+000146   086d     movf    0x6d, 0x0        	MOVF	(_w + 1),W
+000147   118a     bcf     0x0a, 0x3        	PAGESEL	_dec_to_ascii
+000148   2195     call    0x0195           	CALL	_dec_to_ascii
+000149   118a     bcf     0x0a, 0x3        	PAGESEL	$
+                                           ;	.line	152; "main.c"	SP_send(tab);
+00014a   3004     movlw   0x04             	MOVLW	high (_tab + 0)
+00014b   1283     bcf     0x03, 0x5        	BANKSEL	r0x103F
+00014c   1303     bcf     0x03, 0x6        
+00014d   00a5     movwf   0x25             	MOVWF	r0x103F
+00014e   30ed     movlw   0xed             	MOVLW	(_tab + 0)
+00014f   00a4     movwf   0x24             	MOVWF	r0x1040
+000150   3080     movlw   0x80             	MOVLW	0x80
+000151   00a6     movwf   0x26             	MOVWF	r0x1041
+000152   0824     movf    0x24, 0x0        	MOVF	r0x1040,W
+000153   00fe     movwf   0x7e             	MOVWF	STK01
+000154   0825     movf    0x25, 0x0        	MOVF	r0x103F,W
+000155   00ff     movwf   0x7f             	MOVWF	STK00
+000156   0826     movf    0x26, 0x0        	MOVF	r0x1041,W
+000157   118a     bcf     0x0a, 0x3        	PAGESEL	_SP_send
+000158   247b     call    0x047b           	CALL	_SP_send
+000159   118a     bcf     0x0a, 0x3        	PAGESEL	$
+                                           ;	.line	153; "main.c"	dec_to_ascii(t);
+00015a   1283     bcf     0x03, 0x5        	BANKSEL	_t
+00015b   1303     bcf     0x03, 0x6        
+00015c   086e     movf    0x6e, 0x0        	MOVF	_t,W
+00015d   00ff     movwf   0x7f             	MOVWF	STK00
+00015e   086f     movf    0x6f, 0x0        	MOVF	(_t + 1),W
+00015f   118a     bcf     0x0a, 0x3        	PAGESEL	_dec_to_ascii
+000160   2195     call    0x0195           	CALL	_dec_to_ascii
+000161   118a     bcf     0x0a, 0x3        	PAGESEL	$
+                                           ;	.line	154; "main.c"	SP_send(enter);
+000162   3004     movlw   0x04             	MOVLW	high (_enter + 0)
+000163   1283     bcf     0x03, 0x5        	BANKSEL	r0x103F
+000164   1303     bcf     0x03, 0x6        
+000165   00a5     movwf   0x25             	MOVWF	r0x103F
+000166   30ef     movlw   0xef             	MOVLW	(_enter + 0)
+000167   00a4     movwf   0x24             	MOVWF	r0x1040
+000168   3080     movlw   0x80             	MOVLW	0x80
+000169   00a6     movwf   0x26             	MOVWF	r0x1041
+00016a   0824     movf    0x24, 0x0        	MOVF	r0x1040,W
+00016b   00fe     movwf   0x7e             	MOVWF	STK01
+00016c   0825     movf    0x25, 0x0        	MOVF	r0x103F,W
+00016d   00ff     movwf   0x7f             	MOVWF	STK00
+00016e   0826     movf    0x26, 0x0        	MOVF	r0x1041,W
+00016f   118a     bcf     0x0a, 0x3        	PAGESEL	_SP_send
+000170   247b     call    0x047b           	CALL	_SP_send
+000171   118a     bcf     0x0a, 0x3        	PAGESEL	$
+                                           ;	.line	155; "main.c"	i++;
+000172   1283     bcf     0x03, 0x5        	BANKSEL	r0x103E
+000173   1303     bcf     0x03, 0x6        
+000174   0aa3     incf    0x23, 0x1        	INCF	r0x103E,F
                                            _00150_DS_:
-                                           ;	.line	153; "main.c"	t1 = t;
-0001d9   1283     bcf     0x03, 0x5        	BANKSEL	_t
-0001da   1303     bcf     0x03, 0x6        
-0001db   086d     movf    0x6d, 0x0        	MOVF	_t,W
-0001dc   1683     bsf     0x03, 0x5        	BANKSEL	_t1
-0001dd   1303     bcf     0x03, 0x6        
-0001de   00a2     movwf   0x22             	MOVWF	_t1
-0001df   1283     bcf     0x03, 0x5        	BANKSEL	_t
-0001e0   1303     bcf     0x03, 0x6        
-0001e1   086e     movf    0x6e, 0x0        	MOVF	(_t + 1),W
-0001e2   1683     bsf     0x03, 0x5        	BANKSEL	_t1
-0001e3   1303     bcf     0x03, 0x6        
-0001e4   00a3     movwf   0x23             	MOVWF	(_t1 + 1)
-                                           ;	.line	154; "main.c"	w1 = w;
-0001e5   1283     bcf     0x03, 0x5        	BANKSEL	_w
-0001e6   1303     bcf     0x03, 0x6        
-0001e7   086b     movf    0x6b, 0x0        	MOVF	_w,W
-0001e8   1683     bsf     0x03, 0x5        	BANKSEL	_w1
-0001e9   1303     bcf     0x03, 0x6        
-0001ea   00a0     movwf   0x20             	MOVWF	_w1
-0001eb   1283     bcf     0x03, 0x5        	BANKSEL	_w
-0001ec   1303     bcf     0x03, 0x6        
-0001ed   086c     movf    0x6c, 0x0        	MOVF	(_w + 1),W
-0001ee   1683     bsf     0x03, 0x5        	BANKSEL	_w1
-0001ef   1303     bcf     0x03, 0x6        
-0001f0   00a1     movwf   0x21             	MOVWF	(_w1 + 1)
-                                           ;	.line	155; "main.c"	bitfield.Capture = FALSE;
-0001f1   1683     bsf     0x03, 0x5        	BANKSEL	_bitfield
-0001f2   1303     bcf     0x03, 0x6        
-0001f3   1024     bcf     0x24, 0x0        	BCF	_bitfield,0
+                                           ;	.line	157; "main.c"	t1 = t;
+000175   1283     bcf     0x03, 0x5        	BANKSEL	_t
+000176   1303     bcf     0x03, 0x6        
+000177   086e     movf    0x6e, 0x0        	MOVF	_t,W
+000178   1683     bsf     0x03, 0x5        	BANKSEL	_t1
+000179   1303     bcf     0x03, 0x6        
+00017a   00a8     movwf   0x28             	MOVWF	_t1
+00017b   1283     bcf     0x03, 0x5        	BANKSEL	_t
+00017c   1303     bcf     0x03, 0x6        
+00017d   086f     movf    0x6f, 0x0        	MOVF	(_t + 1),W
+00017e   1683     bsf     0x03, 0x5        	BANKSEL	_t1
+00017f   1303     bcf     0x03, 0x6        
+000180   00a9     movwf   0x29             	MOVWF	(_t1 + 1)
+                                           ;	.line	158; "main.c"	w1 = w;
+000181   1283     bcf     0x03, 0x5        	BANKSEL	_w
+000182   1303     bcf     0x03, 0x6        
+000183   086c     movf    0x6c, 0x0        	MOVF	_w,W
+000184   1683     bsf     0x03, 0x5        	BANKSEL	_w1
+000185   1303     bcf     0x03, 0x6        
+000186   00a6     movwf   0x26             	MOVWF	_w1
+000187   1283     bcf     0x03, 0x5        	BANKSEL	_w
+000188   1303     bcf     0x03, 0x6        
+000189   086d     movf    0x6d, 0x0        	MOVF	(_w + 1),W
+00018a   1683     bsf     0x03, 0x5        	BANKSEL	_w1
+00018b   1303     bcf     0x03, 0x6        
+00018c   00a7     movwf   0x27             	MOVWF	(_w1 + 1)
+                                           ;	.line	159; "main.c"	bitfield.Capture = FALSE;
+00018d   1683     bsf     0x03, 0x5        	BANKSEL	_bitfield
+00018e   1303     bcf     0x03, 0x6        
+00018f   102a     bcf     0x2a, 0x0        	BCF	_bitfield,0
                                            _00153_DS_:
-                                           ;	.line	158; "main.c"	int_error_cnt = 0;
-0001f4   1683     bsf     0x03, 0x5        	BANKSEL	_int_error_cnt
-0001f5   1303     bcf     0x03, 0x6        
-0001f6   01a7     clrf    0x27             	CLRF	_int_error_cnt
-0001f7   296d     goto    0x016d           	GOTO	_00155_DS_
-0001f8   0008     return                   	RETURN	
+                                           ;	.line	162; "main.c"	int_error_cnt = 0;
+000190   1683     bsf     0x03, 0x5        	BANKSEL	_int_error_cnt
+000191   1303     bcf     0x03, 0x6        
+000192   01ad     clrf    0x2d             	CLRF	_int_error_cnt
+000193   28d9     goto    0x00d9           	GOTO	_00155_DS_
+000194   0008     return                   	RETURN	
                                            ; exit point of _main
                                            
                                            ;***
@@ -918,82 +992,82 @@ Address  Value    Disassembly              Source
                                            ;   __gptrget1
                                            ;   __gptrget1
                                            ;10 compiler assigned registers:
-                                           ;   r0x101D
-                                           ;   STK00
-                                           ;   r0x101E
-                                           ;   STK01
-                                           ;   r0x101F
-                                           ;   r0x1020
-                                           ;   r0x1021
                                            ;   r0x1022
+                                           ;   STK00
                                            ;   r0x1023
+                                           ;   STK01
                                            ;   r0x1024
+                                           ;   r0x1025
+                                           ;   r0x1026
+                                           ;   r0x1027
+                                           ;   r0x1028
+                                           ;   r0x1029
                                            ;; Starting pCode block
                                            S_main__SP_send_error	code
                                            _SP_send_error:
                                            ; 2 exit points
-                                           ;	.line	200; "main.c"	void SP_send_error(char str[])
-000310   1283     bcf     0x03, 0x5        	BANKSEL	r0x101D
-000311   1303     bcf     0x03, 0x6        
-000312   00ba     movwf   0x3a             	MOVWF	r0x101D
-000313   087f     movf    0x7f, 0x0        	MOVF	STK00,W
-000314   00b9     movwf   0x39             	MOVWF	r0x101E
-000315   087e     movf    0x7e, 0x0        	MOVF	STK01,W
-000316   00b8     movwf   0x38             	MOVWF	r0x101F
-                                           ;	.line	203; "main.c"	GIE = FALSE;	// Disable all interrupts.
-000317   1283     bcf     0x03, 0x5        	BANKSEL	_INTCONbits
-000318   1303     bcf     0x03, 0x6        
-000319   138b     bcf     0x0b, 0x7        	BCF	_INTCONbits,7
-                                           ;	.line	204; "main.c"	for(i=0; str[i] != '\0'; i++)
-00031a   1283     bcf     0x03, 0x5        	BANKSEL	r0x1020
-00031b   1303     bcf     0x03, 0x6        
-00031c   01bb     clrf    0x3b             	CLRF	r0x1020
-                                           _00224_DS_:
-00031d   1283     bcf     0x03, 0x5        	BANKSEL	r0x1020
-00031e   1303     bcf     0x03, 0x6        
-00031f   083b     movf    0x3b, 0x0        	MOVF	r0x1020,W
-000320   0738     addwf   0x38, 0x0        	ADDWF	r0x101F,W
-000321   00bc     movwf   0x3c             	MOVWF	r0x1021
-000322   0839     movf    0x39, 0x0        	MOVF	r0x101E,W
-000323   1803     btfsc   0x03, 0x0        	BTFSC	STATUS,0
-000324   3e01     addlw   0x01             	ADDLW	0x01
-000325   00bd     movwf   0x3d             	MOVWF	r0x1022
-000326   083a     movf    0x3a, 0x0        	MOVF	r0x101D,W
-000327   1803     btfsc   0x03, 0x0        	BTFSC	STATUS,0
-000328   3e01     addlw   0x01             	ADDLW	0x01
-000329   00be     movwf   0x3e             	MOVWF	r0x1023
-00032a   083c     movf    0x3c, 0x0        	MOVF	r0x1021,W
-00032b   00fe     movwf   0x7e             	MOVWF	STK01
-00032c   083d     movf    0x3d, 0x0        	MOVF	r0x1022,W
-00032d   00ff     movwf   0x7f             	MOVWF	STK00
-00032e   083e     movf    0x3e, 0x0        	MOVF	r0x1023,W
-00032f   118a     bcf     0x0a, 0x3        	PAGESEL	__gptrget1
-000330   2345     call    0x0345           	CALL	__gptrget1
-000331   118a     bcf     0x0a, 0x3        	PAGESEL	$
-000332   1283     bcf     0x03, 0x5        	BANKSEL	r0x1024
-000333   1303     bcf     0x03, 0x6        
-000334   00bf     movwf   0x3f             	MOVWF	r0x1024
-000335   083f     movf    0x3f, 0x0        	MOVF	r0x1024,W
-000336   1903     btfsc   0x03, 0x2        	BTFSC	STATUS,2
-000337   2b44     goto    0x0344           	GOTO	_00226_DS_
-                                           ;	.line	206; "main.c"	TXREG=str[i];	// Add a character to the output buffer
-000338   083f     movf    0x3f, 0x0        	MOVF	r0x1024,W
-000339   1283     bcf     0x03, 0x5        	BANKSEL	_TXREG
-00033a   1303     bcf     0x03, 0x6        
-00033b   0099     movwf   0x19             	MOVWF	_TXREG
-                                           _00219_DS_:
-                                           ;	.line	207; "main.c"	while(!TXIF);	// Wait while the output buffer is full
-00033c   1283     bcf     0x03, 0x5        	BANKSEL	_PIR1bits
-00033d   1303     bcf     0x03, 0x6        
-00033e   1e0c     btfss   0x0c, 0x4        	BTFSS	_PIR1bits,4
-00033f   2b3c     goto    0x033c           	GOTO	_00219_DS_
-                                           ;	.line	204; "main.c"	for(i=0; str[i] != '\0'; i++)
-000340   1283     bcf     0x03, 0x5        	BANKSEL	r0x1020
-000341   1303     bcf     0x03, 0x6        
-000342   0abb     incf    0x3b, 0x1        	INCF	r0x1020,F
-000343   2b1d     goto    0x031d           	GOTO	_00224_DS_
+                                           ;	.line	221; "main.c"	void SP_send_error(char str[])
+0003af   1283     bcf     0x03, 0x5        	BANKSEL	r0x1022
+0003b0   1303     bcf     0x03, 0x6        
+0003b1   00bc     movwf   0x3c             	MOVWF	r0x1022
+0003b2   087f     movf    0x7f, 0x0        	MOVF	STK00,W
+0003b3   00bb     movwf   0x3b             	MOVWF	r0x1023
+0003b4   087e     movf    0x7e, 0x0        	MOVF	STK01,W
+0003b5   00ba     movwf   0x3a             	MOVWF	r0x1024
+                                           ;	.line	224; "main.c"	GIE = FALSE;	// Disable all interrupts.
+0003b6   1283     bcf     0x03, 0x5        	BANKSEL	_INTCONbits
+0003b7   1303     bcf     0x03, 0x6        
+0003b8   138b     bcf     0x0b, 0x7        	BCF	_INTCONbits,7
+                                           ;	.line	225; "main.c"	for(i=0; str[i] != '\0'; i++)
+0003b9   1283     bcf     0x03, 0x5        	BANKSEL	r0x1025
+0003ba   1303     bcf     0x03, 0x6        
+0003bb   01bd     clrf    0x3d             	CLRF	r0x1025
                                            _00226_DS_:
-000344   0008     return                   	RETURN	
+0003bc   1283     bcf     0x03, 0x5        	BANKSEL	r0x1025
+0003bd   1303     bcf     0x03, 0x6        
+0003be   083d     movf    0x3d, 0x0        	MOVF	r0x1025,W
+0003bf   073a     addwf   0x3a, 0x0        	ADDWF	r0x1024,W
+0003c0   00be     movwf   0x3e             	MOVWF	r0x1026
+0003c1   083b     movf    0x3b, 0x0        	MOVF	r0x1023,W
+0003c2   1803     btfsc   0x03, 0x0        	BTFSC	STATUS,0
+0003c3   3e01     addlw   0x01             	ADDLW	0x01
+0003c4   00bf     movwf   0x3f             	MOVWF	r0x1027
+0003c5   083c     movf    0x3c, 0x0        	MOVF	r0x1022,W
+0003c6   1803     btfsc   0x03, 0x0        	BTFSC	STATUS,0
+0003c7   3e01     addlw   0x01             	ADDLW	0x01
+0003c8   00c0     movwf   0x40             	MOVWF	r0x1028
+0003c9   083e     movf    0x3e, 0x0        	MOVF	r0x1026,W
+0003ca   00fe     movwf   0x7e             	MOVWF	STK01
+0003cb   083f     movf    0x3f, 0x0        	MOVF	r0x1027,W
+0003cc   00ff     movwf   0x7f             	MOVWF	STK00
+0003cd   0840     movf    0x40, 0x0        	MOVF	r0x1028,W
+0003ce   118a     bcf     0x0a, 0x3        	PAGESEL	__gptrget1
+0003cf   23e4     call    0x03e4           	CALL	__gptrget1
+0003d0   118a     bcf     0x0a, 0x3        	PAGESEL	$
+0003d1   1283     bcf     0x03, 0x5        	BANKSEL	r0x1029
+0003d2   1303     bcf     0x03, 0x6        
+0003d3   00c1     movwf   0x41             	MOVWF	r0x1029
+0003d4   0841     movf    0x41, 0x0        	MOVF	r0x1029,W
+0003d5   1903     btfsc   0x03, 0x2        	BTFSC	STATUS,2
+0003d6   2be3     goto    0x03e3           	GOTO	_00228_DS_
+                                           ;	.line	227; "main.c"	TXREG=str[i];	// Add a character to the output buffer
+0003d7   0841     movf    0x41, 0x0        	MOVF	r0x1029,W
+0003d8   1283     bcf     0x03, 0x5        	BANKSEL	_TXREG
+0003d9   1303     bcf     0x03, 0x6        
+0003da   0099     movwf   0x19             	MOVWF	_TXREG
+                                           _00221_DS_:
+                                           ;	.line	228; "main.c"	while(!TXIF);	// Wait while the output buffer is full
+0003db   1283     bcf     0x03, 0x5        	BANKSEL	_PIR1bits
+0003dc   1303     bcf     0x03, 0x6        
+0003dd   1e0c     btfss   0x0c, 0x4        	BTFSS	_PIR1bits,4
+0003de   2bdb     goto    0x03db           	GOTO	_00221_DS_
+                                           ;	.line	225; "main.c"	for(i=0; str[i] != '\0'; i++)
+0003df   1283     bcf     0x03, 0x5        	BANKSEL	r0x1025
+0003e0   1303     bcf     0x03, 0x6        
+0003e1   0abd     incf    0x3d, 0x1        	INCF	r0x1025,F
+0003e2   2bbc     goto    0x03bc           	GOTO	_00226_DS_
+                                           _00228_DS_:
+0003e3   0008     return                   	RETURN	
                                            ; exit point of _SP_send_error
                                            
                                            ;***
@@ -1006,70 +1080,70 @@ Address  Value    Disassembly              Source
                                            ;   __gptrget1
                                            ;   _circBufPush
                                            ;10 compiler assigned registers:
-                                           ;   r0x102A
-                                           ;   STK00
-                                           ;   r0x102B
-                                           ;   STK01
-                                           ;   r0x102C
-                                           ;   r0x102D
-                                           ;   r0x102E
                                            ;   r0x102F
+                                           ;   STK00
                                            ;   r0x1030
+                                           ;   STK01
                                            ;   r0x1031
+                                           ;   r0x1032
+                                           ;   r0x1033
+                                           ;   r0x1034
+                                           ;   r0x1035
+                                           ;   r0x1036
                                            ;; Starting pCode block
                                            S_main__SP_send	code
                                            _SP_send:
                                            ; 2 exit points
-                                           ;	.line	192; "main.c"	void SP_send(char str[]){
-0003dc   1283     bcf     0x03, 0x5        	BANKSEL	r0x102A
-0003dd   1303     bcf     0x03, 0x6        
-0003de   00b2     movwf   0x32             	MOVWF	r0x102A
-0003df   087f     movf    0x7f, 0x0        	MOVF	STK00,W
-0003e0   00b1     movwf   0x31             	MOVWF	r0x102B
-0003e1   087e     movf    0x7e, 0x0        	MOVF	STK01,W
-0003e2   00b0     movwf   0x30             	MOVWF	r0x102C
-                                           ;	.line	194; "main.c"	for(i=0; str[i] != '\0'; i++)
-0003e3   01b3     clrf    0x33             	CLRF	r0x102D
-                                           _00212_DS_:
-0003e4   1283     bcf     0x03, 0x5        	BANKSEL	r0x102D
-0003e5   1303     bcf     0x03, 0x6        
-0003e6   0833     movf    0x33, 0x0        	MOVF	r0x102D,W
-0003e7   0730     addwf   0x30, 0x0        	ADDWF	r0x102C,W
-0003e8   00b4     movwf   0x34             	MOVWF	r0x102E
-0003e9   0831     movf    0x31, 0x0        	MOVF	r0x102B,W
-0003ea   1803     btfsc   0x03, 0x0        	BTFSC	STATUS,0
-0003eb   3e01     addlw   0x01             	ADDLW	0x01
-0003ec   00b5     movwf   0x35             	MOVWF	r0x102F
-0003ed   0832     movf    0x32, 0x0        	MOVF	r0x102A,W
-0003ee   1803     btfsc   0x03, 0x0        	BTFSC	STATUS,0
-0003ef   3e01     addlw   0x01             	ADDLW	0x01
-0003f0   00b6     movwf   0x36             	MOVWF	r0x1030
-0003f1   0834     movf    0x34, 0x0        	MOVF	r0x102E,W
-0003f2   00fe     movwf   0x7e             	MOVWF	STK01
-0003f3   0835     movf    0x35, 0x0        	MOVF	r0x102F,W
-0003f4   00ff     movwf   0x7f             	MOVWF	STK00
-0003f5   0836     movf    0x36, 0x0        	MOVF	r0x1030,W
-0003f6   118a     bcf     0x0a, 0x3        	PAGESEL	__gptrget1
-0003f7   2345     call    0x0345           	CALL	__gptrget1
-0003f8   118a     bcf     0x0a, 0x3        	PAGESEL	$
-0003f9   1283     bcf     0x03, 0x5        	BANKSEL	r0x1031
-0003fa   1303     bcf     0x03, 0x6        
-0003fb   00b7     movwf   0x37             	MOVWF	r0x1031
-0003fc   0837     movf    0x37, 0x0        	MOVF	r0x1031,W
-0003fd   1903     btfsc   0x03, 0x2        	BTFSC	STATUS,2
-0003fe   2c07     goto    0x0407           	GOTO	_00214_DS_
-                                           ;	.line	196; "main.c"	circBufPush(str[i]);
-0003ff   0837     movf    0x37, 0x0        	MOVF	r0x1031,W
-000400   118a     bcf     0x0a, 0x3        	PAGESEL	_circBufPush
-000401   2248     call    0x0248           	CALL	_circBufPush
-000402   118a     bcf     0x0a, 0x3        	PAGESEL	$
-                                           ;	.line	194; "main.c"	for(i=0; str[i] != '\0'; i++)
-000403   1283     bcf     0x03, 0x5        	BANKSEL	r0x102D
-000404   1303     bcf     0x03, 0x6        
-000405   0ab3     incf    0x33, 0x1        	INCF	r0x102D,F
-000406   2be4     goto    0x03e4           	GOTO	_00212_DS_
+                                           ;	.line	213; "main.c"	void SP_send(char str[]){
+00047b   1283     bcf     0x03, 0x5        	BANKSEL	r0x102F
+00047c   1303     bcf     0x03, 0x6        
+00047d   00b4     movwf   0x34             	MOVWF	r0x102F
+00047e   087f     movf    0x7f, 0x0        	MOVF	STK00,W
+00047f   00b3     movwf   0x33             	MOVWF	r0x1030
+000480   087e     movf    0x7e, 0x0        	MOVF	STK01,W
+000481   00b2     movwf   0x32             	MOVWF	r0x1031
+                                           ;	.line	215; "main.c"	for(i=0; str[i] != '\0'; i++)
+000482   01b5     clrf    0x35             	CLRF	r0x1032
                                            _00214_DS_:
-000407   0008     return                   	RETURN	
+000483   1283     bcf     0x03, 0x5        	BANKSEL	r0x1032
+000484   1303     bcf     0x03, 0x6        
+000485   0835     movf    0x35, 0x0        	MOVF	r0x1032,W
+000486   0732     addwf   0x32, 0x0        	ADDWF	r0x1031,W
+000487   00b6     movwf   0x36             	MOVWF	r0x1033
+000488   0833     movf    0x33, 0x0        	MOVF	r0x1030,W
+000489   1803     btfsc   0x03, 0x0        	BTFSC	STATUS,0
+00048a   3e01     addlw   0x01             	ADDLW	0x01
+00048b   00b7     movwf   0x37             	MOVWF	r0x1034
+00048c   0834     movf    0x34, 0x0        	MOVF	r0x102F,W
+00048d   1803     btfsc   0x03, 0x0        	BTFSC	STATUS,0
+00048e   3e01     addlw   0x01             	ADDLW	0x01
+00048f   00b8     movwf   0x38             	MOVWF	r0x1035
+000490   0836     movf    0x36, 0x0        	MOVF	r0x1033,W
+000491   00fe     movwf   0x7e             	MOVWF	STK01
+000492   0837     movf    0x37, 0x0        	MOVF	r0x1034,W
+000493   00ff     movwf   0x7f             	MOVWF	STK00
+000494   0838     movf    0x38, 0x0        	MOVF	r0x1035,W
+000495   118a     bcf     0x0a, 0x3        	PAGESEL	__gptrget1
+000496   23e4     call    0x03e4           	CALL	__gptrget1
+000497   118a     bcf     0x0a, 0x3        	PAGESEL	$
+000498   1283     bcf     0x03, 0x5        	BANKSEL	r0x1036
+000499   1303     bcf     0x03, 0x6        
+00049a   00b9     movwf   0x39             	MOVWF	r0x1036
+00049b   0839     movf    0x39, 0x0        	MOVF	r0x1036,W
+00049c   1903     btfsc   0x03, 0x2        	BTFSC	STATUS,2
+00049d   2ca6     goto    0x04a6           	GOTO	_00216_DS_
+                                           ;	.line	217; "main.c"	circBufPush(str[i]);
+00049e   0839     movf    0x39, 0x0        	MOVF	r0x1036,W
+00049f   118a     bcf     0x0a, 0x3        	PAGESEL	_circBufPush
+0004a0   2320     call    0x0320           	CALL	_circBufPush
+0004a1   118a     bcf     0x0a, 0x3        	PAGESEL	$
+                                           ;	.line	215; "main.c"	for(i=0; str[i] != '\0'; i++)
+0004a2   1283     bcf     0x03, 0x5        	BANKSEL	r0x1032
+0004a3   1303     bcf     0x03, 0x6        
+0004a4   0ab5     incf    0x35, 0x1        	INCF	r0x1032,F
+0004a5   2c83     goto    0x0483           	GOTO	_00214_DS_
+                                           _00216_DS_:
+0004a6   0008     return                   	RETURN	
                                            ; exit point of _SP_send
                                            
                                            ;***
@@ -1083,89 +1157,193 @@ Address  Value    Disassembly              Source
                                            ;   __moduint
                                            ;   __divuint
                                            ;   _circBufPush
-                                           ;9 compiler assigned registers:
-                                           ;   r0x1032
+                                           ;10 compiler assigned registers:
+                                           ;   r0x1037
                                            ;   STK00
-                                           ;   r0x1033
-                                           ;   r0x1034
+                                           ;   r0x1038
+                                           ;   r0x1039
+                                           ;   r0x103A
                                            ;   STK02
                                            ;   STK01
-                                           ;   r0x1035
-                                           ;   r0x1036
-                                           ;   r0x1037
+                                           ;   r0x103B
+                                           ;   r0x103C
+                                           ;   r0x103D
                                            ;; Starting pCode block
                                            S_main__dec_to_ascii	code
                                            _dec_to_ascii:
                                            ; 2 exit points
-                                           ;	.line	179; "main.c"	void dec_to_ascii(unsigned short dec){
-0002d7   1283     bcf     0x03, 0x5        	BANKSEL	r0x1032
-0002d8   1303     bcf     0x03, 0x6        
-0002d9   00ad     movwf   0x2d             	MOVWF	r0x1032
-0002da   087f     movf    0x7f, 0x0        	MOVF	STK00,W
-0002db   00ac     movwf   0x2c             	MOVWF	r0x1033
-                                           ;	.line	183; "main.c"	for (i = 0 ; dec != 0 || i == 0; i++)
-0002dc   01ae     clrf    0x2e             	CLRF	r0x1034
-                                           _00203_DS_:
-0002dd   1283     bcf     0x03, 0x5        	BANKSEL	r0x1033
-0002de   1303     bcf     0x03, 0x6        
-0002df   082c     movf    0x2c, 0x0        	MOVF	r0x1033,W
-0002e0   042d     iorwf   0x2d, 0x0        	IORWF	r0x1032,W
-0002e1   1d03     btfss   0x03, 0x2        	BTFSS	STATUS,2
-0002e2   2ae6     goto    0x02e6           	GOTO	_00202_DS_
-0002e3   082e     movf    0x2e, 0x0        	MOVF	r0x1034,W
-0002e4   1d03     btfss   0x03, 0x2        	BTFSS	STATUS,2
-0002e5   2b0f     goto    0x030f           	GOTO	_00205_DS_
-                                           _00202_DS_:
-                                           ;	.line	185; "main.c"	number = (dec % 10);
-0002e6   300a     movlw   0x0a             	MOVLW	0x0a
-0002e7   00fd     movwf   0x7d             	MOVWF	STK02
-0002e8   3000     movlw   0x00             	MOVLW	0x00
-0002e9   00fe     movwf   0x7e             	MOVWF	STK01
-0002ea   1283     bcf     0x03, 0x5        	BANKSEL	r0x1033
-0002eb   1303     bcf     0x03, 0x6        
-0002ec   082c     movf    0x2c, 0x0        	MOVF	r0x1033,W
-0002ed   00ff     movwf   0x7f             	MOVWF	STK00
-0002ee   082d     movf    0x2d, 0x0        	MOVF	r0x1032,W
-0002ef   118a     bcf     0x0a, 0x3        	PAGESEL	__moduint
-0002f0   2294     call    0x0294           	CALL	__moduint
-0002f1   118a     bcf     0x0a, 0x3        	PAGESEL	$
-                                           ;;1	MOVWF	r0x1035
-0002f2   087f     movf    0x7f, 0x0        	MOVF	STK00,W
-                                           ;;1	MOVWF	r0x1036
-0002f3   1283     bcf     0x03, 0x5        	BANKSEL	r0x1037
-0002f4   1303     bcf     0x03, 0x6        
-0002f5   00af     movwf   0x2f             	MOVWF	r0x1037
-                                           ;	.line	186; "main.c"	dec /= 10;
-0002f6   300a     movlw   0x0a             	MOVLW	0x0a
-0002f7   00fd     movwf   0x7d             	MOVWF	STK02
-0002f8   3000     movlw   0x00             	MOVLW	0x00
-0002f9   00fe     movwf   0x7e             	MOVWF	STK01
-0002fa   082c     movf    0x2c, 0x0        	MOVF	r0x1033,W
-0002fb   00ff     movwf   0x7f             	MOVWF	STK00
-0002fc   082d     movf    0x2d, 0x0        	MOVF	r0x1032,W
-0002fd   118a     bcf     0x0a, 0x3        	PAGESEL	__divuint
-0002fe   21f9     call    0x01f9           	CALL	__divuint
-0002ff   118a     bcf     0x0a, 0x3        	PAGESEL	$
-000300   1283     bcf     0x03, 0x5        	BANKSEL	r0x1032
-000301   1303     bcf     0x03, 0x6        
-000302   00ad     movwf   0x2d             	MOVWF	r0x1032
-000303   087f     movf    0x7f, 0x0        	MOVF	STK00,W
-000304   00ac     movwf   0x2c             	MOVWF	r0x1033
-                                           ;	.line	187; "main.c"	number += 48;
-000305   3030     movlw   0x30             	MOVLW	0x30
-000306   07af     addwf   0x2f, 0x1        	ADDWF	r0x1037,F
-                                           ;	.line	188; "main.c"	circBufPush(number);
-000307   082f     movf    0x2f, 0x0        	MOVF	r0x1037,W
-000308   118a     bcf     0x0a, 0x3        	PAGESEL	_circBufPush
-000309   2248     call    0x0248           	CALL	_circBufPush
-00030a   118a     bcf     0x0a, 0x3        	PAGESEL	$
-                                           ;	.line	183; "main.c"	for (i = 0 ; dec != 0 || i == 0; i++)
-00030b   1283     bcf     0x03, 0x5        	BANKSEL	r0x1034
-00030c   1303     bcf     0x03, 0x6        
-00030d   0aae     incf    0x2e, 0x1        	INCF	r0x1034,F
-00030e   2add     goto    0x02dd           	GOTO	_00203_DS_
+                                           ;	.line	195; "main.c"	void dec_to_ascii(unsigned short dec)
+000195   1283     bcf     0x03, 0x5        	BANKSEL	r0x1037
+000196   1303     bcf     0x03, 0x6        
+000197   00ad     movwf   0x2d             	MOVWF	r0x1037
+000198   087f     movf    0x7f, 0x0        	MOVF	STK00,W
+000199   00ac     movwf   0x2c             	MOVWF	r0x1038
+                                           ;	.line	200; "main.c"	for (i=0 ; dec!=0; i++)
+00019a   1283     bcf     0x03, 0x5        	BANKSEL	_dec_to_ascii_i_1_22
+00019b   1303     bcf     0x03, 0x6        
+00019c   01c2     clrf    0x42             	CLRF	_dec_to_ascii_i_1_22
                                            _00205_DS_:
-00030f   0008     return                   	RETURN	
+00019d   1283     bcf     0x03, 0x5        	BANKSEL	r0x1038
+00019e   1303     bcf     0x03, 0x6        
+00019f   082c     movf    0x2c, 0x0        	MOVF	r0x1038,W
+0001a0   042d     iorwf   0x2d, 0x0        	IORWF	r0x1037,W
+0001a1   1903     btfsc   0x03, 0x2        	BTFSC	STATUS,2
+0001a2   2a08     goto    0x0208           	GOTO	_00201_DS_
+                                           ;	.line	202; "main.c"	number[i]=(dec % 10);
+0001a3   1283     bcf     0x03, 0x5        	BANKSEL	_dec_to_ascii_i_1_22
+0001a4   1303     bcf     0x03, 0x6        
+0001a5   0842     movf    0x42, 0x0        	MOVF	_dec_to_ascii_i_1_22,W
+0001a6   3e43     addlw   0x43             	ADDLW	(_dec_to_ascii_number_1_22 + 0)
+0001a7   1283     bcf     0x03, 0x5        	BANKSEL	r0x1039
+0001a8   1303     bcf     0x03, 0x6        
+0001a9   00ae     movwf   0x2e             	MOVWF	r0x1039
+0001aa   3000     movlw   0x00             	MOVLW	high (_dec_to_ascii_number_1_22 + 0)
+0001ab   1803     btfsc   0x03, 0x0        	BTFSC	STATUS,0
+0001ac   3e01     addlw   0x01             	ADDLW	0x01
+0001ad   00af     movwf   0x2f             	MOVWF	r0x103A
+0001ae   300a     movlw   0x0a             	MOVLW	0x0a
+0001af   00fd     movwf   0x7d             	MOVWF	STK02
+0001b0   3000     movlw   0x00             	MOVLW	0x00
+0001b1   00fe     movwf   0x7e             	MOVWF	STK01
+0001b2   082c     movf    0x2c, 0x0        	MOVF	r0x1038,W
+0001b3   00ff     movwf   0x7f             	MOVWF	STK00
+0001b4   082d     movf    0x2d, 0x0        	MOVF	r0x1037,W
+0001b5   118a     bcf     0x0a, 0x3        	PAGESEL	__moduint
+0001b6   236c     call    0x036c           	CALL	__moduint
+0001b7   118a     bcf     0x0a, 0x3        	PAGESEL	$
+                                           ;;1	MOVWF	r0x103B
+0001b8   087f     movf    0x7f, 0x0        	MOVF	STK00,W
+0001b9   1283     bcf     0x03, 0x5        	BANKSEL	r0x103C
+0001ba   1303     bcf     0x03, 0x6        
+0001bb   00b0     movwf   0x30             	MOVWF	r0x103C
+0001bc   00b1     movwf   0x31             	MOVWF	r0x103D
+0001bd   082e     movf    0x2e, 0x0        	MOVF	r0x1039,W
+0001be   1283     bcf     0x03, 0x5        	BANKSEL	FSR
+0001bf   1303     bcf     0x03, 0x6        
+0001c0   0084     movwf   0x04             	MOVWF	FSR
+0001c1   1383     bcf     0x03, 0x7        	BCF	STATUS,7
+0001c2   1283     bcf     0x03, 0x5        	BANKSEL	r0x103A
+0001c3   1303     bcf     0x03, 0x6        
+0001c4   182f     btfsc   0x2f, 0x0        	BTFSC	r0x103A,0
+0001c5   1783     bsf     0x03, 0x7        	BSF	STATUS,7
+0001c6   0831     movf    0x31, 0x0        	MOVF	r0x103D,W
+0001c7   1283     bcf     0x03, 0x5        	BANKSEL	INDF
+0001c8   1303     bcf     0x03, 0x6        
+0001c9   0080     movwf   0x00             	MOVWF	INDF
+                                           ;	.line	203; "main.c"	dec /=10;
+0001ca   300a     movlw   0x0a             	MOVLW	0x0a
+0001cb   00fd     movwf   0x7d             	MOVWF	STK02
+0001cc   3000     movlw   0x00             	MOVLW	0x00
+0001cd   00fe     movwf   0x7e             	MOVWF	STK01
+0001ce   1283     bcf     0x03, 0x5        	BANKSEL	r0x1038
+0001cf   1303     bcf     0x03, 0x6        
+0001d0   082c     movf    0x2c, 0x0        	MOVF	r0x1038,W
+0001d1   00ff     movwf   0x7f             	MOVWF	STK00
+0001d2   082d     movf    0x2d, 0x0        	MOVF	r0x1037,W
+0001d3   118a     bcf     0x0a, 0x3        	PAGESEL	__divuint
+0001d4   22d1     call    0x02d1           	CALL	__divuint
+0001d5   118a     bcf     0x0a, 0x3        	PAGESEL	$
+0001d6   1283     bcf     0x03, 0x5        	BANKSEL	r0x1037
+0001d7   1303     bcf     0x03, 0x6        
+0001d8   00ad     movwf   0x2d             	MOVWF	r0x1037
+0001d9   087f     movf    0x7f, 0x0        	MOVF	STK00,W
+0001da   00ac     movwf   0x2c             	MOVWF	r0x1038
+                                           ;	.line	204; "main.c"	number[i] +=48;
+0001db   1283     bcf     0x03, 0x5        	BANKSEL	_dec_to_ascii_i_1_22
+0001dc   1303     bcf     0x03, 0x6        
+0001dd   0842     movf    0x42, 0x0        	MOVF	_dec_to_ascii_i_1_22,W
+0001de   3e43     addlw   0x43             	ADDLW	(_dec_to_ascii_number_1_22 + 0)
+0001df   1283     bcf     0x03, 0x5        	BANKSEL	r0x1039
+0001e0   1303     bcf     0x03, 0x6        
+0001e1   00ae     movwf   0x2e             	MOVWF	r0x1039
+0001e2   3000     movlw   0x00             	MOVLW	high (_dec_to_ascii_number_1_22 + 0)
+0001e3   1803     btfsc   0x03, 0x0        	BTFSC	STATUS,0
+0001e4   3e01     addlw   0x01             	ADDLW	0x01
+0001e5   00af     movwf   0x2f             	MOVWF	r0x103A
+0001e6   082e     movf    0x2e, 0x0        	MOVF	r0x1039,W
+0001e7   1283     bcf     0x03, 0x5        	BANKSEL	FSR
+0001e8   1303     bcf     0x03, 0x6        
+0001e9   0084     movwf   0x04             	MOVWF	FSR
+0001ea   1383     bcf     0x03, 0x7        	BCF	STATUS,7
+0001eb   1283     bcf     0x03, 0x5        	BANKSEL	r0x103A
+0001ec   1303     bcf     0x03, 0x6        
+0001ed   182f     btfsc   0x2f, 0x0        	BTFSC	r0x103A,0
+0001ee   1783     bsf     0x03, 0x7        	BSF	STATUS,7
+0001ef   1283     bcf     0x03, 0x5        	BANKSEL	INDF
+0001f0   1303     bcf     0x03, 0x6        
+0001f1   0800     movf    0x00, 0x0        	MOVF	INDF,W
+0001f2   1283     bcf     0x03, 0x5        	BANKSEL	r0x103C
+0001f3   1303     bcf     0x03, 0x6        
+0001f4   00b0     movwf   0x30             	MOVWF	r0x103C
+0001f5   3030     movlw   0x30             	MOVLW	0x30
+0001f6   07b0     addwf   0x30, 0x1        	ADDWF	r0x103C,F
+0001f7   082e     movf    0x2e, 0x0        	MOVF	r0x1039,W
+0001f8   1283     bcf     0x03, 0x5        	BANKSEL	FSR
+0001f9   1303     bcf     0x03, 0x6        
+0001fa   0084     movwf   0x04             	MOVWF	FSR
+0001fb   1383     bcf     0x03, 0x7        	BCF	STATUS,7
+0001fc   1283     bcf     0x03, 0x5        	BANKSEL	r0x103A
+0001fd   1303     bcf     0x03, 0x6        
+0001fe   182f     btfsc   0x2f, 0x0        	BTFSC	r0x103A,0
+0001ff   1783     bsf     0x03, 0x7        	BSF	STATUS,7
+000200   0830     movf    0x30, 0x0        	MOVF	r0x103C,W
+000201   1283     bcf     0x03, 0x5        	BANKSEL	INDF
+000202   1303     bcf     0x03, 0x6        
+000203   0080     movwf   0x00             	MOVWF	INDF
+                                           ;	.line	200; "main.c"	for (i=0 ; dec!=0; i++)
+000204   1283     bcf     0x03, 0x5        	BANKSEL	_dec_to_ascii_i_1_22
+000205   1303     bcf     0x03, 0x6        
+000206   0ac2     incf    0x42, 0x1        	INCF	_dec_to_ascii_i_1_22,F
+000207   299d     goto    0x019d           	GOTO	_00205_DS_
+                                           _00201_DS_:
+                                           ;	.line	206; "main.c"	while (i--)
+000208   1283     bcf     0x03, 0x5        	BANKSEL	_dec_to_ascii_i_1_22
+000209   1303     bcf     0x03, 0x6        
+00020a   0842     movf    0x42, 0x0        	MOVF	_dec_to_ascii_i_1_22,W
+00020b   1283     bcf     0x03, 0x5        	BANKSEL	r0x1038
+00020c   1303     bcf     0x03, 0x6        
+00020d   00ac     movwf   0x2c             	MOVWF	r0x1038
+00020e   1283     bcf     0x03, 0x5        	BANKSEL	_dec_to_ascii_i_1_22
+00020f   1303     bcf     0x03, 0x6        
+000210   03c2     decf    0x42, 0x1        	DECF	_dec_to_ascii_i_1_22,F
+000211   1283     bcf     0x03, 0x5        	BANKSEL	r0x1038
+000212   1303     bcf     0x03, 0x6        
+000213   082c     movf    0x2c, 0x0        	MOVF	r0x1038,W
+000214   1903     btfsc   0x03, 0x2        	BTFSC	STATUS,2
+000215   2a34     goto    0x0234           	GOTO	_00207_DS_
+                                           ;	.line	208; "main.c"	circBufPush(number[i]);	// Add a character to the output buffer
+000216   1283     bcf     0x03, 0x5        	BANKSEL	_dec_to_ascii_i_1_22
+000217   1303     bcf     0x03, 0x6        
+000218   0842     movf    0x42, 0x0        	MOVF	_dec_to_ascii_i_1_22,W
+000219   3e43     addlw   0x43             	ADDLW	(_dec_to_ascii_number_1_22 + 0)
+00021a   1283     bcf     0x03, 0x5        	BANKSEL	r0x1038
+00021b   1303     bcf     0x03, 0x6        
+00021c   00ac     movwf   0x2c             	MOVWF	r0x1038
+00021d   3000     movlw   0x00             	MOVLW	high (_dec_to_ascii_number_1_22 + 0)
+00021e   1803     btfsc   0x03, 0x0        	BTFSC	STATUS,0
+00021f   3e01     addlw   0x01             	ADDLW	0x01
+000220   00ad     movwf   0x2d             	MOVWF	r0x1037
+000221   082c     movf    0x2c, 0x0        	MOVF	r0x1038,W
+000222   1283     bcf     0x03, 0x5        	BANKSEL	FSR
+000223   1303     bcf     0x03, 0x6        
+000224   0084     movwf   0x04             	MOVWF	FSR
+000225   1383     bcf     0x03, 0x7        	BCF	STATUS,7
+000226   1283     bcf     0x03, 0x5        	BANKSEL	r0x1037
+000227   1303     bcf     0x03, 0x6        
+000228   182d     btfsc   0x2d, 0x0        	BTFSC	r0x1037,0
+000229   1783     bsf     0x03, 0x7        	BSF	STATUS,7
+00022a   1283     bcf     0x03, 0x5        	BANKSEL	INDF
+00022b   1303     bcf     0x03, 0x6        
+00022c   0800     movf    0x00, 0x0        	MOVF	INDF,W
+00022d   1283     bcf     0x03, 0x5        	BANKSEL	r0x1039
+00022e   1303     bcf     0x03, 0x6        
+00022f   00ae     movwf   0x2e             	MOVWF	r0x1039
+000230   118a     bcf     0x0a, 0x3        	PAGESEL	_circBufPush
+000231   2320     call    0x0320           	CALL	_circBufPush
+000232   118a     bcf     0x0a, 0x3        	PAGESEL	$
+000233   2a08     goto    0x0208           	GOTO	_00201_DS_
+                                           _00207_DS_:
+000234   0008     return                   	RETURN	
                                            ; exit point of _dec_to_ascii
                                            
                                            ;***
@@ -1176,112 +1354,112 @@ Address  Value    Disassembly              Source
                                            ;   _SP_send_error
                                            ;   _SP_send_error
                                            ;7 compiler assigned registers:
-                                           ;   r0x1025
-                                           ;   r0x1026
-                                           ;   r0x1027
-                                           ;   r0x1028
-                                           ;   r0x1029
+                                           ;   r0x102A
+                                           ;   r0x102B
+                                           ;   r0x102C
+                                           ;   r0x102D
+                                           ;   r0x102E
                                            ;   STK01
                                            ;   STK00
                                            ;; Starting pCode block
                                            S_main__circBufPush	code
                                            _circBufPush:
                                            ; 2 exit points
-                                           ;	.line	162; "main.c"	int circBufPush(uint8_t data){
-000248   1283     bcf     0x03, 0x5        	BANKSEL	r0x1025
-000249   1303     bcf     0x03, 0x6        
-00024a   00a7     movwf   0x27             	MOVWF	r0x1025
-                                           ;	.line	163; "main.c"	uint8_t next = buf_head + 1;
-00024b   1683     bsf     0x03, 0x5        	BANKSEL	_buf_head
-00024c   1303     bcf     0x03, 0x6        
-00024d   0a25     incf    0x25, 0x0        	INCF	_buf_head,W
-00024e   1283     bcf     0x03, 0x5        	BANKSEL	r0x1026
-00024f   1303     bcf     0x03, 0x6        
-000250   00a8     movwf   0x28             	MOVWF	r0x1026
+                                           ;	.line	166; "main.c"	int circBufPush(uint8_t data){
+000320   1283     bcf     0x03, 0x5        	BANKSEL	r0x102A
+000321   1303     bcf     0x03, 0x6        
+000322   00a7     movwf   0x27             	MOVWF	r0x102A
+                                           ;	.line	167; "main.c"	uint8_t next = buf_head + 1;
+000323   1683     bsf     0x03, 0x5        	BANKSEL	_buf_head
+000324   1303     bcf     0x03, 0x6        
+000325   0a2b     incf    0x2b, 0x0        	INCF	_buf_head,W
+000326   1283     bcf     0x03, 0x5        	BANKSEL	r0x102B
+000327   1303     bcf     0x03, 0x6        
+000328   00a8     movwf   0x28             	MOVWF	r0x102B
                                            ;;unsigned compare: left < lit(0x10=16), size=1
-                                           ;	.line	164; "main.c"	if (next >= BUF_SIZE)
-000251   3010     movlw   0x10             	MOVLW	0x10
-                                           ;	.line	165; "main.c"	next = 0;
-000252   0228     subwf   0x28, 0x0        	SUBWF	r0x1026,W
-                                           ;	.line	168; "main.c"	if (next == buf_tail){
-000253   1803     btfsc   0x03, 0x0        	BTFSC	STATUS,0
-000254   01a8     clrf    0x28             	CLRF	r0x1026
-000255   1683     bsf     0x03, 0x5        	BANKSEL	_buf_tail
-000256   1303     bcf     0x03, 0x6        
-000257   0826     movf    0x26, 0x0        	MOVF	_buf_tail,W
-000258   1283     bcf     0x03, 0x5        	BANKSEL	r0x1026
-000259   1303     bcf     0x03, 0x6        
-00025a   0628     xorwf   0x28, 0x0        	XORWF	r0x1026,W
-00025b   1d03     btfss   0x03, 0x2        	BTFSS	STATUS,2
-00025c   2a6f     goto    0x026f           	GOTO	_00194_DS_
-                                           ;	.line	169; "main.c"	SP_send_error(buf_err);
-00025d   3004     movlw   0x04             	MOVLW	high (_buf_err + 0)
-00025e   00aa     movwf   0x2a             	MOVWF	r0x1027
-00025f   3008     movlw   0x08             	MOVLW	(_buf_err + 0)
-000260   00a9     movwf   0x29             	MOVWF	r0x1028
-000261   3080     movlw   0x80             	MOVLW	0x80
-000262   00ab     movwf   0x2b             	MOVWF	r0x1029
-000263   0829     movf    0x29, 0x0        	MOVF	r0x1028,W
-000264   00fe     movwf   0x7e             	MOVWF	STK01
-000265   082a     movf    0x2a, 0x0        	MOVF	r0x1027,W
-000266   00ff     movwf   0x7f             	MOVWF	STK00
-000267   082b     movf    0x2b, 0x0        	MOVF	r0x1029,W
-000268   118a     bcf     0x0a, 0x3        	PAGESEL	_SP_send_error
-000269   2310     call    0x0310           	CALL	_SP_send_error
-00026a   118a     bcf     0x0a, 0x3        	PAGESEL	$
-                                           ;	.line	170; "main.c"	return -1;  // quit with an error
-00026b   30ff     movlw   0xff             	MOVLW	0xff
-00026c   00ff     movwf   0x7f             	MOVWF	STK00
-00026d   30ff     movlw   0xff             	MOVLW	0xff
-00026e   2a93     goto    0x0293           	GOTO	_00195_DS_
+                                           ;	.line	168; "main.c"	if (next >= BUF_SIZE)
+000329   3010     movlw   0x10             	MOVLW	0x10
+                                           ;	.line	169; "main.c"	next = 0;
+00032a   0228     subwf   0x28, 0x0        	SUBWF	r0x102B,W
+                                           ;	.line	172; "main.c"	if (next == buf_tail){
+00032b   1803     btfsc   0x03, 0x0        	BTFSC	STATUS,0
+00032c   01a8     clrf    0x28             	CLRF	r0x102B
+00032d   1683     bsf     0x03, 0x5        	BANKSEL	_buf_tail
+00032e   1303     bcf     0x03, 0x6        
+00032f   082c     movf    0x2c, 0x0        	MOVF	_buf_tail,W
+000330   1283     bcf     0x03, 0x5        	BANKSEL	r0x102B
+000331   1303     bcf     0x03, 0x6        
+000332   0628     xorwf   0x28, 0x0        	XORWF	r0x102B,W
+000333   1d03     btfss   0x03, 0x2        	BTFSS	STATUS,2
+000334   2b47     goto    0x0347           	GOTO	_00194_DS_
+                                           ;	.line	173; "main.c"	SP_send_error(buf_err);
+000335   3004     movlw   0x04             	MOVLW	high (_buf_err + 0)
+000336   00aa     movwf   0x2a             	MOVWF	r0x102C
+000337   30a7     movlw   0xa7             	MOVLW	(_buf_err + 0)
+000338   00a9     movwf   0x29             	MOVWF	r0x102D
+000339   3080     movlw   0x80             	MOVLW	0x80
+00033a   00ab     movwf   0x2b             	MOVWF	r0x102E
+00033b   0829     movf    0x29, 0x0        	MOVF	r0x102D,W
+00033c   00fe     movwf   0x7e             	MOVWF	STK01
+00033d   082a     movf    0x2a, 0x0        	MOVF	r0x102C,W
+00033e   00ff     movwf   0x7f             	MOVWF	STK00
+00033f   082b     movf    0x2b, 0x0        	MOVF	r0x102E,W
+000340   118a     bcf     0x0a, 0x3        	PAGESEL	_SP_send_error
+000341   23af     call    0x03af           	CALL	_SP_send_error
+000342   118a     bcf     0x0a, 0x3        	PAGESEL	$
+                                           ;	.line	174; "main.c"	return -1;  // quit with an error
+000343   30ff     movlw   0xff             	MOVLW	0xff
+000344   00ff     movwf   0x7f             	MOVWF	STK00
+000345   30ff     movlw   0xff             	MOVLW	0xff
+000346   2b6b     goto    0x036b           	GOTO	_00195_DS_
                                            _00194_DS_:
-                                           ;	.line	173; "main.c"	buf[buf_head] = data;
-00026f   1683     bsf     0x03, 0x5        	BANKSEL	_buf_head
-000270   1303     bcf     0x03, 0x6        
-000271   0825     movf    0x25, 0x0        	MOVF	_buf_head,W
-000272   3e40     addlw   0x40             	ADDLW	(_buf + 0)
-000273   1283     bcf     0x03, 0x5        	BANKSEL	r0x1028
-000274   1303     bcf     0x03, 0x6        
-000275   00a9     movwf   0x29             	MOVWF	r0x1028
-000276   3000     movlw   0x00             	MOVLW	high (_buf + 0)
-000277   1803     btfsc   0x03, 0x0        	BTFSC	STATUS,0
-000278   3e01     addlw   0x01             	ADDLW	0x01
-000279   00aa     movwf   0x2a             	MOVWF	r0x1027
-00027a   0829     movf    0x29, 0x0        	MOVF	r0x1028,W
-00027b   1283     bcf     0x03, 0x5        	BANKSEL	FSR
-00027c   1303     bcf     0x03, 0x6        
-00027d   0084     movwf   0x04             	MOVWF	FSR
-00027e   1383     bcf     0x03, 0x7        	BCF	STATUS,7
-00027f   1283     bcf     0x03, 0x5        	BANKSEL	r0x1027
-000280   1303     bcf     0x03, 0x6        
-000281   182a     btfsc   0x2a, 0x0        	BTFSC	r0x1027,0
-000282   1783     bsf     0x03, 0x7        	BSF	STATUS,7
-000283   0827     movf    0x27, 0x0        	MOVF	r0x1025,W
-000284   1283     bcf     0x03, 0x5        	BANKSEL	INDF
-000285   1303     bcf     0x03, 0x6        
-000286   0080     movwf   0x00             	MOVWF	INDF
-                                           ;	.line	174; "main.c"	buf_head = next;
-000287   1283     bcf     0x03, 0x5        	BANKSEL	r0x1026
-000288   1303     bcf     0x03, 0x6        
-000289   0828     movf    0x28, 0x0        	MOVF	r0x1026,W
-00028a   1683     bsf     0x03, 0x5        	BANKSEL	_buf_head
-00028b   1303     bcf     0x03, 0x6        
-00028c   00a5     movwf   0x25             	MOVWF	_buf_head
-                                           ;	.line	175; "main.c"	TXIE = 1;       //Enables the EUSART transmit interrupt
-00028d   1683     bsf     0x03, 0x5        	BANKSEL	_PIE1bits
-00028e   1303     bcf     0x03, 0x6        
-00028f   160c     bsf     0x0c, 0x4        	BSF	_PIE1bits,4
-                                           ;	.line	176; "main.c"	return 0;
-000290   3000     movlw   0x00             	MOVLW	0x00
-000291   00ff     movwf   0x7f             	MOVWF	STK00
-000292   3000     movlw   0x00             	MOVLW	0x00
+                                           ;	.line	177; "main.c"	buf[buf_head] = data;
+000347   1683     bsf     0x03, 0x5        	BANKSEL	_buf_head
+000348   1303     bcf     0x03, 0x6        
+000349   082b     movf    0x2b, 0x0        	MOVF	_buf_head,W
+00034a   3e47     addlw   0x47             	ADDLW	(_buf + 0)
+00034b   1283     bcf     0x03, 0x5        	BANKSEL	r0x102D
+00034c   1303     bcf     0x03, 0x6        
+00034d   00a9     movwf   0x29             	MOVWF	r0x102D
+00034e   3000     movlw   0x00             	MOVLW	high (_buf + 0)
+00034f   1803     btfsc   0x03, 0x0        	BTFSC	STATUS,0
+000350   3e01     addlw   0x01             	ADDLW	0x01
+000351   00aa     movwf   0x2a             	MOVWF	r0x102C
+000352   0829     movf    0x29, 0x0        	MOVF	r0x102D,W
+000353   1283     bcf     0x03, 0x5        	BANKSEL	FSR
+000354   1303     bcf     0x03, 0x6        
+000355   0084     movwf   0x04             	MOVWF	FSR
+000356   1383     bcf     0x03, 0x7        	BCF	STATUS,7
+000357   1283     bcf     0x03, 0x5        	BANKSEL	r0x102C
+000358   1303     bcf     0x03, 0x6        
+000359   182a     btfsc   0x2a, 0x0        	BTFSC	r0x102C,0
+00035a   1783     bsf     0x03, 0x7        	BSF	STATUS,7
+00035b   0827     movf    0x27, 0x0        	MOVF	r0x102A,W
+00035c   1283     bcf     0x03, 0x5        	BANKSEL	INDF
+00035d   1303     bcf     0x03, 0x6        
+00035e   0080     movwf   0x00             	MOVWF	INDF
+                                           ;	.line	178; "main.c"	buf_head = next;
+00035f   1283     bcf     0x03, 0x5        	BANKSEL	r0x102B
+000360   1303     bcf     0x03, 0x6        
+000361   0828     movf    0x28, 0x0        	MOVF	r0x102B,W
+000362   1683     bsf     0x03, 0x5        	BANKSEL	_buf_head
+000363   1303     bcf     0x03, 0x6        
+000364   00ab     movwf   0x2b             	MOVWF	_buf_head
+                                           ;	.line	179; "main.c"	TXIE = 1;       //Enables the EUSART transmit interrupt
+000365   1683     bsf     0x03, 0x5        	BANKSEL	_PIE1bits
+000366   1303     bcf     0x03, 0x6        
+000367   160c     bsf     0x0c, 0x4        	BSF	_PIE1bits,4
+                                           ;	.line	180; "main.c"	return 0;
+000368   3000     movlw   0x00             	MOVLW	0x00
+000369   00ff     movwf   0x7f             	MOVWF	STK00
+00036a   3000     movlw   0x00             	MOVLW	0x00
                                            _00195_DS_:
-000293   0008     return                   	RETURN	
+00036b   0008     return                   	RETURN	
                                            ; exit point of _circBufPush
                                            
                                            
                                            ;	code size estimation:
-                                           ;	  365+  118 =   483 instructions ( 1202 byte)
+                                           ;	  452+  158 =   610 instructions ( 1536 byte)
                                            
                                            	end
                                            ;--------------------------------------------------------
@@ -1479,83 +1657,83 @@ Address  Value    Disassembly              Source
                                            _init:
                                            ; 2 exit points
                                            ;	.line	8; "init.c"	ADC2_TRIS = 1;
-0003ab   1683     bsf     0x03, 0x5        	BANKSEL	_TRISAbits
-0003ac   1303     bcf     0x03, 0x6        
-0003ad   1505     bsf     0x05, 0x2        	BSF	_TRISAbits,2
+00044a   1683     bsf     0x03, 0x5        	BANKSEL	_TRISAbits
+00044b   1303     bcf     0x03, 0x6        
+00044c   1505     bsf     0x05, 0x2        	BSF	_TRISAbits,2
                                            ;	.line	9; "init.c"	ADC4_TRIS = 1;
-0003ae   1605     bsf     0x05, 0x4        	BSF	_TRISAbits,4
+00044d   1605     bsf     0x05, 0x4        	BSF	_TRISAbits,4
                                            ;	.line	11; "init.c"	RCIN_TRIS=1;            //Input
-0003af   1687     bsf     0x07, 0x5        	BSF	_TRISCbits,5
+00044e   1687     bsf     0x07, 0x5        	BSF	_TRISCbits,5
                                            ;	.line	13; "init.c"	TX_TRIS=0;               // These need to be 0 for USART to work
-0003b0   1386     bcf     0x06, 0x7        	BCF	_TRISBbits,7
+00044f   1386     bcf     0x06, 0x7        	BCF	_TRISBbits,7
                                            ;	.line	14; "init.c"	RX_TRIS=1;               // These need to be 1 for USART to work
-0003b1   1686     bsf     0x06, 0x5        	BSF	_TRISBbits,5
+000450   1686     bsf     0x06, 0x5        	BSF	_TRISBbits,5
                                            ;	.line	15; "init.c"	ADCON1=0x50;             //ADC Settings
-0003b2   3050     movlw   0x50             	MOVLW	0x50
-0003b3   009f     movwf   0x1f             	MOVWF	_ADCON1
+000451   3050     movlw   0x50             	MOVLW	0x50
+000452   009f     movwf   0x1f             	MOVWF	_ADCON1
                                            ;	.line	16; "init.c"	ANS11=0;                 // Turn off Analog input it necessary to function serial port RX
-0003b4   1283     bcf     0x03, 0x5        	BANKSEL	_ANSELHbits
-0003b5   1703     bsf     0x03, 0x6        
-0003b6   119f     bcf     0x1f, 0x3        	BCF	_ANSELHbits,3
+000453   1283     bcf     0x03, 0x5        	BANKSEL	_ANSELHbits
+000454   1703     bsf     0x03, 0x6        
+000455   119f     bcf     0x1f, 0x3        	BCF	_ANSELHbits,3
                                            ;	.line	17; "init.c"	ANS10=0;
-0003b7   111f     bcf     0x1f, 0x2        	BCF	_ANSELHbits,2
+000456   111f     bcf     0x1f, 0x2        	BCF	_ANSELHbits,2
                                            ;	.line	18; "init.c"	ANS7=0;
-0003b8   139e     bcf     0x1e, 0x7        	BCF	_ANSELbits,7
+000457   139e     bcf     0x1e, 0x7        	BCF	_ANSELbits,7
                                            ;	.line	19; "init.c"	ANS8=0;
-0003b9   101f     bcf     0x1f, 0x0        	BCF	_ANSELHbits,0
+000458   101f     bcf     0x1f, 0x0        	BCF	_ANSELHbits,0
                                            ;	.line	20; "init.c"	ANS9=0;
-0003ba   109f     bcf     0x1f, 0x1        	BCF	_ANSELHbits,1
+000459   109f     bcf     0x1f, 0x1        	BCF	_ANSELHbits,1
                                            ;	.line	21; "init.c"	ANS4=0;
-0003bb   121e     bcf     0x1e, 0x4        	BCF	_ANSELbits,4
+00045a   121e     bcf     0x1e, 0x4        	BCF	_ANSELbits,4
                                            ;	.line	22; "init.c"	ANS2=1;                      //Zapnuti Analogovych vstupu
-0003bc   151e     bsf     0x1e, 0x2        	BSF	_ANSELbits,2
+00045b   151e     bsf     0x1e, 0x2        	BSF	_ANSELbits,2
                                            ;	.line	23; "init.c"	ANS3=1;
-0003bd   159e     bsf     0x1e, 0x3        	BSF	_ANSELbits,3
+00045c   159e     bsf     0x1e, 0x3        	BSF	_ANSELbits,3
                                            ;	.line	26; "init.c"	SPBRG=8;                // Baud Rate
-0003be   3008     movlw   0x08             	MOVLW	0x08
-0003bf   1683     bsf     0x03, 0x5        	BANKSEL	_SPBRG
-0003c0   1303     bcf     0x03, 0x6        
-0003c1   0099     movwf   0x19             	MOVWF	_SPBRG
+00045d   3008     movlw   0x08             	MOVLW	0x08
+00045e   1683     bsf     0x03, 0x5        	BANKSEL	_SPBRG
+00045f   1303     bcf     0x03, 0x6        
+000460   0099     movwf   0x19             	MOVWF	_SPBRG
                                            ;	.line	27; "init.c"	BRGH=1;                 // 115.2k
-0003c2   1518     bsf     0x18, 0x2        	BSF	_TXSTAbits,2
+000461   1518     bsf     0x18, 0x2        	BSF	_TXSTAbits,2
                                            ;	.line	28; "init.c"	BRG16=1;
-0003c3   159b     bsf     0x1b, 0x3        	BSF	_BAUDCTLbits,3
+000462   159b     bsf     0x1b, 0x3        	BSF	_BAUDCTLbits,3
                                            ;	.line	30; "init.c"	TXEN=1;			// Enable transmission mode
-0003c4   1698     bsf     0x18, 0x5        	BSF	_TXSTAbits,5
+000463   1698     bsf     0x18, 0x5        	BSF	_TXSTAbits,5
                                            ;	.line	31; "init.c"	SYNC=0;			// Disable Synchronous/Enable Asynchronous
-0003c5   1218     bcf     0x18, 0x4        	BCF	_TXSTAbits,4
+000464   1218     bcf     0x18, 0x4        	BCF	_TXSTAbits,4
                                            ;	.line	32; "init.c"	SPEN=1;			// Enable serial port
-0003c6   1283     bcf     0x03, 0x5        	BANKSEL	_RCSTAbits
-0003c7   1303     bcf     0x03, 0x6        
-0003c8   1798     bsf     0x18, 0x7        	BSF	_RCSTAbits,7
+000465   1283     bcf     0x03, 0x5        	BANKSEL	_RCSTAbits
+000466   1303     bcf     0x03, 0x6        
+000467   1798     bsf     0x18, 0x7        	BSF	_RCSTAbits,7
                                            ;	.line	46; "init.c"	CCP1CON = 5; // Setup ENHANCED CAPTURE MODULE
-0003c9   3005     movlw   0x05             	MOVLW	0x05
-0003ca   0097     movwf   0x17             	MOVWF	_CCP1CON
-                                           ;	.line	47; "init.c"	CCP1IE = 0;     // ENHANCED CAPTURE MODULE Disabled
-0003cb   1683     bsf     0x03, 0x5        	BANKSEL	_PIE1bits
-0003cc   1303     bcf     0x03, 0x6        
-0003cd   110c     bcf     0x0c, 0x2        	BCF	_PIE1bits,2
+000468   3005     movlw   0x05             	MOVLW	0x05
+000469   0097     movwf   0x17             	MOVWF	_CCP1CON
+                                           ;	.line	47; "init.c"	CCP1IE = 0;     // ENHANCED CAPTURE MODULE Interrupt Disabled
+00046a   1683     bsf     0x03, 0x5        	BANKSEL	_PIE1bits
+00046b   1303     bcf     0x03, 0x6        
+00046c   110c     bcf     0x0c, 0x2        	BCF	_PIE1bits,2
                                            ;	.line	53; "init.c"	T1CON = 0;  // TIMER1 presccaler 1
-0003ce   1283     bcf     0x03, 0x5        	BANKSEL	_T1CON
-0003cf   1303     bcf     0x03, 0x6        
-0003d0   0190     clrf    0x10             	CLRF	_T1CON
+00046d   1283     bcf     0x03, 0x5        	BANKSEL	_T1CON
+00046e   1303     bcf     0x03, 0x6        
+00046f   0190     clrf    0x10             	CLRF	_T1CON
                                            ;	.line	55; "init.c"	PEIE = 1;       // Enable peripheral interrupts.
-0003d1   170b     bsf     0x0b, 0x6        	BSF	_INTCONbits,6
+000470   170b     bsf     0x0b, 0x6        	BSF	_INTCONbits,6
                                            ;	.line	56; "init.c"	GIE = 1;	// Enable all interrupts.
-0003d2   178b     bsf     0x0b, 0x7        	BSF	_INTCONbits,7
+000471   178b     bsf     0x0b, 0x7        	BSF	_INTCONbits,7
                                            ;	.line	59; "init.c"	TMR1H = 0;
-0003d3   018f     clrf    0x0f             	CLRF	_TMR1H
+000472   018f     clrf    0x0f             	CLRF	_TMR1H
                                            ;	.line	60; "init.c"	TMR1L = 0;
-0003d4   018e     clrf    0x0e             	CLRF	_TMR1L
+000473   018e     clrf    0x0e             	CLRF	_TMR1L
                                            ;	.line	61; "init.c"	CCP1IE = 1;
-0003d5   1683     bsf     0x03, 0x5        	BANKSEL	_PIE1bits
-0003d6   1303     bcf     0x03, 0x6        
-0003d7   150c     bsf     0x0c, 0x2        	BSF	_PIE1bits,2
+000474   1683     bsf     0x03, 0x5        	BANKSEL	_PIE1bits
+000475   1303     bcf     0x03, 0x6        
+000476   150c     bsf     0x0c, 0x2        	BSF	_PIE1bits,2
                                            ;	.line	62; "init.c"	TMR1ON = 1;
-0003d8   1283     bcf     0x03, 0x5        	BANKSEL	_T1CONbits
-0003d9   1303     bcf     0x03, 0x6        
-0003da   1410     bsf     0x10, 0x0        	BSF	_T1CONbits,0
-0003db   0008     return                   	RETURN	
+000477   1283     bcf     0x03, 0x5        	BANKSEL	_T1CONbits
+000478   1303     bcf     0x03, 0x6        
+000479   1410     bsf     0x10, 0x0        	BSF	_T1CONbits,0
+00047a   0008     return                   	RETURN	
                                            ; exit point of _init
                                            
                                            

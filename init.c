@@ -44,7 +44,7 @@ void init() {
 	//TMR0 = 0;	// Enable timer
     
     CCP1CON = 5; // Setup ENHANCED CAPTURE MODULE
-    CCP1IE = 0;     // ENHANCED CAPTURE MODULE Disabled
+    CCP1IE = 0;     // ENHANCED CAPTURE MODULE Interrupt Disabled
    /* T1CKPS = 0; //TIMER1 presccaler 1
     TMR1CS = 0; // Internal clock for TIMER1 
     T1SYNC = 0; // sync mode
@@ -60,5 +60,4 @@ void init() {
     TMR1L = 0;
     CCP1IE = 1;
     TMR1ON = 1;
-    
 }
