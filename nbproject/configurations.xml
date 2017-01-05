@@ -6,6 +6,8 @@
                    projectFiles="true">
       <itemPath>/usr/local/share/sdcc/non-free/include/pic14/pic16f690.h</itemPath>
       <itemPath>/usr/local/share/sdcc/include/stdint.h</itemPath>
+      <itemPath>init.h</itemPath>
+      <itemPath>main.h</itemPath>
     </logicalFolder>
     <logicalFolder name="LibraryFiles"
                    displayName="Library Files"
@@ -23,6 +25,8 @@
                    displayName="Source Files"
                    projectFiles="true">
       <itemPath>main.c</itemPath>
+      <itemPath>temp.c</itemPath>
+      <itemPath>init.c</itemPath>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"
@@ -196,6 +200,8 @@
         <property key="user-includes" value=""/>
         <property key="verbose" value="false"/>
       </sdcc-config>
+      <item path="temp.c" ex="true" overriding="false">
+      </item>
     </conf>
   </confs>
 </configurationDescriptor>

@@ -1,50 +1,51 @@
 gplink-1.4.0 #1107 (May  9 2015)
-Map File - Created 12-31-2016  17:03:19
+Map File - Created 1-5-2017  21:15:55
 
                                  Section Info
                   Section       Type    Address   Location Size(Bytes)
                 ---------  ---------  ---------  ---------  ---------
-              ID_main_0_i    romdata   0x000003    program   0x000002
-                   .cinit    romdata   0x0004b3    program   0x000070
-              ID_main_1_i    romdata   0x000578    program   0x000004
-              ID_main_2_i    romdata   0x00057a    program   0x000004
-              ID_main_3_i    romdata   0x00057c    program   0x000004
-              ID_main_4_i    romdata   0x00057e    program   0x000004
-              ID_main_5_i    romdata   0x000580    program   0x000004
-              ID_main_6_i    romdata   0x000582    program   0x000004
-              ID_main_7_i    romdata   0x000588    program   0x000002
-             ID_idata_0_i    romdata   0x000589    program   0x000002
+              ID_main_4_i    romdata   0x000003    program   0x000002
+                   .cinit    romdata   0x000379    program   0x000064
+              ID_main_0_i    romdata   0x000446    program   0x000004
+              ID_main_1_i    romdata   0x000448    program   0x000004
+              ID_main_2_i    romdata   0x00044a    program   0x000004
+              ID_main_3_i    romdata   0x00044c    program   0x000004
+              ID_main_5_i    romdata   0x000452    program   0x000002
+              ID_main_6_i    romdata   0x000453    program   0x000002
+             ID_idata_0_i    romdata   0x000454    program   0x000002
                   STARTUP       code   0x000000    program   0x000006
-              c_interrupt       code   0x000004    program   0x0001da
-             S_main__main       code   0x0000f1    program   0x000402
-S_idata___sdcc_gsinit_startup       code   0x0002f2    program   0x000138
-      S_main__circBufPush       code   0x00038e    program   0x0000b4
-     S__divuint___divuint       code   0x0003e8    program   0x00009e
-     S__moduint___moduint       code   0x000437    program   0x000086
-     S_main__dec_to_ascii       code   0x00047a    program   0x000072
-                    .code       code   0x0004eb    program   0x000068
-          S_main__SP_send       code   0x00051f    program   0x000058
-               ID_main_18       code   0x00054b    program   0x000012
-               ID_main_17       code   0x000554    program   0x00000c
-               ID_main_13       code   0x00055a    program   0x00000a
-               ID_main_14       code   0x00055f    program   0x00000a
-                ID_main_8       code   0x000564    program   0x000008
-                ID_main_9       code   0x000568    program   0x000008
-               ID_main_10       code   0x00056c    program   0x000008
-               ID_main_11       code   0x000570    program   0x000008
-               ID_main_12       code   0x000574    program   0x000008
-               ID_main_15       code   0x000584    program   0x000004
-               ID_main_16       code   0x000586    program   0x000004
+              c_interrupt       code   0x000004    program   0x00018e
+S_idata___sdcc_gsinit_startup       code   0x0000cb    program   0x000138
+             S_main__main       code   0x000167    program   0x000124
+     S__divuint___divuint       code   0x0001f9    program   0x00009e
+      S_main__circBufPush       code   0x000248    program   0x000098
+     S__moduint___moduint       code   0x000294    program   0x000086
+     S_main__dec_to_ascii       code   0x0002d7    program   0x000072
+    S_main__SP_send_error       code   0x000310    program   0x00006a
+                    .code       code   0x000345    program   0x000068
+             S_init__init       code   0x0003ab    program   0x000062
+          S_main__SP_send       code   0x0003dc    program   0x000058
+               ID_main_18       code   0x000408    program   0x000022
+               ID_main_17       code   0x000419    program   0x000012
+               ID_main_16       code   0x000422    program   0x00000c
+               ID_main_12       code   0x000428    program   0x00000a
+               ID_main_13       code   0x00042d    program   0x00000a
+                ID_main_7       code   0x000432    program   0x000008
+                ID_main_8       code   0x000436    program   0x000008
+                ID_main_9       code   0x00043a    program   0x000008
+               ID_main_10       code   0x00043e    program   0x000008
+               ID_main_11       code   0x000442    program   0x000008
+               ID_main_14       code   0x00044e    program   0x000004
+               ID_main_15       code   0x000450    program   0x000004
 .config_2007_BUILD/DEFAULT/DEBUG/MAIN.O       code   0x002007    program   0x000002
-                ID_main_1      idata   0x00005f       data   0x000002
-                ID_main_2      idata   0x000061       data   0x000002
-                ID_main_3      idata   0x000063       data   0x000002
-                ID_main_4      idata   0x000065       data   0x000002
-                ID_main_5      idata   0x000067       data   0x000002
-                ID_main_6      idata   0x000069       data   0x000002
-                ID_main_0      idata   0x00006b       data   0x000001
-                ID_main_7      idata   0x00006c       data   0x000001
-               ID_idata_0      idata   0x00006e       data   0x000001
+                ID_main_0      idata   0x00006b       data   0x000002
+                ID_main_1      idata   0x00006d       data   0x000002
+                ID_main_2      idata   0x0000a0       data   0x000002
+                ID_main_3      idata   0x0000a2       data   0x000002
+                ID_main_4      idata   0x0000a5       data   0x000001
+                ID_main_5      idata   0x0000a6       data   0x000001
+                ID_main_6      idata   0x0000a7       data   0x000001
+               ID_idata_0      idata   0x0000a9       data   0x000001
        UD_abs_pic16f690_0      udata   0x000000       data   0x000001
        UD_abs_pic16f690_1      udata   0x000001       data   0x000001
        UD_abs_pic16f690_2      udata   0x000002       data   0x000001
@@ -74,12 +75,11 @@ S_idata___sdcc_gsinit_startup       code   0x0002f2    program   0x000138
       UD_abs_pic16f690_1d      udata   0x00001d       data   0x000001
       UD_abs_pic16f690_1e      udata   0x00001e       data   0x000001
       UD_abs_pic16f690_1f      udata   0x00001f       data   0x000001
-               UDL_main_0      udata   0x000020       data   0x000014
-                UD_main_0      udata   0x000034       data   0x000010
-              UDL_idata_0      udata   0x000044       data   0x00000c
-           UDL__divuint_0      udata   0x000050       data   0x000009
-           UDL__moduint_0      udata   0x000059       data   0x000006
-          UD_shadowregs_0      udata   0x00006d       data   0x000001
+               UDL_main_0      udata   0x000020       data   0x000020
+                UD_main_1      udata   0x000040       data   0x000010
+              UDL_idata_0      udata   0x000050       data   0x00000c
+           UDL__divuint_0      udata   0x00005c       data   0x000009
+           UDL__moduint_0      udata   0x000065       data   0x000006
                 sharebank      udata   0x000070       data   0x000010
       UD_abs_pic16f690_81      udata   0x000081       data   0x000001
       UD_abs_pic16f690_85      udata   0x000085       data   0x000001
@@ -102,6 +102,8 @@ S_idata___sdcc_gsinit_startup       code   0x0002f2    program   0x000138
       UD_abs_pic16f690_9b      udata   0x00009b       data   0x000001
       UD_abs_pic16f690_9e      udata   0x00009e       data   0x000001
       UD_abs_pic16f690_9f      udata   0x00009f       data   0x000001
+                UD_main_0      udata   0x0000a4       data   0x000001
+          UD_shadowregs_0      udata   0x0000a8       data   0x000001
      UD_abs_pic16f690_10c      udata   0x00010c       data   0x000001
      UD_abs_pic16f690_10d      udata   0x00010d       data   0x000001
      UD_abs_pic16f690_10e      udata   0x00010e       data   0x000001
@@ -124,46 +126,48 @@ S_idata___sdcc_gsinit_startup       code   0x0002f2    program   0x000138
                               Program Memory Usage
                                Start         End
                            ---------   ---------
+                            0x000446    0x000447
+                            0x000448    0x000449
+                            0x00044a    0x00044b
+                            0x00044c    0x00044d
                             0x000003    0x000003
-                            0x000578    0x000579
-                            0x00057a    0x00057b
-                            0x00057c    0x00057d
-                            0x00057e    0x00057f
-                            0x000580    0x000581
-                            0x000582    0x000583
-                            0x000588    0x000588
-                            0x000564    0x000567
-                            0x000568    0x00056b
-                            0x00056c    0x00056f
-                            0x000570    0x000573
-                            0x000574    0x000577
-                            0x00055a    0x00055e
-                            0x00055f    0x000563
-                            0x000584    0x000585
-                            0x000586    0x000587
-                            0x000554    0x000559
-                            0x00054b    0x000553
+                            0x000452    0x000452
+                            0x000453    0x000453
+                            0x000432    0x000435
+                            0x000436    0x000439
+                            0x00043a    0x00043d
+                            0x00043e    0x000441
+                            0x000442    0x000445
+                            0x000428    0x00042c
+                            0x00042d    0x000431
+                            0x00044e    0x00044f
+                            0x000450    0x000451
+                            0x000422    0x000427
+                            0x000419    0x000421
+                            0x000408    0x000418
                             0x000000    0x000002
-                            0x000004    0x0000f0
-                            0x0000f1    0x0002f1
-                            0x00051f    0x00054a
-                            0x00047a    0x0004b2
-                            0x00038e    0x0003e7
+                            0x000004    0x0000ca
+                            0x000167    0x0001f8
+                            0x000310    0x000344
+                            0x0003dc    0x000407
+                            0x0002d7    0x00030f
+                            0x000248    0x000293
                             0x002007    0x002007
-                            0x0004eb    0x00051e
-                            0x0003e8    0x000436
-                            0x000589    0x000589
-                            0x0002f2    0x00038d
-                            0x000437    0x000479
-                            0x0004b3    0x0004ea
-                            1419 program addresses used
+                            0x0003ab    0x0003db
+                            0x000345    0x000378
+                            0x0001f9    0x000247
+                            0x000454    0x000454
+                            0x0000cb    0x000166
+                            0x000294    0x0002d6
+                            0x000379    0x0003aa
+                            1110 program addresses used
 
 
 
                               Symbols - Sorted by Name
                      Name    Address   Location    Storage File
                 ---------  ---------  ---------  --------- ---------
-         END_OF_INTERRUPT   0x0000f0    program     static build/default/debug/main.asm
+         END_OF_INTERRUPT   0x0000ca    program     static build/default/debug/main.asm
                     PSAVE   0x000070       data     extern build/default/debug/main.asm
                     SSAVE   0x000071       data     extern build/default/debug/main.asm
                     STK00   0x00007f       data     extern build/default/debug/main.asm
@@ -180,66 +184,49 @@ S_idata___sdcc_gsinit_startup       code   0x0002f2    program   0x000138
                     STK11   0x000074       data     extern build/default/debug/main.asm
                     STK12   0x000073       data     extern build/default/debug/main.asm
                     WSAVE   0x000072       data     extern build/default/debug/main.asm
-               _00001_DS_   0x0003c6    program     static build/default/debug/main.asm
-               _00002_DS_   0x00003a    program     static build/default/debug/main.asm
-               _00105_DS_   0x000352    program     static ../libsdcc_a-idata.asm
-               _00106_DS_   0x000074    program     static build/default/debug/main.asm
-               _00107_DS_   0x0003fe    program     static ../libsdcc_a-_divuint.asm
-               _00107_DS_   0x000383    program     static ../libsdcc_a-idata.asm
-               _00107_DS_   0x00044b    program     static ../libsdcc_a-_moduint.asm
-               _00108_DS_   0x000027    program     static build/default/debug/main.asm
-               _00108_DS_   0x000305    program     static ../libsdcc_a-idata.asm
-               _00110_DS_   0x00038a    program     static ../libsdcc_a-idata.asm
-               _00111_DS_   0x000080    program     static build/default/debug/main.asm
-               _00111_DS_   0x000428    program     static ../libsdcc_a-_divuint.asm
-               _00111_DS_   0x00046d    program     static ../libsdcc_a-_moduint.asm
-               _00112_DS_   0x00040c    program     static ../libsdcc_a-_divuint.asm
-               _00112_DS_   0x000457    program     static ../libsdcc_a-_moduint.asm
-               _00113_DS_   0x0000ab    program     static build/default/debug/main.asm
-               _00114_DS_   0x0000c6    program     static build/default/debug/main.asm
-               _00114_DS_   0x000431    program     static ../libsdcc_a-_divuint.asm
-               _00114_DS_   0x000474    program     static ../libsdcc_a-_moduint.asm
-               _00115_DS_   0x000436    program     static ../libsdcc_a-_divuint.asm
-               _00115_DS_   0x000479    program     static ../libsdcc_a-_moduint.asm
-               _00116_DS_   0x0000cc    program     static build/default/debug/main.asm
-               _00119_DS_   0x0000e3    program     static build/default/debug/main.asm
-               _00119_DS_   0x000447    program     static ../libsdcc_a-_moduint.asm
-               _00135_DS_   0x000418    program     static ../libsdcc_a-_divuint.asm
-               _00137_DS_   0x000463    program     static ../libsdcc_a-_moduint.asm
-               _00139_DS_   0x00006e    program     static build/default/debug/main.asm
-               _00147_DS_   0x0003b3    program     static build/default/debug/main.asm
-               _00148_DS_   0x0003e7    program     static build/default/debug/main.asm
-               _00155_DS_   0x000489    program     static build/default/debug/main.asm
-               _00156_DS_   0x000480    program     static build/default/debug/main.asm
-               _00158_DS_   0x0004b2    program     static build/default/debug/main.asm
-               _00165_DS_   0x000527    program     static build/default/debug/main.asm
-               _00167_DS_   0x00054a    program     static build/default/debug/main.asm
-               _00173_DS_   0x000173    program     static build/default/debug/main.asm
-               _00178_DS_   0x00023e    program     static build/default/debug/main.asm
-               _00183_DS_   0x000281    program     static build/default/debug/main.asm
-               _00193_DS_   0x0002c4    program     static build/default/debug/main.asm
-               _00198_DS_   0x0002e7    program     static build/default/debug/main.asm
-               _00202_DS_   0x000135    program     static build/default/debug/main.asm
-               _00275_DS_   0x000143    program     static build/default/debug/main.asm
-               _00276_DS_   0x00014d    program     static build/default/debug/main.asm
-               _00277_DS_   0x000157    program     static build/default/debug/main.asm
-               _00278_DS_   0x000161    program     static build/default/debug/main.asm
-               _00279_DS_   0x00017b    program     static build/default/debug/main.asm
-               _00280_DS_   0x000185    program     static build/default/debug/main.asm
-               _00281_DS_   0x00018f    program     static build/default/debug/main.asm
-               _00282_DS_   0x000199    program     static build/default/debug/main.asm
-               _00283_DS_   0x000203    program     static build/default/debug/main.asm
-               _00284_DS_   0x00020d    program     static build/default/debug/main.asm
-               _00285_DS_   0x000217    program     static build/default/debug/main.asm
-               _00286_DS_   0x000221    program     static build/default/debug/main.asm
-               _00287_DS_   0x000246    program     static build/default/debug/main.asm
-               _00288_DS_   0x000250    program     static build/default/debug/main.asm
-               _00289_DS_   0x00025a    program     static build/default/debug/main.asm
-               _00290_DS_   0x000264    program     static build/default/debug/main.asm
-               _00291_DS_   0x000289    program     static build/default/debug/main.asm
-               _00292_DS_   0x000293    program     static build/default/debug/main.asm
-               _00293_DS_   0x00029d    program     static build/default/debug/main.asm
-               _00294_DS_   0x0002a7    program     static build/default/debug/main.asm
+               _00105_DS_   0x00012b    program     static ../libsdcc_a-idata.asm
+               _00106_DS_   0x00005d    program     static build/default/debug/main.asm
+               _00107_DS_   0x00020f    program     static ../libsdcc_a-_divuint.asm
+               _00107_DS_   0x00015c    program     static ../libsdcc_a-idata.asm
+               _00107_DS_   0x0002a8    program     static ../libsdcc_a-_moduint.asm
+               _00108_DS_   0x00001f    program     static build/default/debug/main.asm
+               _00108_DS_   0x0000de    program     static ../libsdcc_a-idata.asm
+               _00110_DS_   0x000163    program     static ../libsdcc_a-idata.asm
+               _00111_DS_   0x000063    program     static build/default/debug/main.asm
+               _00111_DS_   0x000239    program     static ../libsdcc_a-_divuint.asm
+               _00111_DS_   0x0002ca    program     static ../libsdcc_a-_moduint.asm
+               _00112_DS_   0x00021d    program     static ../libsdcc_a-_divuint.asm
+               _00112_DS_   0x0002b4    program     static ../libsdcc_a-_moduint.asm
+               _00113_DS_   0x000088    program     static build/default/debug/main.asm
+               _00114_DS_   0x0000a3    program     static build/default/debug/main.asm
+               _00114_DS_   0x000242    program     static ../libsdcc_a-_divuint.asm
+               _00114_DS_   0x0002d1    program     static ../libsdcc_a-_moduint.asm
+               _00115_DS_   0x000247    program     static ../libsdcc_a-_divuint.asm
+               _00115_DS_   0x0002d6    program     static ../libsdcc_a-_moduint.asm
+               _00116_DS_   0x0000a6    program     static build/default/debug/main.asm
+               _00119_DS_   0x0000bd    program     static build/default/debug/main.asm
+               _00119_DS_   0x0002a4    program     static ../libsdcc_a-_moduint.asm
+               _00135_DS_   0x000229    program     static ../libsdcc_a-_divuint.asm
+               _00137_DS_   0x0002c0    program     static ../libsdcc_a-_moduint.asm
+               _00139_DS_   0x000057    program     static build/default/debug/main.asm
+               _00145_DS_   0x00019c    program     static build/default/debug/main.asm
+               _00150_DS_   0x0001d9    program     static build/default/debug/main.asm
+               _00153_DS_   0x0001f4    program     static build/default/debug/main.asm
+               _00155_DS_   0x00016d    program     static build/default/debug/main.asm
+               _00183_DS_   0x000179    program     static build/default/debug/main.asm
+               _00184_DS_   0x000183    program     static build/default/debug/main.asm
+               _00185_DS_   0x00018d    program     static build/default/debug/main.asm
+               _00186_DS_   0x000197    program     static build/default/debug/main.asm
+               _00194_DS_   0x00026f    program     static build/default/debug/main.asm
+               _00195_DS_   0x000293    program     static build/default/debug/main.asm
+               _00202_DS_   0x0002e6    program     static build/default/debug/main.asm
+               _00203_DS_   0x0002dd    program     static build/default/debug/main.asm
+               _00205_DS_   0x00030f    program     static build/default/debug/main.asm
+               _00212_DS_   0x0003e4    program     static build/default/debug/main.asm
+               _00214_DS_   0x000407    program     static build/default/debug/main.asm
+               _00219_DS_   0x00033c    program     static build/default/debug/main.asm
+               _00224_DS_   0x00031d    program     static build/default/debug/main.asm
+               _00226_DS_   0x000344    program     static build/default/debug/main.asm
                   _ADCON0   0x00001f       data     extern pic16f690.asm
               _ADCON0bits   0x00001f       data     extern pic16f690.asm
                   _ADCON1   0x00009f       data     extern pic16f690.asm
@@ -321,7 +308,8 @@ S_idata___sdcc_gsinit_startup       code   0x0002f2    program   0x000138
                   _SPBRGH   0x00009a       data     extern pic16f690.asm
               _SPBRGHbits   0x00009a       data     extern pic16f690.asm
                _SPBRGbits   0x000099       data     extern pic16f690.asm
-                 _SP_send   0x00051f    program     extern build/default/debug/main.asm
+                 _SP_send   0x0003dc    program     extern build/default/debug/main.asm
+           _SP_send_error   0x000310    program     extern build/default/debug/main.asm
                    _SRCON   0x00019e       data     extern pic16f690.asm
                _SRCONbits   0x00019e       data     extern pic16f690.asm
                   _SSPADD   0x000093       data     extern pic16f690.asm
@@ -334,28 +322,23 @@ S_idata___sdcc_gsinit_startup       code   0x0002f2    program   0x000138
              _SSPSTATbits   0x000094       data     extern pic16f690.asm
                   _STATUS   0x000003       data     extern pic16f690.asm
               _STATUSbits   0x000003       data     extern pic16f690.asm
-_S_idata___sdcc_gsinit_startup_0008   0x0002fa    program     static ../libsdcc_a-idata.asm
-_S_idata___sdcc_gsinit_startup_0030   0x000322    program     static ../libsdcc_a-idata.asm
-_S_idata___sdcc_gsinit_startup_003F   0x000331    program     static ../libsdcc_a-idata.asm
-_S_idata___sdcc_gsinit_startup_0057   0x000349    program     static ../libsdcc_a-idata.asm
-_S_idata___sdcc_gsinit_startup_0076   0x000368    program     static ../libsdcc_a-idata.asm
-    _S_main__SP_send_001C   0x00053b    program     static build/default/debug/main.asm
-    _S_main__SP_send_0026   0x000545    program     static build/default/debug/main.asm
-_S_main__dec_to_ascii_001A   0x000494    program     static build/default/debug/main.asm
-_S_main__dec_to_ascii_0028   0x0004a2    program     static build/default/debug/main.asm
-_S_main__dec_to_ascii_0033   0x0004ad    program     static build/default/debug/main.asm
-       _S_main__main_0081   0x000172    program     static build/default/debug/main.asm
-       _S_main__main_00B1   0x0001a2    program     static build/default/debug/main.asm
-       _S_main__main_00C1   0x0001b2    program     static build/default/debug/main.asm
-       _S_main__main_00C9   0x0001ba    program     static build/default/debug/main.asm
-       _S_main__main_00D9   0x0001ca    program     static build/default/debug/main.asm
-       _S_main__main_00E1   0x0001d2    program     static build/default/debug/main.asm
-       _S_main__main_00F1   0x0001e2    program     static build/default/debug/main.asm
-       _S_main__main_00F9   0x0001ea    program     static build/default/debug/main.asm
-       _S_main__main_0109   0x0001fa    program     static build/default/debug/main.asm
-       _S_main__main_0141   0x000232    program     static build/default/debug/main.asm
-       _S_main__main_0184   0x000275    program     static build/default/debug/main.asm
-       _S_main__main_01C7   0x0002b8    program     static build/default/debug/main.asm
+_S_idata___sdcc_gsinit_startup_0008   0x0000d3    program     static ../libsdcc_a-idata.asm
+_S_idata___sdcc_gsinit_startup_0030   0x0000fb    program     static ../libsdcc_a-idata.asm
+_S_idata___sdcc_gsinit_startup_003F   0x00010a    program     static ../libsdcc_a-idata.asm
+_S_idata___sdcc_gsinit_startup_0057   0x000122    program     static ../libsdcc_a-idata.asm
+_S_idata___sdcc_gsinit_startup_0076   0x000141    program     static ../libsdcc_a-idata.asm
+    _S_main__SP_send_001C   0x0003f8    program     static build/default/debug/main.asm
+    _S_main__SP_send_0026   0x000402    program     static build/default/debug/main.asm
+_S_main__SP_send_error_0021   0x000331    program     static build/default/debug/main.asm
+_S_main__circBufPush_0022   0x00026a    program     static build/default/debug/main.asm
+_S_main__dec_to_ascii_001A   0x0002f1    program     static build/default/debug/main.asm
+_S_main__dec_to_ascii_0028   0x0002ff    program     static build/default/debug/main.asm
+_S_main__dec_to_ascii_0033   0x00030a    program     static build/default/debug/main.asm
+       _S_main__main_0002   0x000169    program     static build/default/debug/main.asm
+       _S_main__main_0046   0x0001ad    program     static build/default/debug/main.asm
+       _S_main__main_0056   0x0001bd    program     static build/default/debug/main.asm
+       _S_main__main_005E   0x0001c5    program     static build/default/debug/main.asm
+       _S_main__main_006E   0x0001d5    program     static build/default/debug/main.asm
                    _T1CON   0x000010       data     extern pic16f690.asm
                _T1CONbits   0x000010       data     extern pic16f690.asm
                    _T2CON   0x000012       data     extern pic16f690.asm
@@ -384,92 +367,106 @@ _S_main__dec_to_ascii_0033   0x0004ad    program     static build/default/debug/
                     _WPUB   0x000115       data     extern pic16f690.asm
                 _WPUBbits   0x000115       data     extern pic16f690.asm
                  _WPUbits   0x000095       data     extern pic16f690.asm
-        ___sdcc_saved_fsr   0x00006d       data     extern libsdcc_a-shadowregs.asm
-            __codeptrget1   0x0004f9    program     extern _gptrget1.S
-            __codeptrget2   0x000510    program     static _gptrget2.S
-            __dataptrget1   0x0004f2    program     static _gptrget1.S
-            __dataptrget2   0x000506    program     static _gptrget2.S
-                __divuint   0x0003e8    program     extern ../libsdcc_a-_divuint.asm
-                __gptrget   0x0004eb    program     extern _gptrget1.S
-               __gptrget1   0x0004eb    program     extern _gptrget1.S
-               __gptrget2   0x0004fe    program     extern _gptrget2.S
-                __moduint   0x000437    program     extern ../libsdcc_a-_moduint.asm
-    __sdcc_gsinit_startup   0x0002f2    program     extern ../libsdcc_a-idata.asm
+        ___sdcc_saved_fsr   0x0000a8       data     extern libsdcc_a-shadowregs.asm
+            __codeptrget1   0x000353    program     extern _gptrget1.S
+            __codeptrget2   0x00036a    program     static _gptrget2.S
+            __dataptrget1   0x00034c    program     static _gptrget1.S
+            __dataptrget2   0x000360    program     static _gptrget2.S
+                __divuint   0x0001f9    program     extern ../libsdcc_a-_divuint.asm
+                __gptrget   0x000345    program     extern _gptrget1.S
+               __gptrget1   0x000345    program     extern _gptrget1.S
+               __gptrget2   0x000358    program     extern _gptrget2.S
+                __moduint   0x000294    program     extern ../libsdcc_a-_moduint.asm
+    __sdcc_gsinit_startup   0x0000cb    program     extern ../libsdcc_a-idata.asm
          __sdcc_interrupt   0x000004    program     static build/default/debug/main.asm
-                     _buf   0x000034       data     extern build/default/debug/main.asm
-                _buf_head   0x000067       data     extern build/default/debug/main.asm
-                _buf_tail   0x000069       data     extern build/default/debug/main.asm
-        _c_interrupt_00E2   0x0000e2    program     static build/default/debug/main.asm
-                 _capture   0x00006b       data     extern build/default/debug/main.asm
-                   _cinit   0x0004b3    program     extern 
-             _circBufPush   0x00038e    program     extern build/default/debug/main.asm
-            _dec_to_ascii   0x00047a    program     extern build/default/debug/main.asm
-                   _enter   0x000586    program     extern build/default/debug/main.asm
-             _force_cinit   0x00006e       data     static ../libsdcc_a-idata.asm
-                 _int_err   0x00054b    program     extern build/default/debug/main.asm
-           _int_error_cnt   0x00006c       data     extern build/default/debug/main.asm
-                    _main   0x0000f1    program     extern build/default/debug/main.asm
+                _bitfield   0x0000a4       data     extern build/default/debug/main.asm
+                     _buf   0x000040       data     extern build/default/debug/main.asm
+                 _buf_err   0x000408    program     extern build/default/debug/main.asm
+                _buf_head   0x0000a5       data     extern build/default/debug/main.asm
+                _buf_tail   0x0000a6       data     extern build/default/debug/main.asm
+        _c_interrupt_00BC   0x0000bc    program     static build/default/debug/main.asm
+                   _cinit   0x000379    program     extern 
+             _circBufPush   0x000248    program     extern build/default/debug/main.asm
+            _dec_to_ascii   0x0002d7    program     extern build/default/debug/main.asm
+                   _enter   0x000450    program     extern build/default/debug/main.asm
+             _force_cinit   0x0000a9       data     static ../libsdcc_a-idata.asm
+                    _init   0x0003ab    program     extern build/default/debug/init.asm
+                 _int_err   0x000419    program     extern build/default/debug/main.asm
+           _int_error_cnt   0x0000a7       data     extern build/default/debug/main.asm
+                    _main   0x000167    program     extern build/default/debug/main.asm
             _receive_intr   0x000004    program     extern build/default/debug/main.asm
-                   _strV0   0x000564    program     extern build/default/debug/main.asm
-                   _strV1   0x000568    program     extern build/default/debug/main.asm
-                   _strVF   0x00056c    program     extern build/default/debug/main.asm
-                    _strt   0x000574    program     extern build/default/debug/main.asm
-                   _strt1   0x00055f    program     extern build/default/debug/main.asm
-                    _strw   0x000570    program     extern build/default/debug/main.asm
-                   _strw1   0x00055a    program     extern build/default/debug/main.asm
-                    _sync   0x000554    program     extern build/default/debug/main.asm
-                       _t   0x000061       data     extern build/default/debug/main.asm
-                      _t1   0x000065       data     extern build/default/debug/main.asm
-                     _tab   0x000584    program     extern build/default/debug/main.asm
-                       _w   0x00005f       data     extern build/default/debug/main.asm
-                      _w1   0x000063       data     extern build/default/debug/main.asm
-                  r0x1000   0x000051       data     static ../libsdcc_a-_divuint.asm
-                  r0x1000   0x000045       data     static ../libsdcc_a-idata.asm
-                  r0x1000   0x00005a       data     static ../libsdcc_a-_moduint.asm
-                  r0x1001   0x000050       data     static ../libsdcc_a-_divuint.asm
-                  r0x1001   0x000044       data     static ../libsdcc_a-idata.asm
-                  r0x1001   0x000059       data     static ../libsdcc_a-_moduint.asm
-                  r0x1002   0x000053       data     static ../libsdcc_a-_divuint.asm
-                  r0x1002   0x000046       data     static ../libsdcc_a-idata.asm
-                  r0x1002   0x00005c       data     static ../libsdcc_a-_moduint.asm
-                  r0x1003   0x000052       data     static ../libsdcc_a-_divuint.asm
-                  r0x1003   0x000047       data     static ../libsdcc_a-idata.asm
-                  r0x1003   0x00005b       data     static ../libsdcc_a-_moduint.asm
-                  r0x1004   0x000054       data     static ../libsdcc_a-_divuint.asm
-                  r0x1004   0x000048       data     static ../libsdcc_a-idata.asm
-                  r0x1004   0x00005d       data     static ../libsdcc_a-_moduint.asm
-                  r0x1005   0x000055       data     static ../libsdcc_a-_divuint.asm
-                  r0x1005   0x000049       data     static ../libsdcc_a-idata.asm
-                  r0x1006   0x000056       data     static ../libsdcc_a-_divuint.asm
-                  r0x1006   0x00004b       data     static ../libsdcc_a-idata.asm
-                  r0x1006   0x00005e       data     static ../libsdcc_a-_moduint.asm
-                  r0x1007   0x000057       data     static ../libsdcc_a-_divuint.asm
-                  r0x1007   0x00004a       data     static ../libsdcc_a-idata.asm
-                  r0x1008   0x00004d       data     static ../libsdcc_a-idata.asm
-                  r0x1009   0x000058       data     static ../libsdcc_a-_divuint.asm
-                  r0x1009   0x00004c       data     static ../libsdcc_a-idata.asm
-                  r0x100A   0x00004f       data     static ../libsdcc_a-idata.asm
-                  r0x100B   0x00004e       data     static ../libsdcc_a-idata.asm
-                  r0x101F   0x000023       data     static build/default/debug/main.asm
-                  r0x1020   0x000024       data     static build/default/debug/main.asm
-                  r0x1021   0x000025       data     static build/default/debug/main.asm
-                  r0x1022   0x000026       data     static build/default/debug/main.asm
-                  r0x1023   0x000027       data     static build/default/debug/main.asm
-                  r0x1024   0x000029       data     static build/default/debug/main.asm
-                  r0x1025   0x000028       data     static build/default/debug/main.asm
-                  r0x1026   0x00002a       data     static build/default/debug/main.asm
-                  r0x1027   0x00002c       data     static build/default/debug/main.asm
-                  r0x1028   0x00002d       data     static build/default/debug/main.asm
+                   _strV0   0x000432    program     extern build/default/debug/main.asm
+                   _strV1   0x000436    program     extern build/default/debug/main.asm
+                   _strVF   0x00043a    program     extern build/default/debug/main.asm
+                    _strt   0x000442    program     extern build/default/debug/main.asm
+                   _strt1   0x00042d    program     extern build/default/debug/main.asm
+                    _strw   0x00043e    program     extern build/default/debug/main.asm
+                   _strw1   0x000428    program     extern build/default/debug/main.asm
+                    _sync   0x000422    program     extern build/default/debug/main.asm
+                       _t   0x00006d       data     extern build/default/debug/main.asm
+                      _t1   0x0000a2       data     extern build/default/debug/main.asm
+                     _tab   0x00044e    program     extern build/default/debug/main.asm
+                       _w   0x00006b       data     extern build/default/debug/main.asm
+                      _w1   0x0000a0       data     extern build/default/debug/main.asm
+                  r0x1000   0x00005d       data     static ../libsdcc_a-_divuint.asm
+                  r0x1000   0x000051       data     static ../libsdcc_a-idata.asm
+                  r0x1000   0x000066       data     static ../libsdcc_a-_moduint.asm
+                  r0x1001   0x00005c       data     static ../libsdcc_a-_divuint.asm
+                  r0x1001   0x000050       data     static ../libsdcc_a-idata.asm
+                  r0x1001   0x000065       data     static ../libsdcc_a-_moduint.asm
+                  r0x1002   0x00005f       data     static ../libsdcc_a-_divuint.asm
+                  r0x1002   0x000052       data     static ../libsdcc_a-idata.asm
+                  r0x1002   0x000068       data     static ../libsdcc_a-_moduint.asm
+                  r0x1003   0x00005e       data     static ../libsdcc_a-_divuint.asm
+                  r0x1003   0x000053       data     static ../libsdcc_a-idata.asm
+                  r0x1003   0x000067       data     static ../libsdcc_a-_moduint.asm
+                  r0x1004   0x000060       data     static ../libsdcc_a-_divuint.asm
+                  r0x1004   0x000054       data     static ../libsdcc_a-idata.asm
+                  r0x1004   0x000069       data     static ../libsdcc_a-_moduint.asm
+                  r0x1005   0x000061       data     static ../libsdcc_a-_divuint.asm
+                  r0x1005   0x000055       data     static ../libsdcc_a-idata.asm
+                  r0x1006   0x000062       data     static ../libsdcc_a-_divuint.asm
+                  r0x1006   0x000057       data     static ../libsdcc_a-idata.asm
+                  r0x1006   0x00006a       data     static ../libsdcc_a-_moduint.asm
+                  r0x1007   0x000063       data     static ../libsdcc_a-_divuint.asm
+                  r0x1007   0x000056       data     static ../libsdcc_a-idata.asm
+                  r0x1008   0x000059       data     static ../libsdcc_a-idata.asm
+                  r0x1009   0x000064       data     static ../libsdcc_a-_divuint.asm
+                  r0x1009   0x000058       data     static ../libsdcc_a-idata.asm
+                  r0x100A   0x00005b       data     static ../libsdcc_a-idata.asm
+                  r0x100B   0x00005a       data     static ../libsdcc_a-idata.asm
+                  r0x101D   0x00003a       data     static build/default/debug/main.asm
+                  r0x101E   0x000039       data     static build/default/debug/main.asm
+                  r0x101F   0x000038       data     static build/default/debug/main.asm
+                  r0x1020   0x00003b       data     static build/default/debug/main.asm
+                  r0x1021   0x00003c       data     static build/default/debug/main.asm
+                  r0x1022   0x00003d       data     static build/default/debug/main.asm
+                  r0x1023   0x00003e       data     static build/default/debug/main.asm
+                  r0x1024   0x00003f       data     static build/default/debug/main.asm
+                  r0x1025   0x000027       data     static build/default/debug/main.asm
+                  r0x1026   0x000028       data     static build/default/debug/main.asm
+                  r0x1027   0x00002a       data     static build/default/debug/main.asm
+                  r0x1028   0x000029       data     static build/default/debug/main.asm
                   r0x1029   0x00002b       data     static build/default/debug/main.asm
-                  r0x102A   0x00002e       data     static build/default/debug/main.asm
-                  r0x102B   0x00002f       data     static build/default/debug/main.asm
+                  r0x102A   0x000032       data     static build/default/debug/main.asm
+                  r0x102B   0x000031       data     static build/default/debug/main.asm
                   r0x102C   0x000030       data     static build/default/debug/main.asm
-                  r0x102D   0x000032       data     static build/default/debug/main.asm
-                  r0x102E   0x000031       data     static build/default/debug/main.asm
-                  r0x102F   0x000033       data     static build/default/debug/main.asm
-                  r0x1030   0x000020       data     static build/default/debug/main.asm
-                  r0x1031   0x000021       data     static build/default/debug/main.asm
-                  r0x1032   0x000022       data     static build/default/debug/main.asm
+                  r0x102D   0x000033       data     static build/default/debug/main.asm
+                  r0x102E   0x000034       data     static build/default/debug/main.asm
+                  r0x102F   0x000035       data     static build/default/debug/main.asm
+                  r0x1030   0x000036       data     static build/default/debug/main.asm
+                  r0x1031   0x000037       data     static build/default/debug/main.asm
+                  r0x1032   0x00002d       data     static build/default/debug/main.asm
+                  r0x1033   0x00002c       data     static build/default/debug/main.asm
+                  r0x1034   0x00002e       data     static build/default/debug/main.asm
+                  r0x1037   0x00002f       data     static build/default/debug/main.asm
+                  r0x1038   0x000023       data     static build/default/debug/main.asm
+                  r0x1039   0x000025       data     static build/default/debug/main.asm
+                  r0x103A   0x000024       data     static build/default/debug/main.asm
+                  r0x103B   0x000026       data     static build/default/debug/main.asm
+                  r0x103C   0x000020       data     static build/default/debug/main.asm
+                  r0x103D   0x000021       data     static build/default/debug/main.asm
+                  r0x103E   0x000022       data     static build/default/debug/main.asm
 
 
 
@@ -522,75 +519,79 @@ _S_main__dec_to_ascii_0033   0x0004ad    program     static build/default/debug/
                   _ECCPAS   0x00001d       data     extern pic16f690.asm
               _ECCPASbits   0x00001d       data     extern pic16f690.asm
                   _ADRESH   0x00001e       data     extern pic16f690.asm
+               _00108_DS_   0x00001f    program     static build/default/debug/main.asm
                   _ADCON0   0x00001f       data     extern pic16f690.asm
               _ADCON0bits   0x00001f       data     extern pic16f690.asm
-                  r0x1030   0x000020       data     static build/default/debug/main.asm
-                  r0x1031   0x000021       data     static build/default/debug/main.asm
-                  r0x1032   0x000022       data     static build/default/debug/main.asm
-                  r0x101F   0x000023       data     static build/default/debug/main.asm
-                  r0x1020   0x000024       data     static build/default/debug/main.asm
-                  r0x1021   0x000025       data     static build/default/debug/main.asm
-                  r0x1022   0x000026       data     static build/default/debug/main.asm
-               _00108_DS_   0x000027    program     static build/default/debug/main.asm
-                  r0x1023   0x000027       data     static build/default/debug/main.asm
-                  r0x1025   0x000028       data     static build/default/debug/main.asm
-                  r0x1024   0x000029       data     static build/default/debug/main.asm
-                  r0x1026   0x00002a       data     static build/default/debug/main.asm
+                  r0x103C   0x000020       data     static build/default/debug/main.asm
+                  r0x103D   0x000021       data     static build/default/debug/main.asm
+                  r0x103E   0x000022       data     static build/default/debug/main.asm
+                  r0x1038   0x000023       data     static build/default/debug/main.asm
+                  r0x103A   0x000024       data     static build/default/debug/main.asm
+                  r0x1039   0x000025       data     static build/default/debug/main.asm
+                  r0x103B   0x000026       data     static build/default/debug/main.asm
+                  r0x1025   0x000027       data     static build/default/debug/main.asm
+                  r0x1026   0x000028       data     static build/default/debug/main.asm
+                  r0x1028   0x000029       data     static build/default/debug/main.asm
+                  r0x1027   0x00002a       data     static build/default/debug/main.asm
                   r0x1029   0x00002b       data     static build/default/debug/main.asm
-                  r0x1027   0x00002c       data     static build/default/debug/main.asm
-                  r0x1028   0x00002d       data     static build/default/debug/main.asm
-                  r0x102A   0x00002e       data     static build/default/debug/main.asm
-                  r0x102B   0x00002f       data     static build/default/debug/main.asm
+                  r0x1033   0x00002c       data     static build/default/debug/main.asm
+                  r0x1032   0x00002d       data     static build/default/debug/main.asm
+                  r0x1034   0x00002e       data     static build/default/debug/main.asm
+                  r0x1037   0x00002f       data     static build/default/debug/main.asm
                   r0x102C   0x000030       data     static build/default/debug/main.asm
-                  r0x102E   0x000031       data     static build/default/debug/main.asm
-                  r0x102D   0x000032       data     static build/default/debug/main.asm
-                  r0x102F   0x000033       data     static build/default/debug/main.asm
-                     _buf   0x000034       data     extern build/default/debug/main.asm
-               _00002_DS_   0x00003a    program     static build/default/debug/main.asm
-                  r0x1001   0x000044       data     static ../libsdcc_a-idata.asm
-                  r0x1000   0x000045       data     static ../libsdcc_a-idata.asm
-                  r0x1002   0x000046       data     static ../libsdcc_a-idata.asm
-                  r0x1003   0x000047       data     static ../libsdcc_a-idata.asm
-                  r0x1004   0x000048       data     static ../libsdcc_a-idata.asm
-                  r0x1005   0x000049       data     static ../libsdcc_a-idata.asm
-                  r0x1007   0x00004a       data     static ../libsdcc_a-idata.asm
-                  r0x1006   0x00004b       data     static ../libsdcc_a-idata.asm
-                  r0x1009   0x00004c       data     static ../libsdcc_a-idata.asm
-                  r0x1008   0x00004d       data     static ../libsdcc_a-idata.asm
-                  r0x100B   0x00004e       data     static ../libsdcc_a-idata.asm
-                  r0x100A   0x00004f       data     static ../libsdcc_a-idata.asm
-                  r0x1001   0x000050       data     static ../libsdcc_a-_divuint.asm
-                  r0x1000   0x000051       data     static ../libsdcc_a-_divuint.asm
-                  r0x1003   0x000052       data     static ../libsdcc_a-_divuint.asm
-                  r0x1002   0x000053       data     static ../libsdcc_a-_divuint.asm
-                  r0x1004   0x000054       data     static ../libsdcc_a-_divuint.asm
-                  r0x1005   0x000055       data     static ../libsdcc_a-_divuint.asm
-                  r0x1006   0x000056       data     static ../libsdcc_a-_divuint.asm
-                  r0x1007   0x000057       data     static ../libsdcc_a-_divuint.asm
-                  r0x1009   0x000058       data     static ../libsdcc_a-_divuint.asm
-                  r0x1001   0x000059       data     static ../libsdcc_a-_moduint.asm
-                  r0x1000   0x00005a       data     static ../libsdcc_a-_moduint.asm
-                  r0x1003   0x00005b       data     static ../libsdcc_a-_moduint.asm
-                  r0x1002   0x00005c       data     static ../libsdcc_a-_moduint.asm
-                  r0x1004   0x00005d       data     static ../libsdcc_a-_moduint.asm
-                  r0x1006   0x00005e       data     static ../libsdcc_a-_moduint.asm
-                       _w   0x00005f       data     extern build/default/debug/main.asm
-                       _t   0x000061       data     extern build/default/debug/main.asm
-                      _w1   0x000063       data     extern build/default/debug/main.asm
-                      _t1   0x000065       data     extern build/default/debug/main.asm
-                _buf_head   0x000067       data     extern build/default/debug/main.asm
-                _buf_tail   0x000069       data     extern build/default/debug/main.asm
-                 _capture   0x00006b       data     extern build/default/debug/main.asm
-           _int_error_cnt   0x00006c       data     extern build/default/debug/main.asm
-        ___sdcc_saved_fsr   0x00006d       data     extern libsdcc_a-shadowregs.asm
-               _00139_DS_   0x00006e    program     static build/default/debug/main.asm
-             _force_cinit   0x00006e       data     static ../libsdcc_a-idata.asm
+                  r0x102B   0x000031       data     static build/default/debug/main.asm
+                  r0x102A   0x000032       data     static build/default/debug/main.asm
+                  r0x102D   0x000033       data     static build/default/debug/main.asm
+                  r0x102E   0x000034       data     static build/default/debug/main.asm
+                  r0x102F   0x000035       data     static build/default/debug/main.asm
+                  r0x1030   0x000036       data     static build/default/debug/main.asm
+                  r0x1031   0x000037       data     static build/default/debug/main.asm
+                  r0x101F   0x000038       data     static build/default/debug/main.asm
+                  r0x101E   0x000039       data     static build/default/debug/main.asm
+                  r0x101D   0x00003a       data     static build/default/debug/main.asm
+                  r0x1020   0x00003b       data     static build/default/debug/main.asm
+                  r0x1021   0x00003c       data     static build/default/debug/main.asm
+                  r0x1022   0x00003d       data     static build/default/debug/main.asm
+                  r0x1023   0x00003e       data     static build/default/debug/main.asm
+                  r0x1024   0x00003f       data     static build/default/debug/main.asm
+                     _buf   0x000040       data     extern build/default/debug/main.asm
+                  r0x1001   0x000050       data     static ../libsdcc_a-idata.asm
+                  r0x1000   0x000051       data     static ../libsdcc_a-idata.asm
+                  r0x1002   0x000052       data     static ../libsdcc_a-idata.asm
+                  r0x1003   0x000053       data     static ../libsdcc_a-idata.asm
+                  r0x1004   0x000054       data     static ../libsdcc_a-idata.asm
+                  r0x1005   0x000055       data     static ../libsdcc_a-idata.asm
+                  r0x1007   0x000056       data     static ../libsdcc_a-idata.asm
+               _00139_DS_   0x000057    program     static build/default/debug/main.asm
+                  r0x1006   0x000057       data     static ../libsdcc_a-idata.asm
+                  r0x1009   0x000058       data     static ../libsdcc_a-idata.asm
+                  r0x1008   0x000059       data     static ../libsdcc_a-idata.asm
+                  r0x100B   0x00005a       data     static ../libsdcc_a-idata.asm
+                  r0x100A   0x00005b       data     static ../libsdcc_a-idata.asm
+                  r0x1001   0x00005c       data     static ../libsdcc_a-_divuint.asm
+               _00106_DS_   0x00005d    program     static build/default/debug/main.asm
+                  r0x1000   0x00005d       data     static ../libsdcc_a-_divuint.asm
+                  r0x1003   0x00005e       data     static ../libsdcc_a-_divuint.asm
+                  r0x1002   0x00005f       data     static ../libsdcc_a-_divuint.asm
+                  r0x1004   0x000060       data     static ../libsdcc_a-_divuint.asm
+                  r0x1005   0x000061       data     static ../libsdcc_a-_divuint.asm
+                  r0x1006   0x000062       data     static ../libsdcc_a-_divuint.asm
+               _00111_DS_   0x000063    program     static build/default/debug/main.asm
+                  r0x1007   0x000063       data     static ../libsdcc_a-_divuint.asm
+                  r0x1009   0x000064       data     static ../libsdcc_a-_divuint.asm
+                  r0x1001   0x000065       data     static ../libsdcc_a-_moduint.asm
+                  r0x1000   0x000066       data     static ../libsdcc_a-_moduint.asm
+                  r0x1003   0x000067       data     static ../libsdcc_a-_moduint.asm
+                  r0x1002   0x000068       data     static ../libsdcc_a-_moduint.asm
+                  r0x1004   0x000069       data     static ../libsdcc_a-_moduint.asm
+                  r0x1006   0x00006a       data     static ../libsdcc_a-_moduint.asm
+                       _w   0x00006b       data     extern build/default/debug/main.asm
+                       _t   0x00006d       data     extern build/default/debug/main.asm
                     PSAVE   0x000070       data     extern build/default/debug/main.asm
                     SSAVE   0x000071       data     extern build/default/debug/main.asm
                     WSAVE   0x000072       data     extern build/default/debug/main.asm
                     STK12   0x000073       data     extern build/default/debug/main.asm
                     STK11   0x000074       data     extern build/default/debug/main.asm
-               _00106_DS_   0x000074    program     static build/default/debug/main.asm
                     STK10   0x000075       data     extern build/default/debug/main.asm
                     STK09   0x000076       data     extern build/default/debug/main.asm
                     STK08   0x000077       data     extern build/default/debug/main.asm
@@ -602,7 +603,6 @@ _S_main__dec_to_ascii_0033   0x0004ad    program     static build/default/debug/
                     STK02   0x00007d       data     extern build/default/debug/main.asm
                     STK01   0x00007e       data     extern build/default/debug/main.asm
                     STK00   0x00007f       data     extern build/default/debug/main.asm
-               _00111_DS_   0x000080    program     static build/default/debug/main.asm
               _OPTION_REG   0x000081       data     extern pic16f690.asm
           _OPTION_REGbits   0x000081       data     extern pic16f690.asm
                    _TRISA   0x000085       data     extern pic16f690.asm
@@ -611,6 +611,7 @@ _S_main__dec_to_ascii_0033   0x0004ad    program     static build/default/debug/
                _TRISBbits   0x000086       data     extern pic16f690.asm
                    _TRISC   0x000087       data     extern pic16f690.asm
                _TRISCbits   0x000087       data     extern pic16f690.asm
+               _00113_DS_   0x000088    program     static build/default/debug/main.asm
                     _PIE1   0x00008c       data     extern pic16f690.asm
                 _PIE1bits   0x00008c       data     extern pic16f690.asm
                     _PIE2   0x00008d       data     extern pic16f690.asm
@@ -650,13 +651,24 @@ _S_main__dec_to_ascii_0033   0x0004ad    program     static build/default/debug/
                   _ADRESL   0x00009e       data     extern pic16f690.asm
                   _ADCON1   0x00009f       data     extern pic16f690.asm
               _ADCON1bits   0x00009f       data     extern pic16f690.asm
-               _00113_DS_   0x0000ab    program     static build/default/debug/main.asm
-               _00114_DS_   0x0000c6    program     static build/default/debug/main.asm
-               _00116_DS_   0x0000cc    program     static build/default/debug/main.asm
-        _c_interrupt_00E2   0x0000e2    program     static build/default/debug/main.asm
-               _00119_DS_   0x0000e3    program     static build/default/debug/main.asm
-         END_OF_INTERRUPT   0x0000f0    program     static build/default/debug/main.asm
-                    _main   0x0000f1    program     extern build/default/debug/main.asm
+                      _w1   0x0000a0       data     extern build/default/debug/main.asm
+                      _t1   0x0000a2       data     extern build/default/debug/main.asm
+               _00114_DS_   0x0000a3    program     static build/default/debug/main.asm
+                _bitfield   0x0000a4       data     extern build/default/debug/main.asm
+                _buf_head   0x0000a5       data     extern build/default/debug/main.asm
+               _00116_DS_   0x0000a6    program     static build/default/debug/main.asm
+                _buf_tail   0x0000a6       data     extern build/default/debug/main.asm
+           _int_error_cnt   0x0000a7       data     extern build/default/debug/main.asm
+        ___sdcc_saved_fsr   0x0000a8       data     extern libsdcc_a-shadowregs.asm
+             _force_cinit   0x0000a9       data     static ../libsdcc_a-idata.asm
+        _c_interrupt_00BC   0x0000bc    program     static build/default/debug/main.asm
+               _00119_DS_   0x0000bd    program     static build/default/debug/main.asm
+         END_OF_INTERRUPT   0x0000ca    program     static build/default/debug/main.asm
+    __sdcc_gsinit_startup   0x0000cb    program     extern ../libsdcc_a-idata.asm
+_S_idata___sdcc_gsinit_startup_0008   0x0000d3    program     static ../libsdcc_a-idata.asm
+               _00108_DS_   0x0000de    program     static ../libsdcc_a-idata.asm
+_S_idata___sdcc_gsinit_startup_0030   0x0000fb    program     static ../libsdcc_a-idata.asm
+_S_idata___sdcc_gsinit_startup_003F   0x00010a    program     static ../libsdcc_a-idata.asm
                    _EEDAT   0x00010c       data     extern pic16f690.asm
                   _EEDATA   0x00010c       data     extern pic16f690.asm
                    _EEADR   0x00010d       data     extern pic16f690.asm
@@ -678,110 +690,88 @@ _S_main__dec_to_ascii_0033   0x0004ad    program     static build/default/debug/
                _ANSELbits   0x00011e       data     extern pic16f690.asm
                   _ANSELH   0x00011f       data     extern pic16f690.asm
               _ANSELHbits   0x00011f       data     extern pic16f690.asm
-               _00202_DS_   0x000135    program     static build/default/debug/main.asm
-               _00275_DS_   0x000143    program     static build/default/debug/main.asm
-               _00276_DS_   0x00014d    program     static build/default/debug/main.asm
-               _00277_DS_   0x000157    program     static build/default/debug/main.asm
-               _00278_DS_   0x000161    program     static build/default/debug/main.asm
-       _S_main__main_0081   0x000172    program     static build/default/debug/main.asm
-               _00173_DS_   0x000173    program     static build/default/debug/main.asm
-               _00279_DS_   0x00017b    program     static build/default/debug/main.asm
-               _00280_DS_   0x000185    program     static build/default/debug/main.asm
+_S_idata___sdcc_gsinit_startup_0057   0x000122    program     static ../libsdcc_a-idata.asm
+               _00105_DS_   0x00012b    program     static ../libsdcc_a-idata.asm
+_S_idata___sdcc_gsinit_startup_0076   0x000141    program     static ../libsdcc_a-idata.asm
+               _00107_DS_   0x00015c    program     static ../libsdcc_a-idata.asm
+               _00110_DS_   0x000163    program     static ../libsdcc_a-idata.asm
+                    _main   0x000167    program     extern build/default/debug/main.asm
+       _S_main__main_0002   0x000169    program     static build/default/debug/main.asm
+               _00155_DS_   0x00016d    program     static build/default/debug/main.asm
+               _00183_DS_   0x000179    program     static build/default/debug/main.asm
+               _00184_DS_   0x000183    program     static build/default/debug/main.asm
                   _EECON1   0x00018c       data     extern pic16f690.asm
               _EECON1bits   0x00018c       data     extern pic16f690.asm
+               _00185_DS_   0x00018d    program     static build/default/debug/main.asm
                   _EECON2   0x00018d       data     extern pic16f690.asm
-               _00281_DS_   0x00018f    program     static build/default/debug/main.asm
-               _00282_DS_   0x000199    program     static build/default/debug/main.asm
+               _00186_DS_   0x000197    program     static build/default/debug/main.asm
+               _00145_DS_   0x00019c    program     static build/default/debug/main.asm
                  _PSTRCON   0x00019d       data     extern pic16f690.asm
              _PSTRCONbits   0x00019d       data     extern pic16f690.asm
                    _SRCON   0x00019e       data     extern pic16f690.asm
                _SRCONbits   0x00019e       data     extern pic16f690.asm
-       _S_main__main_00B1   0x0001a2    program     static build/default/debug/main.asm
-       _S_main__main_00C1   0x0001b2    program     static build/default/debug/main.asm
-       _S_main__main_00C9   0x0001ba    program     static build/default/debug/main.asm
-       _S_main__main_00D9   0x0001ca    program     static build/default/debug/main.asm
-       _S_main__main_00E1   0x0001d2    program     static build/default/debug/main.asm
-       _S_main__main_00F1   0x0001e2    program     static build/default/debug/main.asm
-       _S_main__main_00F9   0x0001ea    program     static build/default/debug/main.asm
-       _S_main__main_0109   0x0001fa    program     static build/default/debug/main.asm
-               _00283_DS_   0x000203    program     static build/default/debug/main.asm
-               _00284_DS_   0x00020d    program     static build/default/debug/main.asm
-               _00285_DS_   0x000217    program     static build/default/debug/main.asm
-               _00286_DS_   0x000221    program     static build/default/debug/main.asm
-       _S_main__main_0141   0x000232    program     static build/default/debug/main.asm
-               _00178_DS_   0x00023e    program     static build/default/debug/main.asm
-               _00287_DS_   0x000246    program     static build/default/debug/main.asm
-               _00288_DS_   0x000250    program     static build/default/debug/main.asm
-               _00289_DS_   0x00025a    program     static build/default/debug/main.asm
-               _00290_DS_   0x000264    program     static build/default/debug/main.asm
-       _S_main__main_0184   0x000275    program     static build/default/debug/main.asm
-               _00183_DS_   0x000281    program     static build/default/debug/main.asm
-               _00291_DS_   0x000289    program     static build/default/debug/main.asm
-               _00292_DS_   0x000293    program     static build/default/debug/main.asm
-               _00293_DS_   0x00029d    program     static build/default/debug/main.asm
-               _00294_DS_   0x0002a7    program     static build/default/debug/main.asm
-       _S_main__main_01C7   0x0002b8    program     static build/default/debug/main.asm
-               _00193_DS_   0x0002c4    program     static build/default/debug/main.asm
-               _00198_DS_   0x0002e7    program     static build/default/debug/main.asm
-    __sdcc_gsinit_startup   0x0002f2    program     extern ../libsdcc_a-idata.asm
-_S_idata___sdcc_gsinit_startup_0008   0x0002fa    program     static ../libsdcc_a-idata.asm
-               _00108_DS_   0x000305    program     static ../libsdcc_a-idata.asm
-_S_idata___sdcc_gsinit_startup_0030   0x000322    program     static ../libsdcc_a-idata.asm
-_S_idata___sdcc_gsinit_startup_003F   0x000331    program     static ../libsdcc_a-idata.asm
-_S_idata___sdcc_gsinit_startup_0057   0x000349    program     static ../libsdcc_a-idata.asm
-               _00105_DS_   0x000352    program     static ../libsdcc_a-idata.asm
-_S_idata___sdcc_gsinit_startup_0076   0x000368    program     static ../libsdcc_a-idata.asm
-               _00107_DS_   0x000383    program     static ../libsdcc_a-idata.asm
-               _00110_DS_   0x00038a    program     static ../libsdcc_a-idata.asm
-             _circBufPush   0x00038e    program     extern build/default/debug/main.asm
-               _00147_DS_   0x0003b3    program     static build/default/debug/main.asm
-               _00001_DS_   0x0003c6    program     static build/default/debug/main.asm
-               _00148_DS_   0x0003e7    program     static build/default/debug/main.asm
-                __divuint   0x0003e8    program     extern ../libsdcc_a-_divuint.asm
-               _00107_DS_   0x0003fe    program     static ../libsdcc_a-_divuint.asm
-               _00112_DS_   0x00040c    program     static ../libsdcc_a-_divuint.asm
-               _00135_DS_   0x000418    program     static ../libsdcc_a-_divuint.asm
-               _00111_DS_   0x000428    program     static ../libsdcc_a-_divuint.asm
-               _00114_DS_   0x000431    program     static ../libsdcc_a-_divuint.asm
-               _00115_DS_   0x000436    program     static ../libsdcc_a-_divuint.asm
-                __moduint   0x000437    program     extern ../libsdcc_a-_moduint.asm
-               _00119_DS_   0x000447    program     static ../libsdcc_a-_moduint.asm
-               _00107_DS_   0x00044b    program     static ../libsdcc_a-_moduint.asm
-               _00112_DS_   0x000457    program     static ../libsdcc_a-_moduint.asm
-               _00137_DS_   0x000463    program     static ../libsdcc_a-_moduint.asm
-               _00111_DS_   0x00046d    program     static ../libsdcc_a-_moduint.asm
-               _00114_DS_   0x000474    program     static ../libsdcc_a-_moduint.asm
-               _00115_DS_   0x000479    program     static ../libsdcc_a-_moduint.asm
-            _dec_to_ascii   0x00047a    program     extern build/default/debug/main.asm
-               _00156_DS_   0x000480    program     static build/default/debug/main.asm
-               _00155_DS_   0x000489    program     static build/default/debug/main.asm
-_S_main__dec_to_ascii_001A   0x000494    program     static build/default/debug/main.asm
-_S_main__dec_to_ascii_0028   0x0004a2    program     static build/default/debug/main.asm
-_S_main__dec_to_ascii_0033   0x0004ad    program     static build/default/debug/main.asm
-               _00158_DS_   0x0004b2    program     static build/default/debug/main.asm
-                   _cinit   0x0004b3    program     extern 
-                __gptrget   0x0004eb    program     extern _gptrget1.S
-               __gptrget1   0x0004eb    program     extern _gptrget1.S
-            __dataptrget1   0x0004f2    program     static _gptrget1.S
-            __codeptrget1   0x0004f9    program     extern _gptrget1.S
-               __gptrget2   0x0004fe    program     extern _gptrget2.S
-            __dataptrget2   0x000506    program     static _gptrget2.S
-            __codeptrget2   0x000510    program     static _gptrget2.S
-                 _SP_send   0x00051f    program     extern build/default/debug/main.asm
-               _00165_DS_   0x000527    program     static build/default/debug/main.asm
-    _S_main__SP_send_001C   0x00053b    program     static build/default/debug/main.asm
-    _S_main__SP_send_0026   0x000545    program     static build/default/debug/main.asm
-               _00167_DS_   0x00054a    program     static build/default/debug/main.asm
-                 _int_err   0x00054b    program     extern build/default/debug/main.asm
-                    _sync   0x000554    program     extern build/default/debug/main.asm
-                   _strw1   0x00055a    program     extern build/default/debug/main.asm
-                   _strt1   0x00055f    program     extern build/default/debug/main.asm
-                   _strV0   0x000564    program     extern build/default/debug/main.asm
-                   _strV1   0x000568    program     extern build/default/debug/main.asm
-                   _strVF   0x00056c    program     extern build/default/debug/main.asm
-                    _strw   0x000570    program     extern build/default/debug/main.asm
-                    _strt   0x000574    program     extern build/default/debug/main.asm
-                     _tab   0x000584    program     extern build/default/debug/main.asm
-                   _enter   0x000586    program     extern build/default/debug/main.asm
+       _S_main__main_0046   0x0001ad    program     static build/default/debug/main.asm
+       _S_main__main_0056   0x0001bd    program     static build/default/debug/main.asm
+       _S_main__main_005E   0x0001c5    program     static build/default/debug/main.asm
+       _S_main__main_006E   0x0001d5    program     static build/default/debug/main.asm
+               _00150_DS_   0x0001d9    program     static build/default/debug/main.asm
+               _00153_DS_   0x0001f4    program     static build/default/debug/main.asm
+                __divuint   0x0001f9    program     extern ../libsdcc_a-_divuint.asm
+               _00107_DS_   0x00020f    program     static ../libsdcc_a-_divuint.asm
+               _00112_DS_   0x00021d    program     static ../libsdcc_a-_divuint.asm
+               _00135_DS_   0x000229    program     static ../libsdcc_a-_divuint.asm
+               _00111_DS_   0x000239    program     static ../libsdcc_a-_divuint.asm
+               _00114_DS_   0x000242    program     static ../libsdcc_a-_divuint.asm
+               _00115_DS_   0x000247    program     static ../libsdcc_a-_divuint.asm
+             _circBufPush   0x000248    program     extern build/default/debug/main.asm
+_S_main__circBufPush_0022   0x00026a    program     static build/default/debug/main.asm
+               _00194_DS_   0x00026f    program     static build/default/debug/main.asm
+               _00195_DS_   0x000293    program     static build/default/debug/main.asm
+                __moduint   0x000294    program     extern ../libsdcc_a-_moduint.asm
+               _00119_DS_   0x0002a4    program     static ../libsdcc_a-_moduint.asm
+               _00107_DS_   0x0002a8    program     static ../libsdcc_a-_moduint.asm
+               _00112_DS_   0x0002b4    program     static ../libsdcc_a-_moduint.asm
+               _00137_DS_   0x0002c0    program     static ../libsdcc_a-_moduint.asm
+               _00111_DS_   0x0002ca    program     static ../libsdcc_a-_moduint.asm
+               _00114_DS_   0x0002d1    program     static ../libsdcc_a-_moduint.asm
+               _00115_DS_   0x0002d6    program     static ../libsdcc_a-_moduint.asm
+            _dec_to_ascii   0x0002d7    program     extern build/default/debug/main.asm
+               _00203_DS_   0x0002dd    program     static build/default/debug/main.asm
+               _00202_DS_   0x0002e6    program     static build/default/debug/main.asm
+_S_main__dec_to_ascii_001A   0x0002f1    program     static build/default/debug/main.asm
+_S_main__dec_to_ascii_0028   0x0002ff    program     static build/default/debug/main.asm
+_S_main__dec_to_ascii_0033   0x00030a    program     static build/default/debug/main.asm
+               _00205_DS_   0x00030f    program     static build/default/debug/main.asm
+           _SP_send_error   0x000310    program     extern build/default/debug/main.asm
+               _00224_DS_   0x00031d    program     static build/default/debug/main.asm
+_S_main__SP_send_error_0021   0x000331    program     static build/default/debug/main.asm
+               _00219_DS_   0x00033c    program     static build/default/debug/main.asm
+               _00226_DS_   0x000344    program     static build/default/debug/main.asm
+                __gptrget   0x000345    program     extern _gptrget1.S
+               __gptrget1   0x000345    program     extern _gptrget1.S
+            __dataptrget1   0x00034c    program     static _gptrget1.S
+            __codeptrget1   0x000353    program     extern _gptrget1.S
+               __gptrget2   0x000358    program     extern _gptrget2.S
+            __dataptrget2   0x000360    program     static _gptrget2.S
+            __codeptrget2   0x00036a    program     static _gptrget2.S
+                   _cinit   0x000379    program     extern 
+                    _init   0x0003ab    program     extern build/default/debug/init.asm
+                 _SP_send   0x0003dc    program     extern build/default/debug/main.asm
+               _00212_DS_   0x0003e4    program     static build/default/debug/main.asm
+    _S_main__SP_send_001C   0x0003f8    program     static build/default/debug/main.asm
+    _S_main__SP_send_0026   0x000402    program     static build/default/debug/main.asm
+               _00214_DS_   0x000407    program     static build/default/debug/main.asm
+                 _buf_err   0x000408    program     extern build/default/debug/main.asm
+                 _int_err   0x000419    program     extern build/default/debug/main.asm
+                    _sync   0x000422    program     extern build/default/debug/main.asm
+                   _strw1   0x000428    program     extern build/default/debug/main.asm
+                   _strt1   0x00042d    program     extern build/default/debug/main.asm
+                   _strV0   0x000432    program     extern build/default/debug/main.asm
+                   _strV1   0x000436    program     extern build/default/debug/main.asm
+                   _strVF   0x00043a    program     extern build/default/debug/main.asm
+                    _strw   0x00043e    program     extern build/default/debug/main.asm
+                    _strt   0x000442    program     extern build/default/debug/main.asm
+                     _tab   0x00044e    program     extern build/default/debug/main.asm
+                   _enter   0x000450    program     extern build/default/debug/main.asm
 
 
