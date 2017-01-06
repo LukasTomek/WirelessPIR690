@@ -34,7 +34,7 @@ typedef enum {
 };
 */
 
-typedef enum {
+typedef enum {x
     FALSE,
     TRUE
 } boolean;
@@ -144,7 +144,7 @@ int main(void) {
             /*if (t > MIN_TS && t < MAX_TS && w > MIN_W0 && w < MAX_W0){
                SP_send(sync);
             }*/
-            if (t > MIN_T && t < MAX_T && t1 > MIN_T && t1 < MAX_T){
+            i/*f (t > MIN_T && t < MAX_T && t1 > MIN_T && t1 < MAX_T){
                 bitfield.Hint = TRUE;
             }
             if (i < 100 && bitfield.Hint){
@@ -153,7 +153,7 @@ int main(void) {
                 dec_to_ascii(t);
                 SP_send(enter);
                 i++;
-            }
+            }*/
             t1 = t;
             w1 = w;
             bitfield.Capture = FALSE;
