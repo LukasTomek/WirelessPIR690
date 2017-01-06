@@ -144,7 +144,7 @@ int main(void) {
             /*if (t > MIN_TS && t < MAX_TS && w > MIN_W0 && w < MAX_W0){
                SP_send(sync);
             }*/
-            i/*f (t > MIN_T && t < MAX_T && t1 > MIN_T && t1 < MAX_T){
+            /*if (t > MIN_T && t < MAX_T && t1 > MIN_T && t1 < MAX_T){
                 bitfield.Hint = TRUE;
             }
             if (i < 100 && bitfield.Hint){
@@ -194,10 +194,10 @@ void dec_to_ascii(unsigned short dec){
 }*/
 void dec_to_ascii(unsigned short dec)
 {
-	static unsigned char number[4];
-	static unsigned char i;
+	uint8_t number[4];
+	uint8_t i;
 
-    for (i=0 ; dec!=0; i++)
+    for (i=0; dec!=0 || i==0; i++)
     {
         number[i]=(dec % 10);
         dec /=10;
