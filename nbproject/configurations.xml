@@ -27,6 +27,7 @@
       <itemPath>main.c</itemPath>
       <itemPath>temp.c</itemPath>
       <itemPath>init.c</itemPath>
+      <itemPath>str.c</itemPath>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"

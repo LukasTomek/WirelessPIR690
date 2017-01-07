@@ -34,7 +34,7 @@ typedef enum {
 };
 */
 
-typedef enum {x
+typedef enum {
     FALSE,
     TRUE
 } boolean;
@@ -103,12 +103,14 @@ void receive_intr() __interrupt 0 {
         //return 0;
     }
     if(CCP1IF){
-        CCP1IE = FALSE;
+        CCP1IF = 0;                     //Clear interrupt flag
+        //CCP1IE = FALSE;
         
         if(CCP1M0){                     // if ECCP mode is Rising edge CCP1M0
             CCP1M0 = FALING;                 // set falling edge
             TMR1H = 0;
             TMR1L = 0;
+            t = 0;
             t = 0x0000 | CCPR1H;        //ECCP result higher 8 bits
             t = t << 8;
             t = t | CCPR1L;             //ECCP combined 16 bit number formation
@@ -116,13 +118,14 @@ void receive_intr() __interrupt 0 {
         }
         else{
             CCP1M0 = RISING;
+            w = 0;
             w = 0x0000 | CCPR1H;        //ECCP result higher 8 bits
             w = w << 8;
             w = w | CCPR1L;             //ECCP combined 16 bit number formation
             //bitfield.Capture = TRUE;
         }
-        CCP1IE = 1;
-        CCP1IF = 0;                     //Clear interrupt flag
+        //CCP1IE = 1;
+//        CCP1IF = 0;                     //Clear interrupt flag
     }
     int_error_cnt++;
     if (int_error_cnt > 100)
@@ -137,27 +140,47 @@ int main(void) {
     {
 
         if (bitfield.Capture){
-                dec_to_ascii(w);
-                SP_send(tab);
-                dec_to_ascii(t);
-                SP_send(enter);
+            bitfield.Capture = FALSE;
+            /*if (t > MIN_T && t < MAX_T && t1 > MIN_T && t1 < MAX_T){
+                if (w > MIN_W1 && w < MAX_W1 && w1 > MIN_W1 && w1 < MAX_W1){
+                    SP_send(strV1);
+                    t = 0;
+                    w = 0;
+                }
+                if (w > MIN_W0 && w < MAX_W0 && w1 > MIN_W0 && w1 < MAX_W0){
+                    SP_send(strV0);
+                    t = 0;
+                    w = 0;
+                }
+                if (w1 > MIN_W0 && w1 < MAX_W0 && w > MIN_W1 && w < MAX_W1){
+                    SP_send(strVF);
+                    t = 0;
+                    w = 0;
+                }
+            }
+            t1 = t;
+            w1 = w;*/
+            
+            dec_to_ascii(w);
+            SP_send(tab);
+            dec_to_ascii(t);
+            SP_send(enter);
             /*if (t > MIN_TS && t < MAX_TS && w > MIN_W0 && w < MAX_W0){
                SP_send(sync);
-            }*/
-            /*if (t > MIN_T && t < MAX_T && t1 > MIN_T && t1 < MAX_T){
-                bitfield.Hint = TRUE;
             }
-            if (i < 100 && bitfield.Hint){
+            if (t > MIN_T && t < MAX_T && t1 > MIN_T && t1 < MAX_T){
+                bitfield.Hint = TRUE;
+//                t = 0;
+//                w = 0;
+            }*/
+
+            /*if (i < 100 && bitfield.Hint){
                 dec_to_ascii(w);
                 SP_send(tab);
                 dec_to_ascii(t);
                 SP_send(enter);
                 i++;
             }*/
-            t1 = t;
-            w1 = w;
-            bitfield.Capture = FALSE;
-
         }
         int_error_cnt = 0;
     }
