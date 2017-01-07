@@ -1,4 +1,4 @@
-gpasm-1.4.0 #1107 (May  9 2015) build/default   1-7-2017  10:00:11          PAGE  1
+gpasm-1.4.0 #1107 (May  9 2015) build/default   1-7-2017  21:32:30          PAGE  1
 
 
 LOC    OBJECT CODE    LINE  SOURCE TEXT
@@ -57,7 +57,7 @@ LOC    OBJECT CODE    LINE  SOURCE TEXT
                       00041 ;--------------------------------------------------------
                       00042 ; compiler-defined variables
                       00043 ;--------------------------------------------------------
-gpasm-1.4.0 #1107 (May  9 2015) build/default   1-7-2017  10:00:11          PAGE  2
+gpasm-1.4.0 #1107 (May  9 2015) build/default   1-7-2017  21:32:30          PAGE  2
 
 
 LOC    OBJECT CODE    LINE  SOURCE TEXT
@@ -79,7 +79,7 @@ LOC    OBJECT CODE    LINE  SOURCE TEXT
                       00057 ;           0+    0 =     0 instructions (    0 byte)
                       00058 
                       00059         end
-gpasm-1.4.0 #1107 (May  9 2015) build/default   1-7-2017  10:00:11          PAGE  3
+gpasm-1.4.0 #1107 (May  9 2015) build/default   1-7-2017  21:32:30          PAGE  3
 
 
 SYMBOL TABLE
@@ -138,7 +138,7 @@ C1CH0                             00000000
 C1CH1                             00000001
 C1IE                              00000005
 C1IF                              00000005
-gpasm-1.4.0 #1107 (May  9 2015) build/default   1-7-2017  10:00:11          PAGE  4
+gpasm-1.4.0 #1107 (May  9 2015) build/default   1-7-2017  21:32:30          PAGE  4
 
 
 SYMBOL TABLE
@@ -197,7 +197,7 @@ ECCPAS1                           00000005
 ECCPAS2                           00000006
 ECCPASE                           00000007
 EEADR                             0000010D
-gpasm-1.4.0 #1107 (May  9 2015) build/default   1-7-2017  10:00:11          PAGE  5
+gpasm-1.4.0 #1107 (May  9 2015) build/default   1-7-2017  21:32:30          PAGE  5
 
 
 SYMBOL TABLE
@@ -256,7 +256,7 @@ LTS                               00000001
 MC1OUT                            00000007
 MC2OUT                            00000006
 MSK                               00000093
-gpasm-1.4.0 #1107 (May  9 2015) build/default   1-7-2017  10:00:11          PAGE  6
+gpasm-1.4.0 #1107 (May  9 2015) build/default   1-7-2017  21:32:30          PAGE  6
 
 
 SYMBOL TABLE
@@ -315,7 +315,7 @@ PS0                               00000000
 PS1                               00000001
 PS2                               00000002
 PSA                               00000003
-gpasm-1.4.0 #1107 (May  9 2015) build/default   1-7-2017  10:00:11          PAGE  7
+gpasm-1.4.0 #1107 (May  9 2015) build/default   1-7-2017  21:32:30          PAGE  7
 
 
 SYMBOL TABLE
@@ -374,7 +374,7 @@ SMP                               00000007
 SPBRG                             00000099
 SPBRGH                            0000009A
 SPEN                              00000007
-gpasm-1.4.0 #1107 (May  9 2015) build/default   1-7-2017  10:00:11          PAGE  8
+gpasm-1.4.0 #1107 (May  9 2015) build/default   1-7-2017  21:32:30          PAGE  8
 
 
 SYMBOL TABLE
@@ -433,7 +433,7 @@ T1IF                              00000000
 T1OSCEN                           00000003
 T2CKPS0                           00000000
 T2CKPS1                           00000001
-gpasm-1.4.0 #1107 (May  9 2015) build/default   1-7-2017  10:00:11          PAGE  9
+gpasm-1.4.0 #1107 (May  9 2015) build/default   1-7-2017  21:32:30          PAGE  9
 
 
 SYMBOL TABLE
@@ -492,7 +492,7 @@ TXEN                              00000005
 TXIE                              00000004
 TXIF                              00000004
 TXREG                             00000019
-gpasm-1.4.0 #1107 (May  9 2015) build/default   1-7-2017  10:00:11          PAGE 10
+gpasm-1.4.0 #1107 (May  9 2015) build/default   1-7-2017  21:32:30          PAGE 10
 
 
 SYMBOL TABLE
@@ -551,7 +551,7 @@ _BOR_NSLEEP                       00003EFF
 _BOR_OFF                          00003CFF
 _BOR_ON                           00003FFF
 _BOR_SBODEN                       00003DFF
-gpasm-1.4.0 #1107 (May  9 2015) build/default   1-7-2017  10:00:11          PAGE 11
+gpasm-1.4.0 #1107 (May  9 2015) build/default   1-7-2017  21:32:30          PAGE 11
 
 
 SYMBOL TABLE
@@ -610,7 +610,7 @@ __VECTOR_INT                      00000004
 __VECTOR_RESET                    00000000
 
 Errors   :     0
-gpasm-1.4.0 #1107 (May  9 2015) build/default   1-7-2017  10:00:11          PAGE 12
+gpasm-1.4.0 #1107 (May  9 2015) build/default   1-7-2017  21:32:30          PAGE 12
 
 
 

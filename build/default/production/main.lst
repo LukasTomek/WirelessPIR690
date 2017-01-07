@@ -1,4 +1,4 @@
-gpasm-1.4.0 #1107 (May  9 2015) build/default   1-7-2017  10:50:45          PAGE  1
+gpasm-1.4.0 #1107 (May  9 2015) build/default   1-7-2017  21:32:30          PAGE  1
 
 
 LOC    OBJECT CODE    LINE  SOURCE TEXT
@@ -57,7 +57,7 @@ LOC    OBJECT CODE    LINE  SOURCE TEXT
   0000                00041         extern  _PIE2bits
   0000                00042         extern  _PCONbits
   0000                00043         extern  _OSCCONbits
-gpasm-1.4.0 #1107 (May  9 2015) build/default   1-7-2017  10:50:45          PAGE  2
+gpasm-1.4.0 #1107 (May  9 2015) build/default   1-7-2017  21:32:30          PAGE  2
 
 
 LOC    OBJECT CODE    LINE  SOURCE TEXT
@@ -116,7 +116,7 @@ LOC    OBJECT CODE    LINE  SOURCE TEXT
   0000                00094         extern  _TXREG
   0000                00095         extern  _RCREG
   0000                00096         extern  _PWM1CON
-gpasm-1.4.0 #1107 (May  9 2015) build/default   1-7-2017  10:50:45          PAGE  3
+gpasm-1.4.0 #1107 (May  9 2015) build/default   1-7-2017  21:32:30          PAGE  3
 
 
 LOC    OBJECT CODE    LINE  SOURCE TEXT
@@ -168,1124 +168,1454 @@ LOC    OBJECT CODE    LINE  SOURCE TEXT
   0000                00140         extern  _PSTRCON
   0000                00141         extern  _SRCON
   0000                00142         extern  ___sdcc_saved_fsr
-  0000                00143         extern  __gptrget1
-  0000                00144         extern  __sdcc_gsinit_startup
-                      00145 ;--------------------------------------------------------
-                      00146 ; global declarations
-                      00147 ;--------------------------------------------------------
-  0000                00148         global  _SP_send_error
-  0000                00149         global  _SP_send
-gpasm-1.4.0 #1107 (May  9 2015) build/default   1-7-2017  10:50:45          PAGE  4
+  0000                00143         extern  __mulchar
+  0000                00144         extern  __gptrget1
+  0000                00145         extern  __sdcc_gsinit_startup
+                      00146 ;--------------------------------------------------------
+                      00147 ; global declarations
+                      00148 ;--------------------------------------------------------
+  0000                00149         global  _SP_send_error
+gpasm-1.4.0 #1107 (May  9 2015) build/default   1-7-2017  21:32:30          PAGE  4
 
 
 LOC    OBJECT CODE    LINE  SOURCE TEXT
   VALUE
 
-  0000                00150         global  _dec_to_ascii
-  0000                00151         global  _circBufPush
-  0000                00152         global  _receive_intr
-  0000                00153         global  _main
-  0000                00154         global  _bitfield
-  0000                00155         global  _w
-  0000                00156         global  _t
-  0000                00157         global  _w1
-  0000                00158         global  _t1
-  0000                00159         global  _buf
-  0000                00160         global  _buf_head
-  0000                00161         global  _buf_tail
-  0000                00162         global  _int_error_cnt
-  0000                00163         global  _strV0
-  0000                00164         global  _strV1
-  0000                00165         global  _strVF
-  0000                00166         global  _strw
-  0000                00167         global  _strt
-  0000                00168         global  _strw1
-  0000                00169         global  _strt1
-  0000                00170         global  _tab
-  0000                00171         global  _enter
-  0000                00172         global  _sync
-  0000                00173         global  _int_err
-  0000                00174         global  _buf_err
-                      00175 
-  0000                00176         global PSAVE
-  0000                00177         global SSAVE
-  0000                00178         global WSAVE
-  0000                00179         global STK12
-  0000                00180         global STK11
-  0000                00181         global STK10
-  0000                00182         global STK09
-  0000                00183         global STK08
-  0000                00184         global STK07
-  0000                00185         global STK06
-  0000                00186         global STK05
-  0000                00187         global STK04
-  0000                00188         global STK03
-  0000                00189         global STK02
-  0000                00190         global STK01
-  0000                00191         global STK00
-                      00192 
-                      00193 sharebank udata_ovr 0x0070
-0070                  00194 PSAVE   res 1
-0071                  00195 SSAVE   res 1
-0072                  00196 WSAVE   res 1
-0073                  00197 STK12   res 1
-0074                  00198 STK11   res 1
-0075                  00199 STK10   res 1
-0076                  00200 STK09   res 1
-0077                  00201 STK08   res 1
-0078                  00202 STK07   res 1
-gpasm-1.4.0 #1107 (May  9 2015) build/default   1-7-2017  10:50:45          PAGE  5
+  0000                00150         global  _SP_send
+  0000                00151         global  _dec_to_ascii
+  0000                00152         global  _circBufPush
+  0000                00153         global  _receive_intr
+  0000                00154         global  _main
+  0000                00155         global  _bitfield
+  0000                00156         global  _w
+  0000                00157         global  _t
+  0000                00158         global  _w1
+  0000                00159         global  _t1
+  0000                00160         global  _bw
+  0000                00161         global  _bt
+  0000                00162         global  _buf
+  0000                00163         global  _buf_head
+  0000                00164         global  _buf_tail
+  0000                00165         global  _int_error_cnt
+  0000                00166         global  _strV0
+  0000                00167         global  _strV1
+  0000                00168         global  _strVF
+  0000                00169         global  _strw
+  0000                00170         global  _strt
+  0000                00171         global  _strw1
+  0000                00172         global  _strt1
+  0000                00173         global  _tab
+  0000                00174         global  _enter
+  0000                00175         global  _sync
+  0000                00176         global  _int_err
+  0000                00177         global  _buf_err
+                      00178 
+  0000                00179         global PSAVE
+  0000                00180         global SSAVE
+  0000                00181         global WSAVE
+  0000                00182         global STK12
+  0000                00183         global STK11
+  0000                00184         global STK10
+  0000                00185         global STK09
+  0000                00186         global STK08
+  0000                00187         global STK07
+  0000                00188         global STK06
+  0000                00189         global STK05
+  0000                00190         global STK04
+  0000                00191         global STK03
+  0000                00192         global STK02
+  0000                00193         global STK01
+  0000                00194         global STK00
+                      00195 
+                      00196 sharebank udata_ovr 0x0070
+0070                  00197 PSAVE   res 1
+0071                  00198 SSAVE   res 1
+0072                  00199 WSAVE   res 1
+0073                  00200 STK12   res 1
+0074                  00201 STK11   res 1
+0075                  00202 STK10   res 1
+gpasm-1.4.0 #1107 (May  9 2015) build/default   1-7-2017  21:32:30          PAGE  5
 
 
 LOC    OBJECT CODE    LINE  SOURCE TEXT
   VALUE
 
-0079                  00203 STK06   res 1
-007A                  00204 STK05   res 1
-007B                  00205 STK04   res 1
-007C                  00206 STK03   res 1
-007D                  00207 STK02   res 1
-007E                  00208 STK01   res 1
-007F                  00209 STK00   res 1
-                      00210 
-                      00211 ;--------------------------------------------------------
-                      00212 ; global definitions
-                      00213 ;--------------------------------------------------------
-                      00214 UD_main_0       udata
-0000                  00215 _bitfield       res     1
-                      00216 
-                      00217 UD_main_1       udata
-0000                  00218 _buf    res     16
+0076                  00203 STK09   res 1
+0077                  00204 STK08   res 1
+0078                  00205 STK07   res 1
+0079                  00206 STK06   res 1
+007A                  00207 STK05   res 1
+007B                  00208 STK04   res 1
+007C                  00209 STK03   res 1
+007D                  00210 STK02   res 1
+007E                  00211 STK01   res 1
+007F                  00212 STK00   res 1
+                      00213 
+                      00214 ;--------------------------------------------------------
+                      00215 ; global definitions
+                      00216 ;--------------------------------------------------------
+                      00217 UD_main_0       udata
+0000                  00218 _bitfield       res     1
                       00219 
-                      00220 ;--------------------------------------------------------
-                      00221 ; absolute symbol definitions
-                      00222 ;--------------------------------------------------------
-                      00223 ;--------------------------------------------------------
-                      00224 ; compiler-defined variables
-                      00225 ;--------------------------------------------------------
-                      00226 UDL_main_0      udata
-0000                  00227 r0x103D res     1
-0001                  00228 r0x103E res     1
-0002                  00229 r0x103F res     1
-0003                  00230 r0x103B res     1
-0004                  00231 r0x103A res     1
-0005                  00232 r0x103C res     1
-0006                  00233 r0x1025 res     1
-0007                  00234 r0x1026 res     1
-0008                  00235 r0x1028 res     1
-0009                  00236 r0x1027 res     1
-000A                  00237 r0x1029 res     1
-000B                  00238 r0x1033 res     1
-000C                  00239 r0x1032 res     1
-000D                  00240 r0x1034 res     1
-000E                  00241 r0x1035 res     1
-000F                  00242 r0x1036 res     1
-0010                  00243 r0x1039 res     1
-0011                  00244 r0x102C res     1
-0012                  00245 r0x102B res     1
-0013                  00246 r0x102A res     1
-0014                  00247 r0x102D res     1
-0015                  00248 r0x102E res     1
-0016                  00249 r0x102F res     1
-0017                  00250 r0x1030 res     1
-0018                  00251 r0x1031 res     1
-0019                  00252 r0x101F res     1
-001A                  00253 r0x101E res     1
-001B                  00254 r0x101D res     1
-001C                  00255 r0x1020 res     1
-gpasm-1.4.0 #1107 (May  9 2015) build/default   1-7-2017  10:50:45          PAGE  6
+                      00220 UD_main_1       udata
+0000                  00221 _bw     res     20
+                      00222 
+                      00223 UD_main_2       udata
+0000                  00224 _bt     res     20
+                      00225 
+                      00226 UD_main_3       udata
+0000                  00227 _buf    res     16
+                      00228 
+                      00229 ;--------------------------------------------------------
+                      00230 ; absolute symbol definitions
+                      00231 ;--------------------------------------------------------
+                      00232 ;--------------------------------------------------------
+                      00233 ; compiler-defined variables
+                      00234 ;--------------------------------------------------------
+                      00235 UDL_main_0      udata
+0000                  00236 r0x106E res     1
+0001                  00237 r0x106F res     1
+0002                  00238 r0x1066 res     1
+0003                  00239 r0x1067 res     1
+0004                  00240 r0x1068 res     1
+0005                  00241 r0x1069 res     1
+0006                  00242 r0x106A res     1
+0007                  00243 r0x106B res     1
+0008                  00244 r0x106C res     1
+0009                  00245 r0x106D res     1
+000A                  00246 r0x1051 res     1
+000B                  00247 r0x1052 res     1
+000C                  00248 r0x1054 res     1
+000D                  00249 r0x1053 res     1
+000E                  00250 r0x1055 res     1
+000F                  00251 r0x105F res     1
+0010                  00252 r0x105E res     1
+0011                  00253 r0x1060 res     1
+0012                  00254 r0x1061 res     1
+0013                  00255 r0x1062 res     1
+gpasm-1.4.0 #1107 (May  9 2015) build/default   1-7-2017  21:32:30          PAGE  6
 
 
 LOC    OBJECT CODE    LINE  SOURCE TEXT
   VALUE
 
-001D                  00256 r0x1021 res     1
-001E                  00257 r0x1022 res     1
-001F                  00258 r0x1023 res     1
-0020                  00259 r0x1024 res     1
-0021                  00260 _dec_to_ascii_number_1_20       res     4
-                      00261 ;--------------------------------------------------------
-                      00262 ; initialized data
-                      00263 ;--------------------------------------------------------
-                      00264 
-                      00265 ID_main_0       idata
-0000                  00266 _w
-0000   00 00          00267         db      0x00, 0x00
-                      00268 
-                      00269 
-                      00270 ID_main_1       idata
-0000                  00271 _t
-0000   00 00          00272         db      0x00, 0x00
-                      00273 
-                      00274 
-                      00275 ID_main_2       idata
-0000                  00276 _w1
-0000   00 00          00277         db      0x00, 0x00
-                      00278 
-                      00279 
-                      00280 ID_main_3       idata
-0000                  00281 _t1
-0000   00 00          00282         db      0x00, 0x00
-                      00283 
-                      00284 
-                      00285 ID_main_4       idata
-0000                  00286 _buf_head
-0000   00             00287         db      0x00
-                      00288 
-                      00289 
-                      00290 ID_main_5       idata
-0000                  00291 _buf_tail
-0000   00             00292         db      0x00
-                      00293 
-                      00294 
-                      00295 ID_main_6       idata
-0000                  00296 _int_error_cnt
-0000   00             00297         db      0x00
-                      00298 
-                      00299 
-                      00300 ID_main_7       code
-0000                  00301 _strV0
-0000   3430           00302         retlw 0x30
-0001   3420           00303         retlw 0x20
-0002   340A           00304         retlw 0x0a
-0003   3400           00305         retlw 0x00
+0014                  00256 r0x1065 res     1
+0015                  00257 r0x1058 res     1
+0016                  00258 r0x1057 res     1
+0017                  00259 r0x1056 res     1
+0018                  00260 r0x1059 res     1
+0019                  00261 r0x105A res     1
+001A                  00262 r0x105B res     1
+001B                  00263 r0x105C res     1
+001C                  00264 r0x105D res     1
+001D                  00265 r0x104B res     1
+001E                  00266 r0x104A res     1
+001F                  00267 r0x1049 res     1
+0020                  00268 r0x104C res     1
+0021                  00269 r0x104D res     1
+0022                  00270 r0x104E res     1
+0023                  00271 r0x104F res     1
+0024                  00272 r0x1050 res     1
+0025                  00273 _dec_to_ascii_number_1_24       res     4
+                      00274 ;--------------------------------------------------------
+                      00275 ; initialized data
+                      00276 ;--------------------------------------------------------
+                      00277 
+                      00278 ID_main_0       idata
+0000                  00279 _w
+0000   00 00          00280         db      0x00, 0x00
+                      00281 
+                      00282 
+                      00283 ID_main_1       idata
+0000                  00284 _t
+0000   00 00          00285         db      0x00, 0x00
+                      00286 
+                      00287 
+                      00288 ID_main_2       idata
+0000                  00289 _w1
+0000   00 00          00290         db      0x00, 0x00
+                      00291 
+                      00292 
+                      00293 ID_main_3       idata
+0000                  00294 _t1
+0000   00 00          00295         db      0x00, 0x00
+                      00296 
+                      00297 
+                      00298 ID_main_4       idata
+0000                  00299 _buf_head
+0000   00             00300         db      0x00
+                      00301 
+                      00302 
+                      00303 ID_main_5       idata
+0000                  00304 _buf_tail
+0000   00             00305         db      0x00
                       00306 
                       00307 
-                      00308 ID_main_8       code
-gpasm-1.4.0 #1107 (May  9 2015) build/default   1-7-2017  10:50:45          PAGE  7
+                      00308 ID_main_6       idata
+gpasm-1.4.0 #1107 (May  9 2015) build/default   1-7-2017  21:32:30          PAGE  7
 
 
 LOC    OBJECT CODE    LINE  SOURCE TEXT
   VALUE
 
-0000                  00309 _strV1
-0000   3431           00310         retlw 0x31
-0001   3420           00311         retlw 0x20
-0002   340A           00312         retlw 0x0a
-0003   3400           00313         retlw 0x00
-                      00314 
-                      00315 
-                      00316 ID_main_9       code
-0000                  00317 _strVF
-0000   3446           00318         retlw 0x46
-0001   3420           00319         retlw 0x20
-0002   340A           00320         retlw 0x0a
-0003   3400           00321         retlw 0x00
-                      00322 
-                      00323 
-                      00324 ID_main_10      code
-0000                  00325 _strw
-0000   3477           00326         retlw 0x77
-0001   343A           00327         retlw 0x3a
-0002   3420           00328         retlw 0x20
-0003   3400           00329         retlw 0x00
-                      00330 
-                      00331 
-                      00332 ID_main_11      code
-0000                  00333 _strt
-0000   3474           00334         retlw 0x74
-0001   343A           00335         retlw 0x3a
-0002   3420           00336         retlw 0x20
-0003   3400           00337         retlw 0x00
-                      00338 
-                      00339 
-                      00340 ID_main_12      code
-0000                  00341 _strw1
-0000   3477           00342         retlw 0x77
-0001   3431           00343         retlw 0x31
-0002   343A           00344         retlw 0x3a
-0003   3420           00345         retlw 0x20
-0004   3400           00346         retlw 0x00
-                      00347 
-                      00348 
-                      00349 ID_main_13      code
-0000                  00350 _strt1
-0000   3474           00351         retlw 0x74
-0001   3431           00352         retlw 0x31
-0002   343A           00353         retlw 0x3a
-0003   3420           00354         retlw 0x20
-0004   3400           00355         retlw 0x00
-                      00356 
-                      00357 
-                      00358 ID_main_14      code
-0000                  00359 _tab
-0000   3409           00360         retlw 0x09
-0001   3400           00361         retlw 0x00
-gpasm-1.4.0 #1107 (May  9 2015) build/default   1-7-2017  10:50:45          PAGE  8
+0000                  00309 _int_error_cnt
+0000   00             00310         db      0x00
+                      00311 
+                      00312 
+                      00313 ID_main_7       code
+0000                  00314 _strV0
+0000   3430           00315         retlw 0x30
+0001   3420           00316         retlw 0x20
+0002   340A           00317         retlw 0x0a
+0003   3400           00318         retlw 0x00
+                      00319 
+                      00320 
+                      00321 ID_main_8       code
+0000                  00322 _strV1
+0000   3431           00323         retlw 0x31
+0001   3420           00324         retlw 0x20
+0002   340A           00325         retlw 0x0a
+0003   3400           00326         retlw 0x00
+                      00327 
+                      00328 
+                      00329 ID_main_9       code
+0000                  00330 _strVF
+0000   3446           00331         retlw 0x46
+0001   3420           00332         retlw 0x20
+0002   340A           00333         retlw 0x0a
+0003   3400           00334         retlw 0x00
+                      00335 
+                      00336 
+                      00337 ID_main_10      code
+0000                  00338 _strw
+0000   3477           00339         retlw 0x77
+0001   343A           00340         retlw 0x3a
+0002   3420           00341         retlw 0x20
+0003   3400           00342         retlw 0x00
+                      00343 
+                      00344 
+                      00345 ID_main_11      code
+0000                  00346 _strt
+0000   3474           00347         retlw 0x74
+0001   343A           00348         retlw 0x3a
+0002   3420           00349         retlw 0x20
+0003   3400           00350         retlw 0x00
+                      00351 
+                      00352 
+                      00353 ID_main_12      code
+0000                  00354 _strw1
+0000   3477           00355         retlw 0x77
+0001   3431           00356         retlw 0x31
+0002   343A           00357         retlw 0x3a
+0003   3420           00358         retlw 0x20
+0004   3400           00359         retlw 0x00
+                      00360 
+                      00361 
+gpasm-1.4.0 #1107 (May  9 2015) build/default   1-7-2017  21:32:30          PAGE  8
 
 
 LOC    OBJECT CODE    LINE  SOURCE TEXT
   VALUE
 
-                      00362 
-                      00363 
-                      00364 ID_main_15      code
-0000                  00365 _enter
-0000   340A           00366         retlw 0x0a
-0001   3400           00367         retlw 0x00
-                      00368 
+                      00362 ID_main_13      code
+0000                  00363 _strt1
+0000   3474           00364         retlw 0x74
+0001   3431           00365         retlw 0x31
+0002   343A           00366         retlw 0x3a
+0003   3420           00367         retlw 0x20
+0004   3400           00368         retlw 0x00
                       00369 
-                      00370 ID_main_16      code
-0000                  00371 _sync
-0000   3453           00372         retlw 0x53
-0001   3459           00373         retlw 0x59
-0002   344E           00374         retlw 0x4e
-0003   3443           00375         retlw 0x43
-0004   340A           00376         retlw 0x0a
-0005   3400           00377         retlw 0x00
-                      00378 
-                      00379 
-                      00380 ID_main_17      code
-0000                  00381 _int_err
-0000   3449           00382         retlw 0x49
-0001   344E           00383         retlw 0x4e
-0002   3454           00384         retlw 0x54
-0003   3420           00385         retlw 0x20
-0004   3445           00386         retlw 0x45
-0005   3452           00387         retlw 0x52
-0006   3452           00388         retlw 0x52
-0007   340A           00389         retlw 0x0a
-0008   3400           00390         retlw 0x00
+                      00370 
+                      00371 ID_main_14      code
+0000                  00372 _tab
+0000   3409           00373         retlw 0x09
+0001   3400           00374         retlw 0x00
+                      00375 
+                      00376 
+                      00377 ID_main_15      code
+0000                  00378 _enter
+0000   340A           00379         retlw 0x0a
+0001   3400           00380         retlw 0x00
+                      00381 
+                      00382 
+                      00383 ID_main_16      code
+0000                  00384 _sync
+0000   3453           00385         retlw 0x53
+0001   3459           00386         retlw 0x59
+0002   344E           00387         retlw 0x4e
+0003   3443           00388         retlw 0x43
+0004   340A           00389         retlw 0x0a
+0005   3400           00390         retlw 0x00
                       00391 
                       00392 
-                      00393 ID_main_18      code
-0000                  00394 _buf_err
-0000   3442           00395         retlw 0x42
-0001   3455           00396         retlw 0x55
-0002   3446           00397         retlw 0x46
-0003   3446           00398         retlw 0x46
+                      00393 ID_main_17      code
+0000                  00394 _int_err
+0000   3449           00395         retlw 0x49
+0001   344E           00396         retlw 0x4e
+0002   3454           00397         retlw 0x54
+0003   3420           00398         retlw 0x20
 0004   3445           00399         retlw 0x45
 0005   3452           00400         retlw 0x52
-0006   3420           00401         retlw 0x20
-0007   344F           00402         retlw 0x4f
-0008   3457           00403         retlw 0x57
-0009   3445           00404         retlw 0x45
-000A   3452           00405         retlw 0x52
-000B   3446           00406         retlw 0x46
-000C   344C           00407         retlw 0x4c
-000D   344F           00408         retlw 0x4f
-000E   3457           00409         retlw 0x57
-000F   340A           00410         retlw 0x0a
-0010   3400           00411         retlw 0x00
-                      00412 
-                      00413 ;--------------------------------------------------------
-                      00414 ; overlayable items in internal ram 
-gpasm-1.4.0 #1107 (May  9 2015) build/default   1-7-2017  10:50:45          PAGE  9
+0006   3452           00401         retlw 0x52
+0007   340A           00402         retlw 0x0a
+0008   3400           00403         retlw 0x00
+                      00404 
+                      00405 
+                      00406 ID_main_18      code
+0000                  00407 _buf_err
+0000   3442           00408         retlw 0x42
+0001   3455           00409         retlw 0x55
+0002   3446           00410         retlw 0x46
+0003   3446           00411         retlw 0x46
+0004   3445           00412         retlw 0x45
+0005   3452           00413         retlw 0x52
+0006   3420           00414         retlw 0x20
+gpasm-1.4.0 #1107 (May  9 2015) build/default   1-7-2017  21:32:30          PAGE  9
 
 
 LOC    OBJECT CODE    LINE  SOURCE TEXT
   VALUE
 
-                      00415 ;--------------------------------------------------------
-                      00416 ;       udata_ovr
-                      00417 ;--------------------------------------------------------
-                      00418 ; reset vector 
-                      00419 ;--------------------------------------------------------
-                      00420 STARTUP code 0x0000
-0000   0000           00421         nop
-0001   ????           00422         pagesel __sdcc_gsinit_startup
-0002   2???           00423         goto    __sdcc_gsinit_startup
-                      00424 ;--------------------------------------------------------
-                      00425 ; interrupt and initialization code
+0007   344F           00415         retlw 0x4f
+0008   3457           00416         retlw 0x57
+0009   3445           00417         retlw 0x45
+000A   3452           00418         retlw 0x52
+000B   3446           00419         retlw 0x46
+000C   344C           00420         retlw 0x4c
+000D   344F           00421         retlw 0x4f
+000E   3457           00422         retlw 0x57
+000F   340A           00423         retlw 0x0a
+0010   3400           00424         retlw 0x00
+                      00425 
                       00426 ;--------------------------------------------------------
-                      00427 c_interrupt     code    0x0004
-0004                  00428 __sdcc_interrupt:
-                      00429 ;***
-                      00430 ;  pBlock Stats: dbName = I
-                      00431 ;***
-                      00432 ;functions called:
-                      00433 ;   _SP_send_error
-                      00434 ;   _SP_send_error
-                      00435 ;5 compiler assigned registers:
-                      00436 ;   r0x103D
-                      00437 ;   r0x103E
-                      00438 ;   r0x103F
-                      00439 ;   STK01
-                      00440 ;   STK00
-                      00441 ;; Starting pCode block
-0004                  00442 _receive_intr:
-                      00443 ; 0 exit points
-                      00444 ;       .line   84; "main.c"    void receive_intr() __interrupt 0 {
-0004   00??           00445         MOVWF   WSAVE
-0005   0E03           00446         SWAPF   STATUS,W
-0006   0183           00447         CLRF    STATUS
-0007   00??           00448         MOVWF   SSAVE
-0008   080A           00449         MOVF    PCLATH,W
-0009   018A           00450         CLRF    PCLATH
-000A   00??           00451         MOVWF   PSAVE
-000B   0804           00452         MOVF    FSR,W
-000C   ???? ????      00453         BANKSEL ___sdcc_saved_fsr
-000E   00??           00454         MOVWF   ___sdcc_saved_fsr
-                      00455 ;       .line   86; "main.c"    if(TXIF){
-000F   ???? ????      00456         BANKSEL _PIR1bits
-0011   1E??           00457         BTFSS   _PIR1bits,4
-0012   2???           00458         GOTO    _00111_DS_
-                      00459 ;       .line   88; "main.c"    if (buf_head == buf_tail){
-0013   ???? ????      00460         BANKSEL _buf_tail
-0015   08??           00461         MOVF    _buf_tail,W
-0016   ???? ????      00462         BANKSEL _buf_head
-0018   06??           00463         XORWF   _buf_head,W
-0019   1D03           00464         BTFSS   STATUS,2
-001A   2???           00465         GOTO    _00108_DS_
-                      00466 ;       .line   89; "main.c"    TXIE = 0;
-001B   ???? ????      00467         BANKSEL _PIE1bits
-gpasm-1.4.0 #1107 (May  9 2015) build/default   1-7-2017  10:50:45          PAGE 10
+                      00427 ; overlayable items in internal ram 
+                      00428 ;--------------------------------------------------------
+                      00429 ;       udata_ovr
+                      00430 ;--------------------------------------------------------
+                      00431 ; reset vector 
+                      00432 ;--------------------------------------------------------
+                      00433 STARTUP code 0x0000
+0000   0000           00434         nop
+0001   ????           00435         pagesel __sdcc_gsinit_startup
+0002   2???           00436         goto    __sdcc_gsinit_startup
+                      00437 ;--------------------------------------------------------
+                      00438 ; interrupt and initialization code
+                      00439 ;--------------------------------------------------------
+                      00440 c_interrupt     code    0x0004
+0004                  00441 __sdcc_interrupt:
+                      00442 ;***
+                      00443 ;  pBlock Stats: dbName = I
+                      00444 ;***
+                      00445 ;2 compiler assigned registers:
+                      00446 ;   r0x106E
+                      00447 ;   r0x106F
+                      00448 ;; Starting pCode block
+0004                  00449 _receive_intr:
+                      00450 ; 0 exit points
+                      00451 ;       .line   90; "main.c"    void receive_intr() __interrupt 0 {
+0004   00??           00452         MOVWF   WSAVE
+0005   0E03           00453         SWAPF   STATUS,W
+0006   0183           00454         CLRF    STATUS
+0007   00??           00455         MOVWF   SSAVE
+0008   080A           00456         MOVF    PCLATH,W
+0009   018A           00457         CLRF    PCLATH
+000A   00??           00458         MOVWF   PSAVE
+000B   0804           00459         MOVF    FSR,W
+000C   ???? ????      00460         BANKSEL ___sdcc_saved_fsr
+000E   00??           00461         MOVWF   ___sdcc_saved_fsr
+                      00462 ;       .line   92; "main.c"    if(TXIF){
+000F   ???? ????      00463         BANKSEL _PIR1bits
+0011   1E??           00464         BTFSS   _PIR1bits,4
+0012   2???           00465         GOTO    _00111_DS_
+                      00466 ;       .line   94; "main.c"    if (buf_head == buf_tail){
+0013   ???? ????      00467         BANKSEL _buf_tail
+gpasm-1.4.0 #1107 (May  9 2015) build/default   1-7-2017  21:32:30          PAGE 10
 
 
 LOC    OBJECT CODE    LINE  SOURCE TEXT
   VALUE
 
-001D   12??           00468         BCF     _PIE1bits,4
-001E   2???           00469         GOTO    _00111_DS_
-001F                  00470 _00108_DS_:
-                      00471 ;       .line   94; "main.c"    TXREG = buf[buf_tail];
-001F   ???? ????      00472         BANKSEL _buf_tail
-0021   08??           00473         MOVF    _buf_tail,W
-0022   3E??           00474         ADDLW   (_buf + 0)
-0023   ???? ????      00475         BANKSEL r0x103D
-0025   00??           00476         MOVWF   r0x103D
-0026   30??           00477         MOVLW   high (_buf + 0)
-0027   1803           00478         BTFSC   STATUS,0
-0028   3E01           00479         ADDLW   0x01
-0029   00??           00480         MOVWF   r0x103E
-002A   08??           00481         MOVF    r0x103D,W
-002B   1283 1303      00482         BANKSEL FSR
-002D   0084           00483         MOVWF   FSR
-002E   1383           00484         BCF     STATUS,7
-002F   ???? ????      00485         BANKSEL r0x103E
-0031   18??           00486         BTFSC   r0x103E,0
-0032   1783           00487         BSF     STATUS,7
-0033   1283 1303      00488         BANKSEL INDF
-0035   0800           00489         MOVF    INDF,W
-0036   00??           00490         MOVWF   _TXREG
-                      00491 ;       .line   95; "main.c"    buf[buf_tail] = 0;  // clear the data (optional)
-0037   ???? ????      00492         BANKSEL r0x103D
-0039   08??           00493         MOVF    r0x103D,W
-003A   1283 1303      00494         BANKSEL FSR
-003C   0084           00495         MOVWF   FSR
-003D   1383           00496         BCF     STATUS,7
-003E   ???? ????      00497         BANKSEL r0x103E
-0040   18??           00498         BTFSC   r0x103E,0
-0041   1783           00499         BSF     STATUS,7
-0042   3000           00500         MOVLW   0x00
-0043   1283 1303      00501         BANKSEL INDF
-0045   0080           00502         MOVWF   INDF
-                      00503 ;       .line   97; "main.c"    next = buf_tail + 1;
-0046   ???? ????      00504         BANKSEL _buf_tail
-0048   08??           00505         MOVF    _buf_tail,W
-0049   ???? ????      00506         BANKSEL r0x103D
-004B   00??           00507         MOVWF   r0x103D
-004C   01??           00508         CLRF    r0x103E
-004D   0A??           00509         INCF    r0x103D,F
-004E   1903           00510         BTFSC   STATUS,2
-004F   0A??           00511         INCF    r0x103E,F
-                      00512 ;;signed compare: left < lit(0x10=16), size=2, mask=ffff
-                      00513 ;       .line   98; "main.c"    if(next >= BUF_SIZE)
-0050   08??           00514         MOVF    r0x103E,W
-0051   3E80           00515         ADDLW   0x80
-0052   3E80           00516         ADDLW   0x80
-0053   1D03           00517         BTFSS   STATUS,2
-0054   2???           00518         GOTO    _00139_DS_
-0055   3010           00519         MOVLW   0x10
-0056   02??           00520         SUBWF   r0x103D,W
-gpasm-1.4.0 #1107 (May  9 2015) build/default   1-7-2017  10:50:45          PAGE 11
+0015   08??           00468         MOVF    _buf_tail,W
+0016   ???? ????      00469         BANKSEL _buf_head
+0018   06??           00470         XORWF   _buf_head,W
+0019   1D03           00471         BTFSS   STATUS,2
+001A   2???           00472         GOTO    _00108_DS_
+                      00473 ;       .line   95; "main.c"    TXIE = 0;
+001B   ???? ????      00474         BANKSEL _PIE1bits
+001D   12??           00475         BCF     _PIE1bits,4
+001E   2???           00476         GOTO    _00111_DS_
+001F                  00477 _00108_DS_:
+                      00478 ;       .line   100; "main.c"   TXREG = buf[buf_tail];
+001F   ???? ????      00479         BANKSEL _buf_tail
+0021   08??           00480         MOVF    _buf_tail,W
+0022   3E??           00481         ADDLW   (_buf + 0)
+0023   ???? ????      00482         BANKSEL r0x106E
+0025   00??           00483         MOVWF   r0x106E
+0026   30??           00484         MOVLW   high (_buf + 0)
+0027   1803           00485         BTFSC   STATUS,0
+0028   3E01           00486         ADDLW   0x01
+0029   00??           00487         MOVWF   r0x106F
+002A   08??           00488         MOVF    r0x106E,W
+002B   1283 1303      00489         BANKSEL FSR
+002D   0084           00490         MOVWF   FSR
+002E   1383           00491         BCF     STATUS,7
+002F   ???? ????      00492         BANKSEL r0x106F
+0031   18??           00493         BTFSC   r0x106F,0
+0032   1783           00494         BSF     STATUS,7
+0033   1283 1303      00495         BANKSEL INDF
+0035   0800           00496         MOVF    INDF,W
+0036   00??           00497         MOVWF   _TXREG
+                      00498 ;       .line   101; "main.c"   buf[buf_tail] = 0;  // clear the data (optional)
+0037   ???? ????      00499         BANKSEL r0x106E
+0039   08??           00500         MOVF    r0x106E,W
+003A   1283 1303      00501         BANKSEL FSR
+003C   0084           00502         MOVWF   FSR
+003D   1383           00503         BCF     STATUS,7
+003E   ???? ????      00504         BANKSEL r0x106F
+0040   18??           00505         BTFSC   r0x106F,0
+0041   1783           00506         BSF     STATUS,7
+0042   3000           00507         MOVLW   0x00
+0043   1283 1303      00508         BANKSEL INDF
+0045   0080           00509         MOVWF   INDF
+                      00510 ;       .line   103; "main.c"   next = buf_tail + 1;
+0046   ???? ????      00511         BANKSEL _buf_tail
+0048   08??           00512         MOVF    _buf_tail,W
+0049   ???? ????      00513         BANKSEL r0x106E
+004B   00??           00514         MOVWF   r0x106E
+004C   01??           00515         CLRF    r0x106F
+004D   0A??           00516         INCF    r0x106E,F
+004E   1903           00517         BTFSC   STATUS,2
+004F   0A??           00518         INCF    r0x106F,F
+                      00519 ;;signed compare: left < lit(0x10=16), size=2, mask=ffff
+                      00520 ;       .line   104; "main.c"   if(next >= BUF_SIZE)
+gpasm-1.4.0 #1107 (May  9 2015) build/default   1-7-2017  21:32:30          PAGE 11
 
 
 LOC    OBJECT CODE    LINE  SOURCE TEXT
   VALUE
 
-0057                  00521 _00139_DS_:
-0057   1C03           00522         BTFSS   STATUS,0
-0058   2???           00523         GOTO    _00106_DS_
-                      00524 ;;genSkipc:3257: created from rifx:0x7fffa7ea1670
-                      00525 ;       .line   99; "main.c"    next = 0;
-0059   ???? ????      00526         BANKSEL r0x103D
-005B   01??           00527         CLRF    r0x103D
-005C   01??           00528         CLRF    r0x103E
-005D                  00529 _00106_DS_:
-                      00530 ;       .line   101; "main.c"   buf_tail = next;
-005D   ???? ????      00531         BANKSEL r0x103D
-005F   08??           00532         MOVF    r0x103D,W
-0060   ???? ????      00533         BANKSEL _buf_tail
-0062   00??           00534         MOVWF   _buf_tail
-0063                  00535 _00111_DS_:
-                      00536 ;       .line   105; "main.c"   if(CCP1IF){
-0063   ???? ????      00537         BANKSEL _PIR1bits
-0065   1D??           00538         BTFSS   _PIR1bits,2
-0066   2???           00539         GOTO    _00116_DS_
-                      00540 ;       .line   106; "main.c"   CCP1IF = 0;                     //Clear interrupt flag
-0067   11??           00541         BCF     _PIR1bits,2
-                      00542 ;       .line   109; "main.c"   if(CCP1M0){                     // if ECCP mode is Rising edge CCP1M0
-0068   1C??           00543         BTFSS   _CCP1CONbits,0
-0069   2???           00544         GOTO    _00113_DS_
-                      00545 ;       .line   110; "main.c"   CCP1M0 = FALING;                 // set falling edge
-006A   10??           00546         BCF     _CCP1CONbits,0
-                      00547 ;       .line   111; "main.c"   TMR1H = 0;
-006B   01??           00548         CLRF    _TMR1H
-                      00549 ;       .line   112; "main.c"   TMR1L = 0;
-006C   01??           00550         CLRF    _TMR1L
-                      00551 ;       .line   114; "main.c"   t = 0x0000 | CCPR1H;        //ECCP result higher 8 bits
-006D   08??           00552         MOVF    _CCPR1H,W
-006E   ???? ????      00553         BANKSEL r0x103D
-0070   00??           00554         MOVWF   r0x103D
-0071   ???? ????      00555         BANKSEL _t
-0073   00??           00556         MOVWF   _t
-0074   01??           00557         CLRF    (_t + 1)
-                      00558 ;       .line   115; "main.c"   t = t << 8;
-0075   08??           00559         MOVF    _t,W
-0076   00??           00560         MOVWF   (_t + 1)
-0077   01??           00561         CLRF    _t
-                      00562 ;       .line   116; "main.c"   t = t | CCPR1L;             //ECCP combined 16 bit number formation
-0078   ???? ????      00563         BANKSEL _CCPR1L
-007A   08??           00564         MOVF    _CCPR1L,W
-007B   ???? ????      00565         BANKSEL r0x103D
-007D   00??           00566         MOVWF   r0x103D
-007E   01??           00567         CLRF    r0x103E
-007F   08??           00568         MOVF    r0x103D,W
-0080   ???? ????      00569         BANKSEL _t
-0082   04??           00570         IORWF   _t,F
-0083   3000           00571         MOVLW   0x00
-0084   04??           00572         IORWF   (_t + 1),F
-                      00573 ;       .line   117; "main.c"   bitfield.Capture = TRUE;
-gpasm-1.4.0 #1107 (May  9 2015) build/default   1-7-2017  10:50:45          PAGE 12
+0050   08??           00521         MOVF    r0x106F,W
+0051   3E80           00522         ADDLW   0x80
+0052   3E80           00523         ADDLW   0x80
+0053   1D03           00524         BTFSS   STATUS,2
+0054   2???           00525         GOTO    _00134_DS_
+0055   3010           00526         MOVLW   0x10
+0056   02??           00527         SUBWF   r0x106E,W
+0057                  00528 _00134_DS_:
+0057   1C03           00529         BTFSS   STATUS,0
+0058   2???           00530         GOTO    _00106_DS_
+                      00531 ;;genSkipc:3257: created from rifx:0x7ffe11752180
+                      00532 ;       .line   105; "main.c"   next = 0;
+0059   ???? ????      00533         BANKSEL r0x106E
+005B   01??           00534         CLRF    r0x106E
+005C   01??           00535         CLRF    r0x106F
+005D                  00536 _00106_DS_:
+                      00537 ;       .line   107; "main.c"   buf_tail = next;
+005D   ???? ????      00538         BANKSEL r0x106E
+005F   08??           00539         MOVF    r0x106E,W
+0060   ???? ????      00540         BANKSEL _buf_tail
+0062   00??           00541         MOVWF   _buf_tail
+0063                  00542 _00111_DS_:
+                      00543 ;       .line   111; "main.c"   if(CCP1IF){
+0063   ???? ????      00544         BANKSEL _PIR1bits
+0065   1D??           00545         BTFSS   _PIR1bits,2
+0066   2???           00546         GOTO    _00117_DS_
+                      00547 ;       .line   112; "main.c"   CCP1IE = FALSE;
+0067   ???? ????      00548         BANKSEL _PIE1bits
+0069   11??           00549         BCF     _PIE1bits,2
+                      00550 ;       .line   114; "main.c"   if(CCP1M0){                     // if ECCP mode is Rising edge CCP1M0
+006A   ???? ????      00551         BANKSEL _CCP1CONbits
+006C   1C??           00552         BTFSS   _CCP1CONbits,0
+006D   2???           00553         GOTO    _00113_DS_
+                      00554 ;       .line   115; "main.c"   CCP1M0 = FALING;                 // set falling edge
+006E   10??           00555         BCF     _CCP1CONbits,0
+                      00556 ;       .line   116; "main.c"   TMR1H = 0;
+006F   01??           00557         CLRF    _TMR1H
+                      00558 ;       .line   117; "main.c"   TMR1L = 0;
+0070   01??           00559         CLRF    _TMR1L
+                      00560 ;       .line   119; "main.c"   t = 0x0000 | CCPR1H;        //ECCP result higher 8 bits
+0071   08??           00561         MOVF    _CCPR1H,W
+0072   ???? ????      00562         BANKSEL r0x106E
+0074   00??           00563         MOVWF   r0x106E
+0075   ???? ????      00564         BANKSEL _t
+0077   00??           00565         MOVWF   _t
+0078   01??           00566         CLRF    (_t + 1)
+                      00567 ;       .line   120; "main.c"   t = t << 8;
+0079   08??           00568         MOVF    _t,W
+007A   00??           00569         MOVWF   (_t + 1)
+007B   01??           00570         CLRF    _t
+                      00571 ;       .line   121; "main.c"   t = t | CCPR1L;             //ECCP combined 16 bit number formation*/
+007C   ???? ????      00572         BANKSEL _CCPR1L
+007E   08??           00573         MOVF    _CCPR1L,W
+gpasm-1.4.0 #1107 (May  9 2015) build/default   1-7-2017  21:32:30          PAGE 12
 
 
 LOC    OBJECT CODE    LINE  SOURCE TEXT
   VALUE
 
-0085   ???? ????      00574         BANKSEL _bitfield
-0087   14??           00575         BSF     _bitfield,0
-0088   2???           00576         GOTO    _00116_DS_
-0089                  00577 _00113_DS_:
-                      00578 ;       .line   120; "main.c"   CCP1M0 = RISING;
-0089   ???? ????      00579         BANKSEL _CCP1CONbits
-008B   14??           00580         BSF     _CCP1CONbits,0
-                      00581 ;       .line   122; "main.c"   w = 0x0000 | CCPR1H;        //ECCP result higher 8 bits
-008C   08??           00582         MOVF    _CCPR1H,W
-008D   ???? ????      00583         BANKSEL r0x103D
-008F   00??           00584         MOVWF   r0x103D
-0090   ???? ????      00585         BANKSEL _w
-0092   00??           00586         MOVWF   _w
-0093   01??           00587         CLRF    (_w + 1)
-                      00588 ;       .line   123; "main.c"   w = w << 8;
-0094   08??           00589         MOVF    _w,W
-0095   00??           00590         MOVWF   (_w + 1)
-0096   01??           00591         CLRF    _w
-                      00592 ;       .line   124; "main.c"   w = w | CCPR1L;             //ECCP combined 16 bit number formation
-0097   ???? ????      00593         BANKSEL _CCPR1L
-0099   08??           00594         MOVF    _CCPR1L,W
-009A   ???? ????      00595         BANKSEL r0x103D
-009C   00??           00596         MOVWF   r0x103D
-009D   01??           00597         CLRF    r0x103E
-009E   08??           00598         MOVF    r0x103D,W
-009F   ???? ????      00599         BANKSEL _w
-00A1   04??           00600         IORWF   _w,F
-00A2   3000           00601         MOVLW   0x00
-00A3   04??           00602         IORWF   (_w + 1),F
-00A4                  00603 _00116_DS_:
-                      00604 ;       .line   130; "main.c"   int_error_cnt++;
-00A4   ???? ????      00605         BANKSEL _int_error_cnt
-00A6   0A??           00606         INCF    _int_error_cnt,F
-                      00607 ;;swapping arguments (AOP_TYPEs 1/3)
-                      00608 ;;unsigned compare: left >= lit(0x65=101), size=1
-                      00609 ;       .line   131; "main.c"   if (int_error_cnt > 100)
-00A7   3065           00610         MOVLW   0x65
-00A8   02??           00611         SUBWF   _int_error_cnt,W
-00A9   1C03           00612         BTFSS   STATUS,0
-00AA   2???           00613         GOTO    _00119_DS_
-                      00614 ;;genSkipc:3257: created from rifx:0x7fffa7ea1670
-                      00615 ;       .line   132; "main.c"   SP_send_error(int_err);
-00AB   30??           00616         MOVLW   high (_int_err + 0)
-00AC   ???? ????      00617         BANKSEL r0x103E
-00AE   00??           00618         MOVWF   r0x103E
-00AF   30??           00619         MOVLW   (_int_err + 0)
-00B0   00??           00620         MOVWF   r0x103D
-00B1   3080           00621         MOVLW   0x80
-00B2   00??           00622         MOVWF   r0x103F
-00B3   08??           00623         MOVF    r0x103D,W
-00B4   00??           00624         MOVWF   STK01
-00B5   08??           00625         MOVF    r0x103E,W
-00B6   00??           00626         MOVWF   STK00
-gpasm-1.4.0 #1107 (May  9 2015) build/default   1-7-2017  10:50:45          PAGE 13
+007F   ???? ????      00574         BANKSEL r0x106E
+0081   00??           00575         MOVWF   r0x106E
+0082   01??           00576         CLRF    r0x106F
+0083   08??           00577         MOVF    r0x106E,W
+0084   ???? ????      00578         BANKSEL _t
+0086   04??           00579         IORWF   _t,F
+0087   3000           00580         MOVLW   0x00
+0088   04??           00581         IORWF   (_t + 1),F
+                      00582 ;       .line   123; "main.c"   bitfield.Capture = TRUE;
+0089   ???? ????      00583         BANKSEL _bitfield
+008B   14??           00584         BSF     _bitfield,0
+008C   2???           00585         GOTO    _00114_DS_
+008D                  00586 _00113_DS_:
+                      00587 ;       .line   126; "main.c"   CCP1M0 = RISING;
+008D   ???? ????      00588         BANKSEL _CCP1CONbits
+008F   14??           00589         BSF     _CCP1CONbits,0
+                      00590 ;       .line   128; "main.c"   w = 0x0000 | CCPR1H;        //ECCP result higher 8 bits
+0090   08??           00591         MOVF    _CCPR1H,W
+0091   ???? ????      00592         BANKSEL r0x106E
+0093   00??           00593         MOVWF   r0x106E
+0094   ???? ????      00594         BANKSEL _w
+0096   00??           00595         MOVWF   _w
+0097   01??           00596         CLRF    (_w + 1)
+                      00597 ;       .line   129; "main.c"   w = w << 8;
+0098   08??           00598         MOVF    _w,W
+0099   00??           00599         MOVWF   (_w + 1)
+009A   01??           00600         CLRF    _w
+                      00601 ;       .line   130; "main.c"   w = w | CCPR1L;             //ECCP combined 16 bit number formation
+009B   ???? ????      00602         BANKSEL _CCPR1L
+009D   08??           00603         MOVF    _CCPR1L,W
+009E   ???? ????      00604         BANKSEL r0x106E
+00A0   00??           00605         MOVWF   r0x106E
+00A1   01??           00606         CLRF    r0x106F
+00A2   08??           00607         MOVF    r0x106E,W
+00A3   ???? ????      00608         BANKSEL _w
+00A5   04??           00609         IORWF   _w,F
+00A6   3000           00610         MOVLW   0x00
+00A7   04??           00611         IORWF   (_w + 1),F
+                      00612 ;       .line   132; "main.c"   bitfield.Capture = TRUE;
+00A8   ???? ????      00613         BANKSEL _bitfield
+00AA   14??           00614         BSF     _bitfield,0
+00AB                  00615 _00114_DS_:
+                      00616 ;       .line   134; "main.c"   CCP1IE = 1;
+00AB   ???? ????      00617         BANKSEL _PIE1bits
+00AD   15??           00618         BSF     _PIE1bits,2
+                      00619 ;       .line   135; "main.c"   CCP1IF = 0;                     //Clear interrupt flag
+00AE   ???? ????      00620         BANKSEL _PIR1bits
+00B0   11??           00621         BCF     _PIR1bits,2
+00B1                  00622 _00117_DS_:
+00B1   ???? ????      00623         BANKSEL ___sdcc_saved_fsr
+00B3   08??           00624         MOVF    ___sdcc_saved_fsr,W
+00B4   1283 1303      00625         BANKSEL FSR
+00B6   0084           00626         MOVWF   FSR
+gpasm-1.4.0 #1107 (May  9 2015) build/default   1-7-2017  21:32:30          PAGE 13
 
 
 LOC    OBJECT CODE    LINE  SOURCE TEXT
   VALUE
 
-00B7   08??           00627         MOVF    r0x103F,W
-00B8   ????           00628         PAGESEL _SP_send_error
-00B9   2???           00629         CALL    _SP_send_error
-00BA   ????           00630         PAGESEL $
-00BB                  00631 _00119_DS_:
-00BB   ???? ????      00632         BANKSEL ___sdcc_saved_fsr
-00BD   08??           00633         MOVF    ___sdcc_saved_fsr,W
-00BE   1283 1303      00634         BANKSEL FSR
-00C0   0084           00635         MOVWF   FSR
-00C1   08??           00636         MOVF    PSAVE,W
-00C2   008A           00637         MOVWF   PCLATH
-00C3   0183           00638         CLRF    STATUS
-00C4   0E??           00639         SWAPF   SSAVE,W
-00C5   0083           00640         MOVWF   STATUS
-00C6   0E??           00641         SWAPF   WSAVE,F
-00C7   0E??           00642         SWAPF   WSAVE,W
-00C8                  00643 END_OF_INTERRUPT:
-00C8   0009           00644         RETFIE  
-                      00645 
-                      00646 ;--------------------------------------------------------
-                      00647 ; code
-                      00648 ;--------------------------------------------------------
-                      00649 code_main       code
-                      00650 ;***
-                      00651 ;  pBlock Stats: dbName = M
-                      00652 ;***
-                      00653 ;has an exit
-                      00654 ;functions called:
-                      00655 ;   _init
-                      00656 ;   _dec_to_ascii
-                      00657 ;   _SP_send
-                      00658 ;   _dec_to_ascii
+00B7   08??           00627         MOVF    PSAVE,W
+00B8   008A           00628         MOVWF   PCLATH
+00B9   0183           00629         CLRF    STATUS
+00BA   0E??           00630         SWAPF   SSAVE,W
+00BB   0083           00631         MOVWF   STATUS
+00BC   0E??           00632         SWAPF   WSAVE,F
+00BD   0E??           00633         SWAPF   WSAVE,W
+00BE                  00634 END_OF_INTERRUPT:
+00BE   0009           00635         RETFIE  
+                      00636 
+                      00637 ;--------------------------------------------------------
+                      00638 ; code
+                      00639 ;--------------------------------------------------------
+                      00640 code_main       code
+                      00641 ;***
+                      00642 ;  pBlock Stats: dbName = M
+                      00643 ;***
+                      00644 ;has an exit
+                      00645 ;functions called:
+                      00646 ;   _init
+                      00647 ;   __mulchar
+                      00648 ;   _SP_send
+                      00649 ;   _circBufPush
+                      00650 ;   _SP_send
+                      00651 ;   __mulchar
+                      00652 ;   _dec_to_ascii
+                      00653 ;   _SP_send
+                      00654 ;   _dec_to_ascii
+                      00655 ;   _SP_send
+                      00656 ;   _SP_send
+                      00657 ;   _init
+                      00658 ;   __mulchar
                       00659 ;   _SP_send
-                      00660 ;   _init
-                      00661 ;   _dec_to_ascii
-                      00662 ;   _SP_send
+                      00660 ;   _circBufPush
+                      00661 ;   _SP_send
+                      00662 ;   __mulchar
                       00663 ;   _dec_to_ascii
                       00664 ;   _SP_send
-                      00665 ;5 compiler assigned registers:
-                      00666 ;   STK00
-                      00667 ;   r0x103A
-                      00668 ;   r0x103B
-                      00669 ;   r0x103C
-                      00670 ;   STK01
-                      00671 ;; Starting pCode block
-                      00672 S_main__main    code
-0000                  00673 _main:
-                      00674 ; 2 exit points
-                      00675 ;       .line   138; "main.c"   init();
-0000   ????           00676         PAGESEL _init
-0001   2???           00677         CALL    _init
-0002   ????           00678         PAGESEL $
-0003                  00679 _00147_DS_:
-gpasm-1.4.0 #1107 (May  9 2015) build/default   1-7-2017  10:50:45          PAGE 14
+                      00665 ;   _dec_to_ascii
+                      00666 ;   _SP_send
+                      00667 ;   _SP_send
+                      00668 ;10 compiler assigned registers:
+                      00669 ;   r0x1066
+                      00670 ;   STK00
+                      00671 ;   r0x1067
+                      00672 ;   r0x1068
+                      00673 ;   r0x1069
+                      00674 ;   r0x106A
+                      00675 ;   STK01
+                      00676 ;   r0x106B
+                      00677 ;   r0x106C
+                      00678 ;   r0x106D
+                      00679 ;; Starting pCode block
+gpasm-1.4.0 #1107 (May  9 2015) build/default   1-7-2017  21:32:30          PAGE 14
 
 
 LOC    OBJECT CODE    LINE  SOURCE TEXT
   VALUE
 
-                      00680 ;       .line   142; "main.c"   if (bitfield.Capture){
-0003   ???? ????      00681         BANKSEL _bitfield
-0005   1C??           00682         BTFSS   _bitfield,0
-0006   2???           00683         GOTO    _00145_DS_
-                      00684 ;       .line   143; "main.c"   bitfield.Capture = FALSE;
-0007   10??           00685         BCF     _bitfield,0
-                      00686 ;       .line   164; "main.c"   dec_to_ascii(w);
-0008   ???? ????      00687         BANKSEL _w
-000A   08??           00688         MOVF    _w,W
-000B   00??           00689         MOVWF   STK00
-000C   08??           00690         MOVF    (_w + 1),W
-000D   ????           00691         PAGESEL _dec_to_ascii
-000E   2???           00692         CALL    _dec_to_ascii
-000F   ????           00693         PAGESEL $
-                      00694 ;       .line   165; "main.c"   SP_send(tab);
-0010   30??           00695         MOVLW   high (_tab + 0)
-0011   ???? ????      00696         BANKSEL r0x103A
-0013   00??           00697         MOVWF   r0x103A
-0014   30??           00698         MOVLW   (_tab + 0)
-0015   00??           00699         MOVWF   r0x103B
-0016   3080           00700         MOVLW   0x80
-0017   00??           00701         MOVWF   r0x103C
-0018   08??           00702         MOVF    r0x103B,W
-0019   00??           00703         MOVWF   STK01
-001A   08??           00704         MOVF    r0x103A,W
-001B   00??           00705         MOVWF   STK00
-001C   08??           00706         MOVF    r0x103C,W
-001D   ????           00707         PAGESEL _SP_send
-001E   2???           00708         CALL    _SP_send
-001F   ????           00709         PAGESEL $
-                      00710 ;       .line   166; "main.c"   dec_to_ascii(t);
-0020   ???? ????      00711         BANKSEL _t
-0022   08??           00712         MOVF    _t,W
-0023   00??           00713         MOVWF   STK00
-0024   08??           00714         MOVF    (_t + 1),W
-0025   ????           00715         PAGESEL _dec_to_ascii
-0026   2???           00716         CALL    _dec_to_ascii
-0027   ????           00717         PAGESEL $
-                      00718 ;       .line   167; "main.c"   SP_send(enter);
-0028   30??           00719         MOVLW   high (_enter + 0)
-0029   ???? ????      00720         BANKSEL r0x103A
-002B   00??           00721         MOVWF   r0x103A
-002C   30??           00722         MOVLW   (_enter + 0)
-002D   00??           00723         MOVWF   r0x103B
-002E   3080           00724         MOVLW   0x80
-002F   00??           00725         MOVWF   r0x103C
-0030   08??           00726         MOVF    r0x103B,W
-0031   00??           00727         MOVWF   STK01
-0032   08??           00728         MOVF    r0x103A,W
-0033   00??           00729         MOVWF   STK00
-0034   08??           00730         MOVF    r0x103C,W
-0035   ????           00731         PAGESEL _SP_send
-0036   2???           00732         CALL    _SP_send
-gpasm-1.4.0 #1107 (May  9 2015) build/default   1-7-2017  10:50:45          PAGE 15
+                      00680 S_main__main    code
+0000                  00681 _main:
+                      00682 ; 2 exit points
+                      00683 ;       .line   152; "main.c"   init();
+0000   ????           00684         PAGESEL _init
+0001   2???           00685         CALL    _init
+0002   ????           00686         PAGESEL $
+                      00687 ;       .line   153; "main.c"   bitfield.Hint = FALSE;
+0003   ???? ????      00688         BANKSEL _bitfield
+0005   11??           00689         BCF     _bitfield,2
+                      00690 ;       .line   154; "main.c"   while(1)
+0006   ???? ????      00691         BANKSEL r0x1066
+0008   01??           00692         CLRF    r0x1066
+0009                  00693 _00153_DS_:
+                      00694 ;       .line   169; "main.c"   TMR0 = 0;
+0009   ???? ????      00695         BANKSEL _TMR0
+000B   01??           00696         CLRF    _TMR0
+                      00697 ;       .line   170; "main.c"   if (bitfield.Capture){
+000C   ???? ????      00698         BANKSEL _bitfield
+000E   1C??           00699         BTFSS   _bitfield,0
+000F   2???           00700         GOTO    _00148_DS_
+                      00701 ;       .line   171; "main.c"   bitfield.Capture = FALSE;
+0010   10??           00702         BCF     _bitfield,0
+                      00703 ;;swapping arguments (AOP_TYPEs 1/3)
+                      00704 ;;unsigned compare: left >= lit(0x759=1881), size=2
+                      00705 ;       .line   181; "main.c"   if (t > MIN_T && t < MAX_T && t1 > MIN_T && t1 < MAX_T){
+0011   3007           00706         MOVLW   0x07
+0012   ???? ????      00707         BANKSEL _t
+0014   02??           00708         SUBWF   (_t + 1),W
+0015   1D03           00709         BTFSS   STATUS,2
+0016   2???           00710         GOTO    _00193_DS_
+0017   3059           00711         MOVLW   0x59
+0018   02??           00712         SUBWF   _t,W
+0019                  00713 _00193_DS_:
+0019   1C03           00714         BTFSS   STATUS,0
+001A   2???           00715         GOTO    _00140_DS_
+                      00716 ;;genSkipc:3257: created from rifx:0x7ffe11752180
+                      00717 ;;unsigned compare: left < lit(0x79E=1950), size=2
+001B   3007           00718         MOVLW   0x07
+001C   ???? ????      00719         BANKSEL _t
+001E   02??           00720         SUBWF   (_t + 1),W
+001F   1D03           00721         BTFSS   STATUS,2
+0020   2???           00722         GOTO    _00194_DS_
+0021   309E           00723         MOVLW   0x9e
+0022   02??           00724         SUBWF   _t,W
+0023                  00725 _00194_DS_:
+0023   1803           00726         BTFSC   STATUS,0
+0024   2???           00727         GOTO    _00140_DS_
+                      00728 ;;genSkipc:3257: created from rifx:0x7ffe11752180
+                      00729 ;;swapping arguments (AOP_TYPEs 1/3)
+                      00730 ;;unsigned compare: left >= lit(0x759=1881), size=2
+0025   3007           00731         MOVLW   0x07
+0026   ???? ????      00732         BANKSEL _t1
+gpasm-1.4.0 #1107 (May  9 2015) build/default   1-7-2017  21:32:30          PAGE 15
 
 
 LOC    OBJECT CODE    LINE  SOURCE TEXT
   VALUE
 
-0037   ????           00733         PAGESEL $
-0038                  00734 _00145_DS_:
-                      00735 ;       .line   185; "main.c"   int_error_cnt = 0;
-0038   ???? ????      00736         BANKSEL _int_error_cnt
-003A   01??           00737         CLRF    _int_error_cnt
-003B   2???           00738         GOTO    _00147_DS_
-003C   0008           00739         RETURN  
-                      00740 ; exit point of _main
-                      00741 
-                      00742 ;***
-                      00743 ;  pBlock Stats: dbName = C
-                      00744 ;***
-                      00745 ;has an exit
-                      00746 ;functions called:
-                      00747 ;   __gptrget1
-                      00748 ;   __gptrget1
-                      00749 ;10 compiler assigned registers:
-                      00750 ;   r0x101D
-                      00751 ;   STK00
-                      00752 ;   r0x101E
-                      00753 ;   STK01
-                      00754 ;   r0x101F
-                      00755 ;   r0x1020
-                      00756 ;   r0x1021
-                      00757 ;   r0x1022
-                      00758 ;   r0x1023
-                      00759 ;   r0x1024
-                      00760 ;; Starting pCode block
-                      00761 S_main__SP_send_error   code
-0000                  00762 _SP_send_error:
-                      00763 ; 2 exit points
-                      00764 ;       .line   244; "main.c"   void SP_send_error(char str[])
-0000   ???? ????      00765         BANKSEL r0x101D
-0002   00??           00766         MOVWF   r0x101D
-0003   08??           00767         MOVF    STK00,W
-0004   00??           00768         MOVWF   r0x101E
-0005   08??           00769         MOVF    STK01,W
-0006   00??           00770         MOVWF   r0x101F
-                      00771 ;       .line   247; "main.c"   GIE = FALSE;    // Disable all interrupts.
-0007   ???? ????      00772         BANKSEL _INTCONbits
-0009   13??           00773         BCF     _INTCONbits,7
-                      00774 ;       .line   248; "main.c"   for(i=0; str[i] != '\0'; i++)
-000A   ???? ????      00775         BANKSEL r0x1020
-000C   01??           00776         CLRF    r0x1020
-000D                  00777 _00193_DS_:
-000D   ???? ????      00778         BANKSEL r0x1020
-000F   08??           00779         MOVF    r0x1020,W
-0010   07??           00780         ADDWF   r0x101F,W
-0011   00??           00781         MOVWF   r0x1021
-0012   08??           00782         MOVF    r0x101E,W
-0013   1803           00783         BTFSC   STATUS,0
-0014   3E01           00784         ADDLW   0x01
-0015   00??           00785         MOVWF   r0x1022
-gpasm-1.4.0 #1107 (May  9 2015) build/default   1-7-2017  10:50:45          PAGE 16
+0028   02??           00733         SUBWF   (_t1 + 1),W
+0029   1D03           00734         BTFSS   STATUS,2
+002A   2???           00735         GOTO    _00195_DS_
+002B   3059           00736         MOVLW   0x59
+002C   02??           00737         SUBWF   _t1,W
+002D                  00738 _00195_DS_:
+002D   1C03           00739         BTFSS   STATUS,0
+002E   2???           00740         GOTO    _00140_DS_
+                      00741 ;;genSkipc:3257: created from rifx:0x7ffe11752180
+                      00742 ;;unsigned compare: left < lit(0x79E=1950), size=2
+002F   3007           00743         MOVLW   0x07
+0030   ???? ????      00744         BANKSEL _t1
+0032   02??           00745         SUBWF   (_t1 + 1),W
+0033   1D03           00746         BTFSS   STATUS,2
+0034   2???           00747         GOTO    _00196_DS_
+0035   309E           00748         MOVLW   0x9e
+0036   02??           00749         SUBWF   _t1,W
+0037                  00750 _00196_DS_:
+0037   1803           00751         BTFSC   STATUS,0
+0038   2???           00752         GOTO    _00140_DS_
+                      00753 ;;genSkipc:3257: created from rifx:0x7ffe11752180
+                      00754 ;       .line   182; "main.c"   bitfield.Hint = TRUE;
+0039   ???? ????      00755         BANKSEL _bitfield
+003B   15??           00756         BSF     _bitfield,2
+                      00757 ;;unsigned compare: left < lit(0xA=10), size=1
+003C                  00758 _00140_DS_:
+                      00759 ;       .line   184; "main.c"   if (i < 10 && bitfield.Hint){
+003C   300A           00760         MOVLW   0x0a
+003D   ???? ????      00761         BANKSEL r0x1066
+003F   02??           00762         SUBWF   r0x1066,W
+0040   1803           00763         BTFSC   STATUS,0
+0041   2???           00764         GOTO    _00145_DS_
+                      00765 ;;genSkipc:3257: created from rifx:0x7ffe11752180
+0042   ???? ????      00766         BANKSEL _bitfield
+0044   1D??           00767         BTFSS   _bitfield,2
+0045   2???           00768         GOTO    _00145_DS_
+                      00769 ;       .line   185; "main.c"   bw[i] = w;
+0046   3002           00770         MOVLW   0x02
+0047   00??           00771         MOVWF   STK00
+0048   ???? ????      00772         BANKSEL r0x1066
+004A   08??           00773         MOVF    r0x1066,W
+004B   ????           00774         PAGESEL __mulchar
+004C   2???           00775         CALL    __mulchar
+004D   ????           00776         PAGESEL $
+004E   ???? ????      00777         BANKSEL r0x1067
+0050   00??           00778         MOVWF   r0x1067
+0051   01??           00779         CLRF    r0x1068
+0052   08??           00780         MOVF    r0x1067,W
+0053   3E??           00781         ADDLW   (_bw + 0)
+0054   00??           00782         MOVWF   r0x1069
+0055   30??           00783         MOVLW   high (_bw + 0)
+0056   00??           00784         MOVWF   r0x106A
+0057   3000           00785         MOVLW   0x00
+gpasm-1.4.0 #1107 (May  9 2015) build/default   1-7-2017  21:32:30          PAGE 16
 
 
 LOC    OBJECT CODE    LINE  SOURCE TEXT
   VALUE
 
-0016   08??           00786         MOVF    r0x101D,W
-0017   1803           00787         BTFSC   STATUS,0
-0018   3E01           00788         ADDLW   0x01
-0019   00??           00789         MOVWF   r0x1023
-001A   08??           00790         MOVF    r0x1021,W
-001B   00??           00791         MOVWF   STK01
-001C   08??           00792         MOVF    r0x1022,W
-001D   00??           00793         MOVWF   STK00
-001E   08??           00794         MOVF    r0x1023,W
-001F   ????           00795         PAGESEL __gptrget1
-0020   2???           00796         CALL    __gptrget1
-0021   ????           00797         PAGESEL $
-0022   ???? ????      00798         BANKSEL r0x1024
-0024   00??           00799         MOVWF   r0x1024
-0025   08??           00800         MOVF    r0x1024,W
-0026   1903           00801         BTFSC   STATUS,2
-0027   2???           00802         GOTO    _00195_DS_
-                      00803 ;       .line   250; "main.c"   TXREG=str[i];   // Add a character to the output buffer
-0028   08??           00804         MOVF    r0x1024,W
-0029   ???? ????      00805         BANKSEL _TXREG
-002B   00??           00806         MOVWF   _TXREG
-002C                  00807 _00188_DS_:
-                      00808 ;       .line   251; "main.c"   while(!TXIF);   // Wait while the output buffer is full
-002C   ???? ????      00809         BANKSEL _PIR1bits
-002E   1E??           00810         BTFSS   _PIR1bits,4
-002F   2???           00811         GOTO    _00188_DS_
-                      00812 ;       .line   248; "main.c"   for(i=0; str[i] != '\0'; i++)
-0030   ???? ????      00813         BANKSEL r0x1020
-0032   0A??           00814         INCF    r0x1020,F
-0033   2???           00815         GOTO    _00193_DS_
-0034                  00816 _00195_DS_:
-0034   0008           00817         RETURN  
-                      00818 ; exit point of _SP_send_error
-                      00819 
-                      00820 ;***
-                      00821 ;  pBlock Stats: dbName = C
-                      00822 ;***
-                      00823 ;has an exit
-                      00824 ;functions called:
-                      00825 ;   __gptrget1
-                      00826 ;   _circBufPush
-                      00827 ;   __gptrget1
-                      00828 ;   _circBufPush
-                      00829 ;10 compiler assigned registers:
-                      00830 ;   r0x102A
-                      00831 ;   STK00
-                      00832 ;   r0x102B
-                      00833 ;   STK01
-                      00834 ;   r0x102C
-                      00835 ;   r0x102D
-                      00836 ;   r0x102E
-                      00837 ;   r0x102F
-                      00838 ;   r0x1030
-gpasm-1.4.0 #1107 (May  9 2015) build/default   1-7-2017  10:50:45          PAGE 17
+0058   1803           00786         BTFSC   STATUS,0
+0059   0F??           00787         INCFSZ  r0x1068,W
+005A   07??           00788         ADDWF   r0x106A,F
+005B   08??           00789         MOVF    r0x1069,W
+005C   1283 1303      00790         BANKSEL FSR
+005E   0084           00791         MOVWF   FSR
+005F   1383           00792         BCF     STATUS,7
+0060   ???? ????      00793         BANKSEL r0x106A
+0062   18??           00794         BTFSC   r0x106A,0
+0063   1783           00795         BSF     STATUS,7
+0064   ???? ????      00796         BANKSEL _w
+0066   08??           00797         MOVF    _w,W
+0067   1283 1303      00798         BANKSEL INDF
+0069   0080           00799         MOVWF   INDF
+006A   0A84           00800         INCF    FSR,F
+006B   ???? ????      00801         BANKSEL _w
+006D   08??           00802         MOVF    (_w + 1),W
+006E   1283 1303      00803         BANKSEL INDF
+0070   0080           00804         MOVWF   INDF
+                      00805 ;       .line   187; "main.c"   bt[i] = t;
+0071   ???? ????      00806         BANKSEL r0x1067
+0073   08??           00807         MOVF    r0x1067,W
+0074   3E??           00808         ADDLW   (_bt + 0)
+0075   00??           00809         MOVWF   r0x1067
+0076   08??           00810         MOVF    r0x1068,W
+0077   1803           00811         BTFSC   STATUS,0
+0078   0F??           00812         INCFSZ  r0x1068,W
+0079   3E??           00813         ADDLW   high (_bt + 0)
+007A   00??           00814         MOVWF   r0x1068
+007B   08??           00815         MOVF    r0x1067,W
+007C   1283 1303      00816         BANKSEL FSR
+007E   0084           00817         MOVWF   FSR
+007F   1383           00818         BCF     STATUS,7
+0080   ???? ????      00819         BANKSEL r0x1068
+0082   18??           00820         BTFSC   r0x1068,0
+0083   1783           00821         BSF     STATUS,7
+0084   ???? ????      00822         BANKSEL _t
+0086   08??           00823         MOVF    _t,W
+0087   1283 1303      00824         BANKSEL INDF
+0089   0080           00825         MOVWF   INDF
+008A   0A84           00826         INCF    FSR,F
+008B   ???? ????      00827         BANKSEL _t
+008D   08??           00828         MOVF    (_t + 1),W
+008E   1283 1303      00829         BANKSEL INDF
+0090   0080           00830         MOVWF   INDF
+                      00831 ;       .line   189; "main.c"   i++;
+0091   ???? ????      00832         BANKSEL r0x1066
+0093   0A??           00833         INCF    r0x1066,F
+0094                  00834 _00145_DS_:
+                      00835 ;       .line   191; "main.c"   SP_send(strt1);
+0094   30??           00836         MOVLW   high (_strt1 + 0)
+0095   ???? ????      00837         BANKSEL r0x1068
+0097   00??           00838         MOVWF   r0x1068
+gpasm-1.4.0 #1107 (May  9 2015) build/default   1-7-2017  21:32:30          PAGE 17
 
 
 LOC    OBJECT CODE    LINE  SOURCE TEXT
   VALUE
 
-                      00839 ;   r0x1031
-                      00840 ;; Starting pCode block
-                      00841 S_main__SP_send code
-0000                  00842 _SP_send:
-                      00843 ; 2 exit points
-                      00844 ;       .line   236; "main.c"   void SP_send(char str[]){
-0000   ???? ????      00845         BANKSEL r0x102A
-0002   00??           00846         MOVWF   r0x102A
-0003   08??           00847         MOVF    STK00,W
-0004   00??           00848         MOVWF   r0x102B
-0005   08??           00849         MOVF    STK01,W
-0006   00??           00850         MOVWF   r0x102C
-                      00851 ;       .line   238; "main.c"   for(i=0; str[i] != '\0'; i++)
-0007   01??           00852         CLRF    r0x102D
-0008                  00853 _00181_DS_:
-0008   ???? ????      00854         BANKSEL r0x102D
-000A   08??           00855         MOVF    r0x102D,W
-000B   07??           00856         ADDWF   r0x102C,W
-000C   00??           00857         MOVWF   r0x102E
-000D   08??           00858         MOVF    r0x102B,W
-000E   1803           00859         BTFSC   STATUS,0
-000F   3E01           00860         ADDLW   0x01
-0010   00??           00861         MOVWF   r0x102F
-0011   08??           00862         MOVF    r0x102A,W
-0012   1803           00863         BTFSC   STATUS,0
-0013   3E01           00864         ADDLW   0x01
-0014   00??           00865         MOVWF   r0x1030
-0015   08??           00866         MOVF    r0x102E,W
-0016   00??           00867         MOVWF   STK01
-0017   08??           00868         MOVF    r0x102F,W
-0018   00??           00869         MOVWF   STK00
-0019   08??           00870         MOVF    r0x1030,W
-001A   ????           00871         PAGESEL __gptrget1
-001B   2???           00872         CALL    __gptrget1
-001C   ????           00873         PAGESEL $
-001D   ???? ????      00874         BANKSEL r0x1031
-001F   00??           00875         MOVWF   r0x1031
-0020   08??           00876         MOVF    r0x1031,W
-0021   1903           00877         BTFSC   STATUS,2
-0022   2???           00878         GOTO    _00183_DS_
-                      00879 ;       .line   240; "main.c"   circBufPush(str[i]);
-0023   08??           00880         MOVF    r0x1031,W
-0024   ????           00881         PAGESEL _circBufPush
-0025   2???           00882         CALL    _circBufPush
-0026   ????           00883         PAGESEL $
-                      00884 ;       .line   238; "main.c"   for(i=0; str[i] != '\0'; i++)
-0027   ???? ????      00885         BANKSEL r0x102D
-0029   0A??           00886         INCF    r0x102D,F
-002A   2???           00887         GOTO    _00181_DS_
-002B                  00888 _00183_DS_:
-002B   0008           00889         RETURN  
-                      00890 ; exit point of _SP_send
-                      00891 
-gpasm-1.4.0 #1107 (May  9 2015) build/default   1-7-2017  10:50:45          PAGE 18
+0098   30??           00839         MOVLW   (_strt1 + 0)
+0099   00??           00840         MOVWF   r0x1067
+009A   3080           00841         MOVLW   0x80
+009B   00??           00842         MOVWF   r0x1069
+009C   08??           00843         MOVF    r0x1067,W
+009D   00??           00844         MOVWF   STK01
+009E   08??           00845         MOVF    r0x1068,W
+009F   00??           00846         MOVWF   STK00
+00A0   08??           00847         MOVF    r0x1069,W
+00A1   ????           00848         PAGESEL _SP_send
+00A2   2???           00849         CALL    _SP_send
+00A3   ????           00850         PAGESEL $
+                      00851 ;       .line   192; "main.c"   circBufPush(TMR0);
+00A4   ???? ????      00852         BANKSEL _TMR0
+00A6   08??           00853         MOVF    _TMR0,W
+00A7   ????           00854         PAGESEL _circBufPush
+00A8   2???           00855         CALL    _circBufPush
+00A9   ????           00856         PAGESEL $
+                      00857 ;       .line   194; "main.c"   SP_send(enter);
+00AA   30??           00858         MOVLW   high (_enter + 0)
+00AB   ???? ????      00859         BANKSEL r0x1068
+00AD   00??           00860         MOVWF   r0x1068
+00AE   30??           00861         MOVLW   (_enter + 0)
+00AF   00??           00862         MOVWF   r0x1067
+00B0   3080           00863         MOVLW   0x80
+00B1   00??           00864         MOVWF   r0x1069
+00B2   08??           00865         MOVF    r0x1067,W
+00B3   00??           00866         MOVWF   STK01
+00B4   08??           00867         MOVF    r0x1068,W
+00B5   00??           00868         MOVWF   STK00
+00B6   08??           00869         MOVF    r0x1069,W
+00B7   ????           00870         PAGESEL _SP_send
+00B8   2???           00871         CALL    _SP_send
+00B9   ????           00872         PAGESEL $
+                      00873 ;       .line   197; "main.c"   t1 = t;
+00BA   ???? ????      00874         BANKSEL _t
+00BC   08??           00875         MOVF    _t,W
+00BD   ???? ????      00876         BANKSEL _t1
+00BF   00??           00877         MOVWF   _t1
+00C0   ???? ????      00878         BANKSEL _t
+00C2   08??           00879         MOVF    (_t + 1),W
+00C3   ???? ????      00880         BANKSEL _t1
+00C5   00??           00881         MOVWF   (_t1 + 1)
+                      00882 ;       .line   198; "main.c"   w1 = w;
+00C6   ???? ????      00883         BANKSEL _w
+00C8   08??           00884         MOVF    _w,W
+00C9   ???? ????      00885         BANKSEL _w1
+00CB   00??           00886         MOVWF   _w1
+00CC   ???? ????      00887         BANKSEL _w
+00CE   08??           00888         MOVF    (_w + 1),W
+00CF   ???? ????      00889         BANKSEL _w1
+00D1   00??           00890         MOVWF   (_w1 + 1)
+                      00891 ;;unsigned compare: left < lit(0xA=10), size=1
+gpasm-1.4.0 #1107 (May  9 2015) build/default   1-7-2017  21:32:30          PAGE 18
 
 
 LOC    OBJECT CODE    LINE  SOURCE TEXT
   VALUE
 
-                      00892 ;***
-                      00893 ;  pBlock Stats: dbName = C
-                      00894 ;***
-                      00895 ;has an exit
-                      00896 ;functions called:
-                      00897 ;   __moduint
-                      00898 ;   __divuint
-                      00899 ;   _circBufPush
-                      00900 ;   __moduint
-                      00901 ;   __divuint
-                      00902 ;   _circBufPush
-                      00903 ;11 compiler assigned registers:
-                      00904 ;   r0x1032
-                      00905 ;   STK00
-                      00906 ;   r0x1033
-                      00907 ;   r0x1034
-                      00908 ;   r0x1035
-                      00909 ;   r0x1036
-                      00910 ;   STK02
-                      00911 ;   STK01
-                      00912 ;   r0x1037
-                      00913 ;   r0x1038
-                      00914 ;   r0x1039
-                      00915 ;; Starting pCode block
-                      00916 S_main__dec_to_ascii    code
-0000                  00917 _dec_to_ascii:
-                      00918 ; 2 exit points
-                      00919 ;       .line   218; "main.c"   void dec_to_ascii(unsigned short dec)
-0000   ???? ????      00920         BANKSEL r0x1032
-0002   00??           00921         MOVWF   r0x1032
-0003   08??           00922         MOVF    STK00,W
-0004   00??           00923         MOVWF   r0x1033
-                      00924 ;       .line   223; "main.c"   for (i=0; dec!=0 || i==0; i++)
-0005   01??           00925         CLRF    r0x1034
-0006                  00926 _00167_DS_:
-0006   ???? ????      00927         BANKSEL r0x1033
-0008   08??           00928         MOVF    r0x1033,W
-0009   04??           00929         IORWF   r0x1032,W
-000A   1D03           00930         BTFSS   STATUS,2
-000B   2???           00931         GOTO    _00166_DS_
-000C   08??           00932         MOVF    r0x1034,W
-000D   1D03           00933         BTFSS   STATUS,2
-000E   2???           00934         GOTO    _00174_DS_
-000F                  00935 _00166_DS_:
-                      00936 ;       .line   225; "main.c"   number[i]=(dec % 10);
-000F   ???? ????      00937         BANKSEL r0x1034
-0011   08??           00938         MOVF    r0x1034,W
-0012   3E??           00939         ADDLW   (_dec_to_ascii_number_1_20 + 0)
-0013   00??           00940         MOVWF   r0x1035
-0014   30??           00941         MOVLW   high (_dec_to_ascii_number_1_20 + 0)
-0015   1803           00942         BTFSC   STATUS,0
-0016   3E01           00943         ADDLW   0x01
-0017   00??           00944         MOVWF   r0x1036
-gpasm-1.4.0 #1107 (May  9 2015) build/default   1-7-2017  10:50:45          PAGE 19
+00D2                  00892 _00148_DS_:
+                      00893 ;       .line   200; "main.c"   if(i >= 10){
+00D2   300A           00894         MOVLW   0x0a
+00D3   ???? ????      00895         BANKSEL r0x1066
+00D5   02??           00896         SUBWF   r0x1066,W
+00D6   1C03           00897         BTFSS   STATUS,0
+00D7   2???           00898         GOTO    _00151_DS_
+                      00899 ;;genSkipc:3257: created from rifx:0x7ffe11752180
+                      00900 ;       .line   201; "main.c"   for(j = 0; j < 10; j++){
+00D8   01??           00901         CLRF    r0x1067
+00D9                  00902 _00155_DS_:
+                      00903 ;       .line   202; "main.c"   dec_to_ascii(bw[j]);
+00D9   3002           00904         MOVLW   0x02
+00DA   00??           00905         MOVWF   STK00
+00DB   ???? ????      00906         BANKSEL r0x1067
+00DD   08??           00907         MOVF    r0x1067,W
+00DE   ????           00908         PAGESEL __mulchar
+00DF   2???           00909         CALL    __mulchar
+00E0   ????           00910         PAGESEL $
+00E1   ???? ????      00911         BANKSEL r0x1068
+00E3   00??           00912         MOVWF   r0x1068
+00E4   01??           00913         CLRF    r0x1069
+00E5   08??           00914         MOVF    r0x1068,W
+00E6   3E??           00915         ADDLW   (_bw + 0)
+00E7   00??           00916         MOVWF   r0x106A
+00E8   30??           00917         MOVLW   high (_bw + 0)
+00E9   00??           00918         MOVWF   r0x106B
+00EA   3000           00919         MOVLW   0x00
+00EB   1803           00920         BTFSC   STATUS,0
+00EC   0F??           00921         INCFSZ  r0x1069,W
+00ED   07??           00922         ADDWF   r0x106B,F
+00EE   08??           00923         MOVF    r0x106A,W
+00EF   1283 1303      00924         BANKSEL FSR
+00F1   0084           00925         MOVWF   FSR
+00F2   1383           00926         BCF     STATUS,7
+00F3   ???? ????      00927         BANKSEL r0x106B
+00F5   18??           00928         BTFSC   r0x106B,0
+00F6   1783           00929         BSF     STATUS,7
+00F7   1283 1303      00930         BANKSEL INDF
+00F9   0800           00931         MOVF    INDF,W
+00FA   ???? ????      00932         BANKSEL r0x106C
+00FC   00??           00933         MOVWF   r0x106C
+00FD   1283 1303      00934         BANKSEL FSR
+00FF   0A84           00935         INCF    FSR,F
+0100   0800           00936         MOVF    INDF,W
+0101   ???? ????      00937         BANKSEL r0x106D
+0103   00??           00938         MOVWF   r0x106D
+0104   08??           00939         MOVF    r0x106C,W
+0105   00??           00940         MOVWF   STK00
+0106   08??           00941         MOVF    r0x106D,W
+0107   ????           00942         PAGESEL _dec_to_ascii
+0108   2???           00943         CALL    _dec_to_ascii
+0109   ????           00944         PAGESEL $
+gpasm-1.4.0 #1107 (May  9 2015) build/default   1-7-2017  21:32:30          PAGE 19
 
 
 LOC    OBJECT CODE    LINE  SOURCE TEXT
   VALUE
 
-0018   300A           00945         MOVLW   0x0a
-0019   00??           00946         MOVWF   STK02
-001A   3000           00947         MOVLW   0x00
-001B   00??           00948         MOVWF   STK01
-001C   08??           00949         MOVF    r0x1033,W
-001D   00??           00950         MOVWF   STK00
-001E   08??           00951         MOVF    r0x1032,W
-001F   ????           00952         PAGESEL __moduint
-0020   2???           00953         CALL    __moduint
-0021   ????           00954         PAGESEL $
-                      00955 ;;1     MOVWF   r0x1037
-0022   08??           00956         MOVF    STK00,W
-                      00957 ;;1     MOVWF   r0x1038
-0023   ???? ????      00958         BANKSEL r0x1039
-0025   00??           00959         MOVWF   r0x1039
-0026   08??           00960         MOVF    r0x1035,W
-0027   1283 1303      00961         BANKSEL FSR
-0029   0084           00962         MOVWF   FSR
-002A   1383           00963         BCF     STATUS,7
-002B   ???? ????      00964         BANKSEL r0x1036
-002D   18??           00965         BTFSC   r0x1036,0
-002E   1783           00966         BSF     STATUS,7
-002F   08??           00967         MOVF    r0x1039,W
-0030   1283 1303      00968         BANKSEL INDF
-0032   0080           00969         MOVWF   INDF
-                      00970 ;       .line   226; "main.c"   dec /=10;
-0033   300A           00971         MOVLW   0x0a
-0034   00??           00972         MOVWF   STK02
-0035   3000           00973         MOVLW   0x00
-0036   00??           00974         MOVWF   STK01
-0037   ???? ????      00975         BANKSEL r0x1033
-0039   08??           00976         MOVF    r0x1033,W
-003A   00??           00977         MOVWF   STK00
-003B   08??           00978         MOVF    r0x1032,W
-003C   ????           00979         PAGESEL __divuint
-003D   2???           00980         CALL    __divuint
-003E   ????           00981         PAGESEL $
-003F   ???? ????      00982         BANKSEL r0x1032
-0041   00??           00983         MOVWF   r0x1032
-0042   08??           00984         MOVF    STK00,W
-0043   00??           00985         MOVWF   r0x1033
-                      00986 ;       .line   227; "main.c"   number[i] +=48;
-0044   3030           00987         MOVLW   0x30
-0045   07??           00988         ADDWF   r0x1039,F
-0046   08??           00989         MOVF    r0x1035,W
-0047   1283 1303      00990         BANKSEL FSR
-0049   0084           00991         MOVWF   FSR
-004A   1383           00992         BCF     STATUS,7
-004B   ???? ????      00993         BANKSEL r0x1036
-004D   18??           00994         BTFSC   r0x1036,0
-004E   1783           00995         BSF     STATUS,7
-004F   08??           00996         MOVF    r0x1039,W
-0050   1283 1303      00997         BANKSEL INDF
-gpasm-1.4.0 #1107 (May  9 2015) build/default   1-7-2017  10:50:45          PAGE 20
+                      00945 ;       .line   203; "main.c"   SP_send(tab);
+010A   30??           00946         MOVLW   high (_tab + 0)
+010B   ???? ????      00947         BANKSEL r0x106B
+010D   00??           00948         MOVWF   r0x106B
+010E   30??           00949         MOVLW   (_tab + 0)
+010F   00??           00950         MOVWF   r0x106A
+0110   3080           00951         MOVLW   0x80
+0111   00??           00952         MOVWF   r0x106C
+0112   08??           00953         MOVF    r0x106A,W
+0113   00??           00954         MOVWF   STK01
+0114   08??           00955         MOVF    r0x106B,W
+0115   00??           00956         MOVWF   STK00
+0116   08??           00957         MOVF    r0x106C,W
+0117   ????           00958         PAGESEL _SP_send
+0118   2???           00959         CALL    _SP_send
+0119   ????           00960         PAGESEL $
+                      00961 ;       .line   204; "main.c"   dec_to_ascii(bt[j]);
+011A   ???? ????      00962         BANKSEL r0x1068
+011C   08??           00963         MOVF    r0x1068,W
+011D   3E??           00964         ADDLW   (_bt + 0)
+011E   00??           00965         MOVWF   r0x1068
+011F   08??           00966         MOVF    r0x1069,W
+0120   1803           00967         BTFSC   STATUS,0
+0121   0F??           00968         INCFSZ  r0x1069,W
+0122   3E??           00969         ADDLW   high (_bt + 0)
+0123   00??           00970         MOVWF   r0x1069
+0124   08??           00971         MOVF    r0x1068,W
+0125   1283 1303      00972         BANKSEL FSR
+0127   0084           00973         MOVWF   FSR
+0128   1383           00974         BCF     STATUS,7
+0129   ???? ????      00975         BANKSEL r0x1069
+012B   18??           00976         BTFSC   r0x1069,0
+012C   1783           00977         BSF     STATUS,7
+012D   1283 1303      00978         BANKSEL INDF
+012F   0800           00979         MOVF    INDF,W
+0130   ???? ????      00980         BANKSEL r0x106A
+0132   00??           00981         MOVWF   r0x106A
+0133   1283 1303      00982         BANKSEL FSR
+0135   0A84           00983         INCF    FSR,F
+0136   0800           00984         MOVF    INDF,W
+0137   ???? ????      00985         BANKSEL r0x106B
+0139   00??           00986         MOVWF   r0x106B
+013A   08??           00987         MOVF    r0x106A,W
+013B   00??           00988         MOVWF   STK00
+013C   08??           00989         MOVF    r0x106B,W
+013D   ????           00990         PAGESEL _dec_to_ascii
+013E   2???           00991         CALL    _dec_to_ascii
+013F   ????           00992         PAGESEL $
+                      00993 ;       .line   205; "main.c"   SP_send(enter);
+0140   30??           00994         MOVLW   high (_enter + 0)
+0141   ???? ????      00995         BANKSEL r0x1069
+0143   00??           00996         MOVWF   r0x1069
+0144   30??           00997         MOVLW   (_enter + 0)
+gpasm-1.4.0 #1107 (May  9 2015) build/default   1-7-2017  21:32:30          PAGE 20
 
 
 LOC    OBJECT CODE    LINE  SOURCE TEXT
   VALUE
 
-0052   0080           00998         MOVWF   INDF
-                      00999 ;       .line   223; "main.c"   for (i=0; dec!=0 || i==0; i++)
-0053   ???? ????      01000         BANKSEL r0x1034
-0055   0A??           01001         INCF    r0x1034,F
-0056   2???           01002         GOTO    _00167_DS_
-0057                  01003 _00174_DS_:
-                      01004 ;       .line   229; "main.c"   while (i--)
-0057   ???? ????      01005         BANKSEL r0x1034
-0059   08??           01006         MOVF    r0x1034,W
-005A   00??           01007         MOVWF   r0x1033
-005B                  01008 _00162_DS_:
-005B   ???? ????      01009         BANKSEL r0x1033
-005D   08??           01010         MOVF    r0x1033,W
-005E   00??           01011         MOVWF   r0x1032
-005F   03??           01012         DECF    r0x1033,F
-0060   08??           01013         MOVF    r0x1032,W
-0061   1903           01014         BTFSC   STATUS,2
-0062   2???           01015         GOTO    _00169_DS_
-                      01016 ;       .line   231; "main.c"   circBufPush(number[i]); // Add a character to the output buffer
-0063   08??           01017         MOVF    r0x1033,W
-0064   3E??           01018         ADDLW   (_dec_to_ascii_number_1_20 + 0)
-0065   00??           01019         MOVWF   r0x1032
-0066   30??           01020         MOVLW   high (_dec_to_ascii_number_1_20 + 0)
-0067   1803           01021         BTFSC   STATUS,0
-0068   3E01           01022         ADDLW   0x01
-0069   00??           01023         MOVWF   r0x1034
-006A   08??           01024         MOVF    r0x1032,W
-006B   1283 1303      01025         BANKSEL FSR
-006D   0084           01026         MOVWF   FSR
-006E   1383           01027         BCF     STATUS,7
-006F   ???? ????      01028         BANKSEL r0x1034
-0071   18??           01029         BTFSC   r0x1034,0
-0072   1783           01030         BSF     STATUS,7
-0073   1283 1303      01031         BANKSEL INDF
-0075   0800           01032         MOVF    INDF,W
-0076   ???? ????      01033         BANKSEL r0x1035
-0078   00??           01034         MOVWF   r0x1035
-0079   ????           01035         PAGESEL _circBufPush
-007A   2???           01036         CALL    _circBufPush
-007B   ????           01037         PAGESEL $
-007C   2???           01038         GOTO    _00162_DS_
-007D                  01039 _00169_DS_:
-007D   0008           01040         RETURN  
-                      01041 ; exit point of _dec_to_ascii
-                      01042 
+0145   00??           00998         MOVWF   r0x1068
+0146   3080           00999         MOVLW   0x80
+0147   00??           01000         MOVWF   r0x106A
+0148   08??           01001         MOVF    r0x1068,W
+0149   00??           01002         MOVWF   STK01
+014A   08??           01003         MOVF    r0x1069,W
+014B   00??           01004         MOVWF   STK00
+014C   08??           01005         MOVF    r0x106A,W
+014D   ????           01006         PAGESEL _SP_send
+014E   2???           01007         CALL    _SP_send
+014F   ????           01008         PAGESEL $
+                      01009 ;       .line   201; "main.c"   for(j = 0; j < 10; j++){
+0150   ???? ????      01010         BANKSEL r0x1067
+0152   0A??           01011         INCF    r0x1067,F
+                      01012 ;;unsigned compare: left < lit(0xA=10), size=1
+0153   300A           01013         MOVLW   0x0a
+0154   02??           01014         SUBWF   r0x1067,W
+0155   1C03           01015         BTFSS   STATUS,0
+0156   2???           01016         GOTO    _00155_DS_
+                      01017 ;;genSkipc:3257: created from rifx:0x7ffe11752180
+                      01018 ;       .line   207; "main.c"   SP_send(sync);
+0157   30??           01019         MOVLW   high (_sync + 0)
+0158   00??           01020         MOVWF   r0x1068
+0159   30??           01021         MOVLW   (_sync + 0)
+015A   00??           01022         MOVWF   r0x1067
+015B   3080           01023         MOVLW   0x80
+015C   00??           01024         MOVWF   r0x1069
+015D   08??           01025         MOVF    r0x1067,W
+015E   00??           01026         MOVWF   STK01
+015F   08??           01027         MOVF    r0x1068,W
+0160   00??           01028         MOVWF   STK00
+0161   08??           01029         MOVF    r0x1069,W
+0162   ????           01030         PAGESEL _SP_send
+0163   2???           01031         CALL    _SP_send
+0164   ????           01032         PAGESEL $
+0165                  01033 _00151_DS_:
+                      01034 ;       .line   209; "main.c"   int_error_cnt = 0;
+0165   ???? ????      01035         BANKSEL _int_error_cnt
+0167   01??           01036         CLRF    _int_error_cnt
+0168   2???           01037         GOTO    _00153_DS_
+0169   0008           01038         RETURN  
+                      01039 ; exit point of _main
+                      01040 
+                      01041 ;***
+                      01042 ;  pBlock Stats: dbName = C
                       01043 ;***
-                      01044 ;  pBlock Stats: dbName = C
-                      01045 ;***
-                      01046 ;has an exit
-                      01047 ;functions called:
-                      01048 ;   _SP_send_error
-                      01049 ;   _SP_send_error
-                      01050 ;7 compiler assigned registers:
-gpasm-1.4.0 #1107 (May  9 2015) build/default   1-7-2017  10:50:45          PAGE 21
+                      01044 ;has an exit
+                      01045 ;functions called:
+                      01046 ;   __gptrget1
+                      01047 ;   __gptrget1
+                      01048 ;10 compiler assigned registers:
+                      01049 ;   r0x1049
+                      01050 ;   STK00
+gpasm-1.4.0 #1107 (May  9 2015) build/default   1-7-2017  21:32:30          PAGE 21
 
 
 LOC    OBJECT CODE    LINE  SOURCE TEXT
   VALUE
 
-                      01051 ;   r0x1025
-                      01052 ;   r0x1026
-                      01053 ;   r0x1027
-                      01054 ;   r0x1028
-                      01055 ;   r0x1029
-                      01056 ;   STK01
-                      01057 ;   STK00
-                      01058 ;; Starting pCode block
-                      01059 S_main__circBufPush     code
-0000                  01060 _circBufPush:
-                      01061 ; 2 exit points
-                      01062 ;       .line   189; "main.c"   int circBufPush(uint8_t data){
-0000   ???? ????      01063         BANKSEL r0x1025
-0002   00??           01064         MOVWF   r0x1025
-                      01065 ;       .line   190; "main.c"   uint8_t next = buf_head + 1;
-0003   ???? ????      01066         BANKSEL _buf_head
-0005   0A??           01067         INCF    _buf_head,W
-0006   ???? ????      01068         BANKSEL r0x1026
-0008   00??           01069         MOVWF   r0x1026
-                      01070 ;;unsigned compare: left < lit(0x10=16), size=1
-                      01071 ;       .line   191; "main.c"   if (next >= BUF_SIZE)
-0009   3010           01072         MOVLW   0x10
-                      01073 ;       .line   192; "main.c"   next = 0;
-000A   02??           01074         SUBWF   r0x1026,W
-                      01075 ;       .line   195; "main.c"   if (next == buf_tail){
-000B   1803           01076         BTFSC   STATUS,0
-000C   01??           01077         CLRF    r0x1026
-000D   ???? ????      01078         BANKSEL _buf_tail
-000F   08??           01079         MOVF    _buf_tail,W
-0010   ???? ????      01080         BANKSEL r0x1026
-0012   06??           01081         XORWF   r0x1026,W
-0013   1D03           01082         BTFSS   STATUS,2
-0014   2???           01083         GOTO    _00155_DS_
-                      01084 ;       .line   196; "main.c"   SP_send_error(buf_err);
-0015   30??           01085         MOVLW   high (_buf_err + 0)
-0016   00??           01086         MOVWF   r0x1027
-0017   30??           01087         MOVLW   (_buf_err + 0)
-0018   00??           01088         MOVWF   r0x1028
-0019   3080           01089         MOVLW   0x80
-001A   00??           01090         MOVWF   r0x1029
-001B   08??           01091         MOVF    r0x1028,W
-001C   00??           01092         MOVWF   STK01
-001D   08??           01093         MOVF    r0x1027,W
-001E   00??           01094         MOVWF   STK00
-001F   08??           01095         MOVF    r0x1029,W
-0020   ????           01096         PAGESEL _SP_send_error
-0021   2???           01097         CALL    _SP_send_error
-0022   ????           01098         PAGESEL $
-                      01099 ;       .line   197; "main.c"   return -1;  // quit with an error
-0023   30FF           01100         MOVLW   0xff
-0024   00??           01101         MOVWF   STK00
-0025   30FF           01102         MOVLW   0xff
-0026   2???           01103         GOTO    _00156_DS_
-gpasm-1.4.0 #1107 (May  9 2015) build/default   1-7-2017  10:50:45          PAGE 22
+                      01051 ;   r0x104A
+                      01052 ;   STK01
+                      01053 ;   r0x104B
+                      01054 ;   r0x104C
+                      01055 ;   r0x104D
+                      01056 ;   r0x104E
+                      01057 ;   r0x104F
+                      01058 ;   r0x1050
+                      01059 ;; Starting pCode block
+                      01060 S_main__SP_send_error   code
+0000                  01061 _SP_send_error:
+                      01062 ; 2 exit points
+                      01063 ;       .line   268; "main.c"   void SP_send_error(char str[])
+0000   ???? ????      01064         BANKSEL r0x1049
+0002   00??           01065         MOVWF   r0x1049
+0003   08??           01066         MOVF    STK00,W
+0004   00??           01067         MOVWF   r0x104A
+0005   08??           01068         MOVF    STK01,W
+0006   00??           01069         MOVWF   r0x104B
+                      01070 ;       .line   271; "main.c"   GIE = FALSE;    // Disable all interrupts.
+0007   ???? ????      01071         BANKSEL _INTCONbits
+0009   13??           01072         BCF     _INTCONbits,7
+                      01073 ;       .line   272; "main.c"   for(i=0; str[i] != '\0'; i++)
+000A   ???? ????      01074         BANKSEL r0x104C
+000C   01??           01075         CLRF    r0x104C
+000D                  01076 _00243_DS_:
+000D   ???? ????      01077         BANKSEL r0x104C
+000F   08??           01078         MOVF    r0x104C,W
+0010   07??           01079         ADDWF   r0x104B,W
+0011   00??           01080         MOVWF   r0x104D
+0012   08??           01081         MOVF    r0x104A,W
+0013   1803           01082         BTFSC   STATUS,0
+0014   3E01           01083         ADDLW   0x01
+0015   00??           01084         MOVWF   r0x104E
+0016   08??           01085         MOVF    r0x1049,W
+0017   1803           01086         BTFSC   STATUS,0
+0018   3E01           01087         ADDLW   0x01
+0019   00??           01088         MOVWF   r0x104F
+001A   08??           01089         MOVF    r0x104D,W
+001B   00??           01090         MOVWF   STK01
+001C   08??           01091         MOVF    r0x104E,W
+001D   00??           01092         MOVWF   STK00
+001E   08??           01093         MOVF    r0x104F,W
+001F   ????           01094         PAGESEL __gptrget1
+0020   2???           01095         CALL    __gptrget1
+0021   ????           01096         PAGESEL $
+0022   ???? ????      01097         BANKSEL r0x1050
+0024   00??           01098         MOVWF   r0x1050
+0025   08??           01099         MOVF    r0x1050,W
+0026   1903           01100         BTFSC   STATUS,2
+0027   2???           01101         GOTO    _00245_DS_
+                      01102 ;       .line   274; "main.c"   TXREG=str[i];   // Add a character to the output buffer
+0028   08??           01103         MOVF    r0x1050,W
+gpasm-1.4.0 #1107 (May  9 2015) build/default   1-7-2017  21:32:30          PAGE 22
 
 
 LOC    OBJECT CODE    LINE  SOURCE TEXT
   VALUE
 
-0027                  01104 _00155_DS_:
-                      01105 ;       .line   200; "main.c"   buf[buf_head] = data;
-0027   ???? ????      01106         BANKSEL _buf_head
-0029   08??           01107         MOVF    _buf_head,W
-002A   3E??           01108         ADDLW   (_buf + 0)
-002B   ???? ????      01109         BANKSEL r0x1028
-002D   00??           01110         MOVWF   r0x1028
-002E   30??           01111         MOVLW   high (_buf + 0)
-002F   1803           01112         BTFSC   STATUS,0
-0030   3E01           01113         ADDLW   0x01
-0031   00??           01114         MOVWF   r0x1027
-0032   08??           01115         MOVF    r0x1028,W
-0033   1283 1303      01116         BANKSEL FSR
-0035   0084           01117         MOVWF   FSR
-0036   1383           01118         BCF     STATUS,7
-0037   ???? ????      01119         BANKSEL r0x1027
-0039   18??           01120         BTFSC   r0x1027,0
-003A   1783           01121         BSF     STATUS,7
-003B   08??           01122         MOVF    r0x1025,W
-003C   1283 1303      01123         BANKSEL INDF
-003E   0080           01124         MOVWF   INDF
-                      01125 ;       .line   201; "main.c"   buf_head = next;
-003F   ???? ????      01126         BANKSEL r0x1026
-0041   08??           01127         MOVF    r0x1026,W
-0042   ???? ????      01128         BANKSEL _buf_head
-0044   00??           01129         MOVWF   _buf_head
-                      01130 ;       .line   202; "main.c"   TXIE = 1;       //Enables the EUSART transmit interrupt
-0045   ???? ????      01131         BANKSEL _PIE1bits
-0047   16??           01132         BSF     _PIE1bits,4
-                      01133 ;       .line   203; "main.c"   return 0;
-0048   3000           01134         MOVLW   0x00
-0049   00??           01135         MOVWF   STK00
-004A   3000           01136         MOVLW   0x00
-004B                  01137 _00156_DS_:
-004B   0008           01138         RETURN  
-                      01139 ; exit point of _circBufPush
-                      01140 
-                      01141 
-                      01142 ;       code size estimation:
-                      01143 ;         359+  112 =   471 instructions ( 1166 byte)
-                      01144 
-                      01145         end
-gpasm-1.4.0 #1107 (May  9 2015) build/default   1-7-2017  10:50:45          PAGE 23
+0029   ???? ????      01104         BANKSEL _TXREG
+002B   00??           01105         MOVWF   _TXREG
+002C                  01106 _00238_DS_:
+                      01107 ;       .line   275; "main.c"   while(!TXIF);   // Wait while the output buffer is full
+002C   ???? ????      01108         BANKSEL _PIR1bits
+002E   1E??           01109         BTFSS   _PIR1bits,4
+002F   2???           01110         GOTO    _00238_DS_
+                      01111 ;       .line   272; "main.c"   for(i=0; str[i] != '\0'; i++)
+0030   ???? ????      01112         BANKSEL r0x104C
+0032   0A??           01113         INCF    r0x104C,F
+0033   2???           01114         GOTO    _00243_DS_
+0034                  01115 _00245_DS_:
+0034   0008           01116         RETURN  
+                      01117 ; exit point of _SP_send_error
+                      01118 
+                      01119 ;***
+                      01120 ;  pBlock Stats: dbName = C
+                      01121 ;***
+                      01122 ;has an exit
+                      01123 ;functions called:
+                      01124 ;   __gptrget1
+                      01125 ;   _circBufPush
+                      01126 ;   __gptrget1
+                      01127 ;   _circBufPush
+                      01128 ;10 compiler assigned registers:
+                      01129 ;   r0x1056
+                      01130 ;   STK00
+                      01131 ;   r0x1057
+                      01132 ;   STK01
+                      01133 ;   r0x1058
+                      01134 ;   r0x1059
+                      01135 ;   r0x105A
+                      01136 ;   r0x105B
+                      01137 ;   r0x105C
+                      01138 ;   r0x105D
+                      01139 ;; Starting pCode block
+                      01140 S_main__SP_send code
+0000                  01141 _SP_send:
+                      01142 ; 2 exit points
+                      01143 ;       .line   260; "main.c"   void SP_send(char str[]){
+0000   ???? ????      01144         BANKSEL r0x1056
+0002   00??           01145         MOVWF   r0x1056
+0003   08??           01146         MOVF    STK00,W
+0004   00??           01147         MOVWF   r0x1057
+0005   08??           01148         MOVF    STK01,W
+0006   00??           01149         MOVWF   r0x1058
+                      01150 ;       .line   262; "main.c"   for(i=0; str[i] != '\0'; i++)
+0007   01??           01151         CLRF    r0x1059
+0008                  01152 _00231_DS_:
+0008   ???? ????      01153         BANKSEL r0x1059
+000A   08??           01154         MOVF    r0x1059,W
+000B   07??           01155         ADDWF   r0x1058,W
+000C   00??           01156         MOVWF   r0x105A
+gpasm-1.4.0 #1107 (May  9 2015) build/default   1-7-2017  21:32:30          PAGE 23
+
+
+LOC    OBJECT CODE    LINE  SOURCE TEXT
+  VALUE
+
+000D   08??           01157         MOVF    r0x1057,W
+000E   1803           01158         BTFSC   STATUS,0
+000F   3E01           01159         ADDLW   0x01
+0010   00??           01160         MOVWF   r0x105B
+0011   08??           01161         MOVF    r0x1056,W
+0012   1803           01162         BTFSC   STATUS,0
+0013   3E01           01163         ADDLW   0x01
+0014   00??           01164         MOVWF   r0x105C
+0015   08??           01165         MOVF    r0x105A,W
+0016   00??           01166         MOVWF   STK01
+0017   08??           01167         MOVF    r0x105B,W
+0018   00??           01168         MOVWF   STK00
+0019   08??           01169         MOVF    r0x105C,W
+001A   ????           01170         PAGESEL __gptrget1
+001B   2???           01171         CALL    __gptrget1
+001C   ????           01172         PAGESEL $
+001D   ???? ????      01173         BANKSEL r0x105D
+001F   00??           01174         MOVWF   r0x105D
+0020   08??           01175         MOVF    r0x105D,W
+0021   1903           01176         BTFSC   STATUS,2
+0022   2???           01177         GOTO    _00233_DS_
+                      01178 ;       .line   264; "main.c"   circBufPush(str[i]);
+0023   08??           01179         MOVF    r0x105D,W
+0024   ????           01180         PAGESEL _circBufPush
+0025   2???           01181         CALL    _circBufPush
+0026   ????           01182         PAGESEL $
+                      01183 ;       .line   262; "main.c"   for(i=0; str[i] != '\0'; i++)
+0027   ???? ????      01184         BANKSEL r0x1059
+0029   0A??           01185         INCF    r0x1059,F
+002A   2???           01186         GOTO    _00231_DS_
+002B                  01187 _00233_DS_:
+002B   0008           01188         RETURN  
+                      01189 ; exit point of _SP_send
+                      01190 
+                      01191 ;***
+                      01192 ;  pBlock Stats: dbName = C
+                      01193 ;***
+                      01194 ;has an exit
+                      01195 ;functions called:
+                      01196 ;   __moduint
+                      01197 ;   __divuint
+                      01198 ;   _circBufPush
+                      01199 ;   __moduint
+                      01200 ;   __divuint
+                      01201 ;   _circBufPush
+                      01202 ;11 compiler assigned registers:
+                      01203 ;   r0x105E
+                      01204 ;   STK00
+                      01205 ;   r0x105F
+                      01206 ;   r0x1060
+                      01207 ;   r0x1061
+                      01208 ;   r0x1062
+                      01209 ;   STK02
+gpasm-1.4.0 #1107 (May  9 2015) build/default   1-7-2017  21:32:30          PAGE 24
+
+
+LOC    OBJECT CODE    LINE  SOURCE TEXT
+  VALUE
+
+                      01210 ;   STK01
+                      01211 ;   r0x1063
+                      01212 ;   r0x1064
+                      01213 ;   r0x1065
+                      01214 ;; Starting pCode block
+                      01215 S_main__dec_to_ascii    code
+0000                  01216 _dec_to_ascii:
+                      01217 ; 2 exit points
+                      01218 ;       .line   242; "main.c"   void dec_to_ascii(unsigned short dec)
+0000   ???? ????      01219         BANKSEL r0x105E
+0002   00??           01220         MOVWF   r0x105E
+0003   08??           01221         MOVF    STK00,W
+0004   00??           01222         MOVWF   r0x105F
+                      01223 ;       .line   247; "main.c"   for (i=0 ; dec!=0; i++)
+0005   01??           01224         CLRF    r0x1060
+0006                  01225 _00215_DS_:
+0006   ???? ????      01226         BANKSEL r0x105F
+0008   08??           01227         MOVF    r0x105F,W
+0009   04??           01228         IORWF   r0x105E,W
+000A   1903           01229         BTFSC   STATUS,2
+000B   2???           01230         GOTO    _00224_DS_
+                      01231 ;       .line   249; "main.c"   number[i]=(dec % 10);
+000C   08??           01232         MOVF    r0x1060,W
+000D   3E??           01233         ADDLW   (_dec_to_ascii_number_1_24 + 0)
+000E   00??           01234         MOVWF   r0x1061
+000F   30??           01235         MOVLW   high (_dec_to_ascii_number_1_24 + 0)
+0010   1803           01236         BTFSC   STATUS,0
+0011   3E01           01237         ADDLW   0x01
+0012   00??           01238         MOVWF   r0x1062
+0013   300A           01239         MOVLW   0x0a
+0014   00??           01240         MOVWF   STK02
+0015   3000           01241         MOVLW   0x00
+0016   00??           01242         MOVWF   STK01
+0017   08??           01243         MOVF    r0x105F,W
+0018   00??           01244         MOVWF   STK00
+0019   08??           01245         MOVF    r0x105E,W
+001A   ????           01246         PAGESEL __moduint
+001B   2???           01247         CALL    __moduint
+001C   ????           01248         PAGESEL $
+                      01249 ;;1     MOVWF   r0x1063
+001D   08??           01250         MOVF    STK00,W
+                      01251 ;;1     MOVWF   r0x1064
+001E   ???? ????      01252         BANKSEL r0x1065
+0020   00??           01253         MOVWF   r0x1065
+0021   08??           01254         MOVF    r0x1061,W
+0022   1283 1303      01255         BANKSEL FSR
+0024   0084           01256         MOVWF   FSR
+0025   1383           01257         BCF     STATUS,7
+0026   ???? ????      01258         BANKSEL r0x1062
+0028   18??           01259         BTFSC   r0x1062,0
+0029   1783           01260         BSF     STATUS,7
+002A   08??           01261         MOVF    r0x1065,W
+002B   1283 1303      01262         BANKSEL INDF
+gpasm-1.4.0 #1107 (May  9 2015) build/default   1-7-2017  21:32:30          PAGE 25
+
+
+LOC    OBJECT CODE    LINE  SOURCE TEXT
+  VALUE
+
+002D   0080           01263         MOVWF   INDF
+                      01264 ;       .line   250; "main.c"   dec /=10;
+002E   300A           01265         MOVLW   0x0a
+002F   00??           01266         MOVWF   STK02
+0030   3000           01267         MOVLW   0x00
+0031   00??           01268         MOVWF   STK01
+0032   ???? ????      01269         BANKSEL r0x105F
+0034   08??           01270         MOVF    r0x105F,W
+0035   00??           01271         MOVWF   STK00
+0036   08??           01272         MOVF    r0x105E,W
+0037   ????           01273         PAGESEL __divuint
+0038   2???           01274         CALL    __divuint
+0039   ????           01275         PAGESEL $
+003A   ???? ????      01276         BANKSEL r0x105E
+003C   00??           01277         MOVWF   r0x105E
+003D   08??           01278         MOVF    STK00,W
+003E   00??           01279         MOVWF   r0x105F
+                      01280 ;       .line   251; "main.c"   number[i] +=48;
+003F   3030           01281         MOVLW   0x30
+0040   07??           01282         ADDWF   r0x1065,F
+0041   08??           01283         MOVF    r0x1061,W
+0042   1283 1303      01284         BANKSEL FSR
+0044   0084           01285         MOVWF   FSR
+0045   1383           01286         BCF     STATUS,7
+0046   ???? ????      01287         BANKSEL r0x1062
+0048   18??           01288         BTFSC   r0x1062,0
+0049   1783           01289         BSF     STATUS,7
+004A   08??           01290         MOVF    r0x1065,W
+004B   1283 1303      01291         BANKSEL INDF
+004D   0080           01292         MOVWF   INDF
+                      01293 ;       .line   247; "main.c"   for (i=0 ; dec!=0; i++)
+004E   ???? ????      01294         BANKSEL r0x1060
+0050   0A??           01295         INCF    r0x1060,F
+0051   2???           01296         GOTO    _00215_DS_
+0052                  01297 _00224_DS_:
+                      01298 ;       .line   253; "main.c"   while (i--)
+0052   ???? ????      01299         BANKSEL r0x1060
+0054   08??           01300         MOVF    r0x1060,W
+0055   00??           01301         MOVWF   r0x105F
+0056                  01302 _00211_DS_:
+0056   ???? ????      01303         BANKSEL r0x105F
+0058   08??           01304         MOVF    r0x105F,W
+0059   00??           01305         MOVWF   r0x105E
+005A   03??           01306         DECF    r0x105F,F
+005B   08??           01307         MOVF    r0x105E,W
+005C   1903           01308         BTFSC   STATUS,2
+005D   2???           01309         GOTO    _00217_DS_
+                      01310 ;       .line   255; "main.c"   circBufPush(number[i]); // Add a character to the output buffer
+005E   08??           01311         MOVF    r0x105F,W
+005F   3E??           01312         ADDLW   (_dec_to_ascii_number_1_24 + 0)
+0060   00??           01313         MOVWF   r0x105E
+0061   30??           01314         MOVLW   high (_dec_to_ascii_number_1_24 + 0)
+0062   1803           01315         BTFSC   STATUS,0
+gpasm-1.4.0 #1107 (May  9 2015) build/default   1-7-2017  21:32:30          PAGE 26
+
+
+LOC    OBJECT CODE    LINE  SOURCE TEXT
+  VALUE
+
+0063   3E01           01316         ADDLW   0x01
+0064   00??           01317         MOVWF   r0x1060
+0065   08??           01318         MOVF    r0x105E,W
+0066   1283 1303      01319         BANKSEL FSR
+0068   0084           01320         MOVWF   FSR
+0069   1383           01321         BCF     STATUS,7
+006A   ???? ????      01322         BANKSEL r0x1060
+006C   18??           01323         BTFSC   r0x1060,0
+006D   1783           01324         BSF     STATUS,7
+006E   1283 1303      01325         BANKSEL INDF
+0070   0800           01326         MOVF    INDF,W
+0071   ???? ????      01327         BANKSEL r0x1061
+0073   00??           01328         MOVWF   r0x1061
+0074   ????           01329         PAGESEL _circBufPush
+0075   2???           01330         CALL    _circBufPush
+0076   ????           01331         PAGESEL $
+0077   2???           01332         GOTO    _00211_DS_
+0078                  01333 _00217_DS_:
+0078   0008           01334         RETURN  
+                      01335 ; exit point of _dec_to_ascii
+                      01336 
+                      01337 ;***
+                      01338 ;  pBlock Stats: dbName = C
+                      01339 ;***
+                      01340 ;has an exit
+                      01341 ;functions called:
+                      01342 ;   _SP_send_error
+                      01343 ;   _SP_send_error
+                      01344 ;7 compiler assigned registers:
+                      01345 ;   r0x1051
+                      01346 ;   r0x1052
+                      01347 ;   r0x1053
+                      01348 ;   r0x1054
+                      01349 ;   r0x1055
+                      01350 ;   STK01
+                      01351 ;   STK00
+                      01352 ;; Starting pCode block
+                      01353 S_main__circBufPush     code
+0000                  01354 _circBufPush:
+                      01355 ; 2 exit points
+                      01356 ;       .line   213; "main.c"   int circBufPush(uint8_t data){
+0000   ???? ????      01357         BANKSEL r0x1051
+0002   00??           01358         MOVWF   r0x1051
+                      01359 ;       .line   214; "main.c"   uint8_t next = buf_head + 1;
+0003   ???? ????      01360         BANKSEL _buf_head
+0005   0A??           01361         INCF    _buf_head,W
+0006   ???? ????      01362         BANKSEL r0x1052
+0008   00??           01363         MOVWF   r0x1052
+                      01364 ;;unsigned compare: left < lit(0x10=16), size=1
+                      01365 ;       .line   215; "main.c"   if (next >= BUF_SIZE)
+0009   3010           01366         MOVLW   0x10
+                      01367 ;       .line   216; "main.c"   next = 0;
+000A   02??           01368         SUBWF   r0x1052,W
+gpasm-1.4.0 #1107 (May  9 2015) build/default   1-7-2017  21:32:30          PAGE 27
+
+
+LOC    OBJECT CODE    LINE  SOURCE TEXT
+  VALUE
+
+                      01369 ;       .line   219; "main.c"   if (next == buf_tail){
+000B   1803           01370         BTFSC   STATUS,0
+000C   01??           01371         CLRF    r0x1052
+000D   ???? ????      01372         BANKSEL _buf_tail
+000F   08??           01373         MOVF    _buf_tail,W
+0010   ???? ????      01374         BANKSEL r0x1052
+0012   06??           01375         XORWF   r0x1052,W
+0013   1D03           01376         BTFSS   STATUS,2
+0014   2???           01377         GOTO    _00204_DS_
+                      01378 ;       .line   220; "main.c"   SP_send_error(buf_err);
+0015   30??           01379         MOVLW   high (_buf_err + 0)
+0016   00??           01380         MOVWF   r0x1053
+0017   30??           01381         MOVLW   (_buf_err + 0)
+0018   00??           01382         MOVWF   r0x1054
+0019   3080           01383         MOVLW   0x80
+001A   00??           01384         MOVWF   r0x1055
+001B   08??           01385         MOVF    r0x1054,W
+001C   00??           01386         MOVWF   STK01
+001D   08??           01387         MOVF    r0x1053,W
+001E   00??           01388         MOVWF   STK00
+001F   08??           01389         MOVF    r0x1055,W
+0020   ????           01390         PAGESEL _SP_send_error
+0021   2???           01391         CALL    _SP_send_error
+0022   ????           01392         PAGESEL $
+                      01393 ;       .line   221; "main.c"   return -1;  // quit with an error
+0023   30FF           01394         MOVLW   0xff
+0024   00??           01395         MOVWF   STK00
+0025   30FF           01396         MOVLW   0xff
+0026   2???           01397         GOTO    _00205_DS_
+0027                  01398 _00204_DS_:
+                      01399 ;       .line   224; "main.c"   buf[buf_head] = data;
+0027   ???? ????      01400         BANKSEL _buf_head
+0029   08??           01401         MOVF    _buf_head,W
+002A   3E??           01402         ADDLW   (_buf + 0)
+002B   ???? ????      01403         BANKSEL r0x1054
+002D   00??           01404         MOVWF   r0x1054
+002E   30??           01405         MOVLW   high (_buf + 0)
+002F   1803           01406         BTFSC   STATUS,0
+0030   3E01           01407         ADDLW   0x01
+0031   00??           01408         MOVWF   r0x1053
+0032   08??           01409         MOVF    r0x1054,W
+0033   1283 1303      01410         BANKSEL FSR
+0035   0084           01411         MOVWF   FSR
+0036   1383           01412         BCF     STATUS,7
+0037   ???? ????      01413         BANKSEL r0x1053
+0039   18??           01414         BTFSC   r0x1053,0
+003A   1783           01415         BSF     STATUS,7
+003B   08??           01416         MOVF    r0x1051,W
+003C   1283 1303      01417         BANKSEL INDF
+003E   0080           01418         MOVWF   INDF
+                      01419 ;       .line   225; "main.c"   buf_head = next;
+003F   ???? ????      01420         BANKSEL r0x1052
+0041   08??           01421         MOVF    r0x1052,W
+gpasm-1.4.0 #1107 (May  9 2015) build/default   1-7-2017  21:32:30          PAGE 28
+
+
+LOC    OBJECT CODE    LINE  SOURCE TEXT
+  VALUE
+
+0042   ???? ????      01422         BANKSEL _buf_head
+0044   00??           01423         MOVWF   _buf_head
+                      01424 ;       .line   226; "main.c"   TXIE = 1;       //Enables the EUSART transmit interrupt
+0045   ???? ????      01425         BANKSEL _PIE1bits
+0047   16??           01426         BSF     _PIE1bits,4
+                      01427 ;       .line   227; "main.c"   return 0;
+0048   3000           01428         MOVLW   0x00
+0049   00??           01429         MOVWF   STK00
+004A   3000           01430         MOVLW   0x00
+004B                  01431 _00205_DS_:
+004B   0008           01432         RETURN  
+                      01433 ; exit point of _circBufPush
+                      01434 
+                      01435 
+                      01436 ;       code size estimation:
+                      01437 ;         527+  176 =   703 instructions ( 1758 byte)
+                      01438 
+                      01439         end
+gpasm-1.4.0 #1107 (May  9 2015) build/default   1-7-2017  21:32:30          PAGE 29
 
 
 SYMBOL TABLE
@@ -1344,7 +1674,7 @@ C1CH0                             00000000
 C1CH1                             00000001
 C1IE                              00000005
 C1IF                              00000005
-gpasm-1.4.0 #1107 (May  9 2015) build/default   1-7-2017  10:50:45          PAGE 24
+gpasm-1.4.0 #1107 (May  9 2015) build/default   1-7-2017  21:32:30          PAGE 30
 
 
 SYMBOL TABLE
@@ -1403,7 +1733,7 @@ ECCPAS1                           00000005
 ECCPAS2                           00000006
 ECCPASE                           00000007
 EEADR                             0000010D
-gpasm-1.4.0 #1107 (May  9 2015) build/default   1-7-2017  10:50:45          PAGE 25
+gpasm-1.4.0 #1107 (May  9 2015) build/default   1-7-2017  21:32:30          PAGE 31
 
 
 SYMBOL TABLE
@@ -1418,7 +1748,7 @@ EEDATH                            0000010E
 EEIE                              00000004
 EEIF                              00000004
 EEPGD                             00000007
-END_OF_INTERRUPT                  000000C8
+END_OF_INTERRUPT                  000000BE
 F                                 00000001
 FERR                              00000002
 FSR                               00000004
@@ -1462,7 +1792,7 @@ IRP                               00000007
 LTS                               00000001
 MC1OUT                            00000007
 MC2OUT                            00000006
-gpasm-1.4.0 #1107 (May  9 2015) build/default   1-7-2017  10:50:45          PAGE 26
+gpasm-1.4.0 #1107 (May  9 2015) build/default   1-7-2017  21:32:30          PAGE 32
 
 
 SYMBOL TABLE
@@ -1521,7 +1851,7 @@ PRSEN                             00000007
 PS0                               00000000
 PS1                               00000001
 PS2                               00000002
-gpasm-1.4.0 #1107 (May  9 2015) build/default   1-7-2017  10:50:45          PAGE 27
+gpasm-1.4.0 #1107 (May  9 2015) build/default   1-7-2017  21:32:30          PAGE 33
 
 
 SYMBOL TABLE
@@ -1580,7 +1910,7 @@ SENDB                             00000003
 SMP                               00000007
 SPBRG                             00000099
 SPBRGH                            0000009A
-gpasm-1.4.0 #1107 (May  9 2015) build/default   1-7-2017  10:50:45          PAGE 28
+gpasm-1.4.0 #1107 (May  9 2015) build/default   1-7-2017  21:32:30          PAGE 34
 
 
 SYMBOL TABLE
@@ -1639,7 +1969,7 @@ T1IE                              00000000
 T1IF                              00000000
 T1OSCEN                           00000003
 T2CKPS0                           00000000
-gpasm-1.4.0 #1107 (May  9 2015) build/default   1-7-2017  10:50:45          PAGE 29
+gpasm-1.4.0 #1107 (May  9 2015) build/default   1-7-2017  21:32:30          PAGE 35
 
 
 SYMBOL TABLE
@@ -1698,7 +2028,7 @@ TX9D                              00000000
 TXEN                              00000005
 TXIE                              00000004
 TXIF                              00000004
-gpasm-1.4.0 #1107 (May  9 2015) build/default   1-7-2017  10:50:45          PAGE 30
+gpasm-1.4.0 #1107 (May  9 2015) build/default   1-7-2017  21:32:30          PAGE 36
 
 
 SYMBOL TABLE
@@ -1749,30 +2079,37 @@ Z                                 00000002
 _00106_DS_                        0000005D
 _00108_DS_                        0000001F
 _00111_DS_                        00000063
-_00113_DS_                        00000089
-_00116_DS_                        000000A4
-_00119_DS_                        000000BB
-_00139_DS_                        00000057
-_00145_DS_                        00000038
-_00147_DS_                        00000003
-_00155_DS_                        00000027
-_00156_DS_                        0000004B
-gpasm-1.4.0 #1107 (May  9 2015) build/default   1-7-2017  10:50:45          PAGE 31
+_00113_DS_                        0000008D
+_00114_DS_                        000000AB
+_00117_DS_                        000000B1
+_00134_DS_                        00000057
+_00140_DS_                        0000003C
+_00145_DS_                        00000094
+_00148_DS_                        000000D2
+_00151_DS_                        00000165
+gpasm-1.4.0 #1107 (May  9 2015) build/default   1-7-2017  21:32:30          PAGE 37
 
 
 SYMBOL TABLE
   LABEL                             VALUE 
 
-_00162_DS_                        0000005B
-_00166_DS_                        0000000F
-_00167_DS_                        00000006
-_00169_DS_                        0000007D
-_00174_DS_                        00000057
-_00181_DS_                        00000008
-_00183_DS_                        0000002B
-_00188_DS_                        0000002C
-_00193_DS_                        0000000D
-_00195_DS_                        00000034
+_00153_DS_                        00000009
+_00155_DS_                        000000D9
+_00193_DS_                        00000019
+_00194_DS_                        00000023
+_00195_DS_                        0000002D
+_00196_DS_                        00000037
+_00204_DS_                        00000027
+_00205_DS_                        0000004B
+_00211_DS_                        00000056
+_00215_DS_                        00000006
+_00217_DS_                        00000078
+_00224_DS_                        00000052
+_00231_DS_                        00000008
+_00233_DS_                        0000002B
+_00238_DS_                        0000002C
+_00243_DS_                        0000000D
+_00245_DS_                        00000034
 _ADCON0                           00000000
 _ADCON0bits                       00000000
 _ADCON1                           00000000
@@ -1809,6 +2146,12 @@ _CM2CON0bits                      00000000
 _CM2CON1                          00000000
 _CM2CON1bits                      00000000
 _CONFIG                           00002007
+gpasm-1.4.0 #1107 (May  9 2015) build/default   1-7-2017  21:32:30          PAGE 38
+
+
+SYMBOL TABLE
+  LABEL                             VALUE 
+
 _CPD_OFF                          00003FFF
 _CPD_ON                           00003F7F
 _CP_OFF                           00003FFF
@@ -1816,12 +2159,6 @@ _CP_ON                            00003FBF
 _DEVID1                           00002006
 _ECCPAS                           00000000
 _ECCPASbits                       00000000
-gpasm-1.4.0 #1107 (May  9 2015) build/default   1-7-2017  10:50:45          PAGE 32
-
-
-SYMBOL TABLE
-  LABEL                             VALUE 
-
 _EC_OSC                           00003FFB
 _EEADR                            00000000
 _EEADRH                           00000000
@@ -1868,6 +2205,12 @@ _IOCBbits                         00000000
 _IOCbits                          00000000
 _LP_OSC                           00003FF8
 _MCLRE_OFF                        00003FDF
+gpasm-1.4.0 #1107 (May  9 2015) build/default   1-7-2017  21:32:30          PAGE 39
+
+
+SYMBOL TABLE
+  LABEL                             VALUE 
+
 _MCLRE_ON                         00003FFF
 _MSK                              00000000
 _MSKbits                          00000000
@@ -1875,12 +2218,6 @@ _OPTION_REG                       00000000
 _OPTION_REGbits                   00000000
 _OSCCON                           00000000
 _OSCCONbits                       00000000
-gpasm-1.4.0 #1107 (May  9 2015) build/default   1-7-2017  10:50:45          PAGE 33
-
-
-SYMBOL TABLE
-  LABEL                             VALUE 
-
 _OSCTUNE                          00000000
 _OSCTUNEbits                      00000000
 _PCL                              00000000
@@ -1927,26 +2264,32 @@ _SSPMSK                           00000000
 _SSPMSKbits                       00000000
 _SSPSTAT                          00000000
 _SSPSTATbits                      00000000
+gpasm-1.4.0 #1107 (May  9 2015) build/default   1-7-2017  21:32:30          PAGE 40
+
+
+SYMBOL TABLE
+  LABEL                             VALUE 
+
 _STATUS                           00000000
 _STATUSbits                       00000000
 _S_main__SP_send_001C             0000001C
 _S_main__SP_send_0026             00000026
 _S_main__SP_send_error_0021       00000021
 _S_main__circBufPush_0022         00000022
-_S_main__dec_to_ascii_0021        00000021
-gpasm-1.4.0 #1107 (May  9 2015) build/default   1-7-2017  10:50:45          PAGE 34
-
-
-SYMBOL TABLE
-  LABEL                             VALUE 
-
-_S_main__dec_to_ascii_003E        0000003E
-_S_main__dec_to_ascii_007B        0000007B
+_S_main__dec_to_ascii_001C        0000001C
+_S_main__dec_to_ascii_0039        00000039
+_S_main__dec_to_ascii_0076        00000076
 _S_main__main_0002                00000002
-_S_main__main_000F                0000000F
-_S_main__main_001F                0000001F
-_S_main__main_0027                00000027
-_S_main__main_0037                00000037
+_S_main__main_004D                0000004D
+_S_main__main_00A3                000000A3
+_S_main__main_00A9                000000A9
+_S_main__main_00B9                000000B9
+_S_main__main_00E0                000000E0
+_S_main__main_0109                00000109
+_S_main__main_0119                00000119
+_S_main__main_013F                0000013F
+_S_main__main_014F                0000014F
+_S_main__main_0164                00000164
 _T1CON                            00000000
 _T1CONbits                        00000000
 _T2CON                            00000000
@@ -1980,6 +2323,12 @@ _WPUB                             00000000
 _WPUBbits                         00000000
 _WPUbits                          00000000
 _XT_OSC                           00003FF9
+gpasm-1.4.0 #1107 (May  9 2015) build/default   1-7-2017  21:32:30          PAGE 41
+
+
+SYMBOL TABLE
+  LABEL                             VALUE 
+
 __16F690                          00000001
 __CODE_END                        00000FFF
 __CODE_START                      00000000
@@ -1993,23 +2342,19 @@ ___sdcc_saved_fsr                 00000000
 __divuint                         00000000
 __gptrget1                        00000000
 __moduint                         00000000
-gpasm-1.4.0 #1107 (May  9 2015) build/default   1-7-2017  10:50:45          PAGE 35
-
-
-SYMBOL TABLE
-  LABEL                             VALUE 
-
+__mulchar                         00000000
 __sdcc_gsinit_startup             00000000
 __sdcc_interrupt                  00000004
 _bitfield                         00000000
+_bt                               00000000
 _buf                              00000000
 _buf_err                          00000000
 _buf_head                         00000000
 _buf_tail                         00000000
-_c_interrupt_00BA                 000000BA
+_bw                               00000000
 _circBufPush                      00000000
 _dec_to_ascii                     00000000
-_dec_to_ascii_number_1_20         00000021
+_dec_to_ascii_number_1_24         00000025
 _enter                            00000000
 _init                             00000000
 _int_err                          00000000
@@ -2029,45 +2374,49 @@ _t1                               00000000
 _tab                              00000000
 _w                                00000000
 _w1                               00000000
-r0x101D                           0000001B
-r0x101E                           0000001A
-r0x101F                           00000019
-r0x1020                           0000001C
-r0x1021                           0000001D
-r0x1022                           0000001E
-r0x1023                           0000001F
-r0x1024                           00000020
-r0x1025                           00000006
-r0x1026                           00000007
-r0x1027                           00000009
-r0x1028                           00000008
-r0x1029                           0000000A
-r0x102A                           00000013
-r0x102B                           00000012
-r0x102C                           00000011
-r0x102D                           00000014
-r0x102E                           00000015
-r0x102F                           00000016
-r0x1030                           00000017
-r0x1031                           00000018
-r0x1032                           0000000C
-r0x1033                           0000000B
-gpasm-1.4.0 #1107 (May  9 2015) build/default   1-7-2017  10:50:45          PAGE 36
+r0x1049                           0000001F
+r0x104A                           0000001E
+r0x104B                           0000001D
+r0x104C                           00000020
+r0x104D                           00000021
+r0x104E                           00000022
+r0x104F                           00000023
+r0x1050                           00000024
+gpasm-1.4.0 #1107 (May  9 2015) build/default   1-7-2017  21:32:30          PAGE 42
 
 
 SYMBOL TABLE
   LABEL                             VALUE 
 
-r0x1034                           0000000D
-r0x1035                           0000000E
-r0x1036                           0000000F
-r0x1039                           00000010
-r0x103A                           00000004
-r0x103B                           00000003
-r0x103C                           00000005
-r0x103D                           00000000
-r0x103E                           00000001
-r0x103F                           00000002
+r0x1051                           0000000A
+r0x1052                           0000000B
+r0x1053                           0000000D
+r0x1054                           0000000C
+r0x1055                           0000000E
+r0x1056                           00000017
+r0x1057                           00000016
+r0x1058                           00000015
+r0x1059                           00000018
+r0x105A                           00000019
+r0x105B                           0000001A
+r0x105C                           0000001B
+r0x105D                           0000001C
+r0x105E                           00000010
+r0x105F                           0000000F
+r0x1060                           00000011
+r0x1061                           00000012
+r0x1062                           00000013
+r0x1065                           00000014
+r0x1066                           00000002
+r0x1067                           00000003
+r0x1068                           00000004
+r0x1069                           00000005
+r0x106A                           00000006
+r0x106B                           00000007
+r0x106C                           00000008
+r0x106D                           00000009
+r0x106E                           00000000
+r0x106F                           00000001
 
 Errors   :     0
 Warnings :     0 reported,     0 suppressed
