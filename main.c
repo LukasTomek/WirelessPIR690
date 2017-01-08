@@ -77,8 +77,8 @@ uint8_t buf[BUF_SIZE];
 uint8_t buf_head = 0;
 uint8_t buf_tail = 0;
 uint8_t int_error_cnt = 0;
-//uint8_t t2 = 0;
-//uint8_t w2 = 0;
+uint8_t t2 = 0;
+uint8_t w2 = 0;
 /*uint16_t
 uint16_t   */    
 
@@ -108,13 +108,15 @@ void receive_intr() __interrupt 0 {
         }
         //return 0;
     }
+	TMR1H = 0;
+	TMR1L = 0;
     if(CCP1IF){
         CCP1IE = FALSE;
         
         if(CCP1M0){                     // if ECCP mode is Rising edge CCP1M0
             CCP1M0 = FALING;                 // set falling edge
-            TMR1H = 0;
-            TMR1L = 0;
+            CCPR1H = 0;
+            CCPR1L = 0;
             t=0;
             t = 0x0000 | CCPR1H;        //ECCP result higher 8 bits
             t = t << 8;
@@ -133,6 +135,11 @@ void receive_intr() __interrupt 0 {
         }
         CCP1IE = 1;
         CCP1IF = 0;                     //Clear interrupt flag
+		t = 0x0000 | TMR1H;        //ECCP result higher 8 bits
+        t = t << 8;
+        t = t | TMR1L;             //ECCP combined 16 bit number formation
+        dec_to_ascii(t);
+		SP_send(enter);
     }
     /*int_error_cnt++;
     if (int_error_cnt > 100){
@@ -167,6 +174,11 @@ int main(void) {
         dec_to_ascii(t);
         SP_send(enter);*/
         TMR0 = 0;
+		circBufPush(TMR0);
+		SP_send(strw1);
+        SP_send(enter);
+            //dec_to_ascii(TMR0);
+            SP_send(enter);
         if (bitfield.Capture){
             bitfield.Capture = FALSE;
 //                dec_to_ascii(w);
