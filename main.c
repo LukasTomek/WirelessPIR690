@@ -85,6 +85,7 @@ uint16_t   */
 void SP_send(char str[]);
 int circBufPush(uint8_t data);
 void dec_to_ascii(unsigned short dec);
+void uint8_to_ascii(uint8_t dec);
 void SP_send_error(char str[]);
 
 void receive_intr() __interrupt 0 {
@@ -133,7 +134,7 @@ void receive_intr() __interrupt 0 {
 //            wC2 = CCPR1L;
             bitfield.Capture = TRUE;
         }
-        CCP1IE = 1;
+        //CCP1IE = 1;
         CCP1IF = 0;                     //Clear interrupt flag
 		t = 0x0000 | TMR1H;        //ECCP result higher 8 bits
         t = t << 8;
@@ -155,9 +156,20 @@ void receive_intr() __interrupt 0 {
 int main(void) {
     uint8_t i = 0;
     uint8_t j = 0;
-    uint8_t hint = 0;
+    uint8_t temp = 0;
     init();
     bitfield.Hint = FALSE;
+    bitfield.Capture = FALSE;
+    GIE = 0;
+    TMR0 = 0;
+    w2 = 250;
+    t2 = 125;
+    temp = TMR0;
+    GIE = 1;
+    SP_send(strw1);
+    circBufPush(temp);
+    //uint8_to_ascii(temp);
+    SP_send(enter);
     while(1)
     {
         /*TMR1H = 0;
@@ -173,12 +185,7 @@ int main(void) {
         t = t | TMR1L;             //ECCP combined 16 bit number formation
         dec_to_ascii(t);
         SP_send(enter);*/
-        TMR0 = 0;
-		circBufPush(TMR0);
-		SP_send(strw1);
-        SP_send(enter);
-            //dec_to_ascii(TMR0);
-            SP_send(enter);
+
         if (bitfield.Capture){
             bitfield.Capture = FALSE;
 //                dec_to_ascii(w);
@@ -268,6 +275,25 @@ void dec_to_ascii(unsigned short dec)
 		//while(!TXIF);       // Wait while the output buffer is full*/
 	}
 }
+
+void uint8_to_ascii(uint8_t dec)
+{
+	unsigned char number[4];
+	unsigned char i;
+
+    for (i=0 ; dec!=0  || i == 0; i++)
+    {
+        number[i]=(dec % 10);
+        dec /=10;
+        number[i] +=48;
+	}
+	while (i--)
+	{
+		circBufPush(number[i]);	// Add a character to the output buffer
+		//while(!TXIF);       // Wait while the output buffer is full*/
+	}
+}
+
 
 void SP_send(char str[]){
 	uint8_t i;

@@ -228,44 +228,32 @@ _init:
 ;	.line	32; "init.c"	SPEN=1;			// Enable serial port
 	BANKSEL	_RCSTAbits
 	BSF	_RCSTAbits,7
-;	.line	43; "init.c"	T0CS = 0;	// Clear to enable timer mode.
-	BANKSEL	_OPTION_REGbits
-	BCF	_OPTION_REGbits,5
-;	.line	44; "init.c"	PSA = 0;	// Clear to assign prescaler to Timer 0.
-	BCF	_OPTION_REGbits,3
-;	.line	45; "init.c"	PS2 = 0;	// Set up prescaler to 1:256.
-	BCF	_OPTION_REGbits,2
-;	.line	46; "init.c"	PS1 = 0;
-	BCF	_OPTION_REGbits,1
-;	.line	47; "init.c"	PS0 = 0;
-	BCF	_OPTION_REGbits,0
-;	.line	52; "init.c"	CCP1CON = 5; // Setup ENHANCED CAPTURE MODULE
+;	.line	46; "init.c"	CCP1CON = 5; // Setup ENHANCED CAPTURE MODULE
 	MOVLW	0x05
-	BANKSEL	_CCP1CON
 	MOVWF	_CCP1CON
-;	.line	53; "init.c"	CCP1IE = 0;     // ENHANCED CAPTURE MODULE Interrupt Disabled
+;	.line	47; "init.c"	CCP1IE = 0;     // ENHANCED CAPTURE MODULE Interrupt Disabled
 	BANKSEL	_PIE1bits
 	BCF	_PIE1bits,2
-;	.line	54; "init.c"	CCP1IF = 0;
+;	.line	48; "init.c"	CCP1IF = 0;
 	BANKSEL	_PIR1bits
 	BCF	_PIR1bits,2
-;	.line	60; "init.c"	T1CON = 0;  // TIMER1 presccaler 1
+;	.line	54; "init.c"	T1CON = 0;  // TIMER1 presccaler 1
 	CLRF	_T1CON
-;	.line	62; "init.c"	PEIE = 1;       // Enable peripheral interrupts.
+;	.line	56; "init.c"	PEIE = 1;       // Enable peripheral interrupts.
 	BSF	_INTCONbits,6
-;	.line	63; "init.c"	GIE = 1;	// Enable all interrupts.
+;	.line	57; "init.c"	GIE = 1;	// Enable all interrupts.
 	BSF	_INTCONbits,7
-;	.line	66; "init.c"	TMR1H = 0;
+;	.line	60; "init.c"	TMR1H = 0;
 	CLRF	_TMR1H
-;	.line	67; "init.c"	TMR1L = 0;
+;	.line	61; "init.c"	TMR1L = 0;
 	CLRF	_TMR1L
-;	.line	69; "init.c"	TMR1ON = 1;
+;	.line	63; "init.c"	TMR1ON = 1;
 	BSF	_T1CONbits,0
 	RETURN	
 ; exit point of _init
 
 
 ;	code size estimation:
-;	   38+    8 =    46 instructions (  108 byte)
+;	   33+    6 =    39 instructions (   90 byte)
 
 	end
