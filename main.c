@@ -66,6 +66,10 @@ const char sync[]={'S', 'Y', 'N', 'C', '\n' ,'\0'};
 const char int_err[]={'I', 'N', 'T', ' ', 'E', 'R', 'R', '\n' ,'\0'};
 const char buf_err[]={'B', 'U', 'F', 'F', 'E', 'R', ' ', 'O', 'W', 'E', 'R', 
                         'F', 'L', 'O', 'W', '\n' ,'\0'};
+const char pir1[]={'P', 'I', 'R', '1', ':', ' ','\0'};
+const char pir2[]={'P', 'I', 'R', '2', ':', ' ','\0'};
+const char pie1[]={'P', 'I', 'E', '1', ':', ' ','\0'};
+const char pie2[]={'P', 'I', 'E', '2', ':', ' ','\0'};
 
 unsigned short w = 0;
 unsigned short t = 0;
@@ -87,6 +91,8 @@ int circBufPush(uint8_t data);
 void dec_to_ascii(unsigned short dec);
 void uint8_to_ascii(uint8_t dec);
 void SP_send_error(char str[]);
+void puint8_to_ascii(uint8_t *dec);
+void SP_send_errorP(char str[]);
 
 void receive_intr() __interrupt 0 {
     int next;
@@ -109,15 +115,17 @@ void receive_intr() __interrupt 0 {
         }
         //return 0;
     }
-	TMR1H = 0;
-	TMR1L = 0;
+	/*TMR1H = 0;
+	TMR1L = 0;*/
     if(CCP1IF){
         CCP1IE = FALSE;
         
         if(CCP1M0){                     // if ECCP mode is Rising edge CCP1M0
             CCP1M0 = FALING;                 // set falling edge
-            CCPR1H = 0;
-            CCPR1L = 0;
+//            CCPR1H = 0;
+//            CCPR1L = 0;
+            TMR1H = 0;
+            TMR1L = 0;
             t=0;
             t = 0x0000 | CCPR1H;        //ECCP result higher 8 bits
             t = t << 8;
@@ -132,24 +140,35 @@ void receive_intr() __interrupt 0 {
             w = w << 8;
             w = w | CCPR1L;             //ECCP combined 16 bit number formation
 //            wC2 = CCPR1L;
-            bitfield.Capture = TRUE;
+//            bitfield.Capture = TRUE;
         }
-        //CCP1IE = 1;
+        CCP1IE = 1;
         CCP1IF = 0;                     //Clear interrupt flag
-		t = 0x0000 | TMR1H;        //ECCP result higher 8 bits
+		/*t = 0x0000 | TMR1H;        //ECCP result higher 8 bits
         t = t << 8;
         t = t | TMR1L;             //ECCP combined 16 bit number formation
         dec_to_ascii(t);
-		SP_send(enter);
+		SP_send(enter);*/
     }
     /*int_error_cnt++;
     if (int_error_cnt > 100){*/
-        SP_send_error(int_err);
-        uint8_to_ascii(PIE1_ADDR);
-        uint8_to_ascii(PIE2_ADDR);
-        uint8_to_ascii(PIR1_ADDR);
-        uint8_to_ascii(PIR2_ADDR);
+        //SP_send_error(int_err);
+    /*SP_send_error(pie1);
+    SP_send_errorP(PIE1_ADDR);
+//        puint8_to_ascii(PIE1_ADDR);
         SP_send_error(enter);
+    SP_send_error(pie2);
+    SP_send_errorP(PIE2_ADDR);
+//        puint8_to_ascii(PIE2_ADDR);
+        SP_send_error(enter);
+    SP_send_error(pir1);
+    SP_send_errorP(PIR1_ADDR);
+//        puint8_to_ascii(PIR1_ADDR);
+        SP_send_error(enter);
+    SP_send_error(pir2);
+    SP_send_errorP(PIR2_ADDR);
+//        puint8_to_ascii(PIR2_ADDR);
+        SP_send_error(enter);*/
     //}*/
 }
 
@@ -167,9 +186,20 @@ int main(void) {
     temp = TMR0;
     GIE = 1;
     SP_send(strw1);
-    circBufPush(temp);
-    //uint8_to_ascii(temp);
+    //circBufPush(temp);
+    uint8_to_ascii(temp);
     SP_send(enter);
+    GIE = 0;
+    TMR0 = 0;
+    w1 = 430;
+    t1 = 1909;
+    temp = TMR0;
+    GIE = 1;
+    SP_send(strw);
+    //circBufPush(temp);
+    uint8_to_ascii(temp);
+    SP_send(enter);
+//    GCIE = 1;
     while(1)
     {
         /*TMR1H = 0;
@@ -185,34 +215,26 @@ int main(void) {
         t = t | TMR1L;             //ECCP combined 16 bit number formation
         dec_to_ascii(t);
         SP_send(enter);*/
-
+ 
+        TMR0 = 0;
         if (bitfield.Capture){
+//            GIE = 0;
             bitfield.Capture = FALSE;
-//                dec_to_ascii(w);
-//                circBufPush(w2);
-//                SP_send(tab);
-//                dec_to_ascii(t);
-//                circBufPush(t2);
-//                SP_send(enter);
-            /*if (t > MIN_TS && t < MAX_TS && w > MIN_W0 && w < MAX_W0){
-               SP_send(sync);
-            }*/
             if (t > MIN_T && t < MAX_T && t1 > MIN_T && t1 < MAX_T){
                 bitfield.Hint = TRUE;
             }
             if (i < 10 && bitfield.Hint){
                 bw[i] = w;
-//                SP_send(tab);
                 bt[i] = t;
-//                SP_send(enter);
                 i++;
+                /*temp = TMR0;
+                GIE = 1;
+                SP_send(strw);
+                //circBufPush(temp);
+                uint8_to_ascii(temp);
+                SP_send(enter);*/
             }
-            SP_send(strt1);
-            circBufPush(TMR0);
-            //dec_to_ascii(TMR0);
-            SP_send(enter);
-            
-            
+//            GIE = 1;
             t1 = t;
             w1 = w;
         }
@@ -276,15 +298,33 @@ void dec_to_ascii(unsigned short dec)
 	}
 }
 
-void uint8_to_ascii(uint8_t *dec)
+void puint8_to_ascii(uint8_t *dec)
 {
 	unsigned char number[4];
 	unsigned char i;
 
-    for (i=0 ; *dec!=0  || i == 0; i++)
+    for (i = 0 ; *dec != 0  || i == 0; i++)
     {
-        number[i]=(*dec % 10);
-        *dec /=10;
+        number[i] = (*dec % 10);
+        *dec /= 10;
+        number[i] += 48;
+	}
+	while (i--)
+	{
+		TXREG = number[i];	// Add a character to the output buffer
+		while(!TXIF);       // Wait while the output buffer is full
+	}
+}
+
+void uint8_to_ascii(uint8_t dec)
+{
+	unsigned char number[4];
+	unsigned char i;
+
+    for (i=0 ; dec!=0  || i == 0; i++)
+    {
+        number[i]=(dec % 10);
+        dec /=10;
         number[i] +=48;
 	}
 	while (i--)
@@ -293,7 +333,6 @@ void uint8_to_ascii(uint8_t *dec)
 		//while(!TXIF);       // Wait while the output buffer is full*/
 	}
 }
-
 
 void SP_send(char str[]){
 	uint8_t i;
@@ -312,4 +351,15 @@ void SP_send_error(char str[])
 		TXREG=str[i];	// Add a character to the output buffer
 		while(!TXIF);	// Wait while the output buffer is full
 	}
+}
+
+void SP_send_errorP(char str[])
+{
+	uint8_t i;
+    GIE = FALSE;	// Disable all interrupts.
+	/*for(i=0; str[i] != '\0'; i++)
+	{*/
+		TXREG=str[0];	// Add a character to the output buffer
+		while(!TXIF);	// Wait while the output buffer is full
+//	}
 }

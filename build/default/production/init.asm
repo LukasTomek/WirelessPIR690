@@ -259,13 +259,17 @@ _init:
 	CLRF	_TMR1H
 ;	.line	67; "init.c"	TMR1L = 0;
 	CLRF	_TMR1L
+;	.line	68; "init.c"	CCP1IE = 1;
+	BANKSEL	_PIE1bits
+	BSF	_PIE1bits,2
 ;	.line	69; "init.c"	TMR1ON = 1;
+	BANKSEL	_T1CONbits
 	BSF	_T1CONbits,0
 	RETURN	
 ; exit point of _init
 
 
 ;	code size estimation:
-;	   38+    8 =    46 instructions (  108 byte)
+;	   39+   10 =    49 instructions (  118 byte)
 
 	end
