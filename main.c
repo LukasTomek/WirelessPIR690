@@ -143,14 +143,14 @@ void receive_intr() __interrupt 0 {
 		SP_send(enter);
     }
     /*int_error_cnt++;
-    if (int_error_cnt > 100){
+    if (int_error_cnt > 100){*/
         SP_send_error(int_err);
-        SP_send_error(PIE1_ADDR);
-        SP_send_error(PIE2_ADDR);
-        SP_send_error(PIR1_ADDR);
-        SP_send_error(PIR2_ADDR);
+        uint8_to_ascii(PIE1_ADDR);
+        uint8_to_ascii(PIE2_ADDR);
+        uint8_to_ascii(PIR1_ADDR);
+        uint8_to_ascii(PIR2_ADDR);
         SP_send_error(enter);
-    }*/
+    //}*/
 }
 
 int main(void) {
@@ -276,15 +276,15 @@ void dec_to_ascii(unsigned short dec)
 	}
 }
 
-void uint8_to_ascii(uint8_t dec)
+void uint8_to_ascii(uint8_t *dec)
 {
 	unsigned char number[4];
 	unsigned char i;
 
-    for (i=0 ; dec!=0  || i == 0; i++)
+    for (i=0 ; *dec!=0  || i == 0; i++)
     {
-        number[i]=(dec % 10);
-        dec /=10;
+        number[i]=(*dec % 10);
+        *dec /=10;
         number[i] +=48;
 	}
 	while (i--)
