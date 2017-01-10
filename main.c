@@ -14,8 +14,8 @@
 #define MAX_W1      1430
 #define MIN_T       1880
 #define MAX_T       1950
-#define MIN_TS      4*1880
-#define MAX_TS      4*1950
+#define MIN_TS      8100
+#define MAX_TS      8200
 #define BUF_SIZE    16
 
 typedef unsigned int word;
@@ -222,7 +222,7 @@ int main(void) {
 //            GIE = 0;
             bitfield.Capture = FALSE;
             if (t > MIN_T && t < MAX_T && t1 > MIN_T && t1 < MAX_T){
-                bitfield.Hint = TRUE;
+//                bitfield.Hint = TRUE;
                 if (w > MIN_W1 && w < MAX_W1 && w1 > MIN_W1 && w1 < MAX_W1){
                     SP_send(strV1);
                     t = 0;
@@ -242,22 +242,35 @@ int main(void) {
                     i++;
                 }
             }
-            if (i > 8 && bitfield.Hint && k < 10){
-                bw[k] = w;
-                bt[k] = t;
-                k++;
-                temp = TMR0;
+            if (t > MIN_TS && t < MAX_TS && w > MIN_W0 && w < MAX_W0){
+                    SP_send(sync);
+                    t = 0;
+                    w = 0;
+                    i++;
+            }
+            
+//            if (i > 8 && bitfield.Hint && t > 6000){ //k < 10
+//                bw[k] = w;
+//                bt[k] = t;
+//                k++;
+//                GIE = 0;
+//                dec_to_ascii(w);
+//                SP_send(tab);
+//                dec_to_ascii(t);
+//                SP_send(enter);
+//                GIE = 1;
+                /*temp = TMR0;
 //                GIE = 1;
                 SP_send(strw);
                 //circBufPush(temp);
                 uint8_to_ascii(temp);
-                SP_send(enter);
-            }
-            GIE = 1;
+                SP_send(enter);*/
+//            }
+//            GIE = 1;
             t1 = t;
             w1 = w;
         }
-        if(i >= 10){
+        /*if(k >= 10){
             for(j = 0; j < 10; j++){
                 dec_to_ascii(bw[j]);
                 SP_send(tab);
@@ -265,7 +278,9 @@ int main(void) {
                 SP_send(enter);
             }
             SP_send(sync);
-        }
+            i = 0;
+            k = 0;
+        }*/
         int_error_cnt = 0;
     }
 }
@@ -286,34 +301,23 @@ int circBufPush(uint8_t data){
     TXIE = 1;       //Enables the EUSART transmit interrupt
     return 0;
 }
-/*
-void dec_to_ascii(unsigned short dec){
-	uint8_t number = 0;
-	uint8_t i = 0;
-    
-    for (i = 0 ; dec != 0 || i == 0; i++)
-    {
-        number = (dec % 10);
-        dec /= 10;
-        number += 48;
-        circBufPush(number);
-	}
-}*/
+
 void dec_to_ascii(unsigned short dec)
 {
-	unsigned char number[4];
+	unsigned char number[5];
 	unsigned char i;
 
-    for (i=0 ; dec!=0; i++)
+    for (i=0 ; dec!=0 || i == 0; i++)
     {
-        number[i]=(dec % 10);
-        dec /=10;
-        number[i] +=48;
+        number[i] = (dec % 10);
+        dec /= 10;
+        number[i] += 48;
 	}
 	while (i--)
 	{
 		circBufPush(number[i]);	// Add a character to the output buffer
-		//while(!TXIF);       // Wait while the output buffer is full*/
+//        TXREG = number[i];	// Add a character to the output buffer
+		//while(!TXIF);       // Wait while the output buffer is full
 	}
 }
 /*
