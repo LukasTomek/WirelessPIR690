@@ -175,6 +175,7 @@ void receive_intr() __interrupt 0 {
 int main(void) {
     uint8_t i = 0;
     uint8_t j = 0;
+    uint8_t k = 0;
     uint8_t temp = 0;
     init();
     bitfield.Hint = FALSE;
@@ -222,19 +223,37 @@ int main(void) {
             bitfield.Capture = FALSE;
             if (t > MIN_T && t < MAX_T && t1 > MIN_T && t1 < MAX_T){
                 bitfield.Hint = TRUE;
+                if (w > MIN_W1 && w < MAX_W1 && w1 > MIN_W1 && w1 < MAX_W1){
+                    SP_send(strV1);
+                    t = 0;
+                    w = 0;
+                    i++;
+                }
+                if (w > MIN_W0 && w < MAX_W0 && w1 > MIN_W0 && w1 < MAX_W0){
+                    SP_send(strV0);
+                    t = 0;
+                    w = 0;
+                    i++;
+                }
+                if (w1 > MIN_W0 && w1 < MAX_W0 && w > MIN_W1 && w < MAX_W1){
+                    SP_send(strVF);
+                    t = 0;
+                    w = 0;
+                    i++;
+                }
             }
-            if (i < 10 && bitfield.Hint){
-                bw[i] = w;
-                bt[i] = t;
-                i++;
-                /*temp = TMR0;
-                GIE = 1;
+            if (i > 8 && bitfield.Hint && k < 10){
+                bw[k] = w;
+                bt[k] = t;
+                k++;
+                temp = TMR0;
+//                GIE = 1;
                 SP_send(strw);
                 //circBufPush(temp);
                 uint8_to_ascii(temp);
-                SP_send(enter);*/
+                SP_send(enter);
             }
-//            GIE = 1;
+            GIE = 1;
             t1 = t;
             w1 = w;
         }
@@ -297,7 +316,7 @@ void dec_to_ascii(unsigned short dec)
 		//while(!TXIF);       // Wait while the output buffer is full*/
 	}
 }
-
+/*
 void puint8_to_ascii(uint8_t *dec)
 {
 	unsigned char number[4];
@@ -314,7 +333,7 @@ void puint8_to_ascii(uint8_t *dec)
 		TXREG = number[i];	// Add a character to the output buffer
 		while(!TXIF);       // Wait while the output buffer is full
 	}
-}
+}*/
 
 void uint8_to_ascii(uint8_t dec)
 {
@@ -352,14 +371,13 @@ void SP_send_error(char str[])
 		while(!TXIF);	// Wait while the output buffer is full
 	}
 }
-
+/*
 void SP_send_errorP(char str[])
 {
-	uint8_t i;
     GIE = FALSE;	// Disable all interrupts.
 	/*for(i=0; str[i] != '\0'; i++)
 	{*/
-		TXREG=str[0];	// Add a character to the output buffer
+		/*TXREG=str[0];	// Add a character to the output buffer
 		while(!TXIF);	// Wait while the output buffer is full
 //	}
-}
+}*/
