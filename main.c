@@ -6,7 +6,9 @@
  */
 #include <pic16f690.h>
 #include <stdint.h> //Needed for uint16_t
+#include "main.h"
 #include "init.h"
+#include "str.h"
 
 #define MIN_W0      380
 #define MAX_W0      450
@@ -70,6 +72,7 @@ const char pir1[]={'P', 'I', 'R', '1', ':', ' ','\0'};
 const char pir2[]={'P', 'I', 'R', '2', ':', ' ','\0'};
 const char pie1[]={'P', 'I', 'E', '1', ':', ' ','\0'};
 const char pie2[]={'P', 'I', 'E', '2', ':', ' ','\0'};
+const char tim0_owf[]={'T', 'I', 'M', '0', ' ', 'O', 'W', 'F', '\n' ,'\0'};
 
 unsigned short w = 0;
 unsigned short t = 0;
@@ -83,19 +86,21 @@ uint8_t buf_tail = 0;
 uint8_t int_error_cnt = 0;
 uint8_t t2 = 0;
 uint8_t w2 = 0;
+uint8_t Tim0owerflowCnt = 0;
 /*uint16_t
 uint16_t   */    
 
-void SP_send(char str[]);
-int circBufPush(uint8_t data);
-void dec_to_ascii(unsigned short dec);
-void uint8_to_ascii(uint8_t dec);
-void SP_send_error(char str[]);
-void puint8_to_ascii(uint8_t *dec);
-void SP_send_errorP(char str[]);
+
+
 
 void receive_intr() __interrupt 0 {
     int next;
+    if(T0IF){
+        T0IF = 0;
+        TMR0 = 0;	// Enable timer
+        Tim0owerflowCnt++; 
+        //SP_send(tim0_owf);
+    }
     if(TXIF){
         // if the head isn't ahead of the tail, we don't have any characters
         if (buf_head == buf_tail){
@@ -150,26 +155,29 @@ void receive_intr() __interrupt 0 {
         dec_to_ascii(t);
 		SP_send(enter);*/
     }
-    /*int_error_cnt++;
-    if (int_error_cnt > 100){*/
-        //SP_send_error(int_err);
-    /*SP_send_error(pie1);
-    SP_send_errorP(PIE1_ADDR);
-//        puint8_to_ascii(PIE1_ADDR);
+    int_error_cnt++;
+    /*if (int_error_cnt > 100){
+        SP_send_error(int_err);
+    
+        SP_send_error(pie1);
+        uint8_to_ascii(PIE1);
         SP_send_error(enter);
-    SP_send_error(pie2);
-    SP_send_errorP(PIE2_ADDR);
-//        puint8_to_ascii(PIE2_ADDR);
-        SP_send_error(enter);
-    SP_send_error(pir1);
-    SP_send_errorP(PIR1_ADDR);
-//        puint8_to_ascii(PIR1_ADDR);
-        SP_send_error(enter);
-    SP_send_error(pir2);
-    SP_send_errorP(PIR2_ADDR);
+
+        SP_send_error(pie2);
+        uint8_to_ascii(PIE2);
+    //        puint8_to_ascii(PIE2_ADDR);
+            SP_send_error(enter);
+
+        SP_send_error(pir1);
+        uint8_to_ascii(PIR1);
+    //        puint8_to_ascii(PIR1_ADDR);
+            SP_send_error(enter);
+
+        SP_send_error(pir2);
+        uint8_to_ascii(PIR2);
 //        puint8_to_ascii(PIR2_ADDR);
-        SP_send_error(enter);*/
-    //}*/
+        SP_send_error(enter);
+    }*/
 }
 
 int main(void) {
@@ -188,7 +196,7 @@ int main(void) {
     GIE = 1;
     SP_send(strw1);
     //circBufPush(temp);
-    uint8_to_ascii(temp);
+    uint8_to_ascii_buf(temp);
     SP_send(enter);
     GIE = 0;
     TMR0 = 0;
@@ -198,7 +206,7 @@ int main(void) {
     GIE = 1;
     SP_send(strw);
     //circBufPush(temp);
-    uint8_to_ascii(temp);
+    uint8_to_ascii_buf(temp);
     SP_send(enter);
 //    GCIE = 1;
     while(1)
@@ -216,8 +224,10 @@ int main(void) {
         t = t | TMR1L;             //ECCP combined 16 bit number formation
         dec_to_ascii(t);
         SP_send(enter);*/
- 
+        Tim0owerflowCnt = 0;
         TMR0 = 0;
+        T0IF = 0;
+        T0IE = 1;
         if (bitfield.Capture){
 //            GIE = 0;
             bitfield.Capture = FALSE;
@@ -241,6 +251,15 @@ int main(void) {
                     w = 0;
                     i++;
                 }
+                T0IE = 0;
+                temp = TMR0;
+//                GIE = 1;
+                SP_send(strw);
+                //circBufPush(temp);
+                uint8_to_ascii_buf(Tim0owerflowCnt);
+                SP_send(tab);
+                uint8_to_ascii_buf(temp);
+                SP_send(enter);
             }
             if (t > MIN_TS && t < MAX_TS && w > MIN_W0 && w < MAX_W0){
                     SP_send(sync);
@@ -259,12 +278,12 @@ int main(void) {
 //                dec_to_ascii(t);
 //                SP_send(enter);
 //                GIE = 1;
-                temp = TMR0;
+                /*temp = TMR0;
 //                GIE = 1;
                 SP_send(strw);
                 //circBufPush(temp);
                 uint8_to_ascii(temp);
-                SP_send(enter);
+                SP_send(enter);*/
 //            }
 //            GIE = 1;
             t1 = t;
@@ -292,7 +311,7 @@ int circBufPush(uint8_t data){
  
     // Cicular buffer is full
     if (next == buf_tail){
-        SP_send_error(buf_err);
+        SP_send(buf_err);
         return -1;  // quit with an error
     }
         
@@ -302,86 +321,3 @@ int circBufPush(uint8_t data){
     return 0;
 }
 
-void dec_to_ascii(unsigned short dec)
-{
-	unsigned char number[5];
-	unsigned char i;
-
-    for (i=0 ; dec!=0 || i == 0; i++)
-    {
-        number[i] = (dec % 10);
-        dec /= 10;
-        number[i] += 48;
-	}
-	while (i--)
-	{
-		circBufPush(number[i]);	// Add a character to the output buffer
-//        TXREG = number[i];	// Add a character to the output buffer
-		//while(!TXIF);       // Wait while the output buffer is full
-	}
-}
-/*
-void puint8_to_ascii(uint8_t *dec)
-{
-	unsigned char number[4];
-	unsigned char i;
-
-    for (i = 0 ; *dec != 0  || i == 0; i++)
-    {
-        number[i] = (*dec % 10);
-        *dec /= 10;
-        number[i] += 48;
-	}
-	while (i--)
-	{
-		TXREG = number[i];	// Add a character to the output buffer
-		while(!TXIF);       // Wait while the output buffer is full
-	}
-}*/
-
-void uint8_to_ascii(uint8_t dec)
-{
-	unsigned char number[4];
-	unsigned char i;
-
-    for (i=0 ; dec!=0  || i == 0; i++)
-    {
-        number[i]=(dec % 10);
-        dec /=10;
-        number[i] +=48;
-	}
-	while (i--)
-	{
-		circBufPush(number[i]);	// Add a character to the output buffer
-		//while(!TXIF);       // Wait while the output buffer is full*/
-	}
-}
-
-void SP_send(char str[]){
-	uint8_t i;
-	for(i=0; str[i] != '\0'; i++)
-	{
-        circBufPush(str[i]);
-	}
-}
-
-void SP_send_error(char str[])
-{
-	uint8_t i;
-    GIE = FALSE;	// Disable all interrupts.
-	for(i=0; str[i] != '\0'; i++)
-	{
-		TXREG=str[i];	// Add a character to the output buffer
-		while(!TXIF);	// Wait while the output buffer is full
-	}
-}
-/*
-void SP_send_errorP(char str[])
-{
-    GIE = FALSE;	// Disable all interrupts.
-	/*for(i=0; str[i] != '\0'; i++)
-	{*/
-		/*TXREG=str[0];	// Add a character to the output buffer
-		while(!TXIF);	// Wait while the output buffer is full
-//	}
-}*/

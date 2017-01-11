@@ -213,63 +213,61 @@ _init:
 	BSF	_ANSELbits,2
 ;	.line	23; "init.c"	ANS3=1;
 	BSF	_ANSELbits,3
-;	.line	26; "init.c"	SPBRG=8;                // Baud Rate
+;	.line	27; "init.c"	SPBRG=8;                // Baud Rate
 	MOVLW	0x08
 	BANKSEL	_SPBRG
 	MOVWF	_SPBRG
-;	.line	27; "init.c"	BRGH=1;                 // 115.2k
+;	.line	28; "init.c"	BRGH=1;                 // 115.2k
 	BSF	_TXSTAbits,2
-;	.line	28; "init.c"	BRG16=1;
+;	.line	29; "init.c"	BRG16=1;
 	BSF	_BAUDCTLbits,3
-;	.line	30; "init.c"	TXEN=1;			// Enable transmission mode
+;	.line	31; "init.c"	TXEN=1;			// Enable transmission mode
 	BSF	_TXSTAbits,5
-;	.line	31; "init.c"	SYNC=0;			// Disable Synchronous/Enable Asynchronous
+;	.line	32; "init.c"	SYNC=0;			// Disable Synchronous/Enable Asynchronous
 	BCF	_TXSTAbits,4
-;	.line	32; "init.c"	SPEN=1;			// Enable serial port
+;	.line	33; "init.c"	SPEN=1;			// Enable serial port
 	BANKSEL	_RCSTAbits
 	BSF	_RCSTAbits,7
-;	.line	43; "init.c"	T0CS = 0;	// Clear to enable timer mode.
+;	.line	44; "init.c"	T0CS = 0;	// Clear to enable timer mode.
 	BANKSEL	_OPTION_REGbits
 	BCF	_OPTION_REGbits,5
-;	.line	44; "init.c"	PSA = 0;	// Clear to assign prescaler to Timer 0.
+;	.line	45; "init.c"	PSA = 0;	// Clear to assign prescaler to Timer 0.
 	BCF	_OPTION_REGbits,3
-;	.line	45; "init.c"	PS2 = 0;	// Set up prescaler to 1:256.
+;	.line	46; "init.c"	PS2 = 0;	// Set up prescaler to 1:1.
 	BCF	_OPTION_REGbits,2
-;	.line	46; "init.c"	PS1 = 0;
+;	.line	47; "init.c"	PS1 = 0;
 	BCF	_OPTION_REGbits,1
-;	.line	47; "init.c"	PS0 = 0;
+;	.line	48; "init.c"	PS0 = 0;
 	BCF	_OPTION_REGbits,0
-;	.line	52; "init.c"	CCP1CON = 5; // Setup ENHANCED CAPTURE MODULE
+;	.line	67; "init.c"	T1CON = 0;  // TIMER1 presccaler 1
+	BANKSEL	_T1CON
+	CLRF	_T1CON
+;	.line	68; "init.c"	T1IF = 0;
+	BCF	_PIR1bits,0
+;	.line	70; "init.c"	CCP1CON = 5; 
 	MOVLW	0x05
-	BANKSEL	_CCP1CON
 	MOVWF	_CCP1CON
-;	.line	53; "init.c"	CCP1IE = 0;     // ENHANCED CAPTURE MODULE Interrupt Disabled
+;	.line	71; "init.c"	CCP1IE = 0;     // ENHANCED CAPTURE MODULE Interrupt Disabled
 	BANKSEL	_PIE1bits
 	BCF	_PIE1bits,2
-;	.line	54; "init.c"	CCP1IF = 0;
+;	.line	72; "init.c"	CCP1IF = 0;
 	BANKSEL	_PIR1bits
 	BCF	_PIR1bits,2
-;	.line	60; "init.c"	T1CON = 0;  // TIMER1 presccaler 1
-	CLRF	_T1CON
-;	.line	62; "init.c"	PEIE = 1;       // Enable peripheral interrupts.
+;	.line	80; "init.c"	PEIE = 1;       // Enable peripheral interrupts.
 	BSF	_INTCONbits,6
-;	.line	63; "init.c"	GIE = 1;	// Enable all interrupts.
+;	.line	81; "init.c"	GIE = 1;	// Enable all interrupts.
 	BSF	_INTCONbits,7
-;	.line	66; "init.c"	TMR1H = 0;
+;	.line	84; "init.c"	TMR1H = 0;
 	CLRF	_TMR1H
-;	.line	67; "init.c"	TMR1L = 0;
+;	.line	85; "init.c"	TMR1L = 0;
 	CLRF	_TMR1L
-;	.line	68; "init.c"	CCP1IE = 1;
-	BANKSEL	_PIE1bits
-	BSF	_PIE1bits,2
-;	.line	69; "init.c"	TMR1ON = 1;
-	BANKSEL	_T1CONbits
+;	.line	87; "init.c"	TMR1ON = 1;
 	BSF	_T1CONbits,0
 	RETURN	
 ; exit point of _init
 
 
 ;	code size estimation:
-;	   39+   10 =    49 instructions (  118 byte)
+;	   39+    8 =    47 instructions (  110 byte)
 
 	end

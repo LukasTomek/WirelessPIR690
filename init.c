@@ -47,27 +47,34 @@ void init() {
 	PS1 = 0;
 	PS0 = 0;
 
-	/*T1CKPS<1:0>: Timer1 Input Clock Prescale Select bits
-	11 = 1:8 Prescale Value
-10 = 1:4 Prescale Value
-01 = 1:2 Prescale Value
-00 = 1:1 Prescale Value*/
+
 	
 	//T0IE = 1;	// Set Timer 0 to 0.
 	//TMR0 = 0;	// Enable timer
     
-    CCP1CON = 5; // Setup ENHANCED CAPTURE MODULE
-    CCP1IE = 0;     // ENHANCED CAPTURE MODULE Interrupt Disabled
-    CCP1IF = 0;
-   /* T1CKPS = 0; //TIMER1 presccaler 1
+    /*T1CKPS<1:0>: Timer1 Input Clock Prescale Select bits
+	11 = 1:8 Prescale Value
+    10 = 1:4 Prescale Value
+    01 = 1:2 Prescale Value
+    00 = 1:1 Prescale Value*/
+    /*
+    T1CKPS0 = 1;
+    T1CKPS1 = 1;
     TMR1CS = 0; // Internal clock for TIMER1 
     T1SYNC = 0; // sync mode
     T1OSCEN = 0; // LP osc off
     TMR1ON = 0; // TIMER1 off*/
     T1CON = 0;  // TIMER1 presccaler 1
+    T1IF = 0;
+    // Setup ENHANCED CAPTURE MODULE
+    CCP1CON = 5; 
+    CCP1IE = 0;     // ENHANCED CAPTURE MODULE Interrupt Disabled
+    CCP1IF = 0;
+
+    
 	//T1CKPS =
 	
-	//TODO change timer 1 prescaler to 1:8for testing
+	//TODO change timer 1 prescaler to 1:8 for testing
 	
         
     PEIE = 1;       // Enable peripheral interrupts.
@@ -76,6 +83,6 @@ void init() {
 //    LEDR_PIN = 1;
     TMR1H = 0;
     TMR1L = 0;
-    CCP1IE = 1;
+    //CCP1IE = 1;
     TMR1ON = 1;
 }

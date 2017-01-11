@@ -202,6 +202,8 @@
         <property key="verbose" value="false"/>
       </sdcc-config>
       <item path="temp.c" ex="true" overriding="false">
+        <sdcc-config>
+        </sdcc-config>
       </item>
     </conf>
   </confs>

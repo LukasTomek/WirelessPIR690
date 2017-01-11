@@ -21,7 +21,8 @@ extern "C" {
     //#define LEDG_PIN	RB6
     //#define LEDR_TRIS	TRISA2
     //#define LEDR_PIN	RA2
-
+    int circBufPush(uint8_t data);
+    
 
 #ifdef	__cplusplus
 }
