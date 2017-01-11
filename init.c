@@ -22,7 +22,8 @@ void init() {
     ANS2=1;                      //Zapnuti Analogovych vstupu
     ANS3=1;
 
-    
+    // USART
+	
     SPBRG=8;                // Baud Rate
     BRGH=1;                 // 115.2k
     BRG16=1;
@@ -42,10 +43,16 @@ void init() {
     
     T0CS = 0;	// Clear to enable timer mode.
 	PSA = 0;	// Clear to assign prescaler to Timer 0.
-    PS2 = 0;	// Set up prescaler to 1:256.
+    PS2 = 0;	// Set up prescaler to 1:1.
 	PS1 = 0;
 	PS0 = 0;
 
+	/*T1CKPS<1:0>: Timer1 Input Clock Prescale Select bits
+	11 = 1:8 Prescale Value
+10 = 1:4 Prescale Value
+01 = 1:2 Prescale Value
+00 = 1:1 Prescale Value*/
+	
 	//T0IE = 1;	// Set Timer 0 to 0.
 	//TMR0 = 0;	// Enable timer
     
@@ -58,6 +65,10 @@ void init() {
     T1OSCEN = 0; // LP osc off
     TMR1ON = 0; // TIMER1 off*/
     T1CON = 0;  // TIMER1 presccaler 1
+	//T1CKPS =
+	
+	//TODO change timer 1 prescaler to 1:8for testing
+	
         
     PEIE = 1;       // Enable peripheral interrupts.
     GIE = 1;	// Enable all interrupts.

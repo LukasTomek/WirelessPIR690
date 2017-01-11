@@ -259,12 +259,12 @@ int main(void) {
 //                dec_to_ascii(t);
 //                SP_send(enter);
 //                GIE = 1;
-                /*temp = TMR0;
+                temp = TMR0;
 //                GIE = 1;
                 SP_send(strw);
                 //circBufPush(temp);
                 uint8_to_ascii(temp);
-                SP_send(enter);*/
+                SP_send(enter);
 //            }
 //            GIE = 1;
             t1 = t;
