@@ -87,6 +87,6 @@ void init() {
 //    LEDR_PIN = 1;
     TMR1H = 0;
     TMR1L = 0;
-    //CCP1IE = 1;
+    CCP1IE = 1;
     TMR1ON = 1;
 }

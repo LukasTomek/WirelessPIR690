@@ -11,6 +11,7 @@
 ;--------------------------------------------------------
 ; external declarations
 ;--------------------------------------------------------
+	extern	_circBufPush
 	extern	_STATUSbits
 	extern	_PORTAbits
 	extern	_PORTBbits
@@ -242,32 +243,38 @@ _init:
 ;	.line	67; "init.c"	T1CON = 0;  // TIMER1 presccaler 1
 	BANKSEL	_T1CON
 	CLRF	_T1CON
-;	.line	68; "init.c"	T1IF = 0;
-	BCF	_PIR1bits,0
-;	.line	70; "init.c"	CCP1CON = 5; 
+;	.line	69; "init.c"	T1CKPS0 = 1;
+	BSF	_T1CONbits,4
+;	.line	70; "init.c"	T1CKPS1 = 1;
+	BSF	_T1CONbits,5
+;	.line	74; "init.c"	CCP1CON = 5; 
 	MOVLW	0x05
 	MOVWF	_CCP1CON
-;	.line	71; "init.c"	CCP1IE = 0;     // ENHANCED CAPTURE MODULE Interrupt Disabled
+;	.line	75; "init.c"	CCP1IE = 0;     // ENHANCED CAPTURE MODULE Interrupt Disabled
 	BANKSEL	_PIE1bits
 	BCF	_PIE1bits,2
-;	.line	72; "init.c"	CCP1IF = 0;
+;	.line	76; "init.c"	CCP1IF = 0;
 	BANKSEL	_PIR1bits
 	BCF	_PIR1bits,2
-;	.line	80; "init.c"	PEIE = 1;       // Enable peripheral interrupts.
+;	.line	84; "init.c"	PEIE = 1;       // Enable peripheral interrupts.
 	BSF	_INTCONbits,6
-;	.line	81; "init.c"	GIE = 1;	// Enable all interrupts.
+;	.line	85; "init.c"	GIE = 1;	// Enable all interrupts.
 	BSF	_INTCONbits,7
-;	.line	84; "init.c"	TMR1H = 0;
+;	.line	88; "init.c"	TMR1H = 0;
 	CLRF	_TMR1H
-;	.line	85; "init.c"	TMR1L = 0;
+;	.line	89; "init.c"	TMR1L = 0;
 	CLRF	_TMR1L
-;	.line	87; "init.c"	TMR1ON = 1;
+;	.line	90; "init.c"	CCP1IE = 1;
+	BANKSEL	_PIE1bits
+	BSF	_PIE1bits,2
+;	.line	91; "init.c"	TMR1ON = 1;
+	BANKSEL	_T1CONbits
 	BSF	_T1CONbits,0
 	RETURN	
 ; exit point of _init
 
 
 ;	code size estimation:
-;	   39+    8 =    47 instructions (  110 byte)
+;	   41+   10 =    51 instructions (  122 byte)
 
 	end

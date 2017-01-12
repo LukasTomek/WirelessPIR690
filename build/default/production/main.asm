@@ -16,7 +16,6 @@
 ; external declarations
 ;--------------------------------------------------------
 	extern	_init
-	extern	_dec_to_ascii_buf
 	extern	_uint8_to_ascii_buf
 	extern	_SP_send_buf
 	extern	_SP_send
@@ -157,13 +156,16 @@
 	global	_t1
 	global	_bw
 	global	_bt
+	global	_bwk
+	global	_bw16
+	global	_btk
+	global	_bt16
 	global	_buf
 	global	_buf_head
 	global	_buf_tail
 	global	_int_error_cnt
-	global	_t2
-	global	_w2
-	global	_Tim0owerflowCnt
+	global	_w16
+	global	_t16
 	global	_strV0
 	global	_strV1
 	global	_strVF
@@ -224,12 +226,24 @@ UD_main_0	udata
 _bitfield	res	1
 
 UD_main_1	udata
-_bw	res	20
+_bw	res	30
 
 UD_main_2	udata
-_bt	res	20
+_bt	res	30
 
 UD_main_3	udata
+_bwk	res	6
+
+UD_main_4	udata
+_bw16	res	6
+
+UD_main_5	udata
+_btk	res	6
+
+UD_main_6	udata
+_bt16	res	6
+
+UD_main_7	udata
 _buf	res	16
 
 ;--------------------------------------------------------
@@ -239,40 +253,42 @@ _buf	res	16
 ; compiler-defined variables
 ;--------------------------------------------------------
 UDL_main_0	udata
-r0x102A	res	1
-r0x102B	res	1
-r0x1025	res	1
-r0x1026	res	1
-r0x1028	res	1
-r0x1027	res	1
-r0x1029	res	1
-r0x1020	res	1
-r0x1021	res	1
-r0x1023	res	1
-r0x1022	res	1
-r0x1024	res	1
+r0x107B	res	1
+r0x107C	res	1
+r0x1074	res	1
+r0x1075	res	1
+r0x1076	res	1
+r0x1077	res	1
+r0x1078	res	1
+r0x1079	res	1
+r0x107A	res	1
+r0x106F	res	1
+r0x1070	res	1
+r0x1072	res	1
+r0x1071	res	1
+r0x1073	res	1
 ;--------------------------------------------------------
 ; initialized data
 ;--------------------------------------------------------
 
 ID_main_0	idata
 _w
-	db	0x00, 0x00
+	db	0x00
 
 
 ID_main_1	idata
 _t
-	db	0x00, 0x00
+	db	0x00
 
 
 ID_main_2	idata
 _w1
-	db	0x00, 0x00
+	db	0x00
 
 
 ID_main_3	idata
 _t1
-	db	0x00, 0x00
+	db	0x00
 
 
 ID_main_4	idata
@@ -291,21 +307,16 @@ _int_error_cnt
 
 
 ID_main_7	idata
-_t2
+_w16
 	db	0x00
 
 
 ID_main_8	idata
-_w2
+_t16
 	db	0x00
 
 
-ID_main_9	idata
-_Tim0owerflowCnt
-	db	0x00
-
-
-ID_main_10	code
+ID_main_9	code
 _strV0
 	retlw 0x30
 	retlw 0x20
@@ -313,7 +324,7 @@ _strV0
 	retlw 0x00
 
 
-ID_main_11	code
+ID_main_10	code
 _strV1
 	retlw 0x31
 	retlw 0x20
@@ -321,7 +332,7 @@ _strV1
 	retlw 0x00
 
 
-ID_main_12	code
+ID_main_11	code
 _strVF
 	retlw 0x46
 	retlw 0x20
@@ -329,7 +340,7 @@ _strVF
 	retlw 0x00
 
 
-ID_main_13	code
+ID_main_12	code
 _strw
 	retlw 0x77
 	retlw 0x3a
@@ -337,7 +348,7 @@ _strw
 	retlw 0x00
 
 
-ID_main_14	code
+ID_main_13	code
 _strt
 	retlw 0x74
 	retlw 0x3a
@@ -345,7 +356,7 @@ _strt
 	retlw 0x00
 
 
-ID_main_15	code
+ID_main_14	code
 _strw1
 	retlw 0x77
 	retlw 0x31
@@ -354,7 +365,7 @@ _strw1
 	retlw 0x00
 
 
-ID_main_16	code
+ID_main_15	code
 _strt1
 	retlw 0x74
 	retlw 0x31
@@ -363,19 +374,19 @@ _strt1
 	retlw 0x00
 
 
-ID_main_17	code
+ID_main_16	code
 _tab
 	retlw 0x09
 	retlw 0x00
 
 
-ID_main_18	code
+ID_main_17	code
 _enter
 	retlw 0x0a
 	retlw 0x00
 
 
-ID_main_19	code
+ID_main_18	code
 _sync
 	retlw 0x53
 	retlw 0x59
@@ -385,7 +396,7 @@ _sync
 	retlw 0x00
 
 
-ID_main_20	code
+ID_main_19	code
 _int_err
 	retlw 0x49
 	retlw 0x4e
@@ -398,7 +409,7 @@ _int_err
 	retlw 0x00
 
 
-ID_main_21	code
+ID_main_20	code
 _buf_err
 	retlw 0x42
 	retlw 0x55
@@ -419,7 +430,7 @@ _buf_err
 	retlw 0x00
 
 
-ID_main_22	code
+ID_main_21	code
 _pir1
 	retlw 0x50
 	retlw 0x49
@@ -430,7 +441,7 @@ _pir1
 	retlw 0x00
 
 
-ID_main_23	code
+ID_main_22	code
 _pir2
 	retlw 0x50
 	retlw 0x49
@@ -441,7 +452,7 @@ _pir2
 	retlw 0x00
 
 
-ID_main_24	code
+ID_main_23	code
 _pie1
 	retlw 0x50
 	retlw 0x49
@@ -452,7 +463,7 @@ _pie1
 	retlw 0x00
 
 
-ID_main_25	code
+ID_main_24	code
 _pie2
 	retlw 0x50
 	retlw 0x49
@@ -463,7 +474,7 @@ _pie2
 	retlw 0x00
 
 
-ID_main_26	code
+ID_main_25	code
 _tim0_owf
 	retlw 0x54
 	retlw 0x49
@@ -496,12 +507,12 @@ __sdcc_interrupt:
 ;  pBlock Stats: dbName = I
 ;***
 ;2 compiler assigned registers:
-;   r0x102A
-;   r0x102B
+;   r0x107B
+;   r0x107C
 ;; Starting pCode block
 _receive_intr:
 ; 0 exit points
-;	.line	96; "main.c"	void receive_intr() __interrupt 0 {
+;	.line	103; "main.c"	void receive_intr() __interrupt 0 {
 	MOVWF	WSAVE
 	SWAPF	STATUS,W
 	CLRF	STATUS
@@ -512,177 +523,148 @@ _receive_intr:
 	MOVF	FSR,W
 	BANKSEL	___sdcc_saved_fsr
 	MOVWF	___sdcc_saved_fsr
-;	.line	98; "main.c"	if(T0IF){
+;	.line	105; "main.c"	if(T0IF){
 	BANKSEL	_INTCONbits
 	BTFSS	_INTCONbits,2
 	GOTO	_00106_DS_
-;	.line	99; "main.c"	T0IF = 0;
+;	.line	106; "main.c"	T0IF = 0;
 	BCF	_INTCONbits,2
-;	.line	100; "main.c"	TMR0 = 0;	// Enable timer
+;	.line	107; "main.c"	TMR0 = 0;	// Enable timer
 	CLRF	_TMR0
-;	.line	101; "main.c"	Tim0owerflowCnt++; 
-	BANKSEL	_Tim0owerflowCnt
-	INCF	_Tim0owerflowCnt,F
 _00106_DS_:
-;	.line	104; "main.c"	if(TXIF){
+;	.line	111; "main.c"	if(TXIF){
 	BANKSEL	_PIR1bits
 	BTFSS	_PIR1bits,4
 	GOTO	_00113_DS_
-;	.line	106; "main.c"	if (buf_head == buf_tail){
+;	.line	113; "main.c"	if (buf_head == buf_tail){
 	BANKSEL	_buf_tail
 	MOVF	_buf_tail,W
 	BANKSEL	_buf_head
 	XORWF	_buf_head,W
 	BTFSS	STATUS,2
 	GOTO	_00110_DS_
-;	.line	107; "main.c"	TXIE = 0;
+;	.line	114; "main.c"	TXIE = 0;
 	BANKSEL	_PIE1bits
 	BCF	_PIE1bits,4
 	GOTO	_00113_DS_
 _00110_DS_:
-;	.line	112; "main.c"	TXREG = buf[buf_tail];
+;	.line	119; "main.c"	TXREG = buf[buf_tail];
 	BANKSEL	_buf_tail
 	MOVF	_buf_tail,W
 	ADDLW	(_buf + 0)
-	BANKSEL	r0x102A
-	MOVWF	r0x102A
+	BANKSEL	r0x107B
+	MOVWF	r0x107B
 	MOVLW	high (_buf + 0)
 	BTFSC	STATUS,0
 	ADDLW	0x01
-	MOVWF	r0x102B
-	MOVF	r0x102A,W
+	MOVWF	r0x107C
+	MOVF	r0x107B,W
 	BANKSEL	FSR
 	MOVWF	FSR
 	BCF	STATUS,7
-	BANKSEL	r0x102B
-	BTFSC	r0x102B,0
+	BANKSEL	r0x107C
+	BTFSC	r0x107C,0
 	BSF	STATUS,7
 	BANKSEL	INDF
 	MOVF	INDF,W
 	MOVWF	_TXREG
-;	.line	113; "main.c"	buf[buf_tail] = 0;  // clear the data (optional)
-	BANKSEL	r0x102A
-	MOVF	r0x102A,W
+;	.line	120; "main.c"	buf[buf_tail] = 0;  // clear the data (optional)
+	BANKSEL	r0x107B
+	MOVF	r0x107B,W
 	BANKSEL	FSR
 	MOVWF	FSR
 	BCF	STATUS,7
-	BANKSEL	r0x102B
-	BTFSC	r0x102B,0
+	BANKSEL	r0x107C
+	BTFSC	r0x107C,0
 	BSF	STATUS,7
 	MOVLW	0x00
 	BANKSEL	INDF
 	MOVWF	INDF
-;	.line	115; "main.c"	next = buf_tail + 1;
+;	.line	122; "main.c"	next = buf_tail + 1;
 	BANKSEL	_buf_tail
 	MOVF	_buf_tail,W
-	BANKSEL	r0x102A
-	MOVWF	r0x102A
-	CLRF	r0x102B
-	INCF	r0x102A,F
+	BANKSEL	r0x107B
+	MOVWF	r0x107B
+	CLRF	r0x107C
+	INCF	r0x107B,F
 	BTFSC	STATUS,2
-	INCF	r0x102B,F
+	INCF	r0x107C,F
 ;;signed compare: left < lit(0x10=16), size=2, mask=ffff
-;	.line	116; "main.c"	if(next >= BUF_SIZE)
-	MOVF	r0x102B,W
+;	.line	123; "main.c"	if(next >= BUF_SIZE)
+	MOVF	r0x107C,W
 	ADDLW	0x80
 	ADDLW	0x80
 	BTFSS	STATUS,2
 	GOTO	_00139_DS_
 	MOVLW	0x10
-	SUBWF	r0x102A,W
+	SUBWF	r0x107B,W
 _00139_DS_:
 	BTFSS	STATUS,0
 	GOTO	_00108_DS_
-;;genSkipc:3257: created from rifx:0x7ffc1d17c0b0
-;	.line	117; "main.c"	next = 0;
-	BANKSEL	r0x102A
-	CLRF	r0x102A
-	CLRF	r0x102B
+;;genSkipc:3257: created from rifx:0x7fffe31170d0
+;	.line	124; "main.c"	next = 0;
+	BANKSEL	r0x107B
+	CLRF	r0x107B
+	CLRF	r0x107C
 _00108_DS_:
-;	.line	119; "main.c"	buf_tail = next;
-	BANKSEL	r0x102A
-	MOVF	r0x102A,W
+;	.line	126; "main.c"	buf_tail = next;
+	BANKSEL	r0x107B
+	MOVF	r0x107B,W
 	BANKSEL	_buf_tail
 	MOVWF	_buf_tail
 _00113_DS_:
-;	.line	125; "main.c"	if(CCP1IF){
+;	.line	132; "main.c"	if(CCP1IF){
 	BANKSEL	_PIR1bits
 	BTFSS	_PIR1bits,2
 	GOTO	_00118_DS_
-;	.line	126; "main.c"	CCP1IE = FALSE;
+;	.line	133; "main.c"	CCP1IE = FALSE;
 	BANKSEL	_PIE1bits
 	BCF	_PIE1bits,2
-;	.line	128; "main.c"	if(CCP1M0){                     // if ECCP mode is Rising edge CCP1M0
+;	.line	134; "main.c"	if(CCP1M0){                     // if ECCP mode is Rising edge CCP1M0
 	BANKSEL	_CCP1CONbits
 	BTFSS	_CCP1CONbits,0
 	GOTO	_00115_DS_
-;	.line	129; "main.c"	CCP1M0 = FALING;                 // set falling edge
+;	.line	135; "main.c"	CCP1M0 = FALING;                 // set falling edge
 	BCF	_CCP1CONbits,0
-;	.line	132; "main.c"	TMR1H = 0;
+;	.line	138; "main.c"	TMR1H = 0;
 	CLRF	_TMR1H
-;	.line	133; "main.c"	TMR1L = 0;
+;	.line	139; "main.c"	TMR1L = 0;
 	CLRF	_TMR1L
-;	.line	135; "main.c"	t = 0x0000 | CCPR1H;        //ECCP result higher 8 bits
+;	.line	144; "main.c"	t16 = CCPR1H;
 	MOVF	_CCPR1H,W
-	BANKSEL	r0x102A
-	MOVWF	r0x102A
-	BANKSEL	_t
-	MOVWF	_t
-	CLRF	(_t + 1)
-;	.line	136; "main.c"	t = t << 8;
-	MOVF	_t,W
-	MOVWF	(_t + 1)
-	CLRF	_t
-;	.line	137; "main.c"	t = t | CCPR1L;             //ECCP combined 16 bit number formation*/
+	BANKSEL	_t16
+	MOVWF	_t16
+;	.line	145; "main.c"	t = CCPR1L;
 	BANKSEL	_CCPR1L
 	MOVF	_CCPR1L,W
-	BANKSEL	r0x102A
-	MOVWF	r0x102A
-	CLRF	r0x102B
-	MOVF	r0x102A,W
 	BANKSEL	_t
-	IORWF	_t,F
-	MOVLW	0x00
-	IORWF	(_t + 1),F
-;	.line	139; "main.c"	bitfield.Capture = TRUE;
+	MOVWF	_t
+;	.line	146; "main.c"	bitfield.Capture = TRUE;
 	BANKSEL	_bitfield
 	BSF	_bitfield,0
 	GOTO	_00116_DS_
 _00115_DS_:
-;	.line	142; "main.c"	CCP1M0 = RISING;
+;	.line	149; "main.c"	CCP1M0 = RISING;
 	BANKSEL	_CCP1CONbits
 	BSF	_CCP1CONbits,0
-;	.line	144; "main.c"	w = 0x0000 | CCPR1H;        //ECCP result higher 8 bits
+;	.line	154; "main.c"	w16 = CCPR1H;
 	MOVF	_CCPR1H,W
-	BANKSEL	r0x102A
-	MOVWF	r0x102A
-	BANKSEL	_w
-	MOVWF	_w
-	CLRF	(_w + 1)
-;	.line	145; "main.c"	w = w << 8;
-	MOVF	_w,W
-	MOVWF	(_w + 1)
-	CLRF	_w
-;	.line	146; "main.c"	w = w | CCPR1L;             //ECCP combined 16 bit number formation
+	BANKSEL	_w16
+	MOVWF	_w16
+;	.line	155; "main.c"	w = CCPR1L;
 	BANKSEL	_CCPR1L
 	MOVF	_CCPR1L,W
-	BANKSEL	r0x102A
-	MOVWF	r0x102A
-	CLRF	r0x102B
-	MOVF	r0x102A,W
 	BANKSEL	_w
-	IORWF	_w,F
-	MOVLW	0x00
-	IORWF	(_w + 1),F
+	MOVWF	_w
 _00116_DS_:
-;	.line	150; "main.c"	CCP1IE = 1;
+;	.line	158; "main.c"	CCP1IE = 1;
 	BANKSEL	_PIE1bits
 	BSF	_PIE1bits,2
-;	.line	151; "main.c"	CCP1IF = 0;                     //Clear interrupt flag
+;	.line	159; "main.c"	CCP1IF = 0;                     //Clear interrupt flag
 	BANKSEL	_PIR1bits
 	BCF	_PIR1bits,2
 _00118_DS_:
-;	.line	158; "main.c"	int_error_cnt++;
+;	.line	161; "main.c"	int_error_cnt++;
 	BANKSEL	_int_error_cnt
 	INCF	_int_error_cnt,F
 	BANKSEL	___sdcc_saved_fsr
@@ -709,15 +691,13 @@ code_main	code
 ;has an exit
 ;functions called:
 ;   _init
+;   _uint8_to_ascii_buf
 ;   _SP_send
 ;   _uint8_to_ascii_buf
 ;   _SP_send
-;   _SP_send
 ;   _uint8_to_ascii_buf
 ;   _SP_send
-;   _SP_send
-;   _SP_send
-;   _SP_send
+;   _uint8_to_ascii_buf
 ;   _SP_send
 ;   _uint8_to_ascii_buf
 ;   _SP_send
@@ -725,641 +705,651 @@ code_main	code
 ;   _SP_send
 ;   _SP_send
 ;   _init
-;   _SP_send
 ;   _uint8_to_ascii_buf
 ;   _SP_send
-;   _SP_send
 ;   _uint8_to_ascii_buf
-;   _SP_send
-;   _SP_send
-;   _SP_send
-;   _SP_send
 ;   _SP_send
 ;   _uint8_to_ascii_buf
 ;   _SP_send
 ;   _uint8_to_ascii_buf
 ;   _SP_send
+;   _uint8_to_ascii_buf
 ;   _SP_send
-;7 compiler assigned registers:
-;   r0x1025
-;   r0x1026
-;   r0x1027
-;   r0x1028
-;   r0x1029
+;   _uint8_to_ascii_buf
+;   _SP_send
+;   _SP_send
+;9 compiler assigned registers:
+;   r0x1074
+;   r0x1075
+;   r0x1076
+;   r0x1077
+;   r0x1078
+;   r0x1079
+;   r0x107A
 ;   STK01
 ;   STK00
 ;; Starting pCode block
 S_main__main	code
 _main:
 ; 2 exit points
-;	.line	184; "main.c"	uint8_t i = 0;
-	BANKSEL	r0x1025
-	CLRF	r0x1025
-;	.line	188; "main.c"	init();
+;	.line	165; "main.c"	uint8_t i = 0;
+	BANKSEL	r0x1074
+	CLRF	r0x1074
+;	.line	167; "main.c"	uint8_t k = 0;
+	CLRF	r0x1075
+;	.line	169; "main.c"	init();
 	PAGESEL	_init
 	CALL	_init
 	PAGESEL	$
-;	.line	189; "main.c"	bitfield.Hint = FALSE;
+;	.line	170; "main.c"	bitfield.Hint = FALSE;
 	BANKSEL	_bitfield
 	BCF	_bitfield,2
-;	.line	190; "main.c"	bitfield.Capture = FALSE;
+;	.line	171; "main.c"	bitfield.Capture = FALSE;
 	BCF	_bitfield,0
-;	.line	191; "main.c"	GIE = 0;
-	BANKSEL	_INTCONbits
-	BCF	_INTCONbits,7
-;	.line	192; "main.c"	TMR0 = 0;
-	CLRF	_TMR0
-;	.line	193; "main.c"	w2 = 250;
-	MOVLW	0xfa
-	BANKSEL	_w2
-	MOVWF	_w2
-;	.line	194; "main.c"	t2 = 125;
-	MOVLW	0x7d
-	BANKSEL	_t2
-	MOVWF	_t2
-;	.line	195; "main.c"	temp = TMR0;
-	BANKSEL	_TMR0
-	MOVF	_TMR0,W
-	BANKSEL	r0x1026
-	MOVWF	r0x1026
-;	.line	196; "main.c"	GIE = 1;
-	BANKSEL	_INTCONbits
-	BSF	_INTCONbits,7
-;	.line	197; "main.c"	SP_send(strw1);
-	MOVLW	high (_strw1 + 0)
-	BANKSEL	r0x1027
-	MOVWF	r0x1027
-	MOVLW	(_strw1 + 0)
-	MOVWF	r0x1028
-	MOVLW	0x80
-	MOVWF	r0x1029
-	MOVF	r0x1028,W
-	MOVWF	STK01
-	MOVF	r0x1027,W
-	MOVWF	STK00
-	MOVF	r0x1029,W
-	PAGESEL	_SP_send
-	CALL	_SP_send
-	PAGESEL	$
-;	.line	199; "main.c"	uint8_to_ascii_buf(temp);
-	BANKSEL	r0x1026
-	MOVF	r0x1026,W
-	PAGESEL	_uint8_to_ascii_buf
-	CALL	_uint8_to_ascii_buf
-	PAGESEL	$
-;	.line	200; "main.c"	SP_send(enter);
-	MOVLW	high (_enter + 0)
-	BANKSEL	r0x1027
-	MOVWF	r0x1027
-	MOVLW	(_enter + 0)
-	MOVWF	r0x1028
-	MOVLW	0x80
-	MOVWF	r0x1029
-	MOVF	r0x1028,W
-	MOVWF	STK01
-	MOVF	r0x1027,W
-	MOVWF	STK00
-	MOVF	r0x1029,W
-	PAGESEL	_SP_send
-	CALL	_SP_send
-	PAGESEL	$
-;	.line	201; "main.c"	GIE = 0;
-	BANKSEL	_INTCONbits
-	BCF	_INTCONbits,7
-;	.line	202; "main.c"	TMR0 = 0;
-	CLRF	_TMR0
-;	.line	203; "main.c"	w1 = 430;
-	MOVLW	0xae
-	BANKSEL	_w1
-	MOVWF	_w1
-	MOVLW	0x01
-	MOVWF	(_w1 + 1)
-;	.line	204; "main.c"	t1 = 1909;
-	MOVLW	0x75
-	BANKSEL	_t1
-	MOVWF	_t1
-	MOVLW	0x07
-	MOVWF	(_t1 + 1)
-;	.line	205; "main.c"	temp = TMR0;
-	BANKSEL	_TMR0
-	MOVF	_TMR0,W
-	BANKSEL	r0x1026
-	MOVWF	r0x1026
-;	.line	206; "main.c"	GIE = 1;
-	BANKSEL	_INTCONbits
-	BSF	_INTCONbits,7
-;	.line	207; "main.c"	SP_send(strw);
-	MOVLW	high (_strw + 0)
-	BANKSEL	r0x1027
-	MOVWF	r0x1027
-	MOVLW	(_strw + 0)
-	MOVWF	r0x1028
-	MOVLW	0x80
-	MOVWF	r0x1029
-	MOVF	r0x1028,W
-	MOVWF	STK01
-	MOVF	r0x1027,W
-	MOVWF	STK00
-	MOVF	r0x1029,W
-	PAGESEL	_SP_send
-	CALL	_SP_send
-	PAGESEL	$
-;	.line	209; "main.c"	uint8_to_ascii_buf(temp);
-	BANKSEL	r0x1026
-	MOVF	r0x1026,W
-	PAGESEL	_uint8_to_ascii_buf
-	CALL	_uint8_to_ascii_buf
-	PAGESEL	$
-;	.line	210; "main.c"	SP_send(enter);
-	MOVLW	high (_enter + 0)
-	BANKSEL	r0x1027
-	MOVWF	r0x1027
-	MOVLW	(_enter + 0)
-	MOVWF	r0x1028
-	MOVLW	0x80
-	MOVWF	r0x1029
-	MOVF	r0x1028,W
-	MOVWF	STK01
-	MOVF	r0x1027,W
-	MOVWF	STK00
-	MOVF	r0x1029,W
-	PAGESEL	_SP_send
-	CALL	_SP_send
-	PAGESEL	$
-_00172_DS_:
-;	.line	227; "main.c"	Tim0owerflowCnt = 0;
-	BANKSEL	_Tim0owerflowCnt
-	CLRF	_Tim0owerflowCnt
-;	.line	228; "main.c"	TMR0 = 0;
-	BANKSEL	_TMR0
-	CLRF	_TMR0
-;	.line	229; "main.c"	T0IF = 0;
-	BCF	_INTCONbits,2
-;	.line	230; "main.c"	T0IE = 1;
-	BSF	_INTCONbits,5
-;	.line	231; "main.c"	if (bitfield.Capture){
+;	.line	173; "main.c"	for(j = 0; j < 6; j++){
+	BANKSEL	r0x1076
+	CLRF	r0x1076
+_00168_DS_:
+;	.line	174; "main.c"	bwk[j] = 0;
+	BANKSEL	r0x1076
+	MOVF	r0x1076,W
+	ADDLW	(_bwk + 0)
+	MOVWF	r0x1077
+	MOVLW	high (_bwk + 0)
+	BTFSC	STATUS,0
+	ADDLW	0x01
+	MOVWF	r0x1078
+	MOVF	r0x1077,W
+	BANKSEL	FSR
+	MOVWF	FSR
+	BCF	STATUS,7
+	BANKSEL	r0x1078
+	BTFSC	r0x1078,0
+	BSF	STATUS,7
+	MOVLW	0x00
+	BANKSEL	INDF
+	MOVWF	INDF
+;	.line	175; "main.c"	bw16[j] = 0;
+	BANKSEL	r0x1076
+	MOVF	r0x1076,W
+	ADDLW	(_bw16 + 0)
+	MOVWF	r0x1077
+	MOVLW	high (_bw16 + 0)
+	BTFSC	STATUS,0
+	ADDLW	0x01
+	MOVWF	r0x1078
+	MOVF	r0x1077,W
+	BANKSEL	FSR
+	MOVWF	FSR
+	BCF	STATUS,7
+	BANKSEL	r0x1078
+	BTFSC	r0x1078,0
+	BSF	STATUS,7
+	MOVLW	0x00
+	BANKSEL	INDF
+	MOVWF	INDF
+;	.line	176; "main.c"	btk[j] = 0;
+	BANKSEL	r0x1076
+	MOVF	r0x1076,W
+	ADDLW	(_btk + 0)
+	MOVWF	r0x1077
+	MOVLW	high (_btk + 0)
+	BTFSC	STATUS,0
+	ADDLW	0x01
+	MOVWF	r0x1078
+	MOVF	r0x1077,W
+	BANKSEL	FSR
+	MOVWF	FSR
+	BCF	STATUS,7
+	BANKSEL	r0x1078
+	BTFSC	r0x1078,0
+	BSF	STATUS,7
+	MOVLW	0x00
+	BANKSEL	INDF
+	MOVWF	INDF
+;	.line	177; "main.c"	bt16[j] = 0;
+	BANKSEL	r0x1076
+	MOVF	r0x1076,W
+	ADDLW	(_bt16 + 0)
+	MOVWF	r0x1077
+	MOVLW	high (_bt16 + 0)
+	BTFSC	STATUS,0
+	ADDLW	0x01
+	MOVWF	r0x1078
+	MOVF	r0x1077,W
+	BANKSEL	FSR
+	MOVWF	FSR
+	BCF	STATUS,7
+	BANKSEL	r0x1078
+	BTFSC	r0x1078,0
+	BSF	STATUS,7
+	MOVLW	0x00
+	BANKSEL	INDF
+	MOVWF	INDF
+;	.line	173; "main.c"	for(j = 0; j < 6; j++){
+	BANKSEL	r0x1076
+	INCF	r0x1076,F
+;;unsigned compare: left < lit(0x6=6), size=1
+	MOVLW	0x06
+	SUBWF	r0x1076,W
+	BTFSS	STATUS,0
+	GOTO	_00168_DS_
+;;genSkipc:3257: created from rifx:0x7fffe31170d0
+;	.line	179; "main.c"	j = 0;
+	CLRF	r0x1076
+_00166_DS_:
+;	.line	183; "main.c"	if (bitfield.Capture){
 	BANKSEL	_bitfield
 	BTFSS	_bitfield,0
-	GOTO	_00170_DS_
-;	.line	233; "main.c"	bitfield.Capture = FALSE;
+	GOTO	_00160_DS_
+;	.line	184; "main.c"	bitfield.Capture = FALSE;
 	BCF	_bitfield,0
 ;;swapping arguments (AOP_TYPEs 1/3)
-;;unsigned compare: left >= lit(0x759=1881), size=2
-;	.line	234; "main.c"	if (t > MIN_T && t < MAX_T && t1 > MIN_T && t1 < MAX_T){
-	MOVLW	0x07
+;;unsigned compare: left >= lit(0xE7=231), size=1
+;	.line	186; "main.c"	if (t > MIN_T && t < MAX_T && t1 > MIN_T && t1 < MAX_T){
+	MOVLW	0xe7
 	BANKSEL	_t
-	SUBWF	(_t + 1),W
-	BTFSS	STATUS,2
-	GOTO	_00242_DS_
-	MOVLW	0x59
 	SUBWF	_t,W
-_00242_DS_:
 	BTFSS	STATUS,0
-	GOTO	_00160_DS_
-;;genSkipc:3257: created from rifx:0x7ffc1d17c0b0
-;;unsigned compare: left < lit(0x79E=1950), size=2
-	MOVLW	0x07
-	BANKSEL	_t
-	SUBWF	(_t + 1),W
-	BTFSS	STATUS,2
-	GOTO	_00243_DS_
-	MOVLW	0x9e
+	GOTO	_00001_DS_
+;;genSkipc:3257: created from rifx:0x7fffe31170d0
+;;unsigned compare: left < lit(0xF0=240), size=1
+	MOVLW	0xf0
 	SUBWF	_t,W
-_00243_DS_:
 	BTFSC	STATUS,0
-	GOTO	_00160_DS_
-;;genSkipc:3257: created from rifx:0x7ffc1d17c0b0
+	GOTO	_00001_DS_
+;;genSkipc:3257: created from rifx:0x7fffe31170d0
 ;;swapping arguments (AOP_TYPEs 1/3)
-;;unsigned compare: left >= lit(0x759=1881), size=2
-	MOVLW	0x07
+;;unsigned compare: left >= lit(0xE7=231), size=1
+	MOVLW	0xe7
 	BANKSEL	_t1
-	SUBWF	(_t1 + 1),W
-	BTFSS	STATUS,2
-	GOTO	_00244_DS_
-	MOVLW	0x59
 	SUBWF	_t1,W
-_00244_DS_:
 	BTFSS	STATUS,0
-	GOTO	_00160_DS_
-;;genSkipc:3257: created from rifx:0x7ffc1d17c0b0
-;;unsigned compare: left < lit(0x79E=1950), size=2
-	MOVLW	0x07
-	BANKSEL	_t1
-	SUBWF	(_t1 + 1),W
-	BTFSS	STATUS,2
-	GOTO	_00245_DS_
-	MOVLW	0x9e
+	GOTO	_00001_DS_
+;;genSkipc:3257: created from rifx:0x7fffe31170d0
+;;unsigned compare: left < lit(0xF0=240), size=1
+	MOVLW	0xf0
+;	.line	187; "main.c"	bitfield.Hint = TRUE;
 	SUBWF	_t1,W
-_00245_DS_:
+;	.line	223; "main.c"	if (k < 30 && bitfield.Hint){ //&& t < 6000){ //k < 10
 	BTFSC	STATUS,0
-	GOTO	_00160_DS_
-;;genSkipc:3257: created from rifx:0x7ffc1d17c0b0
-;;swapping arguments (AOP_TYPEs 1/3)
-;;unsigned compare: left >= lit(0x547=1351), size=2
-;	.line	236; "main.c"	if (w > MIN_W1 && w < MAX_W1 && w1 > MIN_W1 && w1 < MAX_W1){
-	MOVLW	0x05
+	GOTO	_00001_DS_
+	BANKSEL	_bitfield
+	BSF	_bitfield,2
+_00001_DS_:
+	MOVLW	0x1e
+	BANKSEL	r0x1075
+	SUBWF	r0x1075,W
+	BTFSC	STATUS,0
+	GOTO	_00157_DS_
+;;genSkipc:3257: created from rifx:0x7fffe31170d0
+	BANKSEL	_bitfield
+	BTFSS	_bitfield,2
+	GOTO	_00157_DS_
+;	.line	224; "main.c"	bw[k] = w;
+	BANKSEL	r0x1075
+	MOVF	r0x1075,W
+	ADDLW	(_bw + 0)
+	MOVWF	r0x1077
+	MOVLW	high (_bw + 0)
+	BTFSC	STATUS,0
+	ADDLW	0x01
+	MOVWF	r0x1078
+	MOVF	r0x1077,W
+	BANKSEL	FSR
+	MOVWF	FSR
+	BCF	STATUS,7
+	BANKSEL	r0x1078
+	BTFSC	r0x1078,0
+	BSF	STATUS,7
 	BANKSEL	_w
-	SUBWF	(_w + 1),W
-	BTFSS	STATUS,2
-	GOTO	_00246_DS_
-	MOVLW	0x47
-	SUBWF	_w,W
-_00246_DS_:
-	BTFSS	STATUS,0
-	GOTO	_00145_DS_
-;;genSkipc:3257: created from rifx:0x7ffc1d17c0b0
-;;unsigned compare: left < lit(0x596=1430), size=2
-	MOVLW	0x05
-	BANKSEL	_w
-	SUBWF	(_w + 1),W
-	BTFSS	STATUS,2
-	GOTO	_00247_DS_
-	MOVLW	0x96
-	SUBWF	_w,W
-_00247_DS_:
+	MOVF	_w,W
+	BANKSEL	INDF
+	MOVWF	INDF
+;	.line	225; "main.c"	bt[k] = t;
+	BANKSEL	r0x1075
+	MOVF	r0x1075,W
+	ADDLW	(_bt + 0)
+	MOVWF	r0x1077
+	MOVLW	high (_bt + 0)
 	BTFSC	STATUS,0
-	GOTO	_00145_DS_
-;;genSkipc:3257: created from rifx:0x7ffc1d17c0b0
-;;swapping arguments (AOP_TYPEs 1/3)
-;;unsigned compare: left >= lit(0x547=1351), size=2
-	MOVLW	0x05
-	BANKSEL	_w1
-	SUBWF	(_w1 + 1),W
-	BTFSS	STATUS,2
-	GOTO	_00248_DS_
-	MOVLW	0x47
-	SUBWF	_w1,W
-_00248_DS_:
-	BTFSS	STATUS,0
-	GOTO	_00145_DS_
-;;genSkipc:3257: created from rifx:0x7ffc1d17c0b0
-;;unsigned compare: left < lit(0x596=1430), size=2
-	MOVLW	0x05
-	BANKSEL	_w1
-	SUBWF	(_w1 + 1),W
-	BTFSS	STATUS,2
-	GOTO	_00249_DS_
-	MOVLW	0x96
-	SUBWF	_w1,W
-_00249_DS_:
-	BTFSC	STATUS,0
-	GOTO	_00145_DS_
-;;genSkipc:3257: created from rifx:0x7ffc1d17c0b0
-;	.line	237; "main.c"	SP_send(strV1);
-	MOVLW	high (_strV1 + 0)
-	BANKSEL	r0x1027
-	MOVWF	r0x1027
-	MOVLW	(_strV1 + 0)
-	MOVWF	r0x1028
-	MOVLW	0x80
-	MOVWF	r0x1029
-	MOVF	r0x1028,W
-	MOVWF	STK01
-	MOVF	r0x1027,W
-	MOVWF	STK00
-	MOVF	r0x1029,W
-	PAGESEL	_SP_send
-	CALL	_SP_send
-	PAGESEL	$
-;	.line	238; "main.c"	t = 0;
+	ADDLW	0x01
+	MOVWF	r0x1078
+	MOVF	r0x1077,W
+	BANKSEL	FSR
+	MOVWF	FSR
+	BCF	STATUS,7
+	BANKSEL	r0x1078
+	BTFSC	r0x1078,0
+	BSF	STATUS,7
 	BANKSEL	_t
-	CLRF	_t
-	CLRF	(_t + 1)
-;	.line	239; "main.c"	w = 0;
-	BANKSEL	_w
-	CLRF	_w
-	CLRF	(_w + 1)
-;	.line	240; "main.c"	i++;
-	BANKSEL	r0x1025
-	INCF	r0x1025,F
-;;swapping arguments (AOP_TYPEs 1/3)
-;;unsigned compare: left >= lit(0x17D=381), size=2
-_00145_DS_:
-;	.line	242; "main.c"	if (w > MIN_W0 && w < MAX_W0 && w1 > MIN_W0 && w1 < MAX_W0){
-	MOVLW	0x01
-	BANKSEL	_w
-	SUBWF	(_w + 1),W
-	BTFSS	STATUS,2
-	GOTO	_00250_DS_
-	MOVLW	0x7d
-	SUBWF	_w,W
-_00250_DS_:
-	BTFSS	STATUS,0
-	GOTO	_00150_DS_
-;;genSkipc:3257: created from rifx:0x7ffc1d17c0b0
-;;unsigned compare: left < lit(0x1C2=450), size=2
-	MOVLW	0x01
-	BANKSEL	_w
-	SUBWF	(_w + 1),W
-	BTFSS	STATUS,2
-	GOTO	_00251_DS_
-	MOVLW	0xc2
-	SUBWF	_w,W
-_00251_DS_:
+	MOVF	_t,W
+	BANKSEL	INDF
+	MOVWF	INDF
+;	.line	226; "main.c"	if(w16 > 0 && i < 6){
+	MOVLW	0x00
+	BANKSEL	_w16
+	IORWF	_w16,W
+	BTFSC	STATUS,2
+	GOTO	_00151_DS_
+;;unsigned compare: left < lit(0x6=6), size=1
+	MOVLW	0x06
+	BANKSEL	r0x1074
+	SUBWF	r0x1074,W
 	BTFSC	STATUS,0
-	GOTO	_00150_DS_
-;;genSkipc:3257: created from rifx:0x7ffc1d17c0b0
-;;swapping arguments (AOP_TYPEs 1/3)
-;;unsigned compare: left >= lit(0x17D=381), size=2
-	MOVLW	0x01
-	BANKSEL	_w1
-	SUBWF	(_w1 + 1),W
-	BTFSS	STATUS,2
-	GOTO	_00252_DS_
-	MOVLW	0x7d
-	SUBWF	_w1,W
-_00252_DS_:
-	BTFSS	STATUS,0
-	GOTO	_00150_DS_
-;;genSkipc:3257: created from rifx:0x7ffc1d17c0b0
-;;unsigned compare: left < lit(0x1C2=450), size=2
-	MOVLW	0x01
-	BANKSEL	_w1
-	SUBWF	(_w1 + 1),W
-	BTFSS	STATUS,2
-	GOTO	_00253_DS_
-	MOVLW	0xc2
-	SUBWF	_w1,W
-_00253_DS_:
+	GOTO	_00151_DS_
+;;genSkipc:3257: created from rifx:0x7fffe31170d0
+;	.line	227; "main.c"	bwk[i] = k;
+	MOVF	r0x1074,W
+	ADDLW	(_bwk + 0)
+	MOVWF	r0x1077
+	MOVLW	high (_bwk + 0)
 	BTFSC	STATUS,0
-	GOTO	_00150_DS_
-;;genSkipc:3257: created from rifx:0x7ffc1d17c0b0
-;	.line	243; "main.c"	SP_send(strV0);
-	MOVLW	high (_strV0 + 0)
-	BANKSEL	r0x1027
-	MOVWF	r0x1027
-	MOVLW	(_strV0 + 0)
-	MOVWF	r0x1028
-	MOVLW	0x80
-	MOVWF	r0x1029
-	MOVF	r0x1028,W
-	MOVWF	STK01
-	MOVF	r0x1027,W
-	MOVWF	STK00
-	MOVF	r0x1029,W
-	PAGESEL	_SP_send
-	CALL	_SP_send
-	PAGESEL	$
-;	.line	244; "main.c"	t = 0;
-	BANKSEL	_t
-	CLRF	_t
-	CLRF	(_t + 1)
-;	.line	245; "main.c"	w = 0;
-	BANKSEL	_w
-	CLRF	_w
-	CLRF	(_w + 1)
-;	.line	246; "main.c"	i++;
-	BANKSEL	r0x1025
-	INCF	r0x1025,F
-;;swapping arguments (AOP_TYPEs 1/3)
-;;unsigned compare: left >= lit(0x17D=381), size=2
-_00150_DS_:
-;	.line	248; "main.c"	if (w1 > MIN_W0 && w1 < MAX_W0 && w > MIN_W1 && w < MAX_W1){
-	MOVLW	0x01
-	BANKSEL	_w1
-	SUBWF	(_w1 + 1),W
-	BTFSS	STATUS,2
-	GOTO	_00254_DS_
-	MOVLW	0x7d
-	SUBWF	_w1,W
-_00254_DS_:
-	BTFSS	STATUS,0
-	GOTO	_00155_DS_
-;;genSkipc:3257: created from rifx:0x7ffc1d17c0b0
-;;unsigned compare: left < lit(0x1C2=450), size=2
-	MOVLW	0x01
-	BANKSEL	_w1
-	SUBWF	(_w1 + 1),W
-	BTFSS	STATUS,2
-	GOTO	_00255_DS_
-	MOVLW	0xc2
-	SUBWF	_w1,W
-_00255_DS_:
+	ADDLW	0x01
+	MOVWF	r0x1078
+	MOVF	r0x1077,W
+	BANKSEL	FSR
+	MOVWF	FSR
+	BCF	STATUS,7
+	BANKSEL	r0x1078
+	BTFSC	r0x1078,0
+	BSF	STATUS,7
+	MOVF	r0x1075,W
+	BANKSEL	INDF
+	MOVWF	INDF
+;	.line	228; "main.c"	bw16[i] = w16;
+	BANKSEL	r0x1074
+	MOVF	r0x1074,W
+	ADDLW	(_bw16 + 0)
+	MOVWF	r0x1077
+	MOVLW	high (_bw16 + 0)
 	BTFSC	STATUS,0
-	GOTO	_00155_DS_
-;;genSkipc:3257: created from rifx:0x7ffc1d17c0b0
-;;swapping arguments (AOP_TYPEs 1/3)
-;;unsigned compare: left >= lit(0x547=1351), size=2
-	MOVLW	0x05
-	BANKSEL	_w
-	SUBWF	(_w + 1),W
-	BTFSS	STATUS,2
-	GOTO	_00256_DS_
-	MOVLW	0x47
-	SUBWF	_w,W
-_00256_DS_:
-	BTFSS	STATUS,0
-	GOTO	_00155_DS_
-;;genSkipc:3257: created from rifx:0x7ffc1d17c0b0
-;;unsigned compare: left < lit(0x596=1430), size=2
-	MOVLW	0x05
-	BANKSEL	_w
-	SUBWF	(_w + 1),W
-	BTFSS	STATUS,2
-	GOTO	_00257_DS_
-	MOVLW	0x96
-	SUBWF	_w,W
-_00257_DS_:
+	ADDLW	0x01
+	MOVWF	r0x1078
+	MOVF	r0x1077,W
+	BANKSEL	FSR
+	MOVWF	FSR
+	BCF	STATUS,7
+	BANKSEL	r0x1078
+	BTFSC	r0x1078,0
+	BSF	STATUS,7
+	BANKSEL	_w16
+	MOVF	_w16,W
+	BANKSEL	INDF
+	MOVWF	INDF
+;	.line	229; "main.c"	i++;
+	BANKSEL	r0x1074
+	INCF	r0x1074,F
+_00151_DS_:
+;	.line	231; "main.c"	if(t16 > 0 && j < 6){
+	MOVLW	0x00
+	BANKSEL	_t16
+	IORWF	_t16,W
+	BTFSC	STATUS,2
+	GOTO	_00154_DS_
+;;unsigned compare: left < lit(0x6=6), size=1
+	MOVLW	0x06
+	BANKSEL	r0x1076
+	SUBWF	r0x1076,W
 	BTFSC	STATUS,0
-	GOTO	_00155_DS_
-;;genSkipc:3257: created from rifx:0x7ffc1d17c0b0
-;	.line	249; "main.c"	SP_send(strVF);
-	MOVLW	high (_strVF + 0)
-	BANKSEL	r0x1027
-	MOVWF	r0x1027
-	MOVLW	(_strVF + 0)
-	MOVWF	r0x1028
-	MOVLW	0x80
-	MOVWF	r0x1029
-	MOVF	r0x1028,W
-	MOVWF	STK01
-	MOVF	r0x1027,W
-	MOVWF	STK00
-	MOVF	r0x1029,W
-	PAGESEL	_SP_send
-	CALL	_SP_send
-	PAGESEL	$
-;	.line	250; "main.c"	t = 0;
-	BANKSEL	_t
-	CLRF	_t
-	CLRF	(_t + 1)
-;	.line	251; "main.c"	w = 0;
-	BANKSEL	_w
-	CLRF	_w
-	CLRF	(_w + 1)
-;	.line	252; "main.c"	i++;
-	BANKSEL	r0x1025
-	INCF	r0x1025,F
-_00155_DS_:
-;	.line	254; "main.c"	T0IE = 0;
-	BANKSEL	_INTCONbits
-	BCF	_INTCONbits,5
-;	.line	255; "main.c"	temp = TMR0;
-	MOVF	_TMR0,W
-	BANKSEL	r0x1026
-	MOVWF	r0x1026
-;	.line	257; "main.c"	SP_send(strw);
-	MOVLW	high (_strw + 0)
-	MOVWF	r0x1027
-	MOVLW	(_strw + 0)
-	MOVWF	r0x1028
-	MOVLW	0x80
-	MOVWF	r0x1029
-	MOVF	r0x1028,W
-	MOVWF	STK01
-	MOVF	r0x1027,W
-	MOVWF	STK00
-	MOVF	r0x1029,W
-	PAGESEL	_SP_send
-	CALL	_SP_send
-	PAGESEL	$
-;	.line	259; "main.c"	uint8_to_ascii_buf(Tim0owerflowCnt);
-	BANKSEL	_Tim0owerflowCnt
-	MOVF	_Tim0owerflowCnt,W
-	PAGESEL	_uint8_to_ascii_buf
-	CALL	_uint8_to_ascii_buf
-	PAGESEL	$
-;	.line	260; "main.c"	SP_send(tab);
-	MOVLW	high (_tab + 0)
-	BANKSEL	r0x1027
-	MOVWF	r0x1027
-	MOVLW	(_tab + 0)
-	MOVWF	r0x1028
-	MOVLW	0x80
-	MOVWF	r0x1029
-	MOVF	r0x1028,W
-	MOVWF	STK01
-	MOVF	r0x1027,W
-	MOVWF	STK00
-	MOVF	r0x1029,W
-	PAGESEL	_SP_send
-	CALL	_SP_send
-	PAGESEL	$
-;	.line	261; "main.c"	uint8_to_ascii_buf(temp);
-	BANKSEL	r0x1026
-	MOVF	r0x1026,W
-	PAGESEL	_uint8_to_ascii_buf
-	CALL	_uint8_to_ascii_buf
-	PAGESEL	$
-;	.line	262; "main.c"	SP_send(enter);
-	MOVLW	high (_enter + 0)
-	BANKSEL	r0x1028
-	MOVWF	r0x1028
-	MOVLW	(_enter + 0)
-	MOVWF	r0x1026
-	MOVLW	0x80
-	MOVWF	r0x1027
-	MOVF	r0x1026,W
-	MOVWF	STK01
-	MOVF	r0x1028,W
-	MOVWF	STK00
-	MOVF	r0x1027,W
-	PAGESEL	_SP_send
-	CALL	_SP_send
-	PAGESEL	$
-;;swapping arguments (AOP_TYPEs 1/3)
-;;unsigned compare: left >= lit(0x1FA5=8101), size=2
-_00160_DS_:
-;	.line	264; "main.c"	if (t > MIN_TS && t < MAX_TS && w > MIN_W0 && w < MAX_W0){
-	MOVLW	0x1f
-	BANKSEL	_t
-	SUBWF	(_t + 1),W
-	BTFSS	STATUS,2
-	GOTO	_00258_DS_
-	MOVLW	0xa5
-	SUBWF	_t,W
-_00258_DS_:
-	BTFSS	STATUS,0
-	GOTO	_00165_DS_
-;;genSkipc:3257: created from rifx:0x7ffc1d17c0b0
-;;unsigned compare: left < lit(0x2008=8200), size=2
-	MOVLW	0x20
-	BANKSEL	_t
-	SUBWF	(_t + 1),W
-	BTFSS	STATUS,2
-	GOTO	_00259_DS_
-	MOVLW	0x08
-	SUBWF	_t,W
-_00259_DS_:
+	GOTO	_00154_DS_
+;;genSkipc:3257: created from rifx:0x7fffe31170d0
+;	.line	232; "main.c"	btk[j] = k;
+	MOVF	r0x1076,W
+	ADDLW	(_btk + 0)
+	MOVWF	r0x1077
+	MOVLW	high (_btk + 0)
 	BTFSC	STATUS,0
-	GOTO	_00165_DS_
-;;genSkipc:3257: created from rifx:0x7ffc1d17c0b0
-;;swapping arguments (AOP_TYPEs 1/3)
-;;unsigned compare: left >= lit(0x17D=381), size=2
-	MOVLW	0x01
-	BANKSEL	_w
-	SUBWF	(_w + 1),W
-	BTFSS	STATUS,2
-	GOTO	_00260_DS_
-	MOVLW	0x7d
-	SUBWF	_w,W
-_00260_DS_:
-	BTFSS	STATUS,0
-	GOTO	_00165_DS_
-;;genSkipc:3257: created from rifx:0x7ffc1d17c0b0
-;;unsigned compare: left < lit(0x1C2=450), size=2
-	MOVLW	0x01
-	BANKSEL	_w
-	SUBWF	(_w + 1),W
-	BTFSS	STATUS,2
-	GOTO	_00261_DS_
-	MOVLW	0xc2
-	SUBWF	_w,W
-_00261_DS_:
+	ADDLW	0x01
+	MOVWF	r0x1078
+	MOVF	r0x1077,W
+	BANKSEL	FSR
+	MOVWF	FSR
+	BCF	STATUS,7
+	BANKSEL	r0x1078
+	BTFSC	r0x1078,0
+	BSF	STATUS,7
+	MOVF	r0x1075,W
+	BANKSEL	INDF
+	MOVWF	INDF
+;	.line	233; "main.c"	bt16[j] = t16;
+	BANKSEL	r0x1076
+	MOVF	r0x1076,W
+	ADDLW	(_bt16 + 0)
+	MOVWF	r0x1077
+	MOVLW	high (_bt16 + 0)
 	BTFSC	STATUS,0
-	GOTO	_00165_DS_
-;;genSkipc:3257: created from rifx:0x7ffc1d17c0b0
-;	.line	265; "main.c"	SP_send(sync);
-	MOVLW	high (_sync + 0)
-	BANKSEL	r0x1028
-	MOVWF	r0x1028
-	MOVLW	(_sync + 0)
-	MOVWF	r0x1026
-	MOVLW	0x80
-	MOVWF	r0x1027
-	MOVF	r0x1026,W
-	MOVWF	STK01
-	MOVF	r0x1028,W
-	MOVWF	STK00
-	MOVF	r0x1027,W
-	PAGESEL	_SP_send
-	CALL	_SP_send
-	PAGESEL	$
-;	.line	266; "main.c"	t = 0;
-	BANKSEL	_t
-	CLRF	_t
-	CLRF	(_t + 1)
-;	.line	267; "main.c"	w = 0;
-	BANKSEL	_w
-	CLRF	_w
-	CLRF	(_w + 1)
-;	.line	268; "main.c"	i++;
-	BANKSEL	r0x1025
-	INCF	r0x1025,F
-_00165_DS_:
-;	.line	289; "main.c"	t1 = t;
+	ADDLW	0x01
+	MOVWF	r0x1078
+	MOVF	r0x1077,W
+	BANKSEL	FSR
+	MOVWF	FSR
+	BCF	STATUS,7
+	BANKSEL	r0x1078
+	BTFSC	r0x1078,0
+	BSF	STATUS,7
+	BANKSEL	_t16
+	MOVF	_t16,W
+	BANKSEL	INDF
+	MOVWF	INDF
+;	.line	234; "main.c"	j++;
+	BANKSEL	r0x1076
+	INCF	r0x1076,F
+_00154_DS_:
+;	.line	236; "main.c"	k++;
+	BANKSEL	r0x1075
+	INCF	r0x1075,F
+_00157_DS_:
+;	.line	238; "main.c"	t1 = t;
 	BANKSEL	_t
 	MOVF	_t,W
 	BANKSEL	_t1
 	MOVWF	_t1
-	BANKSEL	_t
-	MOVF	(_t + 1),W
-	BANKSEL	_t1
-	MOVWF	(_t1 + 1)
-;	.line	290; "main.c"	w1 = w;
+;	.line	239; "main.c"	w1 = w;
 	BANKSEL	_w
 	MOVF	_w,W
 	BANKSEL	_w1
 	MOVWF	_w1
-	BANKSEL	_w
-	MOVF	(_w + 1),W
-	BANKSEL	_w1
-	MOVWF	(_w1 + 1)
+_00160_DS_:
+;	.line	241; "main.c"	CCP1IE = 0;
+	BANKSEL	_PIE1bits
+	BCF	_PIE1bits,2
+;;unsigned compare: left < lit(0x1E=30), size=1
+;	.line	242; "main.c"	if(k >= 30){
+	MOVLW	0x1e
+	BANKSEL	r0x1075
+	SUBWF	r0x1075,W
+	BTFSS	STATUS,0
+	GOTO	_00164_DS_
+;;genSkipc:3257: created from rifx:0x7fffe31170d0
+;	.line	243; "main.c"	for(j = 0; j < 30; j++){
+	CLRF	r0x1077
 _00170_DS_:
-;	.line	303; "main.c"	int_error_cnt = 0;
+;	.line	244; "main.c"	uint8_to_ascii_buf(bw[j]);
+	BANKSEL	r0x1077
+	MOVF	r0x1077,W
+	ADDLW	(_bw + 0)
+	MOVWF	r0x1078
+	MOVLW	high (_bw + 0)
+	BTFSC	STATUS,0
+	ADDLW	0x01
+	MOVWF	r0x1079
+	MOVF	r0x1078,W
+	BANKSEL	FSR
+	MOVWF	FSR
+	BCF	STATUS,7
+	BANKSEL	r0x1079
+	BTFSC	r0x1079,0
+	BSF	STATUS,7
+	BANKSEL	INDF
+	MOVF	INDF,W
+	BANKSEL	r0x107A
+	MOVWF	r0x107A
+	PAGESEL	_uint8_to_ascii_buf
+	CALL	_uint8_to_ascii_buf
+	PAGESEL	$
+;	.line	245; "main.c"	SP_send(tab);
+	MOVLW	high (_tab + 0)
+	BANKSEL	r0x1079
+	MOVWF	r0x1079
+	MOVLW	(_tab + 0)
+	MOVWF	r0x1078
+	MOVLW	0x80
+	MOVWF	r0x107A
+	MOVF	r0x1078,W
+	MOVWF	STK01
+	MOVF	r0x1079,W
+	MOVWF	STK00
+	MOVF	r0x107A,W
+	PAGESEL	_SP_send
+	CALL	_SP_send
+	PAGESEL	$
+;	.line	246; "main.c"	uint8_to_ascii_buf(bt[j]);
+	BANKSEL	r0x1077
+	MOVF	r0x1077,W
+	ADDLW	(_bt + 0)
+	MOVWF	r0x1078
+	MOVLW	high (_bt + 0)
+	BTFSC	STATUS,0
+	ADDLW	0x01
+	MOVWF	r0x1079
+	MOVF	r0x1078,W
+	BANKSEL	FSR
+	MOVWF	FSR
+	BCF	STATUS,7
+	BANKSEL	r0x1079
+	BTFSC	r0x1079,0
+	BSF	STATUS,7
+	BANKSEL	INDF
+	MOVF	INDF,W
+	BANKSEL	r0x107A
+	MOVWF	r0x107A
+	PAGESEL	_uint8_to_ascii_buf
+	CALL	_uint8_to_ascii_buf
+	PAGESEL	$
+;	.line	247; "main.c"	SP_send(enter);
+	MOVLW	high (_enter + 0)
+	BANKSEL	r0x1079
+	MOVWF	r0x1079
+	MOVLW	(_enter + 0)
+	MOVWF	r0x1078
+	MOVLW	0x80
+	MOVWF	r0x107A
+	MOVF	r0x1078,W
+	MOVWF	STK01
+	MOVF	r0x1079,W
+	MOVWF	STK00
+	MOVF	r0x107A,W
+	PAGESEL	_SP_send
+	CALL	_SP_send
+	PAGESEL	$
+;	.line	243; "main.c"	for(j = 0; j < 30; j++){
+	BANKSEL	r0x1077
+	INCF	r0x1077,F
+;;unsigned compare: left < lit(0x1E=30), size=1
+	MOVLW	0x1e
+	SUBWF	r0x1077,W
+	BTFSS	STATUS,0
+	GOTO	_00170_DS_
+;;genSkipc:3257: created from rifx:0x7fffe31170d0
+;	.line	249; "main.c"	for(j = 0; j < 6; j++){
+	CLRF	r0x1077
+_00172_DS_:
+;	.line	250; "main.c"	uint8_to_ascii_buf(bwk[j]);
+	BANKSEL	r0x1077
+	MOVF	r0x1077,W
+	ADDLW	(_bwk + 0)
+	MOVWF	r0x1078
+	MOVLW	high (_bwk + 0)
+	BTFSC	STATUS,0
+	ADDLW	0x01
+	MOVWF	r0x1079
+	MOVF	r0x1078,W
+	BANKSEL	FSR
+	MOVWF	FSR
+	BCF	STATUS,7
+	BANKSEL	r0x1079
+	BTFSC	r0x1079,0
+	BSF	STATUS,7
+	BANKSEL	INDF
+	MOVF	INDF,W
+	BANKSEL	r0x107A
+	MOVWF	r0x107A
+	PAGESEL	_uint8_to_ascii_buf
+	CALL	_uint8_to_ascii_buf
+	PAGESEL	$
+;	.line	251; "main.c"	SP_send(tab);
+	MOVLW	high (_tab + 0)
+	BANKSEL	r0x1079
+	MOVWF	r0x1079
+	MOVLW	(_tab + 0)
+	MOVWF	r0x1078
+	MOVLW	0x80
+	MOVWF	r0x107A
+	MOVF	r0x1078,W
+	MOVWF	STK01
+	MOVF	r0x1079,W
+	MOVWF	STK00
+	MOVF	r0x107A,W
+	PAGESEL	_SP_send
+	CALL	_SP_send
+	PAGESEL	$
+;	.line	252; "main.c"	uint8_to_ascii_buf(bw16[j]);
+	BANKSEL	r0x1077
+	MOVF	r0x1077,W
+	ADDLW	(_bw16 + 0)
+	MOVWF	r0x1078
+	MOVLW	high (_bw16 + 0)
+	BTFSC	STATUS,0
+	ADDLW	0x01
+	MOVWF	r0x1079
+	MOVF	r0x1078,W
+	BANKSEL	FSR
+	MOVWF	FSR
+	BCF	STATUS,7
+	BANKSEL	r0x1079
+	BTFSC	r0x1079,0
+	BSF	STATUS,7
+	BANKSEL	INDF
+	MOVF	INDF,W
+	BANKSEL	r0x107A
+	MOVWF	r0x107A
+	PAGESEL	_uint8_to_ascii_buf
+	CALL	_uint8_to_ascii_buf
+	PAGESEL	$
+;	.line	253; "main.c"	SP_send(tab);
+	MOVLW	high (_tab + 0)
+	BANKSEL	r0x1079
+	MOVWF	r0x1079
+	MOVLW	(_tab + 0)
+	MOVWF	r0x1078
+	MOVLW	0x80
+	MOVWF	r0x107A
+	MOVF	r0x1078,W
+	MOVWF	STK01
+	MOVF	r0x1079,W
+	MOVWF	STK00
+	MOVF	r0x107A,W
+	PAGESEL	_SP_send
+	CALL	_SP_send
+	PAGESEL	$
+;	.line	254; "main.c"	uint8_to_ascii_buf(btk[j]);
+	BANKSEL	r0x1077
+	MOVF	r0x1077,W
+	ADDLW	(_btk + 0)
+	MOVWF	r0x1078
+	MOVLW	high (_btk + 0)
+	BTFSC	STATUS,0
+	ADDLW	0x01
+	MOVWF	r0x1079
+	MOVF	r0x1078,W
+	BANKSEL	FSR
+	MOVWF	FSR
+	BCF	STATUS,7
+	BANKSEL	r0x1079
+	BTFSC	r0x1079,0
+	BSF	STATUS,7
+	BANKSEL	INDF
+	MOVF	INDF,W
+	BANKSEL	r0x107A
+	MOVWF	r0x107A
+	PAGESEL	_uint8_to_ascii_buf
+	CALL	_uint8_to_ascii_buf
+	PAGESEL	$
+;	.line	255; "main.c"	SP_send(tab);
+	MOVLW	high (_tab + 0)
+	BANKSEL	r0x1079
+	MOVWF	r0x1079
+	MOVLW	(_tab + 0)
+	MOVWF	r0x1078
+	MOVLW	0x80
+	MOVWF	r0x107A
+	MOVF	r0x1078,W
+	MOVWF	STK01
+	MOVF	r0x1079,W
+	MOVWF	STK00
+	MOVF	r0x107A,W
+	PAGESEL	_SP_send
+	CALL	_SP_send
+	PAGESEL	$
+;	.line	256; "main.c"	uint8_to_ascii_buf(bt16[j]);
+	BANKSEL	r0x1077
+	MOVF	r0x1077,W
+	ADDLW	(_bt16 + 0)
+	MOVWF	r0x1078
+	MOVLW	high (_bt16 + 0)
+	BTFSC	STATUS,0
+	ADDLW	0x01
+	MOVWF	r0x1079
+	MOVF	r0x1078,W
+	BANKSEL	FSR
+	MOVWF	FSR
+	BCF	STATUS,7
+	BANKSEL	r0x1079
+	BTFSC	r0x1079,0
+	BSF	STATUS,7
+	BANKSEL	INDF
+	MOVF	INDF,W
+	BANKSEL	r0x107A
+	MOVWF	r0x107A
+	PAGESEL	_uint8_to_ascii_buf
+	CALL	_uint8_to_ascii_buf
+	PAGESEL	$
+;	.line	257; "main.c"	SP_send(enter);
+	MOVLW	high (_enter + 0)
+	BANKSEL	r0x1079
+	MOVWF	r0x1079
+	MOVLW	(_enter + 0)
+	MOVWF	r0x1078
+	MOVLW	0x80
+	MOVWF	r0x107A
+	MOVF	r0x1078,W
+	MOVWF	STK01
+	MOVF	r0x1079,W
+	MOVWF	STK00
+	MOVF	r0x107A,W
+	PAGESEL	_SP_send
+	CALL	_SP_send
+	PAGESEL	$
+;	.line	249; "main.c"	for(j = 0; j < 6; j++){
+	BANKSEL	r0x1077
+	INCF	r0x1077,F
+;;unsigned compare: left < lit(0x6=6), size=1
+	MOVLW	0x06
+	SUBWF	r0x1077,W
+	BTFSS	STATUS,0
+	GOTO	_00172_DS_
+;;genSkipc:3257: created from rifx:0x7fffe31170d0
+;	.line	259; "main.c"	SP_send(sync);
+	MOVLW	high (_sync + 0)
+	MOVWF	r0x1078
+	MOVLW	(_sync + 0)
+	MOVWF	r0x1077
+	MOVLW	0x80
+	MOVWF	r0x1079
+	MOVF	r0x1077,W
+	MOVWF	STK01
+	MOVF	r0x1078,W
+	MOVWF	STK00
+	MOVF	r0x1079,W
+	PAGESEL	_SP_send
+	CALL	_SP_send
+	PAGESEL	$
+;	.line	260; "main.c"	i = 0;
+	BANKSEL	r0x1074
+	CLRF	r0x1074
+;	.line	261; "main.c"	k = 0;
+	CLRF	r0x1075
+;	.line	262; "main.c"	j = 0;
+	CLRF	r0x1076
+_00164_DS_:
+;	.line	264; "main.c"	CCP1IE = 1;
+	BANKSEL	_PIE1bits
+	BSF	_PIE1bits,2
+;	.line	265; "main.c"	int_error_cnt = 0;
 	BANKSEL	_int_error_cnt
 	CLRF	_int_error_cnt
-	GOTO	_00172_DS_
+	GOTO	_00166_DS_
 	RETURN	
 ; exit point of _main
 
@@ -1371,98 +1361,98 @@ _00170_DS_:
 ;   _SP_send
 ;   _SP_send
 ;7 compiler assigned registers:
-;   r0x1020
-;   r0x1021
-;   r0x1022
-;   r0x1023
-;   r0x1024
+;   r0x106F
+;   r0x1070
+;   r0x1071
+;   r0x1072
+;   r0x1073
 ;   STK01
 ;   STK00
 ;; Starting pCode block
 S_main__circBufPush	code
 _circBufPush:
 ; 2 exit points
-;	.line	307; "main.c"	int circBufPush(uint8_t data){
-	BANKSEL	r0x1020
-	MOVWF	r0x1020
-;	.line	308; "main.c"	uint8_t next = buf_head + 1;
+;	.line	269; "main.c"	int circBufPush(uint8_t data){
+	BANKSEL	r0x106F
+	MOVWF	r0x106F
+;	.line	270; "main.c"	uint8_t next = buf_head + 1;
 	BANKSEL	_buf_head
 	INCF	_buf_head,W
-	BANKSEL	r0x1021
-	MOVWF	r0x1021
+	BANKSEL	r0x1070
+	MOVWF	r0x1070
 ;;unsigned compare: left < lit(0x10=16), size=1
-;	.line	309; "main.c"	if (next >= BUF_SIZE)
+;	.line	271; "main.c"	if (next >= BUF_SIZE)
 	MOVLW	0x10
-;	.line	310; "main.c"	next = 0;
-	SUBWF	r0x1021,W
-;	.line	313; "main.c"	if (next == buf_tail){
+;	.line	272; "main.c"	next = 0;
+	SUBWF	r0x1070,W
+;	.line	275; "main.c"	if (next == buf_tail){
 	BTFSC	STATUS,0
-	CLRF	r0x1021
+	CLRF	r0x1070
 	BANKSEL	_buf_tail
 	MOVF	_buf_tail,W
-	BANKSEL	r0x1021
-	XORWF	r0x1021,W
+	BANKSEL	r0x1070
+	XORWF	r0x1070,W
 	BTFSS	STATUS,2
-	GOTO	_00269_DS_
-;	.line	314; "main.c"	SP_send(buf_err);
+	GOTO	_00180_DS_
+;	.line	276; "main.c"	SP_send(buf_err);
 	MOVLW	high (_buf_err + 0)
-	MOVWF	r0x1022
+	MOVWF	r0x1071
 	MOVLW	(_buf_err + 0)
-	MOVWF	r0x1023
+	MOVWF	r0x1072
 	MOVLW	0x80
-	MOVWF	r0x1024
-	MOVF	r0x1023,W
+	MOVWF	r0x1073
+	MOVF	r0x1072,W
 	MOVWF	STK01
-	MOVF	r0x1022,W
+	MOVF	r0x1071,W
 	MOVWF	STK00
-	MOVF	r0x1024,W
+	MOVF	r0x1073,W
 	PAGESEL	_SP_send
 	CALL	_SP_send
 	PAGESEL	$
-;	.line	315; "main.c"	return -1;  // quit with an error
+;	.line	277; "main.c"	return -1;  // quit with an error
 	MOVLW	0xff
 	MOVWF	STK00
 	MOVLW	0xff
-	GOTO	_00270_DS_
-_00269_DS_:
-;	.line	318; "main.c"	buf[buf_head] = data;
+	GOTO	_00181_DS_
+_00180_DS_:
+;	.line	280; "main.c"	buf[buf_head] = data;
 	BANKSEL	_buf_head
 	MOVF	_buf_head,W
 	ADDLW	(_buf + 0)
-	BANKSEL	r0x1023
-	MOVWF	r0x1023
+	BANKSEL	r0x1072
+	MOVWF	r0x1072
 	MOVLW	high (_buf + 0)
 	BTFSC	STATUS,0
 	ADDLW	0x01
-	MOVWF	r0x1022
-	MOVF	r0x1023,W
+	MOVWF	r0x1071
+	MOVF	r0x1072,W
 	BANKSEL	FSR
 	MOVWF	FSR
 	BCF	STATUS,7
-	BANKSEL	r0x1022
-	BTFSC	r0x1022,0
+	BANKSEL	r0x1071
+	BTFSC	r0x1071,0
 	BSF	STATUS,7
-	MOVF	r0x1020,W
+	MOVF	r0x106F,W
 	BANKSEL	INDF
 	MOVWF	INDF
-;	.line	319; "main.c"	buf_head = next;
-	BANKSEL	r0x1021
-	MOVF	r0x1021,W
+;	.line	281; "main.c"	buf_head = next;
+	BANKSEL	r0x1070
+	MOVF	r0x1070,W
 	BANKSEL	_buf_head
 	MOVWF	_buf_head
-;	.line	320; "main.c"	TXIE = 1;       //Enables the EUSART transmit interrupt
+;	.line	282; "main.c"	TXIE = 1;       //Enables the EUSART transmit interrupt
 	BANKSEL	_PIE1bits
 	BSF	_PIE1bits,4
-;	.line	321; "main.c"	return 0;
+;	.line	283; "main.c"	return 0;
 	MOVLW	0x00
 	MOVWF	STK00
 	MOVLW	0x00
-_00270_DS_:
+_00181_DS_:
 	RETURN	
 ; exit point of _circBufPush
 
 
 ;	code size estimation:
-;	  529+  162 =   691 instructions ( 1706 byte)
+;	  540+  185 =   725 instructions ( 1820 byte)
 
 	end
