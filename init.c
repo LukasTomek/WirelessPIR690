@@ -65,7 +65,11 @@ void init() {
     T1OSCEN = 0; // LP osc off
     TMR1ON = 0; // TIMER1 off*/
     T1CON = 0;  // TIMER1 presccaler 1
-    T1IF = 0;
+    //T1IF = 0;
+	T1CKPS0 = 1;
+    T1CKPS1 = 1;
+	
+	
     // Setup ENHANCED CAPTURE MODULE
     CCP1CON = 5; 
     CCP1IE = 0;     // ENHANCED CAPTURE MODULE Interrupt Disabled

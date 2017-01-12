@@ -229,8 +229,13 @@ int main(void) {
         T0IF = 0;
         T0IE = 1;
         if (bitfield.Capture){
+			    /*dec_to_ascii(w);
+                SP_send(tab);
+                dec_to_ascii(t);
+                SP_send(enter);*/
 //            GIE = 0;
             bitfield.Capture = FALSE;
+			bitfield.Hint = TRUE;
             if (t > MIN_T && t < MAX_T && t1 > MIN_T && t1 < MAX_T){
 //                bitfield.Hint = TRUE;
                 if (w > MIN_W1 && w < MAX_W1 && w1 > MIN_W1 && w1 < MAX_W1){
@@ -268,10 +273,10 @@ int main(void) {
                     i++;
             }
             
-//            if (i > 8 && bitfield.Hint && t > 6000){ //k < 10
-//                bw[k] = w;
-//                bt[k] = t;
-//                k++;
+            if (k < 10 && bitfield.Hint){ //&& t < 6000){ //k < 10
+                bw[k] = w;
+                bt[k] = t;
+                k++;
 //                GIE = 0;
 //                dec_to_ascii(w);
 //                SP_send(tab);
@@ -284,12 +289,12 @@ int main(void) {
                 //circBufPush(temp);
                 uint8_to_ascii(temp);
                 SP_send(enter);*/
-//            }
+            }
 //            GIE = 1;
             t1 = t;
             w1 = w;
         }
-        /*if(k >= 10){
+        if(k >= 10){
             for(j = 0; j < 10; j++){
                 dec_to_ascii(bw[j]);
                 SP_send(tab);
@@ -299,7 +304,7 @@ int main(void) {
             SP_send(sync);
             i = 0;
             k = 0;
-        }*/
+        }
         int_error_cnt = 0;
     }
 }
