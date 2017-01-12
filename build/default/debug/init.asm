@@ -243,10 +243,6 @@ _init:
 ;	.line	67; "init.c"	T1CON = 0;  // TIMER1 presccaler 1
 	BANKSEL	_T1CON
 	CLRF	_T1CON
-;	.line	69; "init.c"	T1CKPS0 = 1;
-	BSF	_T1CONbits,4
-;	.line	70; "init.c"	T1CKPS1 = 1;
-	BSF	_T1CONbits,5
 ;	.line	74; "init.c"	CCP1CON = 5; 
 	MOVLW	0x05
 	MOVWF	_CCP1CON
@@ -275,6 +271,6 @@ _init:
 
 
 ;	code size estimation:
-;	   41+   10 =    51 instructions (  122 byte)
+;	   39+   10 =    49 instructions (  118 byte)
 
 	end

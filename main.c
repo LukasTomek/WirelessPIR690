@@ -9,7 +9,7 @@
 #include "main.h"
 #include "init.h"
 #include "str.h"
-/*
+
 #define MIN_W0      380
 #define MAX_W0      450
 #define MIN_W1      1350
@@ -17,11 +17,14 @@
 #define MIN_T       1880
 #define MAX_T       1950
 #define MIN_TS      8100
-#define MAX_TS      8200*/
+#define MAX_TS      8200
 #define BUF_SIZE    16
 
-#define MIN_T       230
-#define MAX_T       240
+#define MIN_TS      15000
+#define MAX_TS      16000
+
+//#define MIN_T       230
+//#define MAX_T       240
 
 typedef unsigned int word;
 /*
@@ -77,23 +80,23 @@ const char pie1[]={'P', 'I', 'E', '1', ':', ' ','\0'};
 const char pie2[]={'P', 'I', 'E', '2', ':', ' ','\0'};
 const char tim0_owf[]={'T', 'I', 'M', '0', ' ', 'O', 'W', 'F', '\n' ,'\0'};
 
-uint8_t w = 0;
-uint8_t t = 0;
-uint8_t w1 = 0;
-uint8_t t1 = 0;
-uint8_t bw[30];
-uint8_t bt[30];
-uint8_t bwk[6];
-uint8_t bw16[6];
-uint8_t btk[6];
-uint8_t bt16[6];
+uint16_t w = 0;
+uint16_t t = 0;
+uint16_t w1 = 0;
+uint16_t t1 = 0;
+uint16_t bw[10];
+uint16_t bt[10];
+//uint8_t bwk[6];
+//uint8_t bw16[6];
+//uint8_t btk[6];
+//uint8_t bt16[6];
 uint8_t buf[BUF_SIZE];
 uint8_t buf_head = 0;
 uint8_t buf_tail = 0;
 uint8_t int_error_cnt = 0;
 //uint8_t Tim0owerflowCnt = 0;
-uint8_t w16 = 0;
-uint8_t t16 = 0;
+//uint8_t w16 = 0;
+//uint8_t t16 = 0;
 /*uint16_t
 uint16_t   */    
 
@@ -137,22 +140,22 @@ void receive_intr() __interrupt 0 {
 //            CCPR1L = 0;
             TMR1H = 0;
             TMR1L = 0;
-            /*t=0;
+            t=0;
             t = 0x0000 | CCPR1H;        //ECCP result higher 8 bits
             t = t << 8;
-            t = t | CCPR1L; */            //ECCP combined 16 bit number formation
-            t16 = CCPR1H;
-            t = CCPR1L;
+            t = t | CCPR1L;             //ECCP combined 16 bit number formation
+//            t16 = CCPR1H;
+//            t = CCPR1L;
             bitfield.Capture = TRUE;
         }
         else{
             CCP1M0 = RISING;
-            /*w=0;
+            w=0;
             w = 0x0000 | CCPR1H;        //ECCP result higher 8 bits
             w = w << 8;
-            w = w | CCPR1L;  */           //ECCP combined 16 bit number formation
-            w16 = CCPR1H;
-            w = CCPR1L;
+            w = w | CCPR1L;             //ECCP combined 16 bit number formation
+//            w16 = CCPR1H;
+//            w = CCPR1L;
 //            bitfield.Capture = TRUE;
         }
         CCP1IE = 1;
@@ -170,13 +173,13 @@ int main(void) {
     bitfield.Hint = FALSE;
     bitfield.Capture = FALSE;
     
-    for(j = 0; j < 6; j++){
-        bwk[j] = 0;
-        bw16[j] = 0;
-        btk[j] = 0;
-        bt16[j] = 0;
-    }
-    j = 0;
+//    for(j = 0; j < 6; j++){
+//        bwk[j] = 0;
+//        bw16[j] = 0;
+//        btk[j] = 0;
+//        bt16[j] = 0;
+//    }
+//    j = 0;
     
     while(1)
     {
@@ -185,7 +188,7 @@ int main(void) {
 //			bitfield.Hint = TRUE;
             if (t > MIN_T && t < MAX_T && t1 > MIN_T && t1 < MAX_T){
                 bitfield.Hint = TRUE;
-                /*if (w > MIN_W1 && w < MAX_W1 && w1 > MIN_W1 && w1 < MAX_W1){
+                if (w > MIN_W1 && w < MAX_W1 && w1 > MIN_W1 && w1 < MAX_W1){
                     SP_send(strV1);
                     t = 0;
                     w = 0;
@@ -212,50 +215,51 @@ int main(void) {
                 SP_send(tab);
                 uint8_to_ascii_buf(temp);
                 SP_send(enter);*/
+                
             }
-            /*if (t > MIN_TS && t < MAX_TS && w > MIN_W0 && w < MAX_W0){
+            if (t > MIN_TS && t < MAX_TS && w > MIN_W0 && w < MAX_W0){
                     SP_send(sync);
                     t = 0;
                     w = 0;
                     i++;
-            }*/
-            
-            if (k < 30 && bitfield.Hint){ //&& t < 6000){ //k < 10
-                bw[k] = w;
-                bt[k] = t;
-                if(w16 > 0 && i < 6){
-                    bwk[i] = k;
-                    bw16[i] = w16;
-                    i++;
-                }
-                if(t16 > 0 && j < 6){
-                    btk[j] = k;
-                    bt16[j] = t16;
-                    j++;
-                }
-                k++;
             }
+            
+//            if (k < 10 && bitfield.Hint && i > 20){ //&& t < 6000){ //k < 10
+//                bw[k] = w;
+//                bt[k] = t;
+////                if(w16 > 0 && i < 6){
+////                    bwk[i] = k;
+////                    bw16[i] = w16;
+////                    i++;
+////                }
+////                if(t16 > 0 && j < 6){
+////                    btk[j] = k;
+////                    bt16[j] = t16;
+////                    j++;
+////                }
+//                k++;
+//            }
             t1 = t;
             w1 = w;
         }
         CCP1IE = 0;
-        if(k >= 30){
-            for(j = 0; j < 30; j++){
-                uint8_to_ascii_buf(bw[j]);
+        if(k >= 10){
+            for(j = 0; j < 10; j++){
+                dec_to_ascii_buf(bw[j]);
                 SP_send(tab);
-                uint8_to_ascii_buf(bt[j]);
+                dec_to_ascii_buf(bt[j]);
                 SP_send(enter);
             }
-            for(j = 0; j < 6; j++){
-                uint8_to_ascii_buf(bwk[j]);
-                SP_send(tab);
-                uint8_to_ascii_buf(bw16[j]);
-                SP_send(tab);
-                uint8_to_ascii_buf(btk[j]);
-                SP_send(tab);
-                uint8_to_ascii_buf(bt16[j]);
-                SP_send(enter);
-            }
+//            for(j = 0; j < 6; j++){
+//                uint8_to_ascii_buf(bwk[j]);
+//                SP_send(tab);
+//                uint8_to_ascii_buf(bw16[j]);
+//                SP_send(tab);
+//                uint8_to_ascii_buf(btk[j]);
+//                SP_send(tab);
+//                uint8_to_ascii_buf(bt16[j]);
+//                SP_send(enter);
+//            }
             SP_send(sync);
             i = 0;
             k = 0;

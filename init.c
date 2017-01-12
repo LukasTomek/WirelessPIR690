@@ -66,8 +66,8 @@ void init() {
     TMR1ON = 0; // TIMER1 off*/
     T1CON = 0;  // TIMER1 presccaler 1
     //T1IF = 0;
-	T1CKPS0 = 1;
-    T1CKPS1 = 1;
+//	T1CKPS0 = 1;
+//    T1CKPS1 = 1;
 	
 	
     // Setup ENHANCED CAPTURE MODULE
