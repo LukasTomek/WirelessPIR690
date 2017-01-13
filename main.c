@@ -57,6 +57,12 @@ struct {
      unsigned Edge:1;
      unsigned Hint:1;
 } bitfield;
+/*
+struct {
+     unsigned Capture:1;
+     unsigned Edge:1;
+     unsigned Hint:1;
+} ;*/
 
 // internal oscilator 8Mhz divided by 2 by default
 word __at 0x2007 CONFIG = _INTRC_OSC_NOCLKOUT & _WDT_OFF & _PWRTE_OFF & _MCLRE_OFF & _CP_OFF; 
@@ -85,6 +91,7 @@ uint16_t w = 0;
 uint16_t t = 0;
 uint16_t w1 = 0;
 uint16_t t1 = 0;
+uint8_t recAddress[20];
 uint8_t buf[BUF_SIZE];
 uint8_t buf_head = 0;
 uint8_t buf_tail = 0;
@@ -123,7 +130,6 @@ void receive_intr() __interrupt 0 {
             CCP1M0 = FALING;                 // set falling edge
             TMR1H = 0;
             TMR1L = 0;
-            t=0;
             t = 0x0000 | CCPR1H;        //ECCP result higher 8 bits
             t = t << 8;
             t = t | CCPR1L;             //ECCP combined 16 bit number formation
@@ -156,18 +162,21 @@ int main(void) {
             if (t > MIN_T && t < MAX_T && t1 > MIN_T && t1 < MAX_T){
                 if (w > MIN_W1 && w < MAX_W1 && w1 > MIN_W1 && w1 < MAX_W1){
                     SP_send(strV1);
+					recAddress[i] = 1;
                     t = 0;
                     w = 0;
                     i++;
                 }
                 if (w > MIN_W0 && w < MAX_W0 && w1 > MIN_W0 && w1 < MAX_W0){
                     SP_send(strV0);
+					recAddress[i] = 2;
                     t = 0;
                     w = 0;
                     i++;
                 }
                 if (w1 > MIN_W0 && w1 < MAX_W0 && w > MIN_W1 && w < MAX_W1){
                     SP_send(strVF);
+					recAddress[i] = 3;
                     t = 0;
                     w = 0;
                     i++;
@@ -177,7 +186,8 @@ int main(void) {
                     SP_send(sync);
                     t = 0;
                     w = 0;
-                    i++;
+                    //i++;
+					
             }
             t1 = t;
             w1 = w;
