@@ -52,6 +52,13 @@ typedef enum {
     RISING
 } PulseEdge;
 
+typedef enum {
+    ERR,
+    BIT0,
+    BIT1,
+    BITF
+} AddressPIR;
+
 struct {
      unsigned Capture:1;
      unsigned Edge:1;
@@ -86,12 +93,13 @@ const char pie1[]={'P', 'I', 'E', '1', ':', ' ','\0'};
 const char pie2[]={'P', 'I', 'E', '2', ':', ' ','\0'};
 const char tim0_owf[]={'T', 'I', 'M', '0', ' ', 'O', 'W', 'F', '\n' ,'\0'};
 
-
+const uint8_t SetAddress[] = { BIT_F, BIT_F, BIT_F, BIT_F, BIT_F, BIT_F,
+                                BIT_F, BIT_F, BIT_F, BIT_F, BIT_F, BIT_F };
 uint16_t w = 0;
 uint16_t t = 0;
 uint16_t w1 = 0;
 uint16_t t1 = 0;
-uint8_t recAddress[20];
+uint8_t RecAddress[20];
 uint8_t buf[BUF_SIZE];
 uint8_t buf_head = 0;
 uint8_t buf_tail = 0;
@@ -162,21 +170,21 @@ int main(void) {
             if (t > MIN_T && t < MAX_T && t1 > MIN_T && t1 < MAX_T){
                 if (w > MIN_W1 && w < MAX_W1 && w1 > MIN_W1 && w1 < MAX_W1){
                     SP_send(strV1);
-					recAddress[i] = 1;
+					RecAddress[i] = BIT1;
                     t = 0;
                     w = 0;
                     i++;
                 }
                 if (w > MIN_W0 && w < MAX_W0 && w1 > MIN_W0 && w1 < MAX_W0){
                     SP_send(strV0);
-					recAddress[i] = 2;
+					RecAddress[i] = BIT0;
                     t = 0;
                     w = 0;
                     i++;
                 }
                 if (w1 > MIN_W0 && w1 < MAX_W0 && w > MIN_W1 && w < MAX_W1){
                     SP_send(strVF);
-					recAddress[i] = 3;
+					RecAddress[i] = BIT_F;
                     t = 0;
                     w = 0;
                     i++;
@@ -186,6 +194,14 @@ int main(void) {
                     SP_send(sync);
                     t = 0;
                     w = 0;
+                    temp = 1;
+                    for(j = 12; j != 0; j--){
+                         
+                        if (RecAddress[i] != SetAddress[i]){
+                            temp = 0;
+                        }
+                        i--;
+                    }
                     //i++;
 					
             }
