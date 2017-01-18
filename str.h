@@ -12,8 +12,8 @@
 extern "C" {
 #endif
 
-    void dec_to_ascii_buf(uint16_t dec);
-//    void uint8_to_ascii_buf(uint8_t dec);
+//    void dec_to_ascii_buf(uint16_t dec);
+    void uint8_to_ascii_buf(uint8_t dec);
     void SP_send_buf(uint8_t str[]);
     void SP_send(uint8_t str[]);
     void uint8_send(uint8_t uint);

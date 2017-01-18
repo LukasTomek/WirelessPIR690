@@ -17,6 +17,8 @@ extern "C" {
     #define RX_TRIS		TRISB5
     #define ADC2_TRIS	TRISA2
     #define ADC4_TRIS	TRISA4
+    #define OUT_TRIS	TRISC0
+    #define OUT_PIN     RC0
     //#define LEDG_TRIS	TRISB6
     //#define LEDG_PIN	RB6
     //#define LEDR_TRIS	TRISA2

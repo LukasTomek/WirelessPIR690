@@ -22,6 +22,8 @@ void init() {
     ANS2=1;                      //Zapnuti Analogovych vstupu
     ANS3=1;
 
+    OUT_TRIS=0;             //Output
+    
     // USART
 	
     SPBRG=8;                // Baud Rate
@@ -40,11 +42,22 @@ void init() {
     PS2 = 1;	// Set up prescaler to 1:256.
 	PS1 = 1;
 	PS0 = 1;*/
+    /*
+    PS<2:0>: Prescaler Rate Select bits
+Bit Value Timer0 Rate WDT Rate
+000 1 : 2
+001 1 : 4
+010 1 : 8
+011 1 : 16
+100 1 : 32
+101 1 : 64
+110 1 : 128
+111 1 : 256*/ 
     
     T0CS = 0;	// Clear to enable timer mode.
 	PSA = 0;	// Clear to assign prescaler to Timer 0.
-    PS2 = 0;	// Set up prescaler to 1:1.
-	PS1 = 0;
+    PS2 = 1;	// Set up prescaler to 1:1.
+	PS1 = 1;
 	PS0 = 0;
 
 

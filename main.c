@@ -56,7 +56,7 @@ typedef enum {
     ERR,
     BIT0,
     BIT1,
-    BITF
+    BIT_F
 } AddressPIR;
 
 struct {
@@ -74,6 +74,7 @@ struct {
 // internal oscilator 8Mhz divided by 2 by default
 word __at 0x2007 CONFIG = _INTRC_OSC_NOCLKOUT & _WDT_OFF & _PWRTE_OFF & _MCLRE_OFF & _CP_OFF; 
 
+const char stri[]={'i', ' ', '=', ' ', '\0'};
 const char strV0[]={'0', ' ', '\n' ,'\0'};
 const char strV1[]={'1', ' ', '\n' ,'\0'};
 const char strVF[]={'F', ' ', '\n' ,'\0'};
@@ -113,7 +114,7 @@ void receive_intr() __interrupt 0 {
 		T0IE = 0;
         T0IF = 0;
         TMR0 = 0;	// Enable timer
-		out=0;
+		OUT_PIN = 0;
     }
     if(TXIF){
         // if the head isn't ahead of the tail, we don't have any characters
@@ -198,26 +199,38 @@ int main(void) {
                     t = 0;
                     w = 0;
                     temp = 1;
-                    for(j = 12; j != 0; j--){
+                    i--;
+                    GIE = 0; //not tested
+                    for(j = 11; j != 0; j--){
                          
-                        if (RecAddress[i] != SetAddress[i]){
+                        if (RecAddress[i] != SetAddress[j]){
                             temp = 0;
                         }
                         i--;
                     }
+                    GIE = 1;
                     //i++;
 					if(temp){
 						SP_send(light);
-						out=1;
+						OUT_PIN = 1;
 						TMR0 = 0;	// Enable timer
 						T0IE = 1;
 					}
+                    SP_send(stri);
+                    uint8_to_ascii_buf(i);
+                    SP_send(enter);
+                    i = 0;
+                    j = 0;
 					
             }
             t1 = t;
             w1 = w;
+
         }
         int_error_cnt = 0;
+        if(i >= 19){
+            i = 0;
+        }
     }
 }
 
