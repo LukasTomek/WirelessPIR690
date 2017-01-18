@@ -91,6 +91,7 @@ const char pir1[]={'P', 'I', 'R', '1', ':', ' ','\0'};
 const char pir2[]={'P', 'I', 'R', '2', ':', ' ','\0'};
 const char pie1[]={'P', 'I', 'E', '1', ':', ' ','\0'};
 const char pie2[]={'P', 'I', 'E', '2', ':', ' ','\0'};
+const char light[]={'L', 'I', 'g', 'h', 't', '\n','\0'};
 const char tim0_owf[]={'T', 'I', 'M', '0', ' ', 'O', 'W', 'F', '\n' ,'\0'};
 
 const uint8_t SetAddress[] = { BIT_F, BIT_F, BIT_F, BIT_F, BIT_F, BIT_F,
@@ -109,8 +110,10 @@ uint8_t int_error_cnt = 0;
 void receive_intr() __interrupt 0 {
     int next;
     if(T0IF){
+		T0IE = 0;
         T0IF = 0;
         TMR0 = 0;	// Enable timer
+		out=0;
     }
     if(TXIF){
         // if the head isn't ahead of the tail, we don't have any characters
@@ -203,6 +206,12 @@ int main(void) {
                         i--;
                     }
                     //i++;
+					if(temp){
+						SP_send(light);
+						out=1;
+						TMR0 = 0;	// Enable timer
+						T0IE = 1;
+					}
 					
             }
             t1 = t;
