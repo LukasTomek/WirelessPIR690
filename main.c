@@ -173,21 +173,21 @@ int main(void) {
             bitfield.Capture = FALSE;
             if (t > MIN_T && t < MAX_T && t1 > MIN_T && t1 < MAX_T){
                 if (w > MIN_W1 && w < MAX_W1 && w1 > MIN_W1 && w1 < MAX_W1){
-                    SP_send(strV1);
+                    SP_send_buf(strV1);
 					RecAddress[i] = BIT1;
                     t = 0;
                     w = 0;
                     i++;
                 }
                 if (w > MIN_W0 && w < MAX_W0 && w1 > MIN_W0 && w1 < MAX_W0){
-                    SP_send(strV0);
+                    SP_send_buf(strV0);
 					RecAddress[i] = BIT0;
                     t = 0;
                     w = 0;
                     i++;
                 }
                 if (w1 > MIN_W0 && w1 < MAX_W0 && w > MIN_W1 && w < MAX_W1){
-                    SP_send(strVF);
+                    SP_send_buf(strVF);
 					RecAddress[i] = BIT_F;
                     t = 0;
                     w = 0;
@@ -195,7 +195,7 @@ int main(void) {
                 }              
             }
             if (t > MIN_TS && t < MAX_TS && w > MIN_W0 && w < MAX_W0){
-                    SP_send(sync);
+                    SP_send_buf(sync);
                     t = 0;
                     w = 0;
                     temp = 1;
@@ -211,14 +211,14 @@ int main(void) {
                     GIE = 1;
                     //i++;
 					if(temp){
-						SP_send(light);
+						SP_send_buf(light);
 						OUT_PIN = 1;
 						TMR0 = 0;	// Enable timer
 						T0IE = 1;
 					}
-                    SP_send(stri);
+                    SP_send_buf(stri);
                     uint8_to_ascii_buf(i);
-                    SP_send(enter);
+                    SP_send_buf(enter);
                     i = 0;
                     j = 0;
 					
