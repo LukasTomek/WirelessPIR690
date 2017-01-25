@@ -161,6 +161,8 @@
         <property key="voltagevalue" value="5.0"/>
       </PICkit3PlatformTool>
       <item path="newmain.c" ex="true" overriding="false">
+        <sdcc-config>
+        </sdcc-config>
       </item>
       <sdcc-config>
         <property key="V-show-commands-compiler" value="false"/>

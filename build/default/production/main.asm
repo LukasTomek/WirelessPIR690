@@ -613,7 +613,7 @@ _00110_DS_:
 _00139_DS_:
 	BTFSS	STATUS,0
 	GOTO	_00108_DS_
-;;genSkipc:3257: created from rifx:0x7fffe2536480
+;;genSkipc:3257: created from rifx:0x7ffefaaaf730
 ;	.line	133; "main.c"	next = 0;
 	BANKSEL	r0x103E
 	CLRF	r0x103E
@@ -729,25 +729,19 @@ code_main	code
 ;has an exit
 ;functions called:
 ;   _init
-;   _SP_send
-;   _SP_send
-;   _SP_send
-;   _SP_send
+;   _SP_send_buf
+;   _SP_send_buf
+;   _SP_send_buf
+;   _SP_send_buf
 ;   __gptrget1
-;   _SP_send
-;   _SP_send
-;   _uint8_to_ascii_buf
-;   _SP_send
+;   _SP_send_buf
 ;   _init
-;   _SP_send
-;   _SP_send
-;   _SP_send
-;   _SP_send
+;   _SP_send_buf
+;   _SP_send_buf
+;   _SP_send_buf
+;   _SP_send_buf
 ;   __gptrget1
-;   _SP_send
-;   _SP_send
-;   _uint8_to_ascii_buf
-;   _SP_send
+;   _SP_send_buf
 ;10 compiler assigned registers:
 ;   r0x1036
 ;   r0x1037
@@ -795,7 +789,7 @@ _00179_DS_:
 _00269_DS_:
 	BTFSS	STATUS,0
 	GOTO	_00160_DS_
-;;genSkipc:3257: created from rifx:0x7fffe2536480
+;;genSkipc:3257: created from rifx:0x7ffefaaaf730
 ;;unsigned compare: left < lit(0x79E=1950), size=2
 	MOVLW	0x07
 	BANKSEL	_t
@@ -807,7 +801,7 @@ _00269_DS_:
 _00270_DS_:
 	BTFSC	STATUS,0
 	GOTO	_00160_DS_
-;;genSkipc:3257: created from rifx:0x7fffe2536480
+;;genSkipc:3257: created from rifx:0x7ffefaaaf730
 ;;swapping arguments (AOP_TYPEs 1/3)
 ;;unsigned compare: left >= lit(0x759=1881), size=2
 	MOVLW	0x07
@@ -820,7 +814,7 @@ _00270_DS_:
 _00271_DS_:
 	BTFSS	STATUS,0
 	GOTO	_00160_DS_
-;;genSkipc:3257: created from rifx:0x7fffe2536480
+;;genSkipc:3257: created from rifx:0x7ffefaaaf730
 ;;unsigned compare: left < lit(0x79E=1950), size=2
 	MOVLW	0x07
 	BANKSEL	_t1
@@ -832,7 +826,7 @@ _00271_DS_:
 _00272_DS_:
 	BTFSC	STATUS,0
 	GOTO	_00160_DS_
-;;genSkipc:3257: created from rifx:0x7fffe2536480
+;;genSkipc:3257: created from rifx:0x7ffefaaaf730
 ;;swapping arguments (AOP_TYPEs 1/3)
 ;;unsigned compare: left >= lit(0x547=1351), size=2
 ;	.line	175; "main.c"	if (w > MIN_W1 && w < MAX_W1 && w1 > MIN_W1 && w1 < MAX_W1){
@@ -846,7 +840,7 @@ _00272_DS_:
 _00273_DS_:
 	BTFSS	STATUS,0
 	GOTO	_00145_DS_
-;;genSkipc:3257: created from rifx:0x7fffe2536480
+;;genSkipc:3257: created from rifx:0x7ffefaaaf730
 ;;unsigned compare: left < lit(0x596=1430), size=2
 	MOVLW	0x05
 	BANKSEL	_w
@@ -858,7 +852,7 @@ _00273_DS_:
 _00274_DS_:
 	BTFSC	STATUS,0
 	GOTO	_00145_DS_
-;;genSkipc:3257: created from rifx:0x7fffe2536480
+;;genSkipc:3257: created from rifx:0x7ffefaaaf730
 ;;swapping arguments (AOP_TYPEs 1/3)
 ;;unsigned compare: left >= lit(0x547=1351), size=2
 	MOVLW	0x05
@@ -871,7 +865,7 @@ _00274_DS_:
 _00275_DS_:
 	BTFSS	STATUS,0
 	GOTO	_00145_DS_
-;;genSkipc:3257: created from rifx:0x7fffe2536480
+;;genSkipc:3257: created from rifx:0x7ffefaaaf730
 ;;unsigned compare: left < lit(0x596=1430), size=2
 	MOVLW	0x05
 	BANKSEL	_w1
@@ -883,8 +877,8 @@ _00275_DS_:
 _00276_DS_:
 	BTFSC	STATUS,0
 	GOTO	_00145_DS_
-;;genSkipc:3257: created from rifx:0x7fffe2536480
-;	.line	176; "main.c"	SP_send(strV1);
+;;genSkipc:3257: created from rifx:0x7ffefaaaf730
+;	.line	176; "main.c"	SP_send_buf(strV1);
 	MOVLW	high (_strV1 + 0)
 	BANKSEL	r0x1037
 	MOVWF	r0x1037
@@ -897,8 +891,8 @@ _00276_DS_:
 	MOVF	r0x1037,W
 	MOVWF	STK00
 	MOVF	r0x1039,W
-	PAGESEL	_SP_send
-	CALL	_SP_send
+	PAGESEL	_SP_send_buf
+	CALL	_SP_send_buf
 	PAGESEL	$
 ;	.line	177; "main.c"	RecAddress[i] = BIT1;
 	BANKSEL	r0x1036
@@ -944,7 +938,7 @@ _00145_DS_:
 _00277_DS_:
 	BTFSS	STATUS,0
 	GOTO	_00150_DS_
-;;genSkipc:3257: created from rifx:0x7fffe2536480
+;;genSkipc:3257: created from rifx:0x7ffefaaaf730
 ;;unsigned compare: left < lit(0x1C2=450), size=2
 	MOVLW	0x01
 	BANKSEL	_w
@@ -956,7 +950,7 @@ _00277_DS_:
 _00278_DS_:
 	BTFSC	STATUS,0
 	GOTO	_00150_DS_
-;;genSkipc:3257: created from rifx:0x7fffe2536480
+;;genSkipc:3257: created from rifx:0x7ffefaaaf730
 ;;swapping arguments (AOP_TYPEs 1/3)
 ;;unsigned compare: left >= lit(0x17D=381), size=2
 	MOVLW	0x01
@@ -969,7 +963,7 @@ _00278_DS_:
 _00279_DS_:
 	BTFSS	STATUS,0
 	GOTO	_00150_DS_
-;;genSkipc:3257: created from rifx:0x7fffe2536480
+;;genSkipc:3257: created from rifx:0x7ffefaaaf730
 ;;unsigned compare: left < lit(0x1C2=450), size=2
 	MOVLW	0x01
 	BANKSEL	_w1
@@ -981,8 +975,8 @@ _00279_DS_:
 _00280_DS_:
 	BTFSC	STATUS,0
 	GOTO	_00150_DS_
-;;genSkipc:3257: created from rifx:0x7fffe2536480
-;	.line	183; "main.c"	SP_send(strV0);
+;;genSkipc:3257: created from rifx:0x7ffefaaaf730
+;	.line	183; "main.c"	SP_send_buf(strV0);
 	MOVLW	high (_strV0 + 0)
 	BANKSEL	r0x1037
 	MOVWF	r0x1037
@@ -995,8 +989,8 @@ _00280_DS_:
 	MOVF	r0x1037,W
 	MOVWF	STK00
 	MOVF	r0x1039,W
-	PAGESEL	_SP_send
-	CALL	_SP_send
+	PAGESEL	_SP_send_buf
+	CALL	_SP_send_buf
 	PAGESEL	$
 ;	.line	184; "main.c"	RecAddress[i] = BIT0;
 	BANKSEL	r0x1036
@@ -1042,7 +1036,7 @@ _00150_DS_:
 _00281_DS_:
 	BTFSS	STATUS,0
 	GOTO	_00160_DS_
-;;genSkipc:3257: created from rifx:0x7fffe2536480
+;;genSkipc:3257: created from rifx:0x7ffefaaaf730
 ;;unsigned compare: left < lit(0x1C2=450), size=2
 	MOVLW	0x01
 	BANKSEL	_w1
@@ -1054,7 +1048,7 @@ _00281_DS_:
 _00282_DS_:
 	BTFSC	STATUS,0
 	GOTO	_00160_DS_
-;;genSkipc:3257: created from rifx:0x7fffe2536480
+;;genSkipc:3257: created from rifx:0x7ffefaaaf730
 ;;swapping arguments (AOP_TYPEs 1/3)
 ;;unsigned compare: left >= lit(0x547=1351), size=2
 	MOVLW	0x05
@@ -1067,7 +1061,7 @@ _00282_DS_:
 _00283_DS_:
 	BTFSS	STATUS,0
 	GOTO	_00160_DS_
-;;genSkipc:3257: created from rifx:0x7fffe2536480
+;;genSkipc:3257: created from rifx:0x7ffefaaaf730
 ;;unsigned compare: left < lit(0x596=1430), size=2
 	MOVLW	0x05
 	BANKSEL	_w
@@ -1079,8 +1073,8 @@ _00283_DS_:
 _00284_DS_:
 	BTFSC	STATUS,0
 	GOTO	_00160_DS_
-;;genSkipc:3257: created from rifx:0x7fffe2536480
-;	.line	190; "main.c"	SP_send(strVF);
+;;genSkipc:3257: created from rifx:0x7ffefaaaf730
+;	.line	190; "main.c"	SP_send_buf(strVF);
 	MOVLW	high (_strVF + 0)
 	BANKSEL	r0x1037
 	MOVWF	r0x1037
@@ -1093,8 +1087,8 @@ _00284_DS_:
 	MOVF	r0x1037,W
 	MOVWF	STK00
 	MOVF	r0x1039,W
-	PAGESEL	_SP_send
-	CALL	_SP_send
+	PAGESEL	_SP_send_buf
+	CALL	_SP_send_buf
 	PAGESEL	$
 ;	.line	191; "main.c"	RecAddress[i] = BIT_F;
 	BANKSEL	r0x1036
@@ -1140,7 +1134,7 @@ _00160_DS_:
 _00285_DS_:
 	BTFSS	STATUS,0
 	GOTO	_00170_DS_
-;;genSkipc:3257: created from rifx:0x7fffe2536480
+;;genSkipc:3257: created from rifx:0x7ffefaaaf730
 ;;unsigned compare: left < lit(0x3E80=16000), size=2
 	MOVLW	0x3e
 	BANKSEL	_t
@@ -1152,7 +1146,7 @@ _00285_DS_:
 _00286_DS_:
 	BTFSC	STATUS,0
 	GOTO	_00170_DS_
-;;genSkipc:3257: created from rifx:0x7fffe2536480
+;;genSkipc:3257: created from rifx:0x7ffefaaaf730
 ;;swapping arguments (AOP_TYPEs 1/3)
 ;;unsigned compare: left >= lit(0x17D=381), size=2
 	MOVLW	0x01
@@ -1165,7 +1159,7 @@ _00286_DS_:
 _00287_DS_:
 	BTFSS	STATUS,0
 	GOTO	_00170_DS_
-;;genSkipc:3257: created from rifx:0x7fffe2536480
+;;genSkipc:3257: created from rifx:0x7ffefaaaf730
 ;;unsigned compare: left < lit(0x1C2=450), size=2
 	MOVLW	0x01
 	BANKSEL	_w
@@ -1177,8 +1171,8 @@ _00287_DS_:
 _00288_DS_:
 	BTFSC	STATUS,0
 	GOTO	_00170_DS_
-;;genSkipc:3257: created from rifx:0x7fffe2536480
-;	.line	198; "main.c"	SP_send(sync);
+;;genSkipc:3257: created from rifx:0x7ffefaaaf730
+;	.line	198; "main.c"	SP_send_buf(sync);
 	MOVLW	high (_sync + 0)
 	BANKSEL	r0x1037
 	MOVWF	r0x1037
@@ -1191,8 +1185,8 @@ _00288_DS_:
 	MOVF	r0x1037,W
 	MOVWF	STK00
 	MOVF	r0x1039,W
-	PAGESEL	_SP_send
-	CALL	_SP_send
+	PAGESEL	_SP_send_buf
+	CALL	_SP_send_buf
 	PAGESEL	$
 ;	.line	199; "main.c"	t = 0;
 	BANKSEL	_t
@@ -1208,13 +1202,17 @@ _00288_DS_:
 	MOVWF	r0x1038
 ;	.line	202; "main.c"	i--;
 	DECF	r0x1036,F
-;	.line	203; "main.c"	for(j = 11; j != 0; j--){
+;	.line	203; "main.c"	GIE = 0; //not tested
+	BANKSEL	_INTCONbits
+	BCF	_INTCONbits,7
+;	.line	204; "main.c"	for(j = 11; j != 0; j--){
+	BANKSEL	r0x1036
 	MOVF	r0x1036,W
 	MOVWF	r0x1037
 	MOVLW	0x0b
 	MOVWF	r0x1039
 _00181_DS_:
-;	.line	205; "main.c"	if (RecAddress[i] != SetAddress[j]){
+;	.line	206; "main.c"	if (RecAddress[i] != SetAddress[j]){
 	BANKSEL	r0x1037
 	MOVF	r0x1037,W
 	ADDLW	(_RecAddress + 0)
@@ -1250,23 +1248,27 @@ _00181_DS_:
 	CALL	__gptrget1
 	PAGESEL	$
 ;;1	MOVWF	r0x103D
-;	.line	206; "main.c"	temp = 0;
+;	.line	207; "main.c"	temp = 0;
 	BANKSEL	r0x103C
 	XORWF	r0x103C,W
-;	.line	208; "main.c"	i--;
+;	.line	209; "main.c"	i--;
 	BTFSS	STATUS,2
 	CLRF	r0x1038
 	DECF	r0x1037,F
-;	.line	203; "main.c"	for(j = 11; j != 0; j--){
+;	.line	204; "main.c"	for(j = 11; j != 0; j--){
 	DECFSZ	r0x1039,F
 	GOTO	_00181_DS_
 	MOVF	r0x1037,W
 	MOVWF	r0x1036
-;	.line	211; "main.c"	if(temp){
+;	.line	211; "main.c"	GIE = 1;
+	BANKSEL	_INTCONbits
+	BSF	_INTCONbits,7
+;	.line	213; "main.c"	if(temp){
+	BANKSEL	r0x1038
 	MOVF	r0x1038,W
 	BTFSC	STATUS,2
-	GOTO	_00168_DS_
-;	.line	212; "main.c"	SP_send(light);
+	GOTO	_00170_DS_
+;	.line	214; "main.c"	SP_send_buf(light);
 	MOVLW	high (_light + 0)
 	MOVWF	r0x1037
 	MOVLW	(_light + 0)
@@ -1278,60 +1280,18 @@ _00181_DS_:
 	MOVF	r0x1037,W
 	MOVWF	STK00
 	MOVF	r0x1039,W
-	PAGESEL	_SP_send
-	CALL	_SP_send
+	PAGESEL	_SP_send_buf
+	CALL	_SP_send_buf
 	PAGESEL	$
-;	.line	213; "main.c"	OUT_PIN = 1;
+;	.line	215; "main.c"	OUT_PIN = 1;
 	BANKSEL	_PORTCbits
 	BSF	_PORTCbits,0
-;	.line	214; "main.c"	TMR0 = 0;	// Enable timer
+;	.line	216; "main.c"	TMR0 = 0;	// Enable timer
 	CLRF	_TMR0
-;	.line	215; "main.c"	T0IE = 1;
+;	.line	217; "main.c"	T0IE = 1;
 	BSF	_INTCONbits,5
-_00168_DS_:
-;	.line	217; "main.c"	SP_send(stri);
-	MOVLW	high (_stri + 0)
-	BANKSEL	r0x1037
-	MOVWF	r0x1037
-	MOVLW	(_stri + 0)
-	MOVWF	r0x1038
-	MOVLW	0x80
-	MOVWF	r0x1039
-	MOVF	r0x1038,W
-	MOVWF	STK01
-	MOVF	r0x1037,W
-	MOVWF	STK00
-	MOVF	r0x1039,W
-	PAGESEL	_SP_send
-	CALL	_SP_send
-	PAGESEL	$
-;	.line	218; "main.c"	uint8_to_ascii_buf(i);
-	BANKSEL	r0x1036
-	MOVF	r0x1036,W
-	PAGESEL	_uint8_to_ascii_buf
-	CALL	_uint8_to_ascii_buf
-	PAGESEL	$
-;	.line	219; "main.c"	SP_send(enter);
-	MOVLW	high (_enter + 0)
-	BANKSEL	r0x1037
-	MOVWF	r0x1037
-	MOVLW	(_enter + 0)
-	MOVWF	r0x1038
-	MOVLW	0x80
-	MOVWF	r0x1039
-	MOVF	r0x1038,W
-	MOVWF	STK01
-	MOVF	r0x1037,W
-	MOVWF	STK00
-	MOVF	r0x1039,W
-	PAGESEL	_SP_send
-	CALL	_SP_send
-	PAGESEL	$
-;	.line	220; "main.c"	i = 0;
-	BANKSEL	r0x1036
-	CLRF	r0x1036
 _00170_DS_:
-;	.line	224; "main.c"	t1 = t;
+;	.line	226; "main.c"	t1 = t;
 	BANKSEL	_t
 	MOVF	_t,W
 	BANKSEL	_t1
@@ -1340,7 +1300,7 @@ _00170_DS_:
 	MOVF	(_t + 1),W
 	BANKSEL	_t1
 	MOVWF	(_t1 + 1)
-;	.line	225; "main.c"	w1 = w;
+;	.line	227; "main.c"	w1 = w;
 	BANKSEL	_w
 	MOVF	_w,W
 	BANKSEL	_w1
@@ -1350,18 +1310,18 @@ _00170_DS_:
 	BANKSEL	_w1
 	MOVWF	(_w1 + 1)
 _00175_DS_:
-;	.line	228; "main.c"	int_error_cnt = 0;
+;	.line	230; "main.c"	int_error_cnt = 0;
 	BANKSEL	_int_error_cnt
 	CLRF	_int_error_cnt
 ;;unsigned compare: left < lit(0x13=19), size=1
-;	.line	229; "main.c"	if(i >= 19){
+;	.line	231; "main.c"	if(i >= 19){
 	MOVLW	0x13
 	BANKSEL	r0x1036
 	SUBWF	r0x1036,W
 	BTFSS	STATUS,0
 	GOTO	_00179_DS_
-;;genSkipc:3257: created from rifx:0x7fffe2536480
-;	.line	230; "main.c"	i = 0;
+;;genSkipc:3257: created from rifx:0x7ffefaaaf730
+;	.line	232; "main.c"	i = 0;
 	CLRF	r0x1036
 	GOTO	_00179_DS_
 	RETURN	
@@ -1386,20 +1346,20 @@ _00175_DS_:
 S_main__circBufPush	code
 _circBufPush:
 ; 2 exit points
-;	.line	235; "main.c"	int circBufPush(uint8_t data){
+;	.line	237; "main.c"	int circBufPush(uint8_t data){
 	BANKSEL	r0x1031
 	MOVWF	r0x1031
-;	.line	236; "main.c"	uint8_t next = buf_head + 1;
+;	.line	238; "main.c"	uint8_t next = buf_head + 1;
 	BANKSEL	_buf_head
 	INCF	_buf_head,W
 	BANKSEL	r0x1032
 	MOVWF	r0x1032
 ;;unsigned compare: left < lit(0x10=16), size=1
-;	.line	237; "main.c"	if (next >= BUF_SIZE)
+;	.line	239; "main.c"	if (next >= BUF_SIZE)
 	MOVLW	0x10
-;	.line	238; "main.c"	next = 0;
+;	.line	240; "main.c"	next = 0;
 	SUBWF	r0x1032,W
-;	.line	241; "main.c"	if (next == buf_tail){
+;	.line	243; "main.c"	if (next == buf_tail){
 	BTFSC	STATUS,0
 	CLRF	r0x1032
 	BANKSEL	_buf_tail
@@ -1408,7 +1368,7 @@ _circBufPush:
 	XORWF	r0x1032,W
 	BTFSS	STATUS,2
 	GOTO	_00297_DS_
-;	.line	242; "main.c"	SP_send(buf_err);
+;	.line	244; "main.c"	SP_send(buf_err);
 	MOVLW	high (_buf_err + 0)
 	MOVWF	r0x1033
 	MOVLW	(_buf_err + 0)
@@ -1423,13 +1383,13 @@ _circBufPush:
 	PAGESEL	_SP_send
 	CALL	_SP_send
 	PAGESEL	$
-;	.line	243; "main.c"	return -1;  // quit with an error
+;	.line	245; "main.c"	return -1;  // quit with an error
 	MOVLW	0xff
 	MOVWF	STK00
 	MOVLW	0xff
 	GOTO	_00298_DS_
 _00297_DS_:
-;	.line	246; "main.c"	buf[buf_head] = data;
+;	.line	248; "main.c"	buf[buf_head] = data;
 	BANKSEL	_buf_head
 	MOVF	_buf_head,W
 	ADDLW	(_buf + 0)
@@ -1449,15 +1409,15 @@ _00297_DS_:
 	MOVF	r0x1031,W
 	BANKSEL	INDF
 	MOVWF	INDF
-;	.line	247; "main.c"	buf_head = next;
+;	.line	249; "main.c"	buf_head = next;
 	BANKSEL	r0x1032
 	MOVF	r0x1032,W
 	BANKSEL	_buf_head
 	MOVWF	_buf_head
-;	.line	248; "main.c"	TXIE = 1;       //Enables the EUSART transmit interrupt
+;	.line	250; "main.c"	TXIE = 1;       //Enables the EUSART transmit interrupt
 	BANKSEL	_PIE1bits
 	BSF	_PIE1bits,4
-;	.line	249; "main.c"	return 0;
+;	.line	251; "main.c"	return 0;
 	MOVLW	0x00
 	MOVWF	STK00
 	MOVLW	0x00
@@ -1467,6 +1427,6 @@ _00298_DS_:
 
 
 ;	code size estimation:
-;	  542+  147 =   689 instructions ( 1672 byte)
+;	  517+  141 =   658 instructions ( 1598 byte)
 
 	end

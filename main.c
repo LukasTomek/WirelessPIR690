@@ -216,11 +216,11 @@ int main(void) {
 						TMR0 = 0;	// Enable timer
 						T0IE = 1;
 					}
-                    SP_send_buf(stri);
-                    uint8_to_ascii_buf(i);
-                    SP_send_buf(enter);
-                    i = 0;
-                    j = 0;
+//                    SP_send_buf(stri);
+//                    uint8_to_ascii_buf(i);
+//                    SP_send_buf(enter);
+//                    i = 0;
+//                    j = 0;
 					
             }
             t1 = t;
