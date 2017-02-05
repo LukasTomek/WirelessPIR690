@@ -2,3 +2,7 @@
 *.lst
 *.cof
 *.cod
+*.b#*
+*.s#*
+**/debug
+
