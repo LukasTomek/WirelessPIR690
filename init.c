@@ -5,22 +5,36 @@
 void init() {
 
 //    LEDG_TRIS = 0;
-    ADC2_TRIS = 1;
+    ADC11_TRIS = 1;
+    ADC10_TRIS = 1;
+	ADC9_TRIS = 1;
+    ADC8_TRIS = 1;
+	ADC7_TRIS = 1;
+    ADC6_TRIS = 1;
+	ADC5_TRIS = 1;
     ADC4_TRIS = 1;
-
+	ADC3_TRIS = 1;
+    ADC2_TRIS = 1;
+    ADC1_TRIS = 1;
+    ADC0_TRIS = 1;
+	
     RCIN_TRIS=1;            //Input
     
     TX_TRIS=0;               // These need to be 0 for USART to work
     RX_TRIS=1;               // These need to be 1 for USART to work
     ADCON1=0x50;             //ADC Settings
-    ANS11=0;                 // Turn off Analog input it necessary to function serial port RX
-    ANS10=0;
-    ANS7=0;
-    ANS8=0;
-    ANS9=0;
-    ANS4=0;
-    ANS2=1;                      //Zapnuti Analogovych vstupu
-    ANS3=1;
+    ANS11=1;                 // Turn off Analog input it necessary to function serial port RX
+    ANS10=1;
+	ANS9=1;
+	ANS8=1;
+    ANS7=1;
+    ANS6=1;
+    ANS5=1;
+    ANS4=1;
+    ANS3=1;                      //Zapnuti Analogovych vstupu
+    ANS2=1;
+	ANS1=1;
+	ANS0=1;
 
     OUT_TRIS=0;             //Output
     

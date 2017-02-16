@@ -9,6 +9,8 @@
 #include "main.h"
 #include "init.h"
 #include "str.h"
+#include "adc.h"
+
 
 #define MIN_W0      380
 #define MAX_W0      450
@@ -164,9 +166,13 @@ int main(void) {
     uint8_t j = 0;
     uint8_t k = 0;
     uint8_t temp = 0;
+	uint16_t result = 0;
     init();
     bitfield.Hint = FALSE;
     bitfield.Capture = FALSE;
+	for(i = 0; i <= 11; i++){
+		result = ADC_read(i); // select chanel AN0 = 0
+	}
     while(1)
     {
         if (bitfield.Capture){

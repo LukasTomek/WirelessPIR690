@@ -13,10 +13,24 @@ extern "C" {
 #endif
     #define RCIN_TRIS   TRISC5              // Wireless input
     #define RCIN_PIN    RC5                 // Wireless input
+	
     #define TX_TRIS		TRISB7
     #define RX_TRIS		TRISB5
-    #define ADC2_TRIS	TRISA2
+	
+    #define ADC11_TRIS	TRISA2
+    #define ADC10_TRIS	TRISA2
+    #define ADC9_TRIS	TRISA4
+	#define ADC8_TRIS	TRISA2
+    #define ADC7_TRIS	TRISA4
+	#define ADC2_TRIS	TRISA2
+    #define ADC6_TRIS	TRISA4
+	#define ADC5_TRIS	TRISA2
     #define ADC4_TRIS	TRISA4
+	#define ADC3_TRIS	TRISA2
+    #define ADC2_TRIS	TRISA4
+	#define ADC1_TRIS	TRISA2
+    #define ADC0_TRIS	TRISA4
+	
     #define OUT_TRIS	TRISC0
     #define OUT_PIN     RC0
     //#define LEDG_TRIS	TRISB6
