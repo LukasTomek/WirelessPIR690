@@ -17,19 +17,18 @@ extern "C" {
     #define TX_TRIS		TRISB7
     #define RX_TRIS		TRISB5
 	
-    #define ADC11_TRIS	TRISA2
-    #define ADC10_TRIS	TRISA2
-    #define ADC9_TRIS	TRISA4
-	#define ADC8_TRIS	TRISA2
-    #define ADC7_TRIS	TRISA4
-	#define ADC2_TRIS	TRISA2
-    #define ADC6_TRIS	TRISA4
-	#define ADC5_TRIS	TRISA2
-    #define ADC4_TRIS	TRISA4
-	#define ADC3_TRIS	TRISA2
-    #define ADC2_TRIS	TRISA4
-	#define ADC1_TRIS	TRISA2
-    #define ADC0_TRIS	TRISA4
+    #define ADC11_TRIS	TRISB5
+    #define ADC10_TRIS	TRISB4
+    #define ADC9_TRIS	TRISC7
+	#define ADC8_TRIS	TRISC6
+    #define ADC7_TRIS	TRISC3
+    #define ADC6_TRIS	TRISC2
+	#define ADC5_TRIS	TRISC1
+    #define ADC4_TRIS	TRISC0
+	#define ADC3_TRIS	TRISA4
+    #define ADC2_TRIS	TRISA2
+	#define ADC1_TRIS	TRISA1
+    #define ADC0_TRIS	TRISA0
 	
     #define OUT_TRIS	TRISC0
     #define OUT_PIN     RC0

@@ -104,6 +104,7 @@ uint16_t t = 0;
 uint16_t w1 = 0;
 uint16_t t1 = 0;
 uint8_t RecAddress[20];
+uint8_t SetAddress[12];
 uint8_t buf[BUF_SIZE];
 uint8_t buf_head = 0;
 uint8_t buf_tail = 0;
@@ -172,6 +173,12 @@ int main(void) {
     bitfield.Capture = FALSE;
 	for(i = 0; i <= 11; i++){
 		result = ADC_read(i); // select chanel AN0 = 0
+		if(result > 10)
+			SetAddress[i] = BIT1;
+		if(result < 5)
+			SetAddress[i] = BIT0;
+		else
+			SetAddress[i] = BITF;
 	}
     while(1)
     {
