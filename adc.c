@@ -1,3 +1,6 @@
+#include <pic16f690.h>
+#include "adc.h"
+
 unsigned short ADC_read(int pin) // select chanel AN0 = 0
 {
 unsigned char x,y;
@@ -17,4 +20,12 @@ unsigned short z;
 		z=x<<8;
 		z=z|y;       //combined 10 bit number formation
 	return z;
+}
+
+void delay_ms(long ms)
+{
+    long i;
+    while (ms--)
+        for (i=0; i < 330; i++)
+            ;
 }

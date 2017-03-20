@@ -183,89 +183,117 @@ code_init	code
 S_init__init	code
 _init:
 ; 2 exit points
-;	.line	8; "init.c"	ADC2_TRIS = 1;
-	BANKSEL	_TRISAbits
-	BSF	_TRISAbits,2
-;	.line	9; "init.c"	ADC4_TRIS = 1;
-	BSF	_TRISAbits,4
-;	.line	11; "init.c"	RCIN_TRIS=1;            //Input
-	BSF	_TRISCbits,5
-;	.line	13; "init.c"	TX_TRIS=0;               // These need to be 0 for USART to work
-	BCF	_TRISBbits,7
-;	.line	14; "init.c"	RX_TRIS=1;               // These need to be 1 for USART to work
+;	.line	8; "init.c"	ADC11_TRIS = 1;
+	BANKSEL	_TRISBbits
 	BSF	_TRISBbits,5
-;	.line	15; "init.c"	ADCON1=0x50;             //ADC Settings
+;	.line	9; "init.c"	ADC10_TRIS = 1;
+	BSF	_TRISBbits,4
+;	.line	10; "init.c"	ADC9_TRIS = 1;
+	BSF	_TRISCbits,7
+;	.line	11; "init.c"	ADC8_TRIS = 1;
+	BSF	_TRISCbits,6
+;	.line	12; "init.c"	ADC7_TRIS = 1;
+	BSF	_TRISCbits,3
+;	.line	13; "init.c"	ADC6_TRIS = 1;
+	BSF	_TRISCbits,2
+;	.line	14; "init.c"	ADC5_TRIS = 1;
+	BSF	_TRISCbits,1
+;	.line	15; "init.c"	ADC4_TRIS = 1;
+	BSF	_TRISCbits,0
+;	.line	16; "init.c"	ADC3_TRIS = 1;
+	BSF	_TRISAbits,4
+;	.line	17; "init.c"	ADC2_TRIS = 1;
+	BSF	_TRISAbits,2
+;	.line	18; "init.c"	ADC1_TRIS = 1;
+	BSF	_TRISAbits,1
+;	.line	19; "init.c"	ADC0_TRIS = 1;
+	BSF	_TRISAbits,0
+;	.line	21; "init.c"	RCIN_TRIS=1;            //Input
+	BSF	_TRISCbits,5
+;	.line	23; "init.c"	TX_TRIS=0;               // These need to be 0 for USART to work
+	BCF	_TRISBbits,7
+;	.line	24; "init.c"	RX_TRIS=1;               // These need to be 1 for USART to work
+	BSF	_TRISBbits,5
+;	.line	25; "init.c"	ADCON1=0x50;             //ADC Settings
 	MOVLW	0x50
 	MOVWF	_ADCON1
-;	.line	16; "init.c"	ANS11=0;                 // Turn off Analog input it necessary to function serial port RX
+;	.line	26; "init.c"	ANS11=1;                 // Turn off Analog input it necessary to function serial port RX
 	BANKSEL	_ANSELHbits
-	BCF	_ANSELHbits,3
-;	.line	17; "init.c"	ANS10=0;
-	BCF	_ANSELHbits,2
-;	.line	18; "init.c"	ANS7=0;
-	BCF	_ANSELbits,7
-;	.line	19; "init.c"	ANS8=0;
-	BCF	_ANSELHbits,0
-;	.line	20; "init.c"	ANS9=0;
-	BCF	_ANSELHbits,1
-;	.line	21; "init.c"	ANS4=0;
-	BCF	_ANSELbits,4
-;	.line	22; "init.c"	ANS2=1;                      //Zapnuti Analogovych vstupu
-	BSF	_ANSELbits,2
-;	.line	23; "init.c"	ANS3=1;
+	BSF	_ANSELHbits,3
+;	.line	27; "init.c"	ANS10=1;
+	BSF	_ANSELHbits,2
+;	.line	28; "init.c"	ANS9=1;
+	BSF	_ANSELHbits,1
+;	.line	29; "init.c"	ANS8=1;
+	BSF	_ANSELHbits,0
+;	.line	30; "init.c"	ANS7=1;
+	BSF	_ANSELbits,7
+;	.line	31; "init.c"	ANS6=1;
+	BSF	_ANSELbits,6
+;	.line	32; "init.c"	ANS5=1;
+	BSF	_ANSELbits,5
+;	.line	33; "init.c"	ANS4=1;
+	BSF	_ANSELbits,4
+;	.line	34; "init.c"	ANS3=1;                      //Zapnuti Analogovych vstupu
 	BSF	_ANSELbits,3
-;	.line	25; "init.c"	OUT_TRIS=0;             //Output
-	BANKSEL	_TRISCbits
-	BCF	_TRISCbits,0
-;	.line	29; "init.c"	SPBRG=8;                // Baud Rate
+;	.line	35; "init.c"	ANS2=1;
+	BSF	_ANSELbits,2
+;	.line	36; "init.c"	ANS1=1;
+	BSF	_ANSELbits,1
+;	.line	37; "init.c"	ANS0=1;
+	BSF	_ANSELbits,0
+;	.line	39; "init.c"	OUT_TRIS=0;             //Output
+	BANKSEL	_TRISBbits
+	BCF	_TRISBbits,6
+;	.line	43; "init.c"	SPBRG=8;                // Baud Rate
 	MOVLW	0x08
 	MOVWF	_SPBRG
-;	.line	30; "init.c"	BRGH=1;                 // 115.2k
+;	.line	44; "init.c"	BRGH=1;                 // 115.2k
 	BSF	_TXSTAbits,2
-;	.line	31; "init.c"	BRG16=1;
+;	.line	45; "init.c"	BRG16=1;
 	BSF	_BAUDCTLbits,3
-;	.line	33; "init.c"	TXEN=1;			// Enable transmission mode
+;	.line	47; "init.c"	TXEN=1;			// Enable transmission mode
 	BSF	_TXSTAbits,5
-;	.line	34; "init.c"	SYNC=0;			// Disable Synchronous/Enable Asynchronous
+;	.line	48; "init.c"	SYNC=0;			// Disable Synchronous/Enable Asynchronous
 	BCF	_TXSTAbits,4
-;	.line	35; "init.c"	SPEN=1;			// Enable serial port
+;	.line	49; "init.c"	SPEN=1;			// Enable serial port
 	BANKSEL	_RCSTAbits
 	BSF	_RCSTAbits,7
-;	.line	57; "init.c"	T0CS = 0;	// Clear to enable timer mode.
+;	.line	71; "init.c"	T0CS = 0;	// Clear to enable timer mode.
 	BANKSEL	_OPTION_REGbits
 	BCF	_OPTION_REGbits,5
-;	.line	58; "init.c"	PSA = 0;	// Clear to assign prescaler to Timer 0.
+;	.line	72; "init.c"	PSA = 0;	// Clear to assign prescaler to Timer 0.
 	BCF	_OPTION_REGbits,3
-;	.line	59; "init.c"	PS2 = 1;	// Set up prescaler to 1:1.
+;	.line	73; "init.c"	PS2 = 1;	// Set up prescaler to 1:1.
 	BSF	_OPTION_REGbits,2
-;	.line	60; "init.c"	PS1 = 1;
+;	.line	74; "init.c"	PS1 = 1;
 	BSF	_OPTION_REGbits,1
-;	.line	61; "init.c"	PS0 = 0;
+;	.line	75; "init.c"	PS0 = 0;
 	BCF	_OPTION_REGbits,0
-;	.line	80; "init.c"	T1CON = 0;  // TIMER1 presccaler 1
+;	.line	94; "init.c"	T1CON = 0;  // TIMER1 presccaler 1
 	BANKSEL	_T1CON
 	CLRF	_T1CON
-;	.line	87; "init.c"	CCP1CON = 5; 
+;	.line	101; "init.c"	CCP1CON = 5; 
 	MOVLW	0x05
 	MOVWF	_CCP1CON
-;	.line	88; "init.c"	CCP1IE = 0;     // ENHANCED CAPTURE MODULE Interrupt Disabled
+;	.line	102; "init.c"	CCP1IE = 0;     // ENHANCED CAPTURE MODULE Interrupt Disabled
 	BANKSEL	_PIE1bits
 	BCF	_PIE1bits,2
-;	.line	89; "init.c"	CCP1IF = 0;
+;	.line	103; "init.c"	CCP1IF = 0;
 	BANKSEL	_PIR1bits
 	BCF	_PIR1bits,2
-;	.line	97; "init.c"	PEIE = 1;       // Enable peripheral interrupts.
+;	.line	111; "init.c"	PEIE = 1;       // Enable peripheral interrupts.
 	BSF	_INTCONbits,6
-;	.line	98; "init.c"	GIE = 1;	// Enable all interrupts.
+;	.line	112; "init.c"	GIE = 1;	// Enable all interrupts.
 	BSF	_INTCONbits,7
-;	.line	101; "init.c"	TMR1H = 0;
+;	.line	115; "init.c"	TMR1H = 0;
 	CLRF	_TMR1H
-;	.line	102; "init.c"	TMR1L = 0;
+;	.line	116; "init.c"	TMR1L = 0;
 	CLRF	_TMR1L
-;	.line	103; "init.c"	CCP1IE = 1;
+;	.line	117; "init.c"	CCP1IE = 1;
 	BANKSEL	_PIE1bits
 	BSF	_PIE1bits,2
-;	.line	104; "init.c"	TMR1ON = 1;
+;	.line	118; "init.c"	TMR1ON = 1;
 	BANKSEL	_T1CONbits
 	BSF	_T1CONbits,0
 	RETURN	
@@ -273,6 +301,6 @@ _init:
 
 
 ;	code size estimation:
-;	   40+   10 =    50 instructions (  120 byte)
+;	   54+   10 =    64 instructions (  148 byte)
 
 	end

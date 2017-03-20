@@ -2,7 +2,7 @@
 #include <stdint.h>
 #include "str.h"
 #include "main.h"
-/*
+
 void dec_to_ascii_buf(unsigned short dec)
 {
 	unsigned char number[5];
@@ -20,7 +20,8 @@ void dec_to_ascii_buf(unsigned short dec)
 //        TXREG = number[i];	// Add a character to the output buffer
 		//while(!TXIF);       // Wait while the output buffer is full
 	}
-}*/
+}
+/*
 void uint8_to_ascii_buf(uint8_t dec)
 {
 	uint8_t number[4];
@@ -39,7 +40,7 @@ void uint8_to_ascii_buf(uint8_t dec)
 //		while(!TXIF);       // Wait while the output buffer is full
 	}
 }
-
+*/
 void SP_send_buf(char str[]){
 	uint8_t i;
 	for(i=0; str[i] != '\0'; i++)

@@ -51,17 +51,17 @@ OBJECTDIR=build/${CND_CONF}/${IMAGE_TYPE}
 DISTDIR=dist/${CND_CONF}/${IMAGE_TYPE}
 
 # Source Files Quoted if spaced
-SOURCEFILES_QUOTED_IF_SPACED=main.c init.c str.c
+SOURCEFILES_QUOTED_IF_SPACED=main.c init.c str.c adc.c
 
 # Object Files Quoted if spaced
-OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/main.o ${OBJECTDIR}/init.o ${OBJECTDIR}/str.o
-POSSIBLE_DEPFILES=${OBJECTDIR}/main.o.d ${OBJECTDIR}/init.o.d ${OBJECTDIR}/str.o.d
+OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/main.o ${OBJECTDIR}/init.o ${OBJECTDIR}/str.o ${OBJECTDIR}/adc.o
+POSSIBLE_DEPFILES=${OBJECTDIR}/main.o.d ${OBJECTDIR}/init.o.d ${OBJECTDIR}/str.o.d ${OBJECTDIR}/adc.o.d
 
 # Object Files
-OBJECTFILES=${OBJECTDIR}/main.o ${OBJECTDIR}/init.o ${OBJECTDIR}/str.o
+OBJECTFILES=${OBJECTDIR}/main.o ${OBJECTDIR}/init.o ${OBJECTDIR}/str.o ${OBJECTDIR}/adc.o
 
 # Source Files
-SOURCEFILES=main.c init.c str.c
+SOURCEFILES=main.c init.c str.c adc.c
 
 
 CFLAGS=
@@ -101,6 +101,11 @@ ${OBJECTDIR}/str.o: str.c  nbproject/Makefile-${CND_CONF}.mk
 	${RM} ${OBJECTDIR}/str.o 
 	${MP_CC} --use-non-free -c -mpic14 -p16f690 str.c  -o${OBJECTDIR}/str.o
 	
+${OBJECTDIR}/adc.o: adc.c  nbproject/Makefile-${CND_CONF}.mk
+	${MKDIR} ${OBJECTDIR} 
+	${RM} ${OBJECTDIR}/adc.o 
+	${MP_CC} --use-non-free -c -mpic14 -p16f690 adc.c  -o${OBJECTDIR}/adc.o
+	
 else
 ${OBJECTDIR}/main.o: main.c  nbproject/Makefile-${CND_CONF}.mk
 	${MKDIR} ${OBJECTDIR} 
@@ -116,6 +121,11 @@ ${OBJECTDIR}/str.o: str.c  nbproject/Makefile-${CND_CONF}.mk
 	${MKDIR} ${OBJECTDIR} 
 	${RM} ${OBJECTDIR}/str.o 
 	${MP_CC} --use-non-free -c -mpic14 -p16f690 str.c  -o${OBJECTDIR}/str.o
+	
+${OBJECTDIR}/adc.o: adc.c  nbproject/Makefile-${CND_CONF}.mk
+	${MKDIR} ${OBJECTDIR} 
+	${RM} ${OBJECTDIR}/adc.o 
+	${MP_CC} --use-non-free -c -mpic14 -p16f690 adc.c  -o${OBJECTDIR}/adc.o
 	
 endif
 

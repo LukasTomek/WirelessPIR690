@@ -30,8 +30,8 @@ extern "C" {
 	#define ADC1_TRIS	TRISA1
     #define ADC0_TRIS	TRISA0
 	
-    #define OUT_TRIS	TRISC0
-    #define OUT_PIN     RC0
+    #define OUT_TRIS	TRISB6
+    #define OUT_PIN     RB6
     //#define LEDG_TRIS	TRISB6
     //#define LEDG_PIN	RB6
     //#define LEDR_TRIS	TRISA2

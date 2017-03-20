@@ -58,7 +58,7 @@ typedef enum {
     ERR,
     BIT0,
     BIT1,
-    BIT_F
+    BITF
 } AddressPIR;
 
 struct {
@@ -85,6 +85,7 @@ const char strt[]={'t', ':', ' ' ,'\0'};
 const char strw1[]={'w', '1', ':', ' ' ,'\0'};
 const char strt1[]={'t', '1', ':', ' ' ,'\0'};
 const char tab[]={'\t' ,'\0'};
+const char space[]={' ' ,'\0'};
 const char enter[]={'\n' ,'\0'};
 const char sync[]={'S', 'Y', 'N', 'C', '\n' ,'\0'};
 const char int_err[]={'I', 'N', 'T', ' ', 'E', 'R', 'R', '\n' ,'\0'};
@@ -96,9 +97,9 @@ const char pie1[]={'P', 'I', 'E', '1', ':', ' ','\0'};
 const char pie2[]={'P', 'I', 'E', '2', ':', ' ','\0'};
 const char light[]={'L', 'I', 'g', 'h', 't', '\n','\0'};
 const char tim0_owf[]={'T', 'I', 'M', '0', ' ', 'O', 'W', 'F', '\n' ,'\0'};
-
+/*
 const uint8_t SetAddress[] = { BIT_F, BIT_F, BIT_F, BIT_F, BIT_F, BIT_F,
-                                BIT_F, BIT_F, BIT_F, BIT_F, BIT_F, BIT_F };
+                                BIT_F, BIT_F, BIT_F, BIT_F, BIT_F, BIT_F };*/
 uint16_t w = 0;
 uint16_t t = 0;
 uint16_t w1 = 0;
@@ -172,40 +173,63 @@ int main(void) {
     bitfield.Hint = FALSE;
     bitfield.Capture = FALSE;
 	for(i = 0; i <= 11; i++){
+        
 		result = ADC_read(i); // select chanel AN0 = 0
-		if(result > 10)
+        SP_send_buf(stri);
+        dec_to_ascii_buf(i);
+        SP_send_buf(space);
+        dec_to_ascii_buf(result);
+        SP_send_buf(enter);
+
+		if(result > 500)
 			SetAddress[i] = BIT1;
-		if(result < 5)
+        else if(result < 300)
 			SetAddress[i] = BIT0;
 		else
 			SetAddress[i] = BITF;
 	}
+    delay_ms(10);
+    for(i = 0; i <= 11; i++){
+        SP_send_buf(stri);
+        dec_to_ascii_buf(i);
+        SP_send_buf(space);
+        dec_to_ascii_buf(SetAddress[i]);
+        SP_send_buf(enter);
+    }
+    delay_ms(10);
+    for(i = 0; i <= 11; i++){
+        SP_send_buf(stri);
+        dec_to_ascii_buf(i);
+        SP_send_buf(space);
+        dec_to_ascii_buf(SetAddress[i]);
+        SP_send_buf(enter);
+    }
     while(1)
     {
         if (bitfield.Capture){
             bitfield.Capture = FALSE;
             if (t > MIN_T && t < MAX_T && t1 > MIN_T && t1 < MAX_T){
                 if (w > MIN_W1 && w < MAX_W1 && w1 > MIN_W1 && w1 < MAX_W1){
-                    SP_send_buf(strV1);
+//                    SP_send_buf(strV1);
 					RecAddress[i] = BIT1;
                     t = 0;
                     w = 0;
                     i++;
                 }
                 if (w > MIN_W0 && w < MAX_W0 && w1 > MIN_W0 && w1 < MAX_W0){
-                    SP_send_buf(strV0);
+//                    SP_send_buf(strV0);
 					RecAddress[i] = BIT0;
                     t = 0;
                     w = 0;
                     i++;
                 }
                 if (w1 > MIN_W0 && w1 < MAX_W0 && w > MIN_W1 && w < MAX_W1){
-                    SP_send_buf(strVF);
-					RecAddress[i] = BIT_F;
+//                    SP_send_buf(strVF);
+					RecAddress[i] = BITF;
                     t = 0;
                     w = 0;
                     i++;
-                }              
+                }
             }
             if (t > MIN_TS && t < MAX_TS && w > MIN_W0 && w < MAX_W0){
                     SP_send_buf(sync);
@@ -215,7 +239,7 @@ int main(void) {
                     i--;
                     GIE = 0; //not tested
                     for(j = 11; j != 0; j--){
-                         
+                        
                         if (RecAddress[i] != SetAddress[j]){
                             temp = 0;
                         }
