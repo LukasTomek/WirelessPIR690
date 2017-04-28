@@ -243,8 +243,8 @@ _init:
 ;	.line	37; "init.c"	ANS0=1;
 	BSF	_ANSELbits,0
 ;	.line	39; "init.c"	OUT_TRIS=0;             //Output
-	BANKSEL	_TRISCbits
-	BCF	_TRISCbits,0
+	BANKSEL	_TRISBbits
+	BCF	_TRISBbits,6
 ;	.line	43; "init.c"	SPBRG=8;                // Baud Rate
 	MOVLW	0x08
 	MOVWF	_SPBRG

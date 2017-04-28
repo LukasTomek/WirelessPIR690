@@ -12,6 +12,8 @@
 ; external declarations
 ;--------------------------------------------------------
 	extern	_circBufPush
+	extern	__moduint
+	extern	__divuint
 	extern	_STATUSbits
 	extern	_PORTAbits
 	extern	_PORTBbits
@@ -133,8 +135,6 @@
 	extern	_EECON2
 	extern	_PSTRCON
 	extern	_SRCON
-	extern	__moduchar
-	extern	__divuchar
 	extern	__gptrget1
 
 	extern PSAVE
@@ -159,7 +159,7 @@
 	global	_uint8_send
 	global	_SP_send
 	global	_SP_send_buf
-	global	_uint8_to_ascii_buf
+	global	_dec_to_ascii_buf
 
 ;--------------------------------------------------------
 ; global definitions
@@ -171,28 +171,29 @@
 ; compiler-defined variables
 ;--------------------------------------------------------
 UDL_str_0	udata
-r0x1014	res	1
-r0x1015	res	1
 r0x1016	res	1
+r0x1015	res	1
 r0x1017	res	1
 r0x1018	res	1
+r0x1019	res	1
+r0x101C	res	1
+r0x100F	res	1
 r0x100E	res	1
 r0x100D	res	1
-r0x100C	res	1
-r0x100F	res	1
 r0x1010	res	1
 r0x1011	res	1
 r0x1012	res	1
 r0x1013	res	1
+r0x1014	res	1
+r0x1007	res	1
 r0x1006	res	1
 r0x1005	res	1
-r0x1004	res	1
-r0x1007	res	1
 r0x1008	res	1
 r0x1009	res	1
 r0x100A	res	1
 r0x100B	res	1
-_uint8_to_ascii_buf_number_1_7	res	4
+r0x100C	res	1
+_dec_to_ascii_buf_number_1_7	res	5
 ;--------------------------------------------------------
 ; initialized data
 ;--------------------------------------------------------
@@ -212,11 +213,11 @@ code_str	code
 S_str__uint8_send	code
 _uint8_send:
 ; 2 exit points
-;	.line	61; "str.c"	void uint8_send(uint8_t uint){
+;	.line	62; "str.c"	void uint8_send(uint8_t uint){
 	BANKSEL	_TXREG
 	MOVWF	_TXREG
 _00144_DS_:
-;	.line	63; "str.c"	while(!TXIF);	// Wait while the output buffer is full
+;	.line	64; "str.c"	while(!TXIF);	// Wait while the output buffer is full
 	BANKSEL	_PIR1bits
 	BTFSS	_PIR1bits,4
 	GOTO	_00144_DS_
@@ -231,67 +232,67 @@ _00144_DS_:
 ;   __gptrget1
 ;   __gptrget1
 ;10 compiler assigned registers:
-;   r0x1004
-;   STK00
 ;   r0x1005
-;   STK01
+;   STK00
 ;   r0x1006
+;   STK01
 ;   r0x1007
 ;   r0x1008
 ;   r0x1009
 ;   r0x100A
 ;   r0x100B
+;   r0x100C
 ;; Starting pCode block
 S_str__SP_send	code
 _SP_send:
 ; 2 exit points
-;	.line	51; "str.c"	void SP_send(char str[])
-	BANKSEL	r0x1004
-	MOVWF	r0x1004
-	MOVF	STK00,W
+;	.line	52; "str.c"	void SP_send(char str[])
+	BANKSEL	r0x1005
 	MOVWF	r0x1005
-	MOVF	STK01,W
+	MOVF	STK00,W
 	MOVWF	r0x1006
-;	.line	54; "str.c"	for(i=0; str[i] != '\0'; i++)
-	CLRF	r0x1007
+	MOVF	STK01,W
+	MOVWF	r0x1007
+;	.line	55; "str.c"	for(i=0; str[i] != '\0'; i++)
+	CLRF	r0x1008
 _00137_DS_:
-	BANKSEL	r0x1007
-	MOVF	r0x1007,W
-	ADDWF	r0x1006,W
-	MOVWF	r0x1008
-	MOVF	r0x1005,W
-	BTFSC	STATUS,0
-	ADDLW	0x01
+	BANKSEL	r0x1008
+	MOVF	r0x1008,W
+	ADDWF	r0x1007,W
 	MOVWF	r0x1009
-	MOVF	r0x1004,W
+	MOVF	r0x1006,W
 	BTFSC	STATUS,0
 	ADDLW	0x01
 	MOVWF	r0x100A
-	MOVF	r0x1008,W
-	MOVWF	STK01
+	MOVF	r0x1005,W
+	BTFSC	STATUS,0
+	ADDLW	0x01
+	MOVWF	r0x100B
 	MOVF	r0x1009,W
-	MOVWF	STK00
+	MOVWF	STK01
 	MOVF	r0x100A,W
+	MOVWF	STK00
+	MOVF	r0x100B,W
 	PAGESEL	__gptrget1
 	CALL	__gptrget1
 	PAGESEL	$
-	BANKSEL	r0x100B
-	MOVWF	r0x100B
-	MOVF	r0x100B,W
+	BANKSEL	r0x100C
+	MOVWF	r0x100C
+	MOVF	r0x100C,W
 	BTFSC	STATUS,2
 	GOTO	_00139_DS_
-;	.line	56; "str.c"	TXREG=str[i];	// Add a character to the output buffer
-	MOVF	r0x100B,W
+;	.line	57; "str.c"	TXREG=str[i];	// Add a character to the output buffer
+	MOVF	r0x100C,W
 	BANKSEL	_TXREG
 	MOVWF	_TXREG
 _00132_DS_:
-;	.line	57; "str.c"	while(!TXIF);	// Wait while the output buffer is full
+;	.line	58; "str.c"	while(!TXIF);	// Wait while the output buffer is full
 	BANKSEL	_PIR1bits
 	BTFSS	_PIR1bits,4
 	GOTO	_00132_DS_
-;	.line	54; "str.c"	for(i=0; str[i] != '\0'; i++)
-	BANKSEL	r0x1007
-	INCF	r0x1007,F
+;	.line	55; "str.c"	for(i=0; str[i] != '\0'; i++)
+	BANKSEL	r0x1008
+	INCF	r0x1008,F
 	GOTO	_00137_DS_
 _00139_DS_:
 	RETURN	
@@ -307,63 +308,63 @@ _00139_DS_:
 ;   __gptrget1
 ;   _circBufPush
 ;10 compiler assigned registers:
-;   r0x100C
-;   STK00
 ;   r0x100D
-;   STK01
+;   STK00
 ;   r0x100E
+;   STK01
 ;   r0x100F
 ;   r0x1010
 ;   r0x1011
 ;   r0x1012
 ;   r0x1013
+;   r0x1014
 ;; Starting pCode block
 S_str__SP_send_buf	code
 _SP_send_buf:
 ; 2 exit points
-;	.line	43; "str.c"	void SP_send_buf(char str[]){
-	BANKSEL	r0x100C
-	MOVWF	r0x100C
-	MOVF	STK00,W
+;	.line	44; "str.c"	void SP_send_buf(char str[]){
+	BANKSEL	r0x100D
 	MOVWF	r0x100D
-	MOVF	STK01,W
+	MOVF	STK00,W
 	MOVWF	r0x100E
-;	.line	45; "str.c"	for(i=0; str[i] != '\0'; i++)
-	CLRF	r0x100F
+	MOVF	STK01,W
+	MOVWF	r0x100F
+;	.line	46; "str.c"	for(i=0; str[i] != '\0'; i++)
+	CLRF	r0x1010
 _00125_DS_:
-	BANKSEL	r0x100F
-	MOVF	r0x100F,W
-	ADDWF	r0x100E,W
-	MOVWF	r0x1010
-	MOVF	r0x100D,W
-	BTFSC	STATUS,0
-	ADDLW	0x01
+	BANKSEL	r0x1010
+	MOVF	r0x1010,W
+	ADDWF	r0x100F,W
 	MOVWF	r0x1011
-	MOVF	r0x100C,W
+	MOVF	r0x100E,W
 	BTFSC	STATUS,0
 	ADDLW	0x01
 	MOVWF	r0x1012
-	MOVF	r0x1010,W
-	MOVWF	STK01
+	MOVF	r0x100D,W
+	BTFSC	STATUS,0
+	ADDLW	0x01
+	MOVWF	r0x1013
 	MOVF	r0x1011,W
-	MOVWF	STK00
+	MOVWF	STK01
 	MOVF	r0x1012,W
+	MOVWF	STK00
+	MOVF	r0x1013,W
 	PAGESEL	__gptrget1
 	CALL	__gptrget1
 	PAGESEL	$
-	BANKSEL	r0x1013
-	MOVWF	r0x1013
-	MOVF	r0x1013,W
+	BANKSEL	r0x1014
+	MOVWF	r0x1014
+	MOVF	r0x1014,W
 	BTFSC	STATUS,2
 	GOTO	_00127_DS_
-;	.line	47; "str.c"	circBufPush(str[i]);
-	MOVF	r0x1013,W
+;	.line	48; "str.c"	circBufPush(str[i]);
+	MOVF	r0x1014,W
 	PAGESEL	_circBufPush
 	CALL	_circBufPush
 	PAGESEL	$
-;	.line	45; "str.c"	for(i=0; str[i] != '\0'; i++)
-	BANKSEL	r0x100F
-	INCF	r0x100F,F
+;	.line	46; "str.c"	for(i=0; str[i] != '\0'; i++)
+	BANKSEL	r0x1010
+	INCF	r0x1010,F
 	GOTO	_00125_DS_
 _00127_DS_:
 	RETURN	
@@ -374,134 +375,154 @@ _00127_DS_:
 ;***
 ;has an exit
 ;functions called:
-;   __moduchar
-;   __divuchar
+;   __moduint
+;   __divuint
 ;   _circBufPush
-;   __moduchar
-;   __divuchar
+;   __moduint
+;   __divuint
 ;   _circBufPush
-;6 compiler assigned registers:
-;   r0x1014
+;11 compiler assigned registers:
 ;   r0x1015
+;   STK00
 ;   r0x1016
 ;   r0x1017
-;   STK00
 ;   r0x1018
+;   r0x1019
+;   STK02
+;   STK01
+;   r0x101A
+;   r0x101B
+;   r0x101C
 ;; Starting pCode block
-S_str__uint8_to_ascii_buf	code
-_uint8_to_ascii_buf:
+S_str__dec_to_ascii_buf	code
+_dec_to_ascii_buf:
 ; 2 exit points
-;	.line	24; "str.c"	void uint8_to_ascii_buf(uint8_t dec)
-	BANKSEL	r0x1014
-	MOVWF	r0x1014
-;	.line	29; "str.c"	for (i=0 ; dec != 0  || i == 0; i++)
-	CLRF	r0x1015
+;	.line	6; "str.c"	void dec_to_ascii_buf(unsigned short dec)
+	BANKSEL	r0x1015
+	MOVWF	r0x1015
+	MOVF	STK00,W
+	MOVWF	r0x1016
+;	.line	11; "str.c"	for (i=0 ; dec!=0 || i == 0; i++)
+	CLRF	r0x1017
 _00111_DS_:
-	MOVLW	0x00
-	BANKSEL	r0x1014
-	IORWF	r0x1014,W
+	BANKSEL	r0x1016
+	MOVF	r0x1016,W
+	IORWF	r0x1015,W
 	BTFSS	STATUS,2
 	GOTO	_00110_DS_
-	MOVF	r0x1015,W
+	MOVF	r0x1017,W
 	BTFSS	STATUS,2
 	GOTO	_00118_DS_
 _00110_DS_:
-;	.line	31; "str.c"	number[i] = (dec % 10);
-	BANKSEL	r0x1015
-	MOVF	r0x1015,W
-	ADDLW	(_uint8_to_ascii_buf_number_1_7 + 0)
-	MOVWF	r0x1016
-	MOVLW	high (_uint8_to_ascii_buf_number_1_7 + 0)
+;	.line	13; "str.c"	number[i] = (dec % 10);
+	BANKSEL	r0x1017
+	MOVF	r0x1017,W
+	ADDLW	(_dec_to_ascii_buf_number_1_7 + 0)
+	MOVWF	r0x1018
+	MOVLW	high (_dec_to_ascii_buf_number_1_7 + 0)
 	BTFSC	STATUS,0
 	ADDLW	0x01
-	MOVWF	r0x1017
+	MOVWF	r0x1019
 	MOVLW	0x0a
-	MOVWF	STK00
-	MOVF	r0x1014,W
-	PAGESEL	__moduchar
-	CALL	__moduchar
-	PAGESEL	$
-	BANKSEL	r0x1018
-	MOVWF	r0x1018
+	MOVWF	STK02
+	MOVLW	0x00
+	MOVWF	STK01
 	MOVF	r0x1016,W
+	MOVWF	STK00
+	MOVF	r0x1015,W
+	PAGESEL	__moduint
+	CALL	__moduint
+	PAGESEL	$
+;;1	MOVWF	r0x101A
+	MOVF	STK00,W
+;;1	MOVWF	r0x101B
+	BANKSEL	r0x101C
+	MOVWF	r0x101C
+	MOVF	r0x1018,W
 	BANKSEL	FSR
 	MOVWF	FSR
 	BCF	STATUS,7
-	BANKSEL	r0x1017
-	BTFSC	r0x1017,0
+	BANKSEL	r0x1019
+	BTFSC	r0x1019,0
 	BSF	STATUS,7
-	MOVF	r0x1018,W
+	MOVF	r0x101C,W
 	BANKSEL	INDF
 	MOVWF	INDF
-;	.line	32; "str.c"	dec /= 10;
+;	.line	14; "str.c"	dec /= 10;
 	MOVLW	0x0a
-	MOVWF	STK00
-	BANKSEL	r0x1014
-	MOVF	r0x1014,W
-	PAGESEL	__divuchar
-	CALL	__divuchar
-	PAGESEL	$
-	BANKSEL	r0x1014
-	MOVWF	r0x1014
-;	.line	33; "str.c"	number[i] += 48;
-	MOVLW	0x30
-	ADDWF	r0x1018,F
+	MOVWF	STK02
+	MOVLW	0x00
+	MOVWF	STK01
+	BANKSEL	r0x1016
 	MOVF	r0x1016,W
-	BANKSEL	FSR
-	MOVWF	FSR
-	BCF	STATUS,7
-	BANKSEL	r0x1017
-	BTFSC	r0x1017,0
-	BSF	STATUS,7
-	MOVF	r0x1018,W
-	BANKSEL	INDF
-	MOVWF	INDF
-;	.line	29; "str.c"	for (i=0 ; dec != 0  || i == 0; i++)
+	MOVWF	STK00
+	MOVF	r0x1015,W
+	PAGESEL	__divuint
+	CALL	__divuint
+	PAGESEL	$
 	BANKSEL	r0x1015
-	INCF	r0x1015,F
+	MOVWF	r0x1015
+	MOVF	STK00,W
+	MOVWF	r0x1016
+;	.line	15; "str.c"	number[i] += 48;
+	MOVLW	0x30
+	ADDWF	r0x101C,F
+	MOVF	r0x1018,W
+	BANKSEL	FSR
+	MOVWF	FSR
+	BCF	STATUS,7
+	BANKSEL	r0x1019
+	BTFSC	r0x1019,0
+	BSF	STATUS,7
+	MOVF	r0x101C,W
+	BANKSEL	INDF
+	MOVWF	INDF
+;	.line	11; "str.c"	for (i=0 ; dec!=0 || i == 0; i++)
+	BANKSEL	r0x1017
+	INCF	r0x1017,F
 	GOTO	_00111_DS_
 _00118_DS_:
-;	.line	35; "str.c"	while (i--)
-	BANKSEL	r0x1015
-	MOVF	r0x1015,W
-	MOVWF	r0x1014
+;	.line	17; "str.c"	while (i--)
+	BANKSEL	r0x1017
+	MOVF	r0x1017,W
+	MOVWF	r0x1016
 _00106_DS_:
-	BANKSEL	r0x1014
-	MOVF	r0x1014,W
+	BANKSEL	r0x1016
+	MOVF	r0x1016,W
 	MOVWF	r0x1015
-	DECF	r0x1014,F
+	DECF	r0x1016,F
 	MOVF	r0x1015,W
 	BTFSC	STATUS,2
 	GOTO	_00113_DS_
-;	.line	37; "str.c"	circBufPush(number[i]);	// Add a character to the output buffer
-	MOVF	r0x1014,W
-	ADDLW	(_uint8_to_ascii_buf_number_1_7 + 0)
+;	.line	19; "str.c"	circBufPush(number[i]);	// Add a character to the output buffer
+	MOVF	r0x1016,W
+	ADDLW	(_dec_to_ascii_buf_number_1_7 + 0)
 	MOVWF	r0x1015
-	MOVLW	high (_uint8_to_ascii_buf_number_1_7 + 0)
+	MOVLW	high (_dec_to_ascii_buf_number_1_7 + 0)
 	BTFSC	STATUS,0
 	ADDLW	0x01
-	MOVWF	r0x1016
+	MOVWF	r0x1017
 	MOVF	r0x1015,W
 	BANKSEL	FSR
 	MOVWF	FSR
 	BCF	STATUS,7
-	BANKSEL	r0x1016
-	BTFSC	r0x1016,0
+	BANKSEL	r0x1017
+	BTFSC	r0x1017,0
 	BSF	STATUS,7
 	BANKSEL	INDF
 	MOVF	INDF,W
-	BANKSEL	r0x1017
-	MOVWF	r0x1017
+	BANKSEL	r0x1018
+	MOVWF	r0x1018
 	PAGESEL	_circBufPush
 	CALL	_circBufPush
 	PAGESEL	$
 	GOTO	_00106_DS_
 _00113_DS_:
 	RETURN	
-; exit point of _uint8_to_ascii_buf
+; exit point of _dec_to_ascii_buf
 
 
 ;	code size estimation:
-;	  139+   43 =   182 instructions (  450 byte)
+;	  152+   43 =   195 instructions (  476 byte)
 
 	end
