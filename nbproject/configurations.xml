@@ -9,6 +9,7 @@
       <itemPath>init.h</itemPath>
       <itemPath>main.h</itemPath>
       <itemPath>str.h</itemPath>
+      <itemPath>adc.h</itemPath>
     </logicalFolder>
     <logicalFolder name="LibraryFiles"
                    displayName="Library Files"
@@ -29,7 +30,7 @@
       <itemPath>temp.c</itemPath>
       <itemPath>init.c</itemPath>
       <itemPath>str.c</itemPath>
-      <itemPath>newmain.c</itemPath>
+      <itemPath>adc.c</itemPath>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"
@@ -160,10 +161,6 @@
         <property key="programoptions.uselvpprogramming" value="false"/>
         <property key="voltagevalue" value="5.0"/>
       </PICkit3PlatformTool>
-      <item path="newmain.c" ex="true" overriding="false">
-        <sdcc-config>
-        </sdcc-config>
-      </item>
       <sdcc-config>
         <property key="V-show-commands-compiler" value="false"/>
         <property key="Werror" value="false"/>

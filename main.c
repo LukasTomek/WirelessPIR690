@@ -97,8 +97,8 @@ const char pie2[]={'P', 'I', 'E', '2', ':', ' ','\0'};
 const char light[]={'L', 'I', 'g', 'h', 't', '\n','\0'};
 const char tim0_owf[]={'T', 'I', 'M', '0', ' ', 'O', 'W', 'F', '\n' ,'\0'};
 
-const uint8_t SetAddress[] = { BIT_F, BIT_F, BIT_F, BIT_F, BIT_F, BIT_F,
-                                BIT_F, BIT_F, BIT_F, BIT_F, BIT_F, BIT_F };
+//const uint8_t SetAddress[] = { BIT_F, BIT_F, BIT_F, BIT_F, BIT_F, BIT_F,
+//                                BIT_F, BIT_F, BIT_F, BIT_F, BIT_F, BIT_F };
 uint16_t w = 0;
 uint16_t t = 0;
 uint16_t w1 = 0;
@@ -178,7 +178,7 @@ int main(void) {
 		if(result < 5)
 			SetAddress[i] = BIT0;
 		else
-			SetAddress[i] = BITF;
+			SetAddress[i] = BIT_F;
 	}
     while(1)
     {

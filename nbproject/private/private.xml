@@ -8,11 +8,9 @@
             <file>file:/home/lukas/Projekty/MPLABXProjects/WirelessPIR690/str.c</file>
             <file>file:/home/lukas/Projekty/MPLABXProjects/WirelessPIR690/init.c</file>
             <file>file:/home/lukas/Projekty/MPLABXProjects/WirelessPIR690/main.c</file>
-            <file>file:/home/lukas/Projekty/MPLABXProjects/WirelessPIR690/init.h</file>
             <file>file:/home/lukas/Projekty/MPLABXProjects/WirelessPIR690/str.h</file>
-            <file>file:/home/lukas/Projekty/MPLABXProjects/WirelessPIR690/newmain.c</file>
-            <file>file:/usr/local/share/sdcc/include/stdint.h</file>
-            <file>file:/usr/local/share/sdcc/non-free/include/pic14/pic16f690.h</file>
+            <file>file:/home/lukas/Projekty/MPLABXProjects/WirelessPIR690/nbproject/Makefile-default.mk</file>
+            <file>file:/home/lukas/Projekty/MPLABXProjects/WirelessPIR690/adc.c</file>
         </group>
     </open-files>
 </project-private>

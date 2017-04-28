@@ -1,4 +1,4 @@
-gpasm-1.4.0 #1107 (May  9 2015) build/default   1-25-2017  18:33:04         PAGE  1
+gpasm-1.4.0 #1107 (May  9 2015) build/default   2-18-2017  10:41:56         PAGE  1
 
 
 LOC    OBJECT CODE    LINE  SOURCE TEXT
@@ -57,7 +57,7 @@ LOC    OBJECT CODE    LINE  SOURCE TEXT
   0000                00041         extern  _SSPSTATbits
   0000                00042         extern  _WPUbits
   0000                00043         extern  _WPUAbits
-gpasm-1.4.0 #1107 (May  9 2015) build/default   1-25-2017  18:33:04         PAGE  2
+gpasm-1.4.0 #1107 (May  9 2015) build/default   2-18-2017  10:41:56         PAGE  2
 
 
 LOC    OBJECT CODE    LINE  SOURCE TEXT
@@ -116,7 +116,7 @@ LOC    OBJECT CODE    LINE  SOURCE TEXT
   0000                00094         extern  _OPTION_REG
   0000                00095         extern  _TRISA
   0000                00096         extern  _TRISB
-gpasm-1.4.0 #1107 (May  9 2015) build/default   1-25-2017  18:33:04         PAGE  3
+gpasm-1.4.0 #1107 (May  9 2015) build/default   2-18-2017  10:41:56         PAGE  3
 
 
 LOC    OBJECT CODE    LINE  SOURCE TEXT
@@ -175,7 +175,7 @@ LOC    OBJECT CODE    LINE  SOURCE TEXT
   0000                00147         extern STK05
   0000                00148         extern STK04
   0000                00149         extern STK03
-gpasm-1.4.0 #1107 (May  9 2015) build/default   1-25-2017  18:33:04         PAGE  4
+gpasm-1.4.0 #1107 (May  9 2015) build/default   2-18-2017  10:41:56         PAGE  4
 
 
 LOC    OBJECT CODE    LINE  SOURCE TEXT
@@ -217,113 +217,141 @@ LOC    OBJECT CODE    LINE  SOURCE TEXT
                       00183 S_init__init    code
 0000                  00184 _init:
                       00185 ; 2 exit points
-                      00186 ;       .line   8; "init.c"     ADC2_TRIS = 1;
-0000   ???? ????      00187         BANKSEL _TRISAbits
-0002   15??           00188         BSF     _TRISAbits,2
-                      00189 ;       .line   9; "init.c"     ADC4_TRIS = 1;
-0003   16??           00190         BSF     _TRISAbits,4
-                      00191 ;       .line   11; "init.c"    RCIN_TRIS=1;            //Input
-0004   16??           00192         BSF     _TRISCbits,5
-                      00193 ;       .line   13; "init.c"    TX_TRIS=0;               // These need to be 0 for USART to work
-0005   13??           00194         BCF     _TRISBbits,7
-                      00195 ;       .line   14; "init.c"    RX_TRIS=1;               // These need to be 1 for USART to work
-0006   16??           00196         BSF     _TRISBbits,5
-                      00197 ;       .line   15; "init.c"    ADCON1=0x50;             //ADC Settings
-0007   3050           00198         MOVLW   0x50
-0008   00??           00199         MOVWF   _ADCON1
-                      00200 ;       .line   16; "init.c"    ANS11=0;                 // Turn off Analog input it necessary to functi
+                      00186 ;       .line   8; "init.c"     ADC11_TRIS = 1;
+0000   ???? ????      00187         BANKSEL _TRISBbits
+0002   16??           00188         BSF     _TRISBbits,5
+                      00189 ;       .line   9; "init.c"     ADC10_TRIS = 1;
+0003   16??           00190         BSF     _TRISBbits,4
+                      00191 ;       .line   10; "init.c"    ADC9_TRIS = 1;
+0004   17??           00192         BSF     _TRISCbits,7
+                      00193 ;       .line   11; "init.c"    ADC8_TRIS = 1;
+0005   17??           00194         BSF     _TRISCbits,6
+                      00195 ;       .line   12; "init.c"    ADC7_TRIS = 1;
+0006   15??           00196         BSF     _TRISCbits,3
+                      00197 ;       .line   13; "init.c"    ADC6_TRIS = 1;
+0007   15??           00198         BSF     _TRISCbits,2
+                      00199 ;       .line   14; "init.c"    ADC5_TRIS = 1;
+0008   14??           00200         BSF     _TRISCbits,1
+                      00201 ;       .line   15; "init.c"    ADC4_TRIS = 1;
+0009   14??           00202         BSF     _TRISCbits,0
+gpasm-1.4.0 #1107 (May  9 2015) build/default   2-18-2017  10:41:56         PAGE  5
+
+
+LOC    OBJECT CODE    LINE  SOURCE TEXT
+  VALUE
+
+                      00203 ;       .line   16; "init.c"    ADC3_TRIS = 1;
+000A   16??           00204         BSF     _TRISAbits,4
+                      00205 ;       .line   17; "init.c"    ADC2_TRIS = 1;
+000B   15??           00206         BSF     _TRISAbits,2
+                      00207 ;       .line   18; "init.c"    ADC1_TRIS = 1;
+000C   14??           00208         BSF     _TRISAbits,1
+                      00209 ;       .line   19; "init.c"    ADC0_TRIS = 1;
+000D   14??           00210         BSF     _TRISAbits,0
+                      00211 ;       .line   21; "init.c"    RCIN_TRIS=1;            //Input
+000E   16??           00212         BSF     _TRISCbits,5
+                      00213 ;       .line   23; "init.c"    TX_TRIS=0;               // These need to be 0 for USART to work
+000F   13??           00214         BCF     _TRISBbits,7
+                      00215 ;       .line   24; "init.c"    RX_TRIS=1;               // These need to be 1 for USART to work
+0010   16??           00216         BSF     _TRISBbits,5
+                      00217 ;       .line   25; "init.c"    ADCON1=0x50;             //ADC Settings
+0011   3050           00218         MOVLW   0x50
+0012   00??           00219         MOVWF   _ADCON1
+                      00220 ;       .line   26; "init.c"    ANS11=1;                 // Turn off Analog input it necessary to functi
                             on serial port RX
-0009   ???? ????      00201         BANKSEL _ANSELHbits
-gpasm-1.4.0 #1107 (May  9 2015) build/default   1-25-2017  18:33:04         PAGE  5
+0013   ???? ????      00221         BANKSEL _ANSELHbits
+0015   15??           00222         BSF     _ANSELHbits,3
+                      00223 ;       .line   27; "init.c"    ANS10=1;
+0016   15??           00224         BSF     _ANSELHbits,2
+                      00225 ;       .line   28; "init.c"    ANS9=1;
+0017   14??           00226         BSF     _ANSELHbits,1
+                      00227 ;       .line   29; "init.c"    ANS8=1;
+0018   14??           00228         BSF     _ANSELHbits,0
+                      00229 ;       .line   30; "init.c"    ANS7=1;
+0019   17??           00230         BSF     _ANSELbits,7
+                      00231 ;       .line   31; "init.c"    ANS6=1;
+001A   17??           00232         BSF     _ANSELbits,6
+                      00233 ;       .line   32; "init.c"    ANS5=1;
+001B   16??           00234         BSF     _ANSELbits,5
+                      00235 ;       .line   33; "init.c"    ANS4=1;
+001C   16??           00236         BSF     _ANSELbits,4
+                      00237 ;       .line   34; "init.c"    ANS3=1;                      //Zapnuti Analogovych vstupu
+001D   15??           00238         BSF     _ANSELbits,3
+                      00239 ;       .line   35; "init.c"    ANS2=1;
+001E   15??           00240         BSF     _ANSELbits,2
+                      00241 ;       .line   36; "init.c"    ANS1=1;
+001F   14??           00242         BSF     _ANSELbits,1
+                      00243 ;       .line   37; "init.c"    ANS0=1;
+0020   14??           00244         BSF     _ANSELbits,0
+                      00245 ;       .line   39; "init.c"    OUT_TRIS=0;             //Output
+0021   ???? ????      00246         BANKSEL _TRISCbits
+0023   10??           00247         BCF     _TRISCbits,0
+                      00248 ;       .line   43; "init.c"    SPBRG=8;                // Baud Rate
+0024   3008           00249         MOVLW   0x08
+0025   00??           00250         MOVWF   _SPBRG
+                      00251 ;       .line   44; "init.c"    BRGH=1;                 // 115.2k
+0026   15??           00252         BSF     _TXSTAbits,2
+                      00253 ;       .line   45; "init.c"    BRG16=1;
+0027   15??           00254         BSF     _BAUDCTLbits,3
+gpasm-1.4.0 #1107 (May  9 2015) build/default   2-18-2017  10:41:56         PAGE  6
 
 
 LOC    OBJECT CODE    LINE  SOURCE TEXT
   VALUE
 
-000B   11??           00202         BCF     _ANSELHbits,3
-                      00203 ;       .line   17; "init.c"    ANS10=0;
-000C   11??           00204         BCF     _ANSELHbits,2
-                      00205 ;       .line   18; "init.c"    ANS7=0;
-000D   13??           00206         BCF     _ANSELbits,7
-                      00207 ;       .line   19; "init.c"    ANS8=0;
-000E   10??           00208         BCF     _ANSELHbits,0
-                      00209 ;       .line   20; "init.c"    ANS9=0;
-000F   10??           00210         BCF     _ANSELHbits,1
-                      00211 ;       .line   21; "init.c"    ANS4=0;
-0010   12??           00212         BCF     _ANSELbits,4
-                      00213 ;       .line   22; "init.c"    ANS2=1;                      //Zapnuti Analogovych vstupu
-0011   15??           00214         BSF     _ANSELbits,2
-                      00215 ;       .line   23; "init.c"    ANS3=1;
-0012   15??           00216         BSF     _ANSELbits,3
-                      00217 ;       .line   25; "init.c"    OUT_TRIS=0;             //Output
-0013   ???? ????      00218         BANKSEL _TRISCbits
-0015   10??           00219         BCF     _TRISCbits,0
-                      00220 ;       .line   29; "init.c"    SPBRG=8;                // Baud Rate
-0016   3008           00221         MOVLW   0x08
-0017   00??           00222         MOVWF   _SPBRG
-                      00223 ;       .line   30; "init.c"    BRGH=1;                 // 115.2k
-0018   15??           00224         BSF     _TXSTAbits,2
-                      00225 ;       .line   31; "init.c"    BRG16=1;
-0019   15??           00226         BSF     _BAUDCTLbits,3
-                      00227 ;       .line   33; "init.c"    TXEN=1;                 // Enable transmission mode
-001A   16??           00228         BSF     _TXSTAbits,5
-                      00229 ;       .line   34; "init.c"    SYNC=0;                 // Disable Synchronous/Enable Asynchronous
-001B   12??           00230         BCF     _TXSTAbits,4
-                      00231 ;       .line   35; "init.c"    SPEN=1;                 // Enable serial port
-001C   ???? ????      00232         BANKSEL _RCSTAbits
-001E   17??           00233         BSF     _RCSTAbits,7
-                      00234 ;       .line   57; "init.c"    T0CS = 0;       // Clear to enable timer mode.
-001F   ???? ????      00235         BANKSEL _OPTION_REGbits
-0021   12??           00236         BCF     _OPTION_REGbits,5
-                      00237 ;       .line   58; "init.c"    PSA = 0;        // Clear to assign prescaler to Timer 0.
-0022   11??           00238         BCF     _OPTION_REGbits,3
-                      00239 ;       .line   59; "init.c"    PS2 = 1;        // Set up prescaler to 1:1.
-0023   15??           00240         BSF     _OPTION_REGbits,2
-                      00241 ;       .line   60; "init.c"    PS1 = 1;
-0024   14??           00242         BSF     _OPTION_REGbits,1
-                      00243 ;       .line   61; "init.c"    PS0 = 0;
-0025   10??           00244         BCF     _OPTION_REGbits,0
-                      00245 ;       .line   80; "init.c"    T1CON = 0;  // TIMER1 presccaler 1
-0026   ???? ????      00246         BANKSEL _T1CON
-0028   01??           00247         CLRF    _T1CON
-                      00248 ;       .line   87; "init.c"    CCP1CON = 5; 
-0029   3005           00249         MOVLW   0x05
-002A   00??           00250         MOVWF   _CCP1CON
-                      00251 ;       .line   88; "init.c"    CCP1IE = 0;     // ENHANCED CAPTURE MODULE Interrupt Disabled
-002B   ???? ????      00252         BANKSEL _PIE1bits
-002D   11??           00253         BCF     _PIE1bits,2
-                      00254 ;       .line   89; "init.c"    CCP1IF = 0;
-gpasm-1.4.0 #1107 (May  9 2015) build/default   1-25-2017  18:33:04         PAGE  6
-
-
-LOC    OBJECT CODE    LINE  SOURCE TEXT
-  VALUE
-
-002E   ???? ????      00255         BANKSEL _PIR1bits
-0030   11??           00256         BCF     _PIR1bits,2
-                      00257 ;       .line   97; "init.c"    PEIE = 1;       // Enable peripheral interrupts.
-0031   17??           00258         BSF     _INTCONbits,6
-                      00259 ;       .line   98; "init.c"    GIE = 1;        // Enable all interrupts.
-0032   17??           00260         BSF     _INTCONbits,7
-                      00261 ;       .line   101; "init.c"   TMR1H = 0;
-0033   01??           00262         CLRF    _TMR1H
-                      00263 ;       .line   102; "init.c"   TMR1L = 0;
-0034   01??           00264         CLRF    _TMR1L
-                      00265 ;       .line   103; "init.c"   CCP1IE = 1;
-0035   ???? ????      00266         BANKSEL _PIE1bits
-0037   15??           00267         BSF     _PIE1bits,2
-                      00268 ;       .line   104; "init.c"   TMR1ON = 1;
-0038   ???? ????      00269         BANKSEL _T1CONbits
-003A   14??           00270         BSF     _T1CONbits,0
-003B   0008           00271         RETURN  
-                      00272 ; exit point of _init
-                      00273 
-                      00274 
-                      00275 ;       code size estimation:
-                      00276 ;          40+   10 =    50 instructions (  120 byte)
-                      00277 
-                      00278         end
-gpasm-1.4.0 #1107 (May  9 2015) build/default   1-25-2017  18:33:04         PAGE  7
+                      00255 ;       .line   47; "init.c"    TXEN=1;                 // Enable transmission mode
+0028   16??           00256         BSF     _TXSTAbits,5
+                      00257 ;       .line   48; "init.c"    SYNC=0;                 // Disable Synchronous/Enable Asynchronous
+0029   12??           00258         BCF     _TXSTAbits,4
+                      00259 ;       .line   49; "init.c"    SPEN=1;                 // Enable serial port
+002A   ???? ????      00260         BANKSEL _RCSTAbits
+002C   17??           00261         BSF     _RCSTAbits,7
+                      00262 ;       .line   71; "init.c"    T0CS = 0;       // Clear to enable timer mode.
+002D   ???? ????      00263         BANKSEL _OPTION_REGbits
+002F   12??           00264         BCF     _OPTION_REGbits,5
+                      00265 ;       .line   72; "init.c"    PSA = 0;        // Clear to assign prescaler to Timer 0.
+0030   11??           00266         BCF     _OPTION_REGbits,3
+                      00267 ;       .line   73; "init.c"    PS2 = 1;        // Set up prescaler to 1:1.
+0031   15??           00268         BSF     _OPTION_REGbits,2
+                      00269 ;       .line   74; "init.c"    PS1 = 1;
+0032   14??           00270         BSF     _OPTION_REGbits,1
+                      00271 ;       .line   75; "init.c"    PS0 = 0;
+0033   10??           00272         BCF     _OPTION_REGbits,0
+                      00273 ;       .line   94; "init.c"    T1CON = 0;  // TIMER1 presccaler 1
+0034   ???? ????      00274         BANKSEL _T1CON
+0036   01??           00275         CLRF    _T1CON
+                      00276 ;       .line   101; "init.c"   CCP1CON = 5; 
+0037   3005           00277         MOVLW   0x05
+0038   00??           00278         MOVWF   _CCP1CON
+                      00279 ;       .line   102; "init.c"   CCP1IE = 0;     // ENHANCED CAPTURE MODULE Interrupt Disabled
+0039   ???? ????      00280         BANKSEL _PIE1bits
+003B   11??           00281         BCF     _PIE1bits,2
+                      00282 ;       .line   103; "init.c"   CCP1IF = 0;
+003C   ???? ????      00283         BANKSEL _PIR1bits
+003E   11??           00284         BCF     _PIR1bits,2
+                      00285 ;       .line   111; "init.c"   PEIE = 1;       // Enable peripheral interrupts.
+003F   17??           00286         BSF     _INTCONbits,6
+                      00287 ;       .line   112; "init.c"   GIE = 1;        // Enable all interrupts.
+0040   17??           00288         BSF     _INTCONbits,7
+                      00289 ;       .line   115; "init.c"   TMR1H = 0;
+0041   01??           00290         CLRF    _TMR1H
+                      00291 ;       .line   116; "init.c"   TMR1L = 0;
+0042   01??           00292         CLRF    _TMR1L
+                      00293 ;       .line   117; "init.c"   CCP1IE = 1;
+0043   ???? ????      00294         BANKSEL _PIE1bits
+0045   15??           00295         BSF     _PIE1bits,2
+                      00296 ;       .line   118; "init.c"   TMR1ON = 1;
+0046   ???? ????      00297         BANKSEL _T1CONbits
+0048   14??           00298         BSF     _T1CONbits,0
+0049   0008           00299         RETURN  
+                      00300 ; exit point of _init
+                      00301 
+                      00302 
+                      00303 ;       code size estimation:
+                      00304 ;          54+   10 =    64 instructions (  148 byte)
+                      00305 
+                      00306         end
+gpasm-1.4.0 #1107 (May  9 2015) build/default   2-18-2017  10:41:56         PAGE  7
 
 
 SYMBOL TABLE
@@ -382,7 +410,7 @@ C1CH0                             00000000
 C1CH1                             00000001
 C1IE                              00000005
 C1IF                              00000005
-gpasm-1.4.0 #1107 (May  9 2015) build/default   1-25-2017  18:33:04         PAGE  8
+gpasm-1.4.0 #1107 (May  9 2015) build/default   2-18-2017  10:41:56         PAGE  8
 
 
 SYMBOL TABLE
@@ -441,7 +469,7 @@ ECCPAS1                           00000005
 ECCPAS2                           00000006
 ECCPASE                           00000007
 EEADR                             0000010D
-gpasm-1.4.0 #1107 (May  9 2015) build/default   1-25-2017  18:33:04         PAGE  9
+gpasm-1.4.0 #1107 (May  9 2015) build/default   2-18-2017  10:41:56         PAGE  9
 
 
 SYMBOL TABLE
@@ -500,7 +528,7 @@ LTS                               00000001
 MC1OUT                            00000007
 MC2OUT                            00000006
 MSK                               00000093
-gpasm-1.4.0 #1107 (May  9 2015) build/default   1-25-2017  18:33:04         PAGE 10
+gpasm-1.4.0 #1107 (May  9 2015) build/default   2-18-2017  10:41:56         PAGE 10
 
 
 SYMBOL TABLE
@@ -559,7 +587,7 @@ PS0                               00000000
 PS1                               00000001
 PS2                               00000002
 PSA                               00000003
-gpasm-1.4.0 #1107 (May  9 2015) build/default   1-25-2017  18:33:04         PAGE 11
+gpasm-1.4.0 #1107 (May  9 2015) build/default   2-18-2017  10:41:56         PAGE 11
 
 
 SYMBOL TABLE
@@ -618,7 +646,7 @@ SMP                               00000007
 SPBRG                             00000099
 SPBRGH                            0000009A
 SPEN                              00000007
-gpasm-1.4.0 #1107 (May  9 2015) build/default   1-25-2017  18:33:04         PAGE 12
+gpasm-1.4.0 #1107 (May  9 2015) build/default   2-18-2017  10:41:56         PAGE 12
 
 
 SYMBOL TABLE
@@ -677,7 +705,7 @@ T1IF                              00000000
 T1OSCEN                           00000003
 T2CKPS0                           00000000
 T2CKPS1                           00000001
-gpasm-1.4.0 #1107 (May  9 2015) build/default   1-25-2017  18:33:04         PAGE 13
+gpasm-1.4.0 #1107 (May  9 2015) build/default   2-18-2017  10:41:56         PAGE 13
 
 
 SYMBOL TABLE
@@ -736,7 +764,7 @@ TXEN                              00000005
 TXIE                              00000004
 TXIF                              00000004
 TXREG                             00000019
-gpasm-1.4.0 #1107 (May  9 2015) build/default   1-25-2017  18:33:04         PAGE 14
+gpasm-1.4.0 #1107 (May  9 2015) build/default   2-18-2017  10:41:56         PAGE 14
 
 
 SYMBOL TABLE
@@ -795,7 +823,7 @@ _ANSELHbits                       00000000
 _ANSELbits                        00000000
 _BAUDCTL                          00000000
 _BAUDCTLbits                      00000000
-gpasm-1.4.0 #1107 (May  9 2015) build/default   1-25-2017  18:33:04         PAGE 15
+gpasm-1.4.0 #1107 (May  9 2015) build/default   2-18-2017  10:41:56         PAGE 15
 
 
 SYMBOL TABLE
@@ -854,7 +882,7 @@ _FOSC_HS                          00003FFA
 _FOSC_INTRCCLK                    00003FFD
 _FOSC_INTRCIO                     00003FFC
 _FOSC_LP                          00003FF8
-gpasm-1.4.0 #1107 (May  9 2015) build/default   1-25-2017  18:33:04         PAGE 16
+gpasm-1.4.0 #1107 (May  9 2015) build/default   2-18-2017  10:41:56         PAGE 16
 
 
 SYMBOL TABLE
@@ -913,7 +941,7 @@ _PORTC                            00000000
 _PORTCbits                        00000000
 _PR2                              00000000
 _PSTRCON                          00000000
-gpasm-1.4.0 #1107 (May  9 2015) build/default   1-25-2017  18:33:04         PAGE 17
+gpasm-1.4.0 #1107 (May  9 2015) build/default   2-18-2017  10:41:56         PAGE 17
 
 
 SYMBOL TABLE
@@ -972,7 +1000,7 @@ _WDT_ON                           00003FFF
 _WPU                              00000000
 _WPUA                             00000000
 _WPUAbits                         00000000
-gpasm-1.4.0 #1107 (May  9 2015) build/default   1-25-2017  18:33:04         PAGE 18
+gpasm-1.4.0 #1107 (May  9 2015) build/default   2-18-2017  10:41:56         PAGE 18
 
 
 SYMBOL TABLE
